@@ -2,29 +2,7 @@ use super::{candidate, runtime};
 use crate::{SearchError, SearchRequest, SearchResult, SourceDescriptor};
 use serde_json::Value;
 
-const TRACKERS: &[&str] = &[
-    "udp://tracker.internetwarriors.net:1337/announce",
-    "udp://tracker.opentrackr.org:1337/announce",
-    "udp://p4p.arenabg.ch:1337/announce",
-    "udp://tracker.openbittorrent.com:6969/announce",
-    "udp://www.torrent.eu.org:451/announce",
-    "udp://tracker.torrent.eu.org:451/announce",
-    "udp://retracker.lanta-net.ru:2710/announce",
-    "udp://open.stealth.si:80/announce",
-    "udp://exodus.desync.com:6969/announce",
-    "udp://tracker.tiny-vps.com:6969/announce",
-];
-
-pub(super) fn form_value(value: &str) -> String {
-    const SAFE: &percent_encoding::AsciiSet = &percent_encoding::NON_ALPHANUMERIC
-        .remove(b'-')
-        .remove(b'_')
-        .remove(b'.')
-        .remove(b'~');
-    percent_encoding::utf8_percent_encode(value, SAFE)
-        .to_string()
-        .replace("%20", "+")
-}
+pub(super) use crate::reference::form_value;
 
 pub(super) fn search_url(
     descriptor: &SourceDescriptor,
@@ -107,7 +85,7 @@ pub(super) fn parse(
                     .ok_or_else(|| runtime("Result has no title"))?
                     .to_owned();
                 let mut parameters = format!("dn={}", form_value(&title));
-                for tracker in TRACKERS {
+                for tracker in crate::reference::PUBLIC_TRACKERS {
                     parameters.push_str(&format!("&tr={}", form_value(tracker)));
                 }
                 let uri = format!("magnet:?xt=urn:btih:{hash}&{parameters}");

@@ -160,13 +160,22 @@ fn merge_results(results: Vec<SearchResult>) -> Vec<SearchResult> {
                 uri,
                 source_id,
                 post_form,
-            } => format!(
-                "http:{source_id}:{uri}:{}",
-                serde_json::to_string(post_form).expect("String map serialization")
-            ),
+            } => match crate::reference::info_hash_in_url(uri) {
+                Some(hash) if post_form.is_none() => format!("v1:{hash}"),
+                _ => format!(
+                    "http:{source_id}:{uri}:{}",
+                    serde_json::to_string(post_form).expect("String map serialization")
+                ),
+            },
         };
         if let Some(&index) = positions.get(&key) {
             let existing: &mut SearchResult = &mut merged[index];
+            // Prefer a magnet: it needs no further fetch from the source site.
+            if matches!(existing.reference, TorrentReference::Http { .. })
+                && matches!(result.reference, TorrentReference::Magnet { .. })
+            {
+                existing.reference = result.reference;
+            }
             existing.observations.append(&mut result.observations);
         } else {
             positions.insert(key, merged.len());
@@ -215,5 +224,30 @@ mod reference_tests {
             merge_results(vec![row("one"), row("two"), row("one")]).len(),
             2
         );
+    }
+
+    #[test]
+    fn hash_named_torrent_file_merges_with_its_magnet_and_keeps_the_magnet() {
+        let hash = "0ed31ccd8167f56a39d6471eb0140439d1b32b5d";
+        let result = |reference: TorrentReference| SearchResult {
+            title: "T".into(),
+            reference,
+            observations: Vec::new(),
+        };
+        let file = result(TorrentReference::Http {
+            uri: format!("https://itorrents.net/torrent/{hash}.torrent"),
+            source_id: "a".into(),
+            post_form: None,
+        });
+        let magnet = result(
+            crate::reference::parse_reference(
+                &crate::reference::magnet_from_hash(hash, "T"),
+                "b",
+            )
+            .unwrap(),
+        );
+        let merged = merge_results(vec![file, magnet]);
+        assert_eq!(merged.len(), 1);
+        assert!(matches!(merged[0].reference, TorrentReference::Magnet { .. }));
     }
 }

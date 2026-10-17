@@ -1,6 +1,74 @@
 use crate::{SearchError, TorrentReference};
 use data_encoding::BASE32_NOPAD;
+use regex::Regex;
+use std::sync::LazyLock;
 use url::Url;
+
+/// Public trackers added to magnets built from a bare infohash.
+pub const PUBLIC_TRACKERS: &[&str] = &[
+    "udp://tracker.internetwarriors.net:1337/announce",
+    "udp://tracker.opentrackr.org:1337/announce",
+    "udp://p4p.arenabg.ch:1337/announce",
+    "udp://tracker.openbittorrent.com:6969/announce",
+    "udp://www.torrent.eu.org:451/announce",
+    "udp://tracker.torrent.eu.org:451/announce",
+    "udp://retracker.lanta-net.ru:2710/announce",
+    "udp://open.stealth.si:80/announce",
+    "udp://exodus.desync.com:6969/announce",
+    "udp://tracker.tiny-vps.com:6969/announce",
+];
+
+/// application/x-www-form-urlencoded value encoding, as qBittorrent plugins use.
+pub fn form_value(value: &str) -> String {
+    const SAFE: &percent_encoding::AsciiSet = &percent_encoding::NON_ALPHANUMERIC
+        .remove(b'-')
+        .remove(b'_')
+        .remove(b'.')
+        .remove(b'~');
+    percent_encoding::utf8_percent_encode(value, SAFE)
+        .to_string()
+        .replace("%20", "+")
+}
+
+/// A magnet for a known v1 infohash, with a display name and public trackers.
+pub fn magnet_from_hash(hash: &str, title: &str) -> String {
+    let mut uri = format!(
+        "magnet:?xt=urn:btih:{}&dn={}",
+        hash.to_ascii_lowercase(),
+        form_value(title)
+    );
+    for tracker in PUBLIC_TRACKERS {
+        uri.push_str(&format!("&tr={}", form_value(tracker)));
+    }
+    uri
+}
+
+// Only URL shapes known to carry the torrent's own infohash: a hash as the first
+// path segment (torrentdownload.info) or a hash-named .torrent file (itorrents,
+// academictorrents). Other 40-hex strings, such as image checksums, are ignored.
+static HASH_SEGMENT: LazyLock<Regex> =
+    LazyLock::new(|| Regex::new(r"^/([0-9A-Fa-f]{40})(?:/|$)").unwrap());
+static HASH_FILE: LazyLock<Regex> = LazyLock::new(|| {
+    Regex::new(r"/(?:torrent|download)/([0-9A-Fa-f]{40})\.torrent$").unwrap()
+});
+
+/// The v1 infohash embedded in an HTTP reference, in lowercase hex.
+pub fn info_hash_in_url(uri: &str) -> Option<String> {
+    let parsed = Url::parse(uri).ok()?;
+    if !matches!(parsed.scheme(), "http" | "https") {
+        return None;
+    }
+    let path = parsed.path();
+    HASH_SEGMENT
+        .captures(path)
+        .or_else(|| HASH_FILE.captures(path))
+        .map(|found| found[1].to_ascii_lowercase())
+}
+
+/// True when the HTTP reference names the .torrent file itself rather than a page.
+pub fn is_torrent_file_url(uri: &str) -> bool {
+    Url::parse(uri).is_ok_and(|parsed| parsed.path().ends_with(".torrent"))
+}
 
 pub fn parse_reference(uri: &str, source_id: &str) -> Result<TorrentReference, SearchError> {
     if uri.len() > 32 * 1024 || uri.chars().any(char::is_control) {
@@ -87,6 +155,34 @@ mod tests {
             hash(parse_reference(base32, "b").unwrap())
         );
         assert_eq!(parse_reference(base32, "b").unwrap().uri(), base32);
+    }
+
+    #[test]
+    fn finds_infohash_only_in_known_url_shapes() {
+        let hash = "0ed31ccd8167f56a39d6471eb0140439d1b32b5d";
+        for uri in [
+            "https://www.torrentdownload.info/0ED31CCD8167F56A39D6471EB0140439D1B32B5D/The-Bear",
+            "http://itorrents.net/torrent/0ED31CCD8167F56A39D6471EB0140439D1B32B5D.torrent?title=x",
+            "https://academictorrents.com/download/0ed31ccd8167f56a39d6471eb0140439d1b32b5d.torrent",
+        ] {
+            assert_eq!(info_hash_in_url(uri).as_deref(), Some(hash), "{uri}");
+        }
+        for uri in [
+            "https://example.org/img/0ed31ccd8167f56a39d6471eb0140439d1b32b5d.png",
+            "https://example.org/a/0ed31ccd8167f56a39d6471eb0140439d1b32b5d/",
+            "https://example.org/torrent/0ed31ccd8167f56a39d6471eb0140439d1b32b5.torrent",
+            "magnet:?xt=urn:btih:0ed31ccd8167f56a39d6471eb0140439d1b32b5d",
+        ] {
+            assert_eq!(info_hash_in_url(uri), None, "{uri}");
+        }
+        let magnet = magnet_from_hash("0ED31CCD8167F56A39D6471EB0140439D1B32B5D", "A & B");
+        match parse_reference(&magnet, "a").unwrap() {
+            TorrentReference::Magnet { info_hash_v1, .. } => {
+                assert_eq!(info_hash_v1.as_deref(), Some(hash))
+            }
+            other => panic!("{other:?}"),
+        }
+        assert!(magnet.contains("dn=A+%26+B"));
     }
 
     #[test]

@@ -269,9 +269,19 @@ pub fn parse_page(
             continue;
         }
         let text = |index: usize| cells[index].text().collect::<String>().trim().to_owned();
+        // The row's .torrent mirror link (itorrents) is named by the infohash.
+        let reference = match cells[0].select(links).find_map(|anchor| {
+            crate::reference::info_hash_in_url(anchor.value().attr("href")?)
+        }) {
+            Some(hash) => parse_reference(
+                &crate::reference::magnet_from_hash(&hash, &title),
+                &descriptor.id,
+            )?,
+            None => parse_reference(&uri, &descriptor.id)?,
+        };
         results.push(SearchResult {
             title: title.clone(),
-            reference: parse_reference(&uri, &descriptor.id)?,
+            reference,
             observations: vec![SourceObservation {
                 source_id: descriptor.id.clone(),
                 raw_title: Some(raw_title),
@@ -365,7 +375,26 @@ mod tests {
         assert_eq!(results.len(), 31);
         assert_eq!(results[0].observations[0].size_bytes, Some(5315022029));
         assert_eq!(results[0].observations[0].seeders, Some(26));
-        assert!(results[0].reference.uri().contains("10349792.html"));
+        // The row's itorrents link gives the infohash, so no detail fetch is needed.
+        match &results[0].reference {
+            TorrentReference::Magnet { info_hash_v1, .. } => assert_eq!(
+                info_hash_v1.as_deref(),
+                Some("ceeaeba512923796776233ea6b7d49b26b5d6ec8")
+            ),
+            other => panic!("expected magnet, got {other:?}"),
+        }
+        assert!(
+            results[0].observations[0]
+                .description_url
+                .as_deref()
+                .unwrap()
+                .contains("10349792.html")
+        );
+        assert!(
+            results
+                .iter()
+                .all(|result| matches!(result.reference, TorrentReference::Magnet { .. }))
+        );
         assert_eq!(parse_size("unknown"), None);
         assert_eq!(parse_age("unknown", 100), None);
         assert_eq!(parse_size("1.5 KB"), Some(1536));

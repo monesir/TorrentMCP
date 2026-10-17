@@ -599,6 +599,15 @@ fn candidate(
     if title.trim().is_empty() || title.len() > 16 * 1024 {
         return Err(runtime("Source result has an empty title"));
     }
+    // A detail page whose URL already names the infohash needs no resolution:
+    // return a magnet so identical torrents merge across sources.
+    let (uri, description) = match crate::reference::info_hash_in_url(&uri) {
+        Some(hash) if !crate::reference::is_torrent_file_url(&uri) => (
+            crate::reference::magnet_from_hash(&hash, &title),
+            description.or(Some(uri)),
+        ),
+        _ => (uri, description),
+    };
     Ok(SearchResult {
         title: title.clone(),
         reference: parse_reference(&uri, &descriptor.id)?,
