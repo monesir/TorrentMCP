@@ -1,0 +1,26 @@
+{
+  "wall_ms": 763.375199998336,
+  "cpu_ms": 609.375,
+  "peak_private_mib": 27.01171875,
+  "sampled_peak_working_set_mib": 69.9453125,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10051] A socket operation was attempted to an unreachable network",
+  "source_elapsed_ms": 620,
+  "configuration_diagnostic": false,
+  "source": "yggtracker",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:57:27.433192+00:00",
+  "raw_report": "raw\\01-yggtracker-python.json",
+  "diagnostics": "raw\\01-yggtracker-python.stderr.log"
+}

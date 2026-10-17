@@ -1,0 +1,50 @@
+{
+  "info_hash_v1": "b9bc27f837e6373c1feb25e5c3caf51dbc209e17",
+  "seeder_stopped": true,
+  "checks": [
+    {
+      "name": "files",
+      "exit": 0,
+      "status": "completed",
+      "elapsed_ms": 853,
+      "error": null
+    },
+    {
+      "name": "inspection",
+      "exit": 0,
+      "status": "completed",
+      "elapsed_ms": 626,
+      "error": null
+    },
+    {
+      "name": "changed-catalog",
+      "exit": 1,
+      "status": "failed",
+      "elapsed_ms": 463,
+      "error": {
+        "code": "torrent_catalog_changed",
+        "message": "Torrent metadata differs from the catalog selected by the agent"
+      }
+    },
+    {
+      "name": "invalid-selection",
+      "exit": 1,
+      "status": "error",
+      "elapsed_ms": 58,
+      "error": {
+        "code": "invalid_request",
+        "message": "file_id must identify a nonempty video or audio file from the catalog"
+      }
+    },
+    {
+      "name": "magnet-files",
+      "exit": 1,
+      "status": "failed",
+      "elapsed_ms": 45446,
+      "error": {
+        "code": "torrent_service_failed",
+        "message": "error sending request"
+      }
+    }
+  ]
+}

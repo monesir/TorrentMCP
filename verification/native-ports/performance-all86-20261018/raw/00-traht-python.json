@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "traht",
+      "status": "failed",
+      "elapsed_ms": 216,
+      "result_count": 0,
+      "limited": false,
+      "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed"
+    }
+  ],
+  "results": []
+}

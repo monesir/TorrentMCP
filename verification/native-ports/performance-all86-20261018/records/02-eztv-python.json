@@ -1,0 +1,26 @@
+{
+  "wall_ms": 512.4887999991188,
+  "cpu_ms": 578.125,
+  "peak_private_mib": 24.578125,
+  "sampled_peak_working_set_mib": 56.43359375,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed",
+  "source_elapsed_ms": 362,
+  "configuration_diagnostic": false,
+  "source": "eztv",
+  "backend": "python",
+  "trial": 2,
+  "completed_utc": "2026-10-17T22:59:48.627267+00:00",
+  "raw_report": "raw\\02-eztv-python.json",
+  "diagnostics": "raw\\02-eztv-python.stderr.log"
+}

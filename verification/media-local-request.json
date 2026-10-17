@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "operation": "inspect_media",
+  "media": {
+    "input": {
+      "path": "C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\.cache\\multiple_tracks.mkv",
+      "kind": "local_file"
+    },
+    "selection": {
+      "audio_languages": [
+        "ja"
+      ],
+      "subtitle_languages": [
+        "en"
+      ]
+    }
+  }
+}

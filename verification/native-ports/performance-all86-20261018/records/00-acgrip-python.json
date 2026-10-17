@@ -1,0 +1,26 @@
+{
+  "wall_ms": 764.1276999993352,
+  "cpu_ms": 390.625,
+  "peak_private_mib": 26.6484375,
+  "sampled_peak_working_set_mib": 70.0234375,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 675,
+  "configuration_diagnostic": false,
+  "source": "acgrip",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:50:42.965758+00:00",
+  "raw_report": "raw\\00-acgrip-python.json",
+  "diagnostics": "raw\\00-acgrip-python.stderr.log"
+}

@@ -1,0 +1,26 @@
+{
+  "wall_ms": 2530.175200001395,
+  "cpu_ms": 593.75,
+  "peak_private_mib": 26.91796875,
+  "sampled_peak_working_set_mib": 69.25390625,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 2407,
+  "configuration_diagnostic": false,
+  "source": "uniondht",
+  "backend": "python",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:01:27.631985+00:00",
+  "raw_report": "raw\\02-uniondht-python.json",
+  "diagnostics": "raw\\02-uniondht-python.stderr.log"
+}

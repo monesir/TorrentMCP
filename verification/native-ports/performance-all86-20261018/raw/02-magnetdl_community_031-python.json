@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "magnetdl_community_031",
+      "status": "failed",
+      "elapsed_ms": 12563,
+      "result_count": 0,
+      "limited": false,
+      "error": "TimeoutError: The read operation timed out"
+    }
+  ],
+  "results": []
+}

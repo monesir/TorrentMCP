@@ -1,0 +1,92 @@
+{
+  "info_hash_v1": "04409397d6953ce00064fad4448cae50633114b5",
+  "seeder_stopped": true,
+  "checks": [
+    {
+      "name": "files",
+      "exit": 0,
+      "status": "completed",
+      "elapsed_ms": 570,
+      "error": null
+    },
+    {
+      "name": "direct-http-files",
+      "exit": 0,
+      "status": "completed",
+      "elapsed_ms": 662,
+      "error": null
+    },
+    {
+      "name": "inspection",
+      "exit": 0,
+      "status": "completed",
+      "elapsed_ms": 2017,
+      "error": null
+    },
+    {
+      "name": "inspection-complete-large",
+      "exit": 0,
+      "status": "completed",
+      "elapsed_ms": 1774,
+      "error": null
+    },
+    {
+      "name": "inspection-missing-arabic",
+      "exit": 0,
+      "status": "completed",
+      "elapsed_ms": 1792,
+      "error": null
+    },
+    {
+      "name": "changed-catalog",
+      "exit": 1,
+      "status": "failed",
+      "elapsed_ms": 12395,
+      "error": {
+        "code": "torrent_catalog_changed",
+        "message": "Torrent metadata differs from the catalog selected by the agent"
+      }
+    },
+    {
+      "name": "invalid-selection",
+      "exit": 1,
+      "status": "error",
+      "elapsed_ms": 101,
+      "error": {
+        "code": "invalid_request",
+        "message": "file_id must identify a nonempty video or audio file from the catalog"
+      }
+    },
+    {
+      "name": "magnet-files",
+      "exit": 0,
+      "status": "completed",
+      "elapsed_ms": 1591,
+      "error": null
+    },
+    {
+      "name": "timeout",
+      "exit": 1,
+      "status": "failed",
+      "elapsed_ms": 1553,
+      "error": {
+        "code": "torrent_service_timeout",
+        "message": "Torrent service deadline exceeded"
+      }
+    },
+    {
+      "name": "comparison",
+      "exit": 3,
+      "status": "partial",
+      "elapsed_ms": 213,
+      "error": null
+    }
+  ],
+  "comparison": {
+    "total": 4,
+    "eligible": 2,
+    "uncertain": 1,
+    "excluded": 1
+  },
+  "success": true
+}

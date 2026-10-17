@@ -1,0 +1,25 @@
+{
+  "wall_ms": 547.227699999894,
+  "cpu_ms": 156.25,
+  "peak_private_mib": 7.03125,
+  "sampled_peak_working_set_mib": 29.50390625,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 482,
+  "configuration_diagnostic": false,
+  "source": "yts",
+  "backend": "rust",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:46:47.325565+00:00",
+  "raw_report": "raw\\00-yts-rust.json",
+  "diagnostics": "raw\\00-yts-rust.stderr.log"
+}

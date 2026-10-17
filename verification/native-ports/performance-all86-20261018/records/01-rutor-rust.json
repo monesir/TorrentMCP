@@ -1,0 +1,25 @@
+{
+  "wall_ms": 577.2016999999323,
+  "cpu_ms": 234.375,
+  "peak_private_mib": 6.328125,
+  "sampled_peak_working_set_mib": 25.55078125,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 409,
+  "configuration_diagnostic": false,
+  "source": "rutor",
+  "backend": "rust",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:54:48.308705+00:00",
+  "raw_report": "raw\\01-rutor-rust.json",
+  "diagnostics": "raw\\01-rutor-rust.stderr.log"
+}

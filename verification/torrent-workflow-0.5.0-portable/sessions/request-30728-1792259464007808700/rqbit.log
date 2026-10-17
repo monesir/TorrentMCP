@@ -1,0 +1,1 @@
+2026-10-17T17:51:04.465601Z ERROR tower_http::trace::on_failure: response failed classification=Status code: 500 Internal Server Error latency=0 ms

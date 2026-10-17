@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "dontorrent_community_020",
+      "status": "failed",
+      "elapsed_ms": 7527,
+      "result_count": 0,
+      "limited": false,
+      "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>"
+    }
+  ],
+  "results": []
+}

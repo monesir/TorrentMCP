@@ -1,0 +1,16 @@
+/target/
+/dist/
+/.cache/
+__pycache__/
+*.pyc
+/resources/qbit/engines/jackett.json
+/resources/qbit/engines/rutor.json
+/resources/qbit/engines/*.cookie
+/resources/qbit/engines/*.log
+/resources/qbit/engines/rutor.ico
+
+
+# Scratch directories from verification runs (caches, plugin homes, work dirs)
+/verification/**/work/
+/verification/**/home/
+/verification/**/cache/

@@ -1,0 +1,25 @@
+{
+  "wall_ms": 674.7632000005979,
+  "cpu_ms": 78.125,
+  "peak_private_mib": 6.91015625,
+  "sampled_peak_working_set_mib": 28.65234375,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 582,
+  "configuration_diagnostic": false,
+  "source": "nekobt",
+  "backend": "rust",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:49:41.460682+00:00",
+  "raw_report": "raw\\00-nekobt-rust.json",
+  "diagnostics": "raw\\00-nekobt-rust.stderr.log"
+}

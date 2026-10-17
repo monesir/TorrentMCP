@@ -1,0 +1,25 @@
+{
+  "wall_ms": 813.3606999999756,
+  "cpu_ms": 203.125,
+  "peak_private_mib": 6.79296875,
+  "sampled_peak_working_set_mib": 28.890625,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 663,
+  "configuration_diagnostic": false,
+  "source": "elitetorrent",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:02:53.884587+00:00",
+  "raw_report": "raw\\02-elitetorrent-rust.json",
+  "diagnostics": "raw\\02-elitetorrent-rust.stderr.log"
+}

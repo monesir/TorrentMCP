@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "operation": "inspect_torrent_file",
+  "torrent": {
+    "schema_version": 1,
+    "source_reference": {
+      "kind": "http",
+      "uri": "http://127.0.0.1:5087/fixture.torrent",
+      "source_id": "controlled-fixture",
+      "post_form": {
+        "id": "fixture"
+      }
+    },
+    "resolved_reference": {
+      "kind": "http",
+      "uri": "http://127.0.0.1:5087/fixture.torrent",
+      "source_id": "controlled-fixture",
+      "post_form": {
+        "id": "fixture"
+      }
+    },
+    "info_hash_v1": "84e960fe6faea4d3c6ad6cf2a489fd1c2302b126",
+    "name": "Fixture",
+    "files": [
+      {
+        "id": 0,
+        "path": "E01.mkv",
+        "size_bytes": 108518,
+        "media_kind": "video"
+      },
+      {
+        "id": 1,
+        "path": "E02.mkv",
+        "size_bytes": 112640,
+        "media_kind": "video"
+      },
+      {
+        "id": 2,
+        "path": "E03.mkv",
+        "size_bytes": 89818,
+        "media_kind": "video"
+      },
+      {
+        "id": 3,
+        "path": "readme.txt",
+        "size_bytes": 23,
+        "media_kind": "other"
+      }
+    ]
+  },
+  "file_id": 0,
+  "limits": {
+    "timeout_seconds": 60
+  },
+  "inspection_limits": {
+    "timeout_seconds": 45,
+    "max_read_bytes": 16777216
+  },
+  "selection": {
+    "audio_languages": [
+      "ar"
+    ],
+    "subtitle_languages": [
+      "ar",
+      "en"
+    ]
+  },
+  "analysis": {
+    "constraints": {
+      "min_video_width": 160,
+      "min_video_height": 90,
+      "audio_languages": [
+        "en"
+      ],
+      "subtitle_languages": [
+        "ar"
+      ],
+      "max_file_size_bytes": 1048576
+    },
+    "preferences": {
+      "rank_by": [
+        "smaller_file"
+      ]
+    }
+  }
+}

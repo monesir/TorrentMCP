@@ -1,0 +1,25 @@
+{
+  "wall_ms": 1026.2770999997883,
+  "cpu_ms": 140.625,
+  "peak_private_mib": 6.8203125,
+  "sampled_peak_working_set_mib": 28.96875,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "HTTP status server error (520 <none>)",
+  "source_elapsed_ms": 947,
+  "configuration_diagnostic": false,
+  "source": "solidtorrents",
+  "backend": "rust",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:51:16.290045+00:00",
+  "raw_report": "raw\\01-solidtorrents-rust.json",
+  "diagnostics": "raw\\01-solidtorrents-rust.stderr.log"
+}

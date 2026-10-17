@@ -1,0 +1,90 @@
+# عقود إضافات qBittorrent العامة: الألعاب والوسائط
+
+**تاريخ اللقطة:** 2026-10-17. هذه مراجعة ساكنة لثمانية سجلات مصنفة `public` و`in_scope` في كتالوج مجتمع qBittorrent؛ لم أشغّل الإضافات ولم أرسل طلبات إلى المواقع. أساس المقارنة نسخة الويكي عند commit `e00fd9cd551258290213e684d522bc5e06130a99`، والملفات المحفوظة تحت [community-20261017](community-20261017/catalog.json). هذه العقود تصف نسخة الملف المحفوظة وبصمتها؛ لا تثبت أن الموقع الحالي ما زال يعمل بالطريقة نفسها.
+
+المراجع الأصلية: [قائمة إضافات البحث الرسمية في ويكي qBittorrent](https://github.com/qbittorrent/search-plugins/wiki/Unofficial-search-plugins) و[مستودع محرك qBittorrent](https://github.com/qbittorrent/qBittorrent). رابط كل مصدر خام وإصدار الكتالوج وبصمة الملف في الجدول؛ تفاصيل الحقول والسلوك تشير إلى الأسطر الفعلية في نسخة اللقطة.
+
+## هوية ملفات اللقطة والترخيص
+
+| المعرّف | المصدر | إصدار الكتالوج / رأس الملف | SHA-256 للملف المحفوظ | حالة الترخيص في اللقطة |
+|---|---|---|---|---|
+| 003 | [ali213.net](https://raw.githubusercontent.com/hannsen/qbittorrent_search_plugins/master/ali213.py) · [003.py](community-20261017/sources/003.py) | 1.00 / 1.1 | `ca6167e6717896f4034fa14b1ad773b3ab613a643a6bd435b664788ab5a8022b` | مراجعة upstream مطلوبة |
+| 007 | [Apache Torrent](https://gist.githubusercontent.com/bebetoh/3bb49cdf2b3718937b5446db1e4a4915/raw/1819e3ed75faa0da1571173a677081dc107054aa/apachetorrent.py) · [007.py](community-20261017/sources/007.py) | 1.0.0 / 1.00 | `528566aa9144ccfec70e862e0af9ebc51c794979f181ae7146b04bca9b5ec105` | مراجعة upstream مطلوبة |
+| 019 | [DODI Repacks](https://raw.githubusercontent.com/Bioux1/qbtSearchPlugins/main/dodi_repacks.py) · [019.py](community-20261017/sources/019.py) | 1.1 / 1.1 | `51b49a2c181088da532afa2fdd75b64e480d20f0d67c83076a1f85bc16bd8506` | مراجعة upstream مطلوبة |
+| 025 | [FitGirl Repacks](https://raw.githubusercontent.com/afalvarezsite/qbtFitGirl-search/main/fitgirl_repacks.py) · [025.py](community-20261017/sources/025.py) | 3.5 / 3.5 | `63c365da7d91bc45f0a86fe71f99b9b3f965be64b893ebb40378d977520fdb26` | مراجعة upstream مطلوبة |
+| 042 | [Online-Fix](https://raw.githubusercontent.com/caiocinel/onlinefix-qbittorrent-plugin/main/onlinefix.py) · [042.py](community-20261017/sources/042.py) | 1.0 / 1.0 | `614fbe675d23bc60def90828aef3d8b4b2f2bf1ccdd58c395f0dc4e686f2f155` | مراجعة upstream مطلوبة |
+| 046 | [Rede Torrent](https://gist.githubusercontent.com/bebetoh/b5e1f4731462de9b837f5026617b1d4a/raw/e71d0020078d56d3f7e9a903ca7b4d44774e10f7/redetorrent.py) · [046.py](community-20261017/sources/046.py) | 1.0.0 / 1.00 | `ce2016fc6bd2c6a0f417d0167a5906ffed09f4656077c046058ca6a919d206da` | مراجعة upstream مطلوبة |
+| 050 | [small-games.info](https://raw.githubusercontent.com/hannsen/qbittorrent_search_plugins/master/smallgames.py) · [050.py](community-20261017/sources/050.py) | 1.00 / 1.03 | `7d1086be858e8b4f59fc8c8c201b612c740a1b22c98a75b27477a1f00f1ed233` | مراجعة upstream مطلوبة |
+| 068 | [Torrenflix](https://raw.githubusercontent.com/BurningMop/qBittorrent-Search-Plugins/main/deprecated/torrenflix.py) · [068.py](community-20261017/sources/068.py) | 1.0 / 1.0 | `badadbc0f51edb4de0302270c304e0dc539c9fdecfc0879ee34e91157287547e` | حقل manifest غير موجود؛ ترويسة الملف تتضمن نص MIT |
+
+تأكيد أن السجلات العامة ضمن النطاق وبقية حقول التنزيل في [الكتالوج المحلي](community-20261017/catalog.json): 003 [51–70](community-20261017/catalog.json#L51)، 007 [144–163](community-20261017/catalog.json#L144)، 019 [414–433](community-20261017/catalog.json#L414)، 025 [546–565](community-20261017/catalog.json#L546)، 042 [939–958](community-20261017/catalog.json#L939)، 046 [1029–1048](community-20261017/catalog.json#L1029)، 050 [1116–1135](community-20261017/catalog.json#L1116)، 068 [1521–1540](community-20261017/catalog.json#L1521). سبعة ملفات لا تقدم في الكتالوج دليلا على ترخيص؛ ظهورها علنا في الويكي لا يحسم حق إعادة توزيعها أو إنشاء منفذ مشتق. Torrenflix هو استثناء هذه المجموعة: الترخيص مكتوب داخل الملف نفسه [068.py، الأسطر 4–21](community-20261017/sources/068.py#L4). تحقق من رخص upstream قبل تجميع الملفات أو نشر الحزمة.
+
+## عقود المصادر
+
+### 003 — ali213.net
+
+- **الفئات والبحث:** يعلن `all` و`games` و`software`، لكن `search` لا يمرر الفئة إلى الموقع. يبني طلبا واحدا بالشكل `http://down.ali213.net/search?kw={what}&submit=` ويطابق صفوفا بنمط HTML محدد [003.py، 20–32، 69–74](community-20261017/sources/003.py#L20). قيمة الاستعلام تلصق مباشرة؛ في واجهة Rust استخدم query الأصلية وشفّرها مرة وفق عقد واجهة المحرك، ولا تكرر ترميز `%` إذا كانت القيمة القادمة من حد qBittorrent مرمّزة.
+- **مسار النتيجة:** يأخذ أول خمسة مرشحين فقط، ويقرأ من كل مرشح اسم صفحة اللعبة وحجمها من تعبير منتظم على صفحة البحث [003.py، 23–28، 73–82](community-20261017/sources/003.py#L23). بعدها يطلب صفحة اللعبة لإيجاد `var downUrl`, ثم صفحة `soft50.com` حتى 20 محاولة مع انتظار ثانيتين بين المحاولات الفارغة، ثم صفحة `soft5566.com`، ويستخرج أخيرا مفتاح رابط ملف torrent من `id="btbtn"` [003.py، 34–67](community-20261017/sources/003.py#L34). هذا يعني ثلاث قفزات تفاصيل لكل نتيجة ناجحة، إلى جانب طلب البحث؛ الانتظار المتكرر قد يبلغ 40 ثانية في خطوة soft50. ينفذ المرشحين الخمسة في خيوط متوازية وينتظر اكتمالها [003.py، 75–89](community-20261017/sources/003.py#L75).
+- **النتيجة:** `link` هو `http://btfile.soft5566.com/y/{torrent-key}`، و`name` هو المفتاح المستخرج نفسه، لا العنوان الظاهر في صفحة البحث؛ `size` النص الملتقط، و`seeds`/`leech` = -1، و`desc_link` صفحة soft5566 السابقة، و`engine_url` هو Ali213 [003.py، 54–66](community-20261017/sources/003.py#L54). لا تاريخ نشر، ولا pagination. لا يوجد تسجيل دخول أو إعداد مصادقة. الترويسة تحذر أن بعض الألعاب غير مكسورة [003.py، 1–8](community-20261017/sources/003.py#L1).
+
+### 007 — Apache Torrent
+
+- **الفئات والبحث:** يعلن `all`, `anime`, `movies`, `tv`، لكن الفئة لا تدخل URL؛ الفئات لا تغيّر البحث فعليا. عنوان البحث `https://apachetorrent.com/index.php?s={query}`؛ التحويل يبدل `%20` إلى `+` ثم يستخدم `quote_plus` [007.py، 18–26، 200–222](community-20261017/sources/007.py#L18). لا يوجد ترقيم صفحات.
+- **نتائج الصفحة:** يلتقط كتل `div` التي يحتوي class الخاص بها `capaname`، وروابط داخلية يبدأ href فيها بعنوان الموقع وتحوي `baixar-torrent`. يفضل `title` للرابط، وإلا يجمع النص؛ يحذف لاحقة `Download` ويزيل HTML entities والمسافات الزائدة [007.py، 28–129](community-20261017/sources/007.py#L28).
+- **حل المرجع:** لكل صفحة تفاصيل مطابقة، يبحث فقط داخل `div#lista_links` عن روابط `magnet:?`. يمكن أن ينتج أكثر من magnet للصفحة. اسم النتيجة = عنوان البطاقة مع عنوان magnet؛ إن غاب عنوان magnet يستخرج `dn`, يفك percent encoding ويبدل النقاط بمسافات [007.py، 131–198، 224–284](community-20261017/sources/007.py#L131). حقول الحجم والسيدرز والليتشرز والتاريخ كلها -1؛ `desc_link` صفحة التفاصيل و`link` magnet. فشل الطلب يتخطى الصفحة/النتيجة. يعتمد على `helpers.retrieve_url` و`prettyPrinter` فقط من qBittorrent؛ لا حساب أو cookies أو مكتبات طرف ثالث [007.py، 200–261](community-20261017/sources/007.py#L200).
+
+### 019 — DODI Repacks
+
+- **مصدر البيانات:** رغم اسم الموقع في الإضافة، البحث لا يطلب موقع DODI؛ يقرأ JSON العام `https://hydralinks.cloud/sources/dodi.json` ويحلل `downloads` [019.py، 11–20](community-20261017/sources/019.py#L11). لا مفاتيح، ملفات cookies أو دخول في هذا العقد.
+- **مطابقة query:** يدعم `all` فقط. يفك query مرة، ويقسمه إلى كلمات صغيرة، ثم يختار أي سجل يحتوي عنوانه على واحدة على الأقل من الكلمات (OR، substring، بلا ترتيب أو تطابق كامل) [019.py، 14–26](community-20261017/sources/019.py#L14). الاستعلام الفارغ لا يطابق عناصر لأن قائمة المصطلحات فارغة.
+- **حقول JSON المطلوبة والخرج:** لكل عنصر يحتاج `title`, `uploadDate`, `fileSize`, و`uris[0]`. يعيد أول URI فقط ويتجاهل بقية الروابط. يجب أن يطابق التاريخ الصيغة ذات الكسور `%Y-%m-%dT%H:%M:%S.%fZ`، ويحول UTC إلى Unix seconds؛ النص المخالف يوقف معالجة البحث بدلا من تجاهل ذلك العنصر [019.py، 25–39](community-20261017/sources/019.py#L25). `size=fileSize` كما ورد، العدادات -1، `desc_link=-1`, `engine_url` اسم موقع DODI. لا pagination ولا صفحة تفاصيل ولا scraper لعدادات swarm.
+
+### 025 — FitGirl Repacks
+
+- **الفئات والطلب:** يقبل `all` و`games`، وكلاهما ينفذ البحث نفسه. يفك query المرمز، يقص الفراغات، ويطلب WordPress search `?s={quote(query)}` ثم `page/N/?s={quote(query)}`. لا يحمل إعدادات حساب أو cookies [025.py، 1291–1298، 1359–1421](community-20261017/sources/025.py#L1291). يتعرف على تحويل WordPress لطلب مطابق إلى صفحة مقالة مباشرة.
+- **الصفحات والحدود:** 3 صفحات كحد أقصى، 30 نتيجة، 8 عمال، مهلة اتصال بحث 8 ثوان، مهلة التفاصيل 6 ثوان، محاولة إعادة واحدة، مهلة كلية 40 ثانية وحدّ قراءة 4 MiB لكل رد [025.py، 1316–1323](community-20261017/sources/025.py#L1316). التنقل من روابط `page-numbers`; يتوقف عند صفحة فارغة أو عند تجاوز الحد [025.py، 381–440، 1370–1413](community-20261017/sources/025.py#L381). يرسل User-Agent كروم ويقبل gzip [025.py، 1308–1314، 729–737](community-20261017/sources/025.py#L1308).
+- **استخراج المقالات:** ينشئ مرشحا لكل `<article>`؛ العنوان من أول `h1` أو `h2.entry-title`، الرابط من رابط العنوان، التاريخ من `time.entry-date` في `datetime` أو `data-datetime`، التصنيفات من روابط rel=`category tag`، وباقي النص من المقال [025.py، 182–245، 277–363](community-20261017/sources/025.py#L182). يحذف FAQ وDonate وعناوين تحديثات محددة وفئة Updates Digest. يأخذ أول magnet وأول رابط `.torrent`; كما يستخرج BTIH hex أو base32 من الروابط والنص، ويفك HTML entities ويحوّل `|` إلى شرطة [025.py، 197–245، 372–453، 460–501](community-20261017/sources/025.py#L197).
+- **الحجم والتاريخ:** الحجم يأتي من نص `Repack Size` حصرا؛ يقبل وحدات B/KB/MB/GB/TB (ويعامل كل وحدة أساسها 1024) وأشكال الأعداد العشرية/الفواصل؛ المجهول -1 [025.py، 90–97، 602–647](community-20261017/sources/025.py#L90). التاريخ ISO؛ القيم بلا timezone تفسر UTC، وأي تاريخ غير مفهوم -1 [025.py، 565–595](community-20261017/sources/025.py#L565).
+- **حل النتيجة:** إن وجد magnet يستخدمه؛ وإلا يبني magnet من infohash. إن لم يتوفر أي منهما، يعيد استخدام ذاكرة تفاصيل الصفحة أو يجلب صفحة التفاصيل ثم يستخرج hash/magnet؛ إن بقي الاثنان غائبين، يبقي الرابط المباشر إلى `.torrent` إن وجد. كل حل magnet يضيف trackers العامة الافتراضية المفقودة [025.py، 518–562، 1185–1235](community-20261017/sources/025.py#L518). كاش تفاصيل محلي مدته 3 أيام وبحد 500 إدخال، يحفظ hash/magnet/torrent URL والحجم والتاريخ، لا يحفظ swarm counts [025.py، 836–935، 1335–1337](community-20261017/sources/025.py#L836).
+- **سلوك شبكي حساس يجب حسمه عند النقل:** `FITGIRL_SCRAPE` مفعّل افتراضيا. بالإضافة إلى HTTP للموقع، ينفذ فحص tracker UDP/HTTP مباشرة لمغناطيسات النتائج للحصول على seeds/leech؛ يحزم hashes في طلبات scrape مشتركة. تعليق المصدر يقول صراحة إن هذا الاتصال لا يمر عبر proxy/VPN binding في qBittorrent وقد يكشف IP الحقيقي مع infohash [025.py، 13–24، 937–1057](community-20261017/sources/025.py#L13). يجب أن يكون سلوك Rust قابلا للتعطيل بإعداد واضح ومكافئ، وتعرض الواجهة للمستخدم أن تشغيله يرسل infohash إلى tracker؛ لا تخلط طلبات scrape ببحث الموقع.
+- **التوافق البيئي:** الملف يذكر Python >=3.7 والمكتبة القياسية بالإضافة إلى وحدات qBittorrent. خيارات البيئة هي `FITGIRL_DEBUG`, `FITGIRL_SCRAPE`, `FITGIRL_STREAMING`, `FITGIRL_CACHE`؛ عند النقل عبر Rust اجعلها إعدادات مصدر موثقة بدلا من جعلها متغيرات Python غير قابلة للتأثير [025.py، 10–24، 63–76، 1325–1337](community-20261017/sources/025.py#L10).
+
+### 042 — Online-Fix
+
+- **مصدر البيانات:** الإضافة لا تتصل بـ`online-fix.me` أثناء البحث؛ تقرأ JSON العام `https://hydralinks.cloud/sources/onlinefix.json`, من قائمة `downloads` [042.py، 10–20](community-20261017/sources/042.py#L10). لا يوجد في الملف API key أو cookie أو آلية دخول. وجود اسم الموقع في الدليل لا يجعل هذا التنفيذ مصدرا خاصا؛ عقد النسخة المحفوظة هو endpoint العام.
+- **مطابقة وخرج:** `all` فقط. يفك query ويقسمه لكلمات صغيرة؛ يطابق أي كلمة كـsubstring في عنوان lowercase [042.py، 13–25](community-20261017/sources/042.py#L13). الحقول المطلوبة `title`, `fileSize`, `uris[0]`. يعيد URI الأول كما هو، الحجم الخام، العدادات -1، `engine_url=https://online-fix.me/`, `desc_link=-1`; لا pub_date، صفحات، resolver أو تفاصيل [042.py، 24–36](community-20261017/sources/042.py#L24). عنصر ناقص في JSON قد يفشل البحث كله بسبب المفاتيح المباشرة.
+
+### 046 — Rede Torrent
+
+- **الفئات والبحث:** يعلن `all`, `anime`, `movies`, `tv` ويقابلها داخليا `desenhos`, `filmes`, `series`، لكن بناء URL لا يستخدم قيمة الفئة. الطلب بالشكل `https://redetorrent.com/index.php?s={query}`. query يستبدل `%20` بـ`+`, ثم `quote_plus` ويحوّل `%2B` إلى `+` [046.py، 18–26، 164–186](community-20261017/sources/046.py#L18). لا pagination.
+- **نتائج البحث:** يلتقط `div.capa_lista` مع تتبع عمق div الداخلي، يأخذ أول رابط نسبي/مطلق داخل البطاقة، والعنوان من `h2[itemprop=headline]`; يحول الروابط النسبية إلى absolute وينظف entities والفراغات ويحذف لاحقة `Download` [046.py، 28–113](community-20261017/sources/046.py#L28).
+- **صفحة التفاصيل والخرج:** يفحص `p#lista_download` للروابط المغناطيسية فقط؛ يمكن أن ينتج عدة magnets. عنوان المغناطيس يُنظف من بادئة `DOWNLOAD`; اسم النتيجة = عنوان البطاقة + ` - ` + عنوان الرابط، أو يحاول `dn` ويفك ترميزه ويستبدل النقاط بمسافات [046.py، 115–162، 188–248](community-20261017/sources/046.py#L115). الحجم/السيدرز/الليتشرز/التاريخ -1، صفحة التفاصيل في `desc_link`. فشل الطلب يتخطى النتيجة؛ لا حساب أو cookies [046.py، 164–225](community-20261017/sources/046.py#L164).
+
+### 050 — small-games.info
+
+- **الفئات والطلب:** `all` و`games` فقط، لكن `cat` غير مستخدمة. يبني `https://small-games.info/?go=search&go=search&search_text={what}` بتكرار `go=search`, ويقرأ HTML باستخدام regex يعتمد على النص الروسي والبنية المحددة [050.py، 23–33، 49–63](community-20261017/sources/050.py#L23). لا pagination.
+- **الحقول:** من كل تطابق يأخذ عنوان `a title`, ومعرّف `gid` من الرابط، وحجم النص الروسي `Скачать игру (...)`. ينظف الاسم بالاحتفاظ بالنص ابتداء من أول حرف/رقم ASCII؛ بناء الاسم يفترض وجود مثل هذا الحرف. `link=http://small-games.info/getTorrent.php?direct=1&gid={gid}`, و`desc_link=http://small-games.info/?go=game&c=61&i={gid}`، والحجم يتحول إلى النص الملتقط ناقص آخر 3 رموز مع `MB`؛ العدادات -1 ولا تاريخ [050.py، 49–63](community-20261017/sources/050.py#L49).
+- **محول torrent القديم:** `download_torrent(url)` يجلب bytes من الرابط، وإذا فك النص إلى `No link found!` أو `some error` لا ينتج مسارا؛ وإلا يكتبها إلى ملف مؤقت بامتداد `.torrent` ويطبع المسار والرابط [050.py، 34–47](community-20261017/sources/050.py#L34). عملية البحث تستخدم `get_url` الذي يفتح TLS بسياق يلغي التحقق من الشهادة حتى عندما يكون الرابط https [050.py، 65–68](community-20261017/sources/050.py#L65). هذا ضعف في نسخة Python، فلا تنقل تعطيل التحقق إلى Rust؛ استخدم TLS الافتراضي مع التحقق.
+
+### 068 — Torrenflix
+
+- **حالة المصدر والفئة:** مدخل الويكي يشير الآن إلى ملف `deprecated/torrenflix.py`; عنوان `main/torrenflix.py` أعاد 404 وقت إنشاء الكتالوج، لذا الملف المحفوظ سُحب من مسار deprecated، وليس من مسار الإضافة الحي [catalog، 1521–1540](community-20261017/catalog.json#L1521). يدعم `all` فقط؛ الصفحة الرئيسية `https://www.torrenflix.com/`, ويضيف `Referer` مساوي للموقع لطلبات البحث والتفاصيل [068.py، 23–34، 186–192، 257–262](community-20261017/sources/068.py#L23). لا login أو cookies مذكورة.
+- **بحث الصفحات:** يستبدل `%20` بـ`+` ثم يطلب `?s={what}` بلا URL encoding إضافي. يحصر النتائج في `main > ul.post-lst > li`; العنوان من `h2`, وصفحة التفاصيل من رابط class يحتوي `lnk-blk`. لا ترقيم صفحات ظاهر في المصدر [068.py، 180–249، 254–262](community-20261017/sources/068.py#L180).
+- **صفحة التنزيل والنسخ:** يجلب صفحة التفاصيل لكل نتيجة ضمن تحليل صفحة البحث. داخل `div.download-links > table > tbody > tr`, يقرأ الخادم من العمود الأول (متجاهلا نص span), اللغة من الثاني، الجودة من الثالث، ورابط التنزيل من href في الرابع. لكل تركيبة server/language/quality ينشئ نتيجة؛ إذا تكررت نفس التركيبة تستبدل القيمة السابقة في dictionary. يرتب مفاتيح التركيبات نصيا، ويكون الاسم `{title} [{server|language|quality}]` مع إسقاط القيم الفارغة [068.py، 36–66، 68–178](community-20261017/sources/068.py#L36).
+- **الخرج والحل:** `link` هو href كما ورد (لا يتحقق أن المخطط magnet أو أنه absolute)، `size=0`, العدادات -1، `engine_url=https://www.torrenflix.com/`, و`desc_link` صفحة المنشور؛ لا تاريخ [068.py، 49–66](community-20261017/sources/068.py#L49). `download_torrent` يفوض إلى مساعد qBittorrent `download_file` [068.py، 251–252](community-20261017/sources/068.py#L251). الملف يحتوي إشعار MIT نصيا ويطلب تضمين إشعار حقوق النشر والإذن [068.py، 4–21](community-20261017/sources/068.py#L4).
+
+## فروق النقل التي يجب تسجيلها
+
+1. هذه العقود ليست كلها scraper HTML: DODI وOnline-Fix مصادر JSON عامة مركزية؛ FitGirl وAli213 وApache وRede وsmall-games وTorrenflix تعتمد HTML. افصل نقل بروتوكول JSON عن محللات HTML حتى يمكن التحقق والتحديث كل على حدة.
+2. واجهة qBittorrent ترسل query مرمزة إلى plugin. المصادر تختلف: بعضها يفكها صراحة، وبعضها يستبدل `%20` ويعيد `quote_plus`, وبعضها يلصق القيمة كما هي. عرّف بوضوح هل Rust يتلقى raw query أو qBittorrent-encoded query؛ اختبارات `+`, `%20`, UTF-8، و`%25` تمنع double-encoding.
+3. روابط النتائج ليست دائما مغناطيسات جاهزة: Ali213 وsmall-games يعيدان رابطا إلى ملف torrent/مسار وسيط؛ Torrenflix يعيد href كما هو؛ Apache وRede يحلان magnet من صفحة التفاصيل؛ FitGirl يفضل magnet/hash ويحتفظ برابط `.torrent` كfallback. احتفظ بتمييز المرجع عن صفحة الوصف، ولا تطلب محتوى التورنت في مرحلة البحث.
+4. احفظ unknown بالعدد الداخلي المتفق عليه (`-1`) بدلا من تحويله إلى صفر، باستثناء Torrenflix الذي يعلن الحجم 0. لا تحوّل نص size الخام إلى رقم بلا parser خاص بالمصدر.
+5. التوازي في Ali213 محدود بخمسة مرشحين، وفي FitGirl بثمانية أعمال؛ باقي الملفات تسلسل الصفحة وطلب التفاصيل. طبقة البحث المشتركة تستطيع وضع limits، لكن يجب ألا تستنسخ انتظار 40 ثانية لكل لعبة من Ali213 أو مهلة FitGirl الكلية دون مراعاة deadline المحرك.
+6. راجع ترخيص upstream لكل من المصادر السبعة بحالة `pending_upstream_review` قبل تضمين كود أو إعادة توزيعه. Torrenflix MIT بحسب رأس الملف، لكنه deprecated؛ تحقق من وضع المشروع قبل الاعتماد عليه.
+
+## إعادة التحقق من النسخة المحلية
+
+- الكتالوج وبصمات الملفات: [catalog.json](community-20261017/catalog.json).
+- نسخة الويكي الثابتة: [Unofficial-search-plugins.mediawiki](community-20261017/Unofficial-search-plugins.mediawiki).
+- المصدر المحلي لكل إضافة وروابط raw upstream أعلاه.
+- المراجعة هنا ساكنة فقط: لا يوجد إثبات أن endpoints أو HTML أو API تعمل حاليا، ولا اختبار تكافؤ مع Python بعد.

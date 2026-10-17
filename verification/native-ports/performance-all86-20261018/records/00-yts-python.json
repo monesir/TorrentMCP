@@ -1,0 +1,26 @@
+{
+  "wall_ms": 744.178799999645,
+  "cpu_ms": 187.5,
+  "peak_private_mib": 24.84765625,
+  "sampled_peak_working_set_mib": 62.31640625,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 661,
+  "configuration_diagnostic": false,
+  "source": "yts",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:46:48.082844+00:00",
+  "raw_report": "raw\\00-yts-python.json",
+  "diagnostics": "raw\\00-yts-python.stderr.log"
+}

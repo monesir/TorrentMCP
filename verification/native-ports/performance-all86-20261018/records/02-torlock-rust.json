@@ -1,0 +1,25 @@
+{
+  "wall_ms": 382.7215999990585,
+  "cpu_ms": 203.125,
+  "peak_private_mib": 6.69921875,
+  "sampled_peak_working_set_mib": 28.65625,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "HTTP status client error (403 Forbidden)",
+  "source_elapsed_ms": 269,
+  "configuration_diagnostic": false,
+  "source": "torlock",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:02:14.291902+00:00",
+  "raw_report": "raw\\02-torlock-rust.json",
+  "diagnostics": "raw\\02-torlock-rust.stderr.log"
+}

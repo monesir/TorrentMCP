@@ -1,0 +1,65 @@
+{
+  "info_hash_v1": "1a58099b136f8f26e4d52a3fa12a306071413e0c",
+  "seeder_stopped": true,
+  "checks": [
+    {
+      "name": "files",
+      "exit": 0,
+      "status": "completed",
+      "elapsed_ms": 885,
+      "error": null
+    },
+    {
+      "name": "direct-http-files",
+      "exit": 0,
+      "status": "completed",
+      "elapsed_ms": 509,
+      "error": null
+    },
+    {
+      "name": "inspection",
+      "exit": 0,
+      "status": "completed",
+      "elapsed_ms": 1011,
+      "error": null
+    },
+    {
+      "name": "changed-catalog",
+      "exit": 1,
+      "status": "failed",
+      "elapsed_ms": 500,
+      "error": {
+        "code": "torrent_catalog_changed",
+        "message": "Torrent metadata differs from the catalog selected by the agent"
+      }
+    },
+    {
+      "name": "invalid-selection",
+      "exit": 1,
+      "status": "error",
+      "elapsed_ms": 97,
+      "error": {
+        "code": "invalid_request",
+        "message": "file_id must identify a nonempty video or audio file from the catalog"
+      }
+    },
+    {
+      "name": "magnet-files",
+      "exit": 0,
+      "status": "completed",
+      "elapsed_ms": 501,
+      "error": null
+    },
+    {
+      "name": "timeout",
+      "exit": 1,
+      "status": "failed",
+      "elapsed_ms": 1499,
+      "error": {
+        "code": "torrent_service_timeout",
+        "message": "Torrent service deadline exceeded"
+      }
+    }
+  ],
+  "success": true
+}

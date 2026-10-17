@@ -1,0 +1,26 @@
+{
+  "wall_ms": 993.4018000003562,
+  "cpu_ms": 656.25,
+  "peak_private_mib": 26.8046875,
+  "sampled_peak_working_set_mib": 69.8046875,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 840,
+  "configuration_diagnostic": false,
+  "source": "pirateiro",
+  "backend": "python",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:06:17.695879+00:00",
+  "raw_report": "raw\\02-pirateiro-python.json",
+  "diagnostics": "raw\\02-pirateiro-python.stderr.log"
+}

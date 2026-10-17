@@ -1,0 +1,26 @@
+{
+  "wall_ms": 538.647100000162,
+  "cpu_ms": 359.375,
+  "peak_private_mib": 34.25,
+  "sampled_peak_working_set_mib": 67.1328125,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\nyaa.py:32: SyntaxWarning: \"\\d\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\d\"? A raw string is also an option.\r\n  PATTERN = 'Displaying results 1-(\\d+) out of (\\d+) results'\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host",
+  "source_elapsed_ms": 475,
+  "configuration_diagnostic": false,
+  "source": "nyaa",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:52:39.401338+00:00",
+  "raw_report": "raw\\01-nyaa-python.json",
+  "diagnostics": "raw\\01-nyaa-python.stderr.log"
+}

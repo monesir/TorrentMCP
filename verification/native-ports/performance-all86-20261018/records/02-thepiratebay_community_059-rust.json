@@ -1,0 +1,29 @@
+{
+  "wall_ms": 488.19970000113244,
+  "cpu_ms": 359.375,
+  "peak_private_mib": 6.64453125,
+  "sampled_peak_working_set_mib": 28.59765625,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 3,
+  "unique_results": 3,
+  "identities": [
+    "https://thepiratebay.org/description.php?id=15873101null",
+    "https://thepiratebay.org/description.php?id=28482922null",
+    "https://thepiratebay.org/description.php?id=28734452null"
+  ],
+  "error": null,
+  "source_elapsed_ms": 316,
+  "configuration_diagnostic": false,
+  "source": "thepiratebay_community_059",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:03:24.853815+00:00",
+  "raw_report": "raw\\02-thepiratebay_community_059-rust.json",
+  "diagnostics": "raw\\02-thepiratebay_community_059-rust.stderr.log"
+}

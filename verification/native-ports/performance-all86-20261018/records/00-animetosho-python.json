@@ -1,0 +1,26 @@
+{
+  "wall_ms": 252.0673999997598,
+  "cpu_ms": 234.375,
+  "peak_private_mib": 24.74609375,
+  "sampled_peak_working_set_mib": 56.578125,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed",
+  "source_elapsed_ms": 194,
+  "configuration_diagnostic": false,
+  "source": "animetosho",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:48:42.628864+00:00",
+  "raw_report": "raw\\00-animetosho-python.json",
+  "diagnostics": "raw\\00-animetosho-python.stderr.log"
+}

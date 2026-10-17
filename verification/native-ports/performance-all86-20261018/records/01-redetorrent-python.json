@@ -1,0 +1,26 @@
+{
+  "wall_ms": 1062.212400000135,
+  "cpu_ms": 531.25,
+  "peak_private_mib": 27.0078125,
+  "sampled_peak_working_set_mib": 70.1015625,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 936,
+  "configuration_diagnostic": false,
+  "source": "redetorrent",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:57:10.116614+00:00",
+  "raw_report": "raw\\01-redetorrent-python.json",
+  "diagnostics": "raw\\01-redetorrent-python.stderr.log"
+}

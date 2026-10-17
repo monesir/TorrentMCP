@@ -1,0 +1,25 @@
+{
+  "wall_ms": 57.605099999818776,
+  "cpu_ms": 62.5,
+  "peak_private_mib": 4.7109375,
+  "sampled_peak_working_set_mib": 19.22265625,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "Jackett requires local qbit/engines/jackett.json with url and api_key",
+  "source_elapsed_ms": 0,
+  "configuration_diagnostic": false,
+  "source": "jackett",
+  "backend": "rust",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:42:22.254200+00:00",
+  "raw_report": "raw\\00-jackett-rust.json",
+  "diagnostics": "raw\\00-jackett-rust.stderr.log"
+}

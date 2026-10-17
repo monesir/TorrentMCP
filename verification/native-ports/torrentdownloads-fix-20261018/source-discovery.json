@@ -1,0 +1,990 @@
+[
+  {
+    "id": "eztv",
+    "name": "EZTV",
+    "site_url": "https://eztvx.to",
+    "categories": [
+      "all",
+      "tv"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "jackett",
+    "name": "Jackett",
+    "site_url": "http://127.0.0.1:9117",
+    "categories": [
+      "all",
+      "anime",
+      "books",
+      "games",
+      "movies",
+      "music",
+      "software",
+      "tv"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "limetorrents",
+    "name": "LimeTorrents",
+    "site_url": "https://www.limetorrents.lol",
+    "categories": [
+      "all",
+      "anime",
+      "software",
+      "games",
+      "movies",
+      "music",
+      "tv"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "piratebay",
+    "name": "The Pirate Bay",
+    "site_url": "https://thepiratebay.org",
+    "categories": [
+      "all",
+      "music",
+      "movies",
+      "games",
+      "software"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "solidtorrents",
+    "name": "Solid Torrents",
+    "site_url": "https://solidtorrents.to",
+    "categories": [
+      "all",
+      "music",
+      "books"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "torlock",
+    "name": "TorLock",
+    "site_url": "https://www.torlock.com",
+    "categories": [
+      "all",
+      "anime",
+      "software",
+      "games",
+      "movies",
+      "music",
+      "tv",
+      "books"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "torrentproject",
+    "name": "TorrentProject",
+    "site_url": "https://torrentproject.com.se",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "torrentscsv",
+    "name": "torrents-csv",
+    "site_url": "https://torrents-csv.com",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "acgrip",
+    "name": "acg.rip",
+    "site_url": "https://acg.rip",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "animetosho",
+    "name": "Anime Tosho",
+    "site_url": "https://animetosho.org",
+    "categories": [
+      "all",
+      "anime"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "animetosho_community_006",
+    "name": "Anime Tosho",
+    "site_url": "https://animetosho.xyz",
+    "categories": [
+      "all",
+      "anime"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "cloudtorrents",
+    "name": "CloudTorrents",
+    "site_url": "https://cloudtorrents.com",
+    "categories": [
+      "all",
+      "anime",
+      "software",
+      "books",
+      "games",
+      "movies",
+      "music",
+      "tv"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "mikan",
+    "name": "MikanProject",
+    "site_url": "https://mikanime.tv",
+    "categories": [
+      "all",
+      "anime"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "nyaasi",
+    "name": "Nyaa.si",
+    "site_url": "https://nyaa.si",
+    "categories": [
+      "all",
+      "anime",
+      "books",
+      "music",
+      "pictures",
+      "software",
+      "tv",
+      "movies"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "subsplease",
+    "name": "SubsPlease",
+    "site_url": "https://subsplease.org",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "sukebeisi",
+    "name": "Sukebei (Nyaa)",
+    "site_url": "https://sukebei.nyaa.si",
+    "categories": [
+      "all",
+      "anime",
+      "books",
+      "games",
+      "pictures",
+      "movies"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "thepiratebay",
+    "name": "The Pirate Bay",
+    "site_url": "https://thepiratebay.org",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "torrentclaw",
+    "name": "TorrentClaw",
+    "site_url": "https://torrentclaw.com",
+    "categories": [
+      "all",
+      "movies",
+      "tv"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "divxtotal",
+    "name": "DivxTotal",
+    "site_url": "https://divxtotal.wtf",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "dontorrent",
+    "name": "DonTorrent",
+    "site_url": "https://dontorrent.phd",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "esmeraldatorrent",
+    "name": "EsmeraldaTorrent",
+    "site_url": "https://esmeraldatorrent.com",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "naranjatorrent",
+    "name": "NaranjaTorrent",
+    "site_url": "https://naranjatorrent.com",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "tomadivx",
+    "name": "TomaDivx",
+    "site_url": "https://tomadivx.net",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "calidadtorrent",
+    "name": "CalidadTorrent",
+    "site_url": "https://calidadtorrent.com",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "pediatorrent",
+    "name": "PediaTorrent",
+    "site_url": "https://pediatorrent.com",
+    "categories": [
+      "all",
+      "movies",
+      "tv",
+      "books"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "glotorrents",
+    "name": "GloTorrents",
+    "site_url": "https://glodls.to",
+    "categories": [
+      "all",
+      "movies",
+      "tv",
+      "music",
+      "games",
+      "anime",
+      "software",
+      "books",
+      "pictures"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "kickasstorrents",
+    "name": "Kickasstorrents",
+    "site_url": "https://katcr.to",
+    "categories": [
+      "all",
+      "movies",
+      "tv",
+      "music",
+      "games",
+      "anime",
+      "software"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "pirateiro",
+    "name": "Pirateiro",
+    "site_url": "https://pirateiro.io",
+    "categories": [
+      "all",
+      "anime",
+      "games",
+      "movies",
+      "music",
+      "software",
+      "tv"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "rockbox",
+    "name": "RockBox",
+    "site_url": "https://rawkbawx.rocks",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "torrentdownload",
+    "name": "TorrentDownload",
+    "site_url": "https://www.torrentdownload.info",
+    "categories": [
+      "all",
+      "anime",
+      "books",
+      "games",
+      "movies",
+      "music",
+      "software",
+      "tv"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "yourbittorrent",
+    "name": "YourBittorrent",
+    "site_url": "https://yourbittorrent.com",
+    "categories": [
+      "all",
+      "movies",
+      "tv",
+      "music",
+      "games",
+      "anime",
+      "software"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "magnetdl",
+    "name": "MagnetDL",
+    "site_url": "http://www.magnetdl.com",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "magnetdl_community_031",
+    "name": "MagnetDL w. categories",
+    "site_url": "https://www.magnetdl.com",
+    "categories": [
+      "all",
+      "books",
+      "games",
+      "movies",
+      "music",
+      "software",
+      "tv"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "solidtorrents_community_053",
+    "name": "Solid Torrents",
+    "site_url": "https://solidtorrents.to",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "nekobt",
+    "name": "NekoBT",
+    "site_url": "https://nekobt.to",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "tsukihime",
+    "name": "Tsukihime ",
+    "site_url": "https://tsukihime.org",
+    "categories": [
+      "all",
+      "anime"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "yts",
+    "name": "YTS",
+    "site_url": "https://yts.bz",
+    "categories": [
+      "all",
+      "movies"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "yggtracker",
+    "name": "YGGtracker",
+    "site_url": "https://github.com/YGGverse/YGGtracker",
+    "categories": [
+      "all",
+      "anime",
+      "books",
+      "games",
+      "movies",
+      "music",
+      "pictures",
+      "software",
+      "tv"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "goggames",
+    "name": "GOG-Games",
+    "site_url": "https://gog-games.to",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "snowfl",
+    "name": "Snowfl",
+    "site_url": "https://snowfl.com",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "snowfl_community_052",
+    "name": "Snowfl",
+    "site_url": "https://snowfl.com",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "btdig",
+    "name": "btdig",
+    "site_url": "https://www.btdig.com",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "anidex",
+    "name": "AniDex",
+    "site_url": "https://anidex.info",
+    "categories": [
+      "all",
+      "music",
+      "games",
+      "anime",
+      "software",
+      "pictures",
+      "books"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "dmhy",
+    "name": "DMHY",
+    "site_url": "https://share.dmhy.org",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "dmhy_community_018",
+    "name": "dmhy",
+    "site_url": "http://dmhy.org",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "mikanani",
+    "name": "mikanani",
+    "site_url": "https://mikanime.tv",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "nyaapantsu",
+    "name": "Nyaa.pantsu",
+    "site_url": "https://nyaa.pantsu.cat",
+    "categories": [
+      "all",
+      "anime",
+      "books",
+      "music",
+      "pictures",
+      "software",
+      "tv",
+      "movies"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "nyaa",
+    "name": "Sukebei Nyaa",
+    "site_url": "https://sukebei.nyaa.si",
+    "categories": [
+      "all",
+      "movies",
+      "tv",
+      "music",
+      "games",
+      "anime",
+      "software"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "torrentgalaxy",
+    "name": "TorrentGalaxy",
+    "site_url": "https://torrentgalaxy.to",
+    "categories": [
+      "all",
+      "movies",
+      "tv",
+      "music",
+      "games",
+      "anime",
+      "software",
+      "pictures",
+      "books"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "pantsu",
+    "name": "pantsu",
+    "site_url": "https://nyaa.net",
+    "categories": [
+      "all",
+      "anime",
+      "books",
+      "music",
+      "pictures",
+      "software",
+      "games"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "sukebei",
+    "name": "sukebei",
+    "site_url": "https://sukebei.nyaa.net",
+    "categories": [
+      "all",
+      "anime",
+      "books",
+      "pictures",
+      "games"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "uindex",
+    "name": "Uindex",
+    "site_url": "https://uindex.org",
+    "categories": [
+      "all",
+      "movies",
+      "tv",
+      "games",
+      "music",
+      "software",
+      "anime"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "uniondht",
+    "name": "UnionDHT",
+    "site_url": "http://uniondht.org",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "dodi_repacks",
+    "name": "DODI Repacks",
+    "site_url": "https://dodi-repacks.site",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "onlinefix",
+    "name": "Online-Fix",
+    "site_url": "https://online-fix.me",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "apachetorrent",
+    "name": "ApacheTorrent",
+    "site_url": "https://apachetorrent.com",
+    "categories": [
+      "all",
+      "anime",
+      "movies",
+      "tv"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "redetorrent",
+    "name": "RedeTorrent",
+    "site_url": "https://redetorrent.com",
+    "categories": [
+      "all",
+      "anime",
+      "movies",
+      "tv"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "smallgames",
+    "name": "small-games.info",
+    "site_url": "http://small-games.info",
+    "categories": [
+      "all",
+      "games"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "torrenflix",
+    "name": "Torrentflix",
+    "site_url": "https://www.torrenflix.com",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "bitsearch",
+    "name": "Bit Search",
+    "site_url": "https://bitsearch.to",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "therarbg",
+    "name": "The RarBg",
+    "site_url": "https://therarbg.com",
+    "categories": [
+      "all",
+      "movies",
+      "tv",
+      "music",
+      "games",
+      "anime",
+      "software"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "torrentdownloads",
+    "name": "Torrent Downloads",
+    "site_url": "https://torrentdownloads.pro",
+    "categories": [
+      "all",
+      "anime",
+      "books",
+      "games",
+      "movies",
+      "music",
+      "software",
+      "tv"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "traht",
+    "name": "Traht",
+    "site_url": "https://traht.org",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "xxxclubto",
+    "name": "XXXClub",
+    "site_url": "https://xxxclub.to",
+    "categories": [
+      "all",
+      "pictures"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "bt4gprx",
+    "name": "bt4gprx",
+    "site_url": "https://bt4gprx.com",
+    "categories": [
+      "all",
+      "movies",
+      "tv",
+      "music",
+      "books",
+      "software"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "linuxtracker",
+    "name": "Linux Tracker",
+    "site_url": "http://linuxtracker.org",
+    "categories": [
+      "all",
+      "software"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "sktorrent",
+    "name": "SkTorrent",
+    "site_url": "https://sktorrent.eu",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "tokyotoshokan",
+    "name": "Tokyo Toshokan",
+    "site_url": "http://tokyotosho.info",
+    "categories": [
+      "all",
+      "anime",
+      "games"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "academictorrents",
+    "name": "AcademicTorrents",
+    "site_url": "https://academictorrents.com",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "audiobookbay",
+    "name": "AudioBook Bay (ABB)",
+    "site_url": "http://theaudiobookbay.se",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "cpasbien",
+    "name": "Cpasbien (french)",
+    "site_url": "http://www.cpasbien.fr",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "darklibria",
+    "name": "dark-libria",
+    "site_url": "https://darklibria.it",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "dontorrent_community_020",
+    "name": "DonTorrent",
+    "site_url": "https://dontorrent.prof",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "elitetorrent",
+    "name": "Elitetorrent",
+    "site_url": "https://www.elitetorrent.com",
+    "categories": [
+      "all",
+      "movies",
+      "tv"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "eztvx",
+    "name": "EZTVX",
+    "site_url": "https://eztvx.to",
+    "categories": [
+      "all",
+      "tv"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "maxitorrent",
+    "name": "MaxiTorrent",
+    "site_url": "https://atomixhq.com",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "mejortorrent",
+    "name": "MejorTorrent",
+    "site_url": "https://www36.mejortorrent.eu",
+    "categories": [
+      "all",
+      "movies",
+      "tv"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "pediatorrent_community_043",
+    "name": "PediaTorrent",
+    "site_url": "https://pediatorrent.com",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "thepiratebay_community_059",
+    "name": "The Pirate Bay w. categories",
+    "site_url": "https://thepiratebay.org",
+    "categories": [
+      "all",
+      "anime",
+      "books",
+      "games",
+      "movies",
+      "music",
+      "pictures",
+      "software",
+      "tv"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "torrent9",
+    "name": "Torrent9 (french)",
+    "site_url": "http://torent9.fr",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "torrentdownload_community_066",
+    "name": "TorrentDownload w. categories",
+    "site_url": "https://www.torrentdownload.info",
+    "categories": [
+      "all",
+      "anime",
+      "books",
+      "games",
+      "movies",
+      "music",
+      "pictures",
+      "software",
+      "tv"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "zooqle",
+    "name": "Zooqle",
+    "site_url": "https://zooqle.skin",
+    "categories": [
+      "all",
+      "anime",
+      "movies",
+      "tv",
+      "music",
+      "games",
+      "software",
+      "books"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "ali213",
+    "name": "ali213",
+    "site_url": "http://down.ali213.net",
+    "categories": [
+      "all",
+      "games",
+      "software"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "fitgirl_repacks",
+    "name": "FitGirl Repacks",
+    "site_url": "https://fitgirl-repacks.site",
+    "categories": [
+      "all",
+      "games"
+    ],
+    "resolves_http": false
+  },
+  {
+    "id": "mypornclub",
+    "name": "MyPorn Club",
+    "site_url": "https://myporn.club",
+    "categories": [
+      "all"
+    ],
+    "resolves_http": true
+  },
+  {
+    "id": "rutor",
+    "name": "Rutor",
+    "site_url": "https://rutor.info",
+    "categories": [
+      "all",
+      "movies",
+      "tv",
+      "music",
+      "games",
+      "anime",
+      "software",
+      "pictures",
+      "books"
+    ],
+    "resolves_http": true
+  }
+]

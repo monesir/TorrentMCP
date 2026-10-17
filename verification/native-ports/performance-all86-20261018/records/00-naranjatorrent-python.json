@@ -1,0 +1,26 @@
+{
+  "wall_ms": 7307.771000000685,
+  "cpu_ms": 484.375,
+  "peak_private_mib": 27.97265625,
+  "sampled_peak_working_set_mib": 70.41015625,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>",
+  "source_elapsed_ms": 7190,
+  "configuration_diagnostic": false,
+  "source": "naranjatorrent",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:46:44.024354+00:00",
+  "raw_report": "raw\\00-naranjatorrent-python.json",
+  "diagnostics": "raw\\00-naranjatorrent-python.stderr.log"
+}

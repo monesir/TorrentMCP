@@ -1,0 +1,40 @@
+{
+  "tested_at": "2026-10-17T14:08:12.7488839Z",
+  "version": "torrent-search 0.2.0",
+  "fresh_archive_extraction": true,
+  "path": "C:\\Windows\\System32",
+  "pythonhome": "C:\\does-not-exist\\python",
+  "pythonpath": "C:\\does-not-exist\\modules",
+  "search_exit": 0,
+  "status": "completed",
+  "summary": {
+    "total": 31,
+    "eligible": 4,
+    "uncertain": 6,
+    "excluded": 21
+  },
+  "sources": [
+    {
+      "source_id": "limetorrents",
+      "status": "completed",
+      "elapsed_ms": 2541,
+      "result_count": 31,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "torrentscsv",
+      "status": "completed",
+      "elapsed_ms": 731,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    }
+  ],
+  "top_title": "Nirvana in Fire [2015] Chinese Audio (1080p x264 AVC)",
+  "top_eligibility": "eligible",
+  "top_score": 200,
+  "resolution_exit": 0,
+  "resolution_kind": "magnet",
+  "archive_sha256": "70bb90dcb260c9a2a5f04225b98c4522a9d3f4be28e74f3bc477c9a52647f02e"
+}

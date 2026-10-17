@@ -1,0 +1,16 @@
+[
+  {
+    "Backend": "python",
+    "ExitCode": 0,
+    "InfoHash": "ebcc79737cd85b794a52a4e06a54f3c33895e0d9",
+    "Kind": "magnet",
+    "PythonExecutableExists": true
+  },
+  {
+    "Backend": "rust",
+    "ExitCode": 0,
+    "InfoHash": "ebcc79737cd85b794a52a4e06a54f3c33895e0d9",
+    "Kind": "magnet",
+    "PythonExecutableExists": false
+  }
+]

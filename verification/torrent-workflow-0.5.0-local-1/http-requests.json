@@ -1,0 +1,389 @@
+[
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "POST",
+    "path": "/fixture.torrent",
+    "body": "id=fixture"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "POST",
+    "path": "/fixture.torrent",
+    "body": "id=fixture"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "POST",
+    "path": "/fixture.torrent",
+    "body": "id=fixture"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  },
+  {
+    "method": "GET",
+    "path": "/announce"
+  }
+]

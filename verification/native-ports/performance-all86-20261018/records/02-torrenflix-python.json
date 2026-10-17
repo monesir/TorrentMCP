@@ -1,0 +1,26 @@
+{
+  "wall_ms": 2075.8855000003678,
+  "cpu_ms": 765.625,
+  "peak_private_mib": 26.86328125,
+  "sampled_peak_working_set_mib": 70.3203125,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 1903,
+  "configuration_diagnostic": false,
+  "source": "torrenflix",
+  "backend": "python",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:06:37.935804+00:00",
+  "raw_report": "raw\\02-torrenflix-python.json",
+  "diagnostics": "raw\\02-torrenflix-python.stderr.log"
+}

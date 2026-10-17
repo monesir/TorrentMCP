@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "pediatorrent_community_043",
+      "status": "failed",
+      "elapsed_ms": 343,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status client error (403 Forbidden)"
+    }
+  ],
+  "results": []
+}

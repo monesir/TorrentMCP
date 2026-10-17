@@ -1,0 +1,30 @@
+{
+  "wall_ms": 932.964699999502,
+  "cpu_ms": 578.125,
+  "peak_private_mib": 26.875,
+  "sampled_peak_working_set_mib": 70.1640625,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 3,
+  "unique_results": 3,
+  "identities": [
+    "https://thepiratebay.org/description.php?id=15873101null",
+    "https://thepiratebay.org/description.php?id=28482922null",
+    "https://thepiratebay.org/description.php?id=28734452null"
+  ],
+  "error": null,
+  "source_elapsed_ms": 803,
+  "configuration_diagnostic": false,
+  "source": "thepiratebay_community_059",
+  "backend": "python",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:03:25.815523+00:00",
+  "raw_report": "raw\\02-thepiratebay_community_059-python.json",
+  "diagnostics": "raw\\02-thepiratebay_community_059-python.stderr.log"
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "darklibria",
+      "status": "failed",
+      "elapsed_ms": 1011,
+      "result_count": 0,
+      "limited": false,
+      "error": "Invalid torrent reference URL; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\darklibria.py:32: SyntaxWarning: \"\\d\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\d\"? A raw string is also an option.\r\n  dt_regex = re_compile('\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}')\r\nConnection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)"
+    }
+  ],
+  "results": []
+}

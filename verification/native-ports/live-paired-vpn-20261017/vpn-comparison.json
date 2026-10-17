@@ -1,0 +1,2860 @@
+{
+  "before": "verification\\native-ports\\live-paired-20261017",
+  "after": "verification\\native-ports\\live-paired-vpn-20261017",
+  "query": "nirvana in fire",
+  "backends": {
+    "rust": {
+      "before": {
+        "statuses": {
+          "completed": 35,
+          "failed": 51
+        },
+        "merged_results": 79,
+        "matching_unique": 55,
+        "matching_sources": [
+          "limetorrents",
+          "piratebay",
+          "snowfl",
+          "snowfl_community_052",
+          "thepiratebay",
+          "thepiratebay_community_059",
+          "torrentdownload_community_066",
+          "torrentdownloads"
+        ],
+        "matching_source_count": 8,
+        "source_reports": {
+          "academictorrents": {
+            "source_id": "academictorrents",
+            "status": "completed",
+            "elapsed_ms": 15220,
+            "result_count": 20,
+            "limited": true,
+            "error": null
+          },
+          "acgrip": {
+            "source_id": "acgrip",
+            "status": "completed",
+            "elapsed_ms": 564,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "ali213": {
+            "source_id": "ali213",
+            "status": "completed",
+            "elapsed_ms": 9316,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "anidex": {
+            "source_id": "anidex",
+            "status": "failed",
+            "elapsed_ms": 220,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "animetosho": {
+            "source_id": "animetosho",
+            "status": "failed",
+            "elapsed_ms": 15,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "animetosho_community_006": {
+            "source_id": "animetosho_community_006",
+            "status": "completed",
+            "elapsed_ms": 1508,
+            "result_count": 2,
+            "limited": false,
+            "error": null
+          },
+          "apachetorrent": {
+            "source_id": "apachetorrent",
+            "status": "completed",
+            "elapsed_ms": 1154,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "audiobookbay": {
+            "source_id": "audiobookbay",
+            "status": "failed",
+            "elapsed_ms": 894,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (425 )"
+          },
+          "bitsearch": {
+            "source_id": "bitsearch",
+            "status": "failed",
+            "elapsed_ms": 637,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (520 <none>)"
+          },
+          "bt4gprx": {
+            "source_id": "bt4gprx",
+            "status": "failed",
+            "elapsed_ms": 494,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "btdig": {
+            "source_id": "btdig",
+            "status": "failed",
+            "elapsed_ms": 596,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (429 Too Many Requests)"
+          },
+          "calidadtorrent": {
+            "source_id": "calidadtorrent",
+            "status": "failed",
+            "elapsed_ms": 369,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "cloudtorrents": {
+            "source_id": "cloudtorrents",
+            "status": "failed",
+            "elapsed_ms": 397,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (526 <none>)"
+          },
+          "cpasbien": {
+            "source_id": "cpasbien",
+            "status": "failed",
+            "elapsed_ms": 1157,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "darklibria": {
+            "source_id": "darklibria",
+            "status": "failed",
+            "elapsed_ms": 840,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "divxtotal": {
+            "source_id": "divxtotal",
+            "status": "failed",
+            "elapsed_ms": 4905,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (523 <none>)"
+          },
+          "dmhy": {
+            "source_id": "dmhy",
+            "status": "failed",
+            "elapsed_ms": 290,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "dmhy_community_018": {
+            "source_id": "dmhy_community_018",
+            "status": "completed",
+            "elapsed_ms": 1232,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "dodi_repacks": {
+            "source_id": "dodi_repacks",
+            "status": "failed",
+            "elapsed_ms": 410,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "dontorrent": {
+            "source_id": "dontorrent",
+            "status": "failed",
+            "elapsed_ms": 7260,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (523 <none>)"
+          },
+          "dontorrent_community_020": {
+            "source_id": "dontorrent_community_020",
+            "status": "failed",
+            "elapsed_ms": 3635,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (523 <none>)"
+          },
+          "elitetorrent": {
+            "source_id": "elitetorrent",
+            "status": "completed",
+            "elapsed_ms": 768,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "esmeraldatorrent": {
+            "source_id": "esmeraldatorrent",
+            "status": "failed",
+            "elapsed_ms": 4086,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (523 <none>)"
+          },
+          "eztv": {
+            "source_id": "eztv",
+            "status": "failed",
+            "elapsed_ms": 15,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "eztvx": {
+            "source_id": "eztvx",
+            "status": "failed",
+            "elapsed_ms": 399,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "fitgirl_repacks": {
+            "source_id": "fitgirl_repacks",
+            "status": "completed",
+            "elapsed_ms": 4829,
+            "result_count": 1,
+            "limited": false,
+            "error": null
+          },
+          "glotorrents": {
+            "source_id": "glotorrents",
+            "status": "failed",
+            "elapsed_ms": 4671,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "goggames": {
+            "source_id": "goggames",
+            "status": "failed",
+            "elapsed_ms": 515,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (404 Not Found)"
+          },
+          "jackett": {
+            "source_id": "jackett",
+            "status": "failed",
+            "elapsed_ms": 0,
+            "result_count": 0,
+            "limited": false,
+            "error": "Jackett requires local qbit/engines/jackett.json with url and api_key"
+          },
+          "kickasstorrents": {
+            "source_id": "kickasstorrents",
+            "status": "failed",
+            "elapsed_ms": 1912,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "limetorrents": {
+            "source_id": "limetorrents",
+            "status": "completed",
+            "elapsed_ms": 3290,
+            "result_count": 20,
+            "limited": true,
+            "error": null
+          },
+          "linuxtracker": {
+            "source_id": "linuxtracker",
+            "status": "completed",
+            "elapsed_ms": 990,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "magnetdl": {
+            "source_id": "magnetdl",
+            "status": "failed",
+            "elapsed_ms": 12006,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "magnetdl_community_031": {
+            "source_id": "magnetdl_community_031",
+            "status": "failed",
+            "elapsed_ms": 12002,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "maxitorrent": {
+            "source_id": "maxitorrent",
+            "status": "failed",
+            "elapsed_ms": 949,
+            "result_count": 0,
+            "limited": false,
+            "error": "expected value at line 1 column 1"
+          },
+          "mejortorrent": {
+            "source_id": "mejortorrent",
+            "status": "failed",
+            "elapsed_ms": 884,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "mikan": {
+            "source_id": "mikan",
+            "status": "completed",
+            "elapsed_ms": 1807,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "mikanani": {
+            "source_id": "mikanani",
+            "status": "completed",
+            "elapsed_ms": 1058,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "mypornclub": {
+            "source_id": "mypornclub",
+            "status": "failed",
+            "elapsed_ms": 109,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "naranjatorrent": {
+            "source_id": "naranjatorrent",
+            "status": "failed",
+            "elapsed_ms": 3169,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (523 <none>)"
+          },
+          "nekobt": {
+            "source_id": "nekobt",
+            "status": "completed",
+            "elapsed_ms": 580,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "nyaa": {
+            "source_id": "nyaa",
+            "status": "failed",
+            "elapsed_ms": 114,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "nyaapantsu": {
+            "source_id": "nyaapantsu",
+            "status": "failed",
+            "elapsed_ms": 735,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "nyaasi": {
+            "source_id": "nyaasi",
+            "status": "completed",
+            "elapsed_ms": 591,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "onlinefix": {
+            "source_id": "onlinefix",
+            "status": "failed",
+            "elapsed_ms": 297,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "pantsu": {
+            "source_id": "pantsu",
+            "status": "failed",
+            "elapsed_ms": 1029,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (404 Not Found)"
+          },
+          "pediatorrent": {
+            "source_id": "pediatorrent",
+            "status": "failed",
+            "elapsed_ms": 359,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "pediatorrent_community_043": {
+            "source_id": "pediatorrent_community_043",
+            "status": "failed",
+            "elapsed_ms": 300,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "piratebay": {
+            "source_id": "piratebay",
+            "status": "completed",
+            "elapsed_ms": 806,
+            "result_count": 3,
+            "limited": false,
+            "error": null
+          },
+          "pirateiro": {
+            "source_id": "pirateiro",
+            "status": "completed",
+            "elapsed_ms": 759,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "redetorrent": {
+            "source_id": "redetorrent",
+            "status": "completed",
+            "elapsed_ms": 1209,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "rockbox": {
+            "source_id": "rockbox",
+            "status": "failed",
+            "elapsed_ms": 8007,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "rutor": {
+            "source_id": "rutor",
+            "status": "completed",
+            "elapsed_ms": 570,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "sktorrent": {
+            "source_id": "sktorrent",
+            "status": "completed",
+            "elapsed_ms": 2237,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "smallgames": {
+            "source_id": "smallgames",
+            "status": "completed",
+            "elapsed_ms": 2431,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "snowfl": {
+            "source_id": "snowfl",
+            "status": "completed",
+            "elapsed_ms": 5470,
+            "result_count": 6,
+            "limited": false,
+            "error": null
+          },
+          "snowfl_community_052": {
+            "source_id": "snowfl_community_052",
+            "status": "completed",
+            "elapsed_ms": 7458,
+            "result_count": 6,
+            "limited": false,
+            "error": null
+          },
+          "solidtorrents": {
+            "source_id": "solidtorrents",
+            "status": "failed",
+            "elapsed_ms": 1993,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (520 <none>)"
+          },
+          "solidtorrents_community_053": {
+            "source_id": "solidtorrents_community_053",
+            "status": "failed",
+            "elapsed_ms": 1032,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (520 <none>)"
+          },
+          "subsplease": {
+            "source_id": "subsplease",
+            "status": "completed",
+            "elapsed_ms": 603,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "sukebei": {
+            "source_id": "sukebei",
+            "status": "failed",
+            "elapsed_ms": 110,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "sukebeisi": {
+            "source_id": "sukebeisi",
+            "status": "failed",
+            "elapsed_ms": 136,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "thepiratebay": {
+            "source_id": "thepiratebay",
+            "status": "completed",
+            "elapsed_ms": 615,
+            "result_count": 3,
+            "limited": false,
+            "error": null
+          },
+          "thepiratebay_community_059": {
+            "source_id": "thepiratebay_community_059",
+            "status": "completed",
+            "elapsed_ms": 272,
+            "result_count": 3,
+            "limited": false,
+            "error": null
+          },
+          "therarbg": {
+            "source_id": "therarbg",
+            "status": "failed",
+            "elapsed_ms": 133,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "tokyotoshokan": {
+            "source_id": "tokyotoshokan",
+            "status": "failed",
+            "elapsed_ms": 17,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "tomadivx": {
+            "source_id": "tomadivx",
+            "status": "failed",
+            "elapsed_ms": 4527,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (523 <none>)"
+          },
+          "torlock": {
+            "source_id": "torlock",
+            "status": "failed",
+            "elapsed_ms": 340,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "torrenflix": {
+            "source_id": "torrenflix",
+            "status": "completed",
+            "elapsed_ms": 1139,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "torrent9": {
+            "source_id": "torrent9",
+            "status": "completed",
+            "elapsed_ms": 2016,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "torrentclaw": {
+            "source_id": "torrentclaw",
+            "status": "completed",
+            "elapsed_ms": 552,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "torrentdownload": {
+            "source_id": "torrentdownload",
+            "status": "completed",
+            "elapsed_ms": 370,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "torrentdownload_community_066": {
+            "source_id": "torrentdownload_community_066",
+            "status": "completed",
+            "elapsed_ms": 474,
+            "result_count": 20,
+            "limited": true,
+            "error": null
+          },
+          "torrentdownloads": {
+            "source_id": "torrentdownloads",
+            "status": "failed",
+            "elapsed_ms": 2922,
+            "result_count": 9,
+            "limited": false,
+            "error": "Invalid torrent reference"
+          },
+          "torrentgalaxy": {
+            "source_id": "torrentgalaxy",
+            "status": "failed",
+            "elapsed_ms": 18,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "torrentproject": {
+            "source_id": "torrentproject",
+            "status": "failed",
+            "elapsed_ms": 4808,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "torrentscsv": {
+            "source_id": "torrentscsv",
+            "status": "completed",
+            "elapsed_ms": 303,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "traht": {
+            "source_id": "traht",
+            "status": "failed",
+            "elapsed_ms": 19,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "tsukihime": {
+            "source_id": "tsukihime",
+            "status": "completed",
+            "elapsed_ms": 458,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "uindex": {
+            "source_id": "uindex",
+            "status": "failed",
+            "elapsed_ms": 275,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "uniondht": {
+            "source_id": "uniondht",
+            "status": "completed",
+            "elapsed_ms": 701,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "xxxclubto": {
+            "source_id": "xxxclubto",
+            "status": "failed",
+            "elapsed_ms": 10,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "yggtracker": {
+            "source_id": "yggtracker",
+            "status": "failed",
+            "elapsed_ms": 615,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "yourbittorrent": {
+            "source_id": "yourbittorrent",
+            "status": "failed",
+            "elapsed_ms": 17,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "yts": {
+            "source_id": "yts",
+            "status": "completed",
+            "elapsed_ms": 989,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "zooqle": {
+            "source_id": "zooqle",
+            "status": "completed",
+            "elapsed_ms": 1009,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          }
+        }
+      },
+      "after": {
+        "statuses": {
+          "completed": 38,
+          "failed": 47,
+          "timed_out": 1
+        },
+        "merged_results": 96,
+        "matching_unique": 55,
+        "matching_sources": [
+          "limetorrents",
+          "piratebay",
+          "snowfl",
+          "thepiratebay",
+          "thepiratebay_community_059",
+          "therarbg",
+          "torrentdownload_community_066",
+          "torrentdownloads"
+        ],
+        "matching_source_count": 8,
+        "source_reports": {
+          "academictorrents": {
+            "source_id": "academictorrents",
+            "status": "completed",
+            "elapsed_ms": 2643,
+            "result_count": 20,
+            "limited": true,
+            "error": null
+          },
+          "acgrip": {
+            "source_id": "acgrip",
+            "status": "completed",
+            "elapsed_ms": 3157,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "ali213": {
+            "source_id": "ali213",
+            "status": "completed",
+            "elapsed_ms": 12363,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "anidex": {
+            "source_id": "anidex",
+            "status": "failed",
+            "elapsed_ms": 3218,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (502 Bad Gateway)"
+          },
+          "animetosho": {
+            "source_id": "animetosho",
+            "status": "failed",
+            "elapsed_ms": 75,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "animetosho_community_006": {
+            "source_id": "animetosho_community_006",
+            "status": "completed",
+            "elapsed_ms": 785,
+            "result_count": 2,
+            "limited": false,
+            "error": null
+          },
+          "apachetorrent": {
+            "source_id": "apachetorrent",
+            "status": "completed",
+            "elapsed_ms": 1288,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "audiobookbay": {
+            "source_id": "audiobookbay",
+            "status": "failed",
+            "elapsed_ms": 2812,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (425 )"
+          },
+          "bitsearch": {
+            "source_id": "bitsearch",
+            "status": "failed",
+            "elapsed_ms": 351,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (500 Internal Server Error)"
+          },
+          "bt4gprx": {
+            "source_id": "bt4gprx",
+            "status": "failed",
+            "elapsed_ms": 497,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "btdig": {
+            "source_id": "btdig",
+            "status": "failed",
+            "elapsed_ms": 8006,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "calidadtorrent": {
+            "source_id": "calidadtorrent",
+            "status": "failed",
+            "elapsed_ms": 411,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "cloudtorrents": {
+            "source_id": "cloudtorrents",
+            "status": "failed",
+            "elapsed_ms": 514,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (526 <none>)"
+          },
+          "cpasbien": {
+            "source_id": "cpasbien",
+            "status": "failed",
+            "elapsed_ms": 901,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "darklibria": {
+            "source_id": "darklibria",
+            "status": "failed",
+            "elapsed_ms": 8011,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "divxtotal": {
+            "source_id": "divxtotal",
+            "status": "failed",
+            "elapsed_ms": 5098,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (523 <none>)"
+          },
+          "dmhy": {
+            "source_id": "dmhy",
+            "status": "completed",
+            "elapsed_ms": 869,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "dmhy_community_018": {
+            "source_id": "dmhy_community_018",
+            "status": "completed",
+            "elapsed_ms": 1451,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "dodi_repacks": {
+            "source_id": "dodi_repacks",
+            "status": "failed",
+            "elapsed_ms": 379,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "dontorrent": {
+            "source_id": "dontorrent",
+            "status": "failed",
+            "elapsed_ms": 1953,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (523 <none>)"
+          },
+          "dontorrent_community_020": {
+            "source_id": "dontorrent_community_020",
+            "status": "failed",
+            "elapsed_ms": 12006,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "elitetorrent": {
+            "source_id": "elitetorrent",
+            "status": "completed",
+            "elapsed_ms": 822,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "esmeraldatorrent": {
+            "source_id": "esmeraldatorrent",
+            "status": "failed",
+            "elapsed_ms": 1908,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (523 <none>)"
+          },
+          "eztv": {
+            "source_id": "eztv",
+            "status": "failed",
+            "elapsed_ms": 460,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "eztvx": {
+            "source_id": "eztvx",
+            "status": "timed_out",
+            "elapsed_ms": 20005,
+            "result_count": 0,
+            "limited": false,
+            "error": "Source deadline exceeded"
+          },
+          "fitgirl_repacks": {
+            "source_id": "fitgirl_repacks",
+            "status": "completed",
+            "elapsed_ms": 4296,
+            "result_count": 1,
+            "limited": false,
+            "error": null
+          },
+          "glotorrents": {
+            "source_id": "glotorrents",
+            "status": "failed",
+            "elapsed_ms": 6763,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "goggames": {
+            "source_id": "goggames",
+            "status": "failed",
+            "elapsed_ms": 419,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (404 Not Found)"
+          },
+          "jackett": {
+            "source_id": "jackett",
+            "status": "failed",
+            "elapsed_ms": 0,
+            "result_count": 0,
+            "limited": false,
+            "error": "Jackett requires local qbit/engines/jackett.json with url and api_key"
+          },
+          "kickasstorrents": {
+            "source_id": "kickasstorrents",
+            "status": "failed",
+            "elapsed_ms": 447,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "limetorrents": {
+            "source_id": "limetorrents",
+            "status": "completed",
+            "elapsed_ms": 924,
+            "result_count": 20,
+            "limited": true,
+            "error": null
+          },
+          "linuxtracker": {
+            "source_id": "linuxtracker",
+            "status": "completed",
+            "elapsed_ms": 940,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "magnetdl": {
+            "source_id": "magnetdl",
+            "status": "failed",
+            "elapsed_ms": 12008,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "magnetdl_community_031": {
+            "source_id": "magnetdl_community_031",
+            "status": "failed",
+            "elapsed_ms": 12006,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "maxitorrent": {
+            "source_id": "maxitorrent",
+            "status": "failed",
+            "elapsed_ms": 3133,
+            "result_count": 0,
+            "limited": false,
+            "error": "expected value at line 1 column 1"
+          },
+          "mejortorrent": {
+            "source_id": "mejortorrent",
+            "status": "failed",
+            "elapsed_ms": 374,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "mikan": {
+            "source_id": "mikan",
+            "status": "completed",
+            "elapsed_ms": 616,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "mikanani": {
+            "source_id": "mikanani",
+            "status": "completed",
+            "elapsed_ms": 2259,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "mypornclub": {
+            "source_id": "mypornclub",
+            "status": "completed",
+            "elapsed_ms": 419,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "naranjatorrent": {
+            "source_id": "naranjatorrent",
+            "status": "failed",
+            "elapsed_ms": 8031,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (523 <none>)"
+          },
+          "nekobt": {
+            "source_id": "nekobt",
+            "status": "completed",
+            "elapsed_ms": 843,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "nyaa": {
+            "source_id": "nyaa",
+            "status": "completed",
+            "elapsed_ms": 3941,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "nyaapantsu": {
+            "source_id": "nyaapantsu",
+            "status": "failed",
+            "elapsed_ms": 8012,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "nyaasi": {
+            "source_id": "nyaasi",
+            "status": "completed",
+            "elapsed_ms": 2721,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "onlinefix": {
+            "source_id": "onlinefix",
+            "status": "failed",
+            "elapsed_ms": 312,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "pantsu": {
+            "source_id": "pantsu",
+            "status": "failed",
+            "elapsed_ms": 550,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (404 Not Found)"
+          },
+          "pediatorrent": {
+            "source_id": "pediatorrent",
+            "status": "failed",
+            "elapsed_ms": 439,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "pediatorrent_community_043": {
+            "source_id": "pediatorrent_community_043",
+            "status": "failed",
+            "elapsed_ms": 249,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "piratebay": {
+            "source_id": "piratebay",
+            "status": "completed",
+            "elapsed_ms": 629,
+            "result_count": 3,
+            "limited": false,
+            "error": null
+          },
+          "pirateiro": {
+            "source_id": "pirateiro",
+            "status": "completed",
+            "elapsed_ms": 2835,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "redetorrent": {
+            "source_id": "redetorrent",
+            "status": "completed",
+            "elapsed_ms": 1107,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "rockbox": {
+            "source_id": "rockbox",
+            "status": "failed",
+            "elapsed_ms": 8014,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "rutor": {
+            "source_id": "rutor",
+            "status": "completed",
+            "elapsed_ms": 2568,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "sktorrent": {
+            "source_id": "sktorrent",
+            "status": "completed",
+            "elapsed_ms": 5104,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "smallgames": {
+            "source_id": "smallgames",
+            "status": "completed",
+            "elapsed_ms": 981,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "snowfl": {
+            "source_id": "snowfl",
+            "status": "completed",
+            "elapsed_ms": 5649,
+            "result_count": 6,
+            "limited": false,
+            "error": null
+          },
+          "snowfl_community_052": {
+            "source_id": "snowfl_community_052",
+            "status": "failed",
+            "elapsed_ms": 557,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (503 Service Unavailable)"
+          },
+          "solidtorrents": {
+            "source_id": "solidtorrents",
+            "status": "failed",
+            "elapsed_ms": 3039,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (520 <none>)"
+          },
+          "solidtorrents_community_053": {
+            "source_id": "solidtorrents_community_053",
+            "status": "failed",
+            "elapsed_ms": 5425,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (500 Internal Server Error)"
+          },
+          "subsplease": {
+            "source_id": "subsplease",
+            "status": "completed",
+            "elapsed_ms": 415,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "sukebei": {
+            "source_id": "sukebei",
+            "status": "failed",
+            "elapsed_ms": 511,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (404 Not Found)"
+          },
+          "sukebeisi": {
+            "source_id": "sukebeisi",
+            "status": "completed",
+            "elapsed_ms": 2773,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "thepiratebay": {
+            "source_id": "thepiratebay",
+            "status": "completed",
+            "elapsed_ms": 238,
+            "result_count": 3,
+            "limited": false,
+            "error": null
+          },
+          "thepiratebay_community_059": {
+            "source_id": "thepiratebay_community_059",
+            "status": "completed",
+            "elapsed_ms": 410,
+            "result_count": 3,
+            "limited": false,
+            "error": null
+          },
+          "therarbg": {
+            "source_id": "therarbg",
+            "status": "completed",
+            "elapsed_ms": 9091,
+            "result_count": 20,
+            "limited": true,
+            "error": null
+          },
+          "tokyotoshokan": {
+            "source_id": "tokyotoshokan",
+            "status": "failed",
+            "elapsed_ms": 538,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "tomadivx": {
+            "source_id": "tomadivx",
+            "status": "failed",
+            "elapsed_ms": 1615,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status server error (523 <none>)"
+          },
+          "torlock": {
+            "source_id": "torlock",
+            "status": "failed",
+            "elapsed_ms": 475,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "torrenflix": {
+            "source_id": "torrenflix",
+            "status": "completed",
+            "elapsed_ms": 3851,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "torrent9": {
+            "source_id": "torrent9",
+            "status": "failed",
+            "elapsed_ms": 6510,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (445 status code 445)"
+          },
+          "torrentclaw": {
+            "source_id": "torrentclaw",
+            "status": "completed",
+            "elapsed_ms": 810,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "torrentdownload": {
+            "source_id": "torrentdownload",
+            "status": "completed",
+            "elapsed_ms": 614,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "torrentdownload_community_066": {
+            "source_id": "torrentdownload_community_066",
+            "status": "completed",
+            "elapsed_ms": 435,
+            "result_count": 20,
+            "limited": true,
+            "error": null
+          },
+          "torrentdownloads": {
+            "source_id": "torrentdownloads",
+            "status": "failed",
+            "elapsed_ms": 5281,
+            "result_count": 9,
+            "limited": false,
+            "error": "Invalid torrent reference"
+          },
+          "torrentgalaxy": {
+            "source_id": "torrentgalaxy",
+            "status": "failed",
+            "elapsed_ms": 84,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "torrentproject": {
+            "source_id": "torrentproject",
+            "status": "failed",
+            "elapsed_ms": 6644,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "torrentscsv": {
+            "source_id": "torrentscsv",
+            "status": "completed",
+            "elapsed_ms": 2656,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "traht": {
+            "source_id": "traht",
+            "status": "failed",
+            "elapsed_ms": 499,
+            "result_count": 0,
+            "limited": false,
+            "error": "Source returned an empty HTTP response"
+          },
+          "tsukihime": {
+            "source_id": "tsukihime",
+            "status": "completed",
+            "elapsed_ms": 522,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "uindex": {
+            "source_id": "uindex",
+            "status": "failed",
+            "elapsed_ms": 354,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "uniondht": {
+            "source_id": "uniondht",
+            "status": "failed",
+            "elapsed_ms": 8003,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "xxxclubto": {
+            "source_id": "xxxclubto",
+            "status": "completed",
+            "elapsed_ms": 409,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "yggtracker": {
+            "source_id": "yggtracker",
+            "status": "failed",
+            "elapsed_ms": 8571,
+            "result_count": 0,
+            "limited": false,
+            "error": "error sending request"
+          },
+          "yourbittorrent": {
+            "source_id": "yourbittorrent",
+            "status": "failed",
+            "elapsed_ms": 395,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTP status client error (403 Forbidden)"
+          },
+          "yts": {
+            "source_id": "yts",
+            "status": "completed",
+            "elapsed_ms": 617,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "zooqle": {
+            "source_id": "zooqle",
+            "status": "completed",
+            "elapsed_ms": 2695,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          }
+        }
+      },
+      "gained_title_matches": [
+        "therarbg"
+      ],
+      "lost_title_matches": [
+        "snowfl_community_052"
+      ]
+    },
+    "python": {
+      "before": {
+        "statuses": {
+          "timed_out": 5,
+          "completed": 39,
+          "failed": 42
+        },
+        "merged_results": 113,
+        "matching_unique": 88,
+        "matching_sources": [
+          "bitsearch",
+          "limetorrents",
+          "piratebay",
+          "snowfl_community_052",
+          "thepiratebay",
+          "thepiratebay_community_059",
+          "torrentdownload",
+          "torrentdownload_community_066",
+          "torrentdownloads"
+        ],
+        "matching_source_count": 9,
+        "source_reports": {
+          "academictorrents": {
+            "source_id": "academictorrents",
+            "status": "timed_out",
+            "elapsed_ms": 20024,
+            "result_count": 20,
+            "limited": false,
+            "error": "Source deadline exceeded"
+          },
+          "acgrip": {
+            "source_id": "acgrip",
+            "status": "completed",
+            "elapsed_ms": 811,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "ali213": {
+            "source_id": "ali213",
+            "status": "failed",
+            "elapsed_ms": 13641,
+            "result_count": 0,
+            "limited": false,
+            "error": "TimeoutError: timed out"
+          },
+          "anidex": {
+            "source_id": "anidex",
+            "status": "failed",
+            "elapsed_ms": 434,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host"
+          },
+          "animetosho": {
+            "source_id": "animetosho",
+            "status": "failed",
+            "elapsed_ms": 550,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed"
+          },
+          "animetosho_community_006": {
+            "source_id": "animetosho_community_006",
+            "status": "completed",
+            "elapsed_ms": 1287,
+            "result_count": 2,
+            "limited": false,
+            "error": null
+          },
+          "apachetorrent": {
+            "source_id": "apachetorrent",
+            "status": "completed",
+            "elapsed_ms": 1649,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "audiobookbay": {
+            "source_id": "audiobookbay",
+            "status": "failed",
+            "elapsed_ms": 1002,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error:"
+          },
+          "bitsearch": {
+            "source_id": "bitsearch",
+            "status": "timed_out",
+            "elapsed_ms": 20033,
+            "result_count": 20,
+            "limited": false,
+            "error": "Source deadline exceeded; Connection error: <none>\r\nConnection error: <none>\r\nConnection error: <none>\r\nConnection error: <none>\r\nConnection error: <none>\r\nConnection error: <none>\r\nConnection error: <none>"
+          },
+          "bt4gprx": {
+            "source_id": "bt4gprx",
+            "status": "completed",
+            "elapsed_ms": 784,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "btdig": {
+            "source_id": "btdig",
+            "status": "completed",
+            "elapsed_ms": 834,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "calidadtorrent": {
+            "source_id": "calidadtorrent",
+            "status": "failed",
+            "elapsed_ms": 481,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "cloudtorrents": {
+            "source_id": "cloudtorrents",
+            "status": "failed",
+            "elapsed_ms": 475,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>"
+          },
+          "cpasbien": {
+            "source_id": "cpasbien",
+            "status": "failed",
+            "elapsed_ms": 2123,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed"
+          },
+          "darklibria": {
+            "source_id": "darklibria",
+            "status": "failed",
+            "elapsed_ms": 782,
+            "result_count": 0,
+            "limited": false,
+            "error": "Invalid torrent reference URL; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\darklibria.py:32: SyntaxWarning: \"\\d\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\d\"? A raw string is also an option.\r\n  dt_regex = re_compile('\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}')\r\nConnection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)"
+          },
+          "divxtotal": {
+            "source_id": "divxtotal",
+            "status": "failed",
+            "elapsed_ms": 3980,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>"
+          },
+          "dmhy": {
+            "source_id": "dmhy",
+            "status": "failed",
+            "elapsed_ms": 404,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host"
+          },
+          "dmhy_community_018": {
+            "source_id": "dmhy_community_018",
+            "status": "completed",
+            "elapsed_ms": 1094,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "dodi_repacks": {
+            "source_id": "dodi_repacks",
+            "status": "failed",
+            "elapsed_ms": 468,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "dontorrent": {
+            "source_id": "dontorrent",
+            "status": "failed",
+            "elapsed_ms": 1983,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>"
+          },
+          "dontorrent_community_020": {
+            "source_id": "dontorrent_community_020",
+            "status": "failed",
+            "elapsed_ms": 4888,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>"
+          },
+          "elitetorrent": {
+            "source_id": "elitetorrent",
+            "status": "completed",
+            "elapsed_ms": 703,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "esmeraldatorrent": {
+            "source_id": "esmeraldatorrent",
+            "status": "failed",
+            "elapsed_ms": 12351,
+            "result_count": 0,
+            "limited": false,
+            "error": "TimeoutError: The read operation timed out"
+          },
+          "eztv": {
+            "source_id": "eztv",
+            "status": "failed",
+            "elapsed_ms": 836,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed"
+          },
+          "eztvx": {
+            "source_id": "eztvx",
+            "status": "completed",
+            "elapsed_ms": 586,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "fitgirl_repacks": {
+            "source_id": "fitgirl_repacks",
+            "status": "completed",
+            "elapsed_ms": 6907,
+            "result_count": 1,
+            "limited": false,
+            "error": null
+          },
+          "glotorrents": {
+            "source_id": "glotorrents",
+            "status": "failed",
+            "elapsed_ms": 12654,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)"
+          },
+          "goggames": {
+            "source_id": "goggames",
+            "status": "completed",
+            "elapsed_ms": 2064,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "jackett": {
+            "source_id": "jackett",
+            "status": "completed",
+            "elapsed_ms": 880,
+            "result_count": 1,
+            "limited": false,
+            "error": null
+          },
+          "kickasstorrents": {
+            "source_id": "kickasstorrents",
+            "status": "failed",
+            "elapsed_ms": 450,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "limetorrents": {
+            "source_id": "limetorrents",
+            "status": "completed",
+            "elapsed_ms": 2113,
+            "result_count": 20,
+            "limited": true,
+            "error": null
+          },
+          "linuxtracker": {
+            "source_id": "linuxtracker",
+            "status": "completed",
+            "elapsed_ms": 1337,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "magnetdl": {
+            "source_id": "magnetdl",
+            "status": "failed",
+            "elapsed_ms": 12836,
+            "result_count": 0,
+            "limited": false,
+            "error": "TimeoutError: The read operation timed out; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\magnetdl.py:17: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  '<td\\sclass=\"m\"><a\\shref=\"(magnet.*?)\"\\stitle=\".*?class=\"n\"><a\\shref=\"(.*?)\"\\stitle=\"(.*?)\">.*?<td\\sclass=\"t.\">.*?</td><td>.*?</td><td>(.*?)</td><td\\sclass=\"s\">(.*?)</td><td\\sclass=\"l\">(.*?)</td>')"
+          },
+          "magnetdl_community_031": {
+            "source_id": "magnetdl_community_031",
+            "status": "failed",
+            "elapsed_ms": 12395,
+            "result_count": 0,
+            "limited": false,
+            "error": "TimeoutError: The read operation timed out"
+          },
+          "maxitorrent": {
+            "source_id": "maxitorrent",
+            "status": "failed",
+            "elapsed_ms": 991,
+            "result_count": 0,
+            "limited": false,
+            "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+          },
+          "mejortorrent": {
+            "source_id": "mejortorrent",
+            "status": "failed",
+            "elapsed_ms": 2280,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "mikan": {
+            "source_id": "mikan",
+            "status": "completed",
+            "elapsed_ms": 1539,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "mikanani": {
+            "source_id": "mikanani",
+            "status": "completed",
+            "elapsed_ms": 2884,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "mypornclub": {
+            "source_id": "mypornclub",
+            "status": "failed",
+            "elapsed_ms": 320,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host"
+          },
+          "naranjatorrent": {
+            "source_id": "naranjatorrent",
+            "status": "failed",
+            "elapsed_ms": 12366,
+            "result_count": 0,
+            "limited": false,
+            "error": "TimeoutError: The read operation timed out"
+          },
+          "nekobt": {
+            "source_id": "nekobt",
+            "status": "completed",
+            "elapsed_ms": 777,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "nyaa": {
+            "source_id": "nyaa",
+            "status": "failed",
+            "elapsed_ms": 757,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\nyaa.py:32: SyntaxWarning: \"\\d\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\d\"? A raw string is also an option.\r\n  PATTERN = 'Displaying results 1-(\\d+) out of (\\d+) results'\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host"
+          },
+          "nyaapantsu": {
+            "source_id": "nyaapantsu",
+            "status": "completed",
+            "elapsed_ms": 771,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "nyaasi": {
+            "source_id": "nyaasi",
+            "status": "completed",
+            "elapsed_ms": 506,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "onlinefix": {
+            "source_id": "onlinefix",
+            "status": "failed",
+            "elapsed_ms": 1665,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "pantsu": {
+            "source_id": "pantsu",
+            "status": "failed",
+            "elapsed_ms": 740,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Not Found"
+          },
+          "pediatorrent": {
+            "source_id": "pediatorrent",
+            "status": "failed",
+            "elapsed_ms": 489,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "pediatorrent_community_043": {
+            "source_id": "pediatorrent_community_043",
+            "status": "failed",
+            "elapsed_ms": 1098,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "piratebay": {
+            "source_id": "piratebay",
+            "status": "completed",
+            "elapsed_ms": 490,
+            "result_count": 3,
+            "limited": false,
+            "error": null
+          },
+          "pirateiro": {
+            "source_id": "pirateiro",
+            "status": "completed",
+            "elapsed_ms": 728,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "redetorrent": {
+            "source_id": "redetorrent",
+            "status": "completed",
+            "elapsed_ms": 943,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "rockbox": {
+            "source_id": "rockbox",
+            "status": "failed",
+            "elapsed_ms": 12204,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: timed out"
+          },
+          "rutor": {
+            "source_id": "rutor",
+            "status": "completed",
+            "elapsed_ms": 564,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "sktorrent": {
+            "source_id": "sktorrent",
+            "status": "completed",
+            "elapsed_ms": 1722,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "smallgames": {
+            "source_id": "smallgames",
+            "status": "failed",
+            "elapsed_ms": 476,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTPError: HTTP Error 403: Forbidden; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\smallgames.py:52: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  match = re.compile('<a title=\\\"(.*?)\\\"\\shref=\\\"/.*?i=(\\d*).*?Скачать\\sигру\\s\\((.{2,11})\\)')"
+          },
+          "snowfl": {
+            "source_id": "snowfl",
+            "status": "failed",
+            "elapsed_ms": 1833,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Service Unavailable"
+          },
+          "snowfl_community_052": {
+            "source_id": "snowfl_community_052",
+            "status": "completed",
+            "elapsed_ms": 6702,
+            "result_count": 6,
+            "limited": false,
+            "error": null
+          },
+          "solidtorrents": {
+            "source_id": "solidtorrents",
+            "status": "failed",
+            "elapsed_ms": 13376,
+            "result_count": 0,
+            "limited": false,
+            "error": "TimeoutError: The read operation timed out"
+          },
+          "solidtorrents_community_053": {
+            "source_id": "solidtorrents_community_053",
+            "status": "completed",
+            "elapsed_ms": 2802,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "subsplease": {
+            "source_id": "subsplease",
+            "status": "completed",
+            "elapsed_ms": 483,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "sukebei": {
+            "source_id": "sukebei",
+            "status": "failed",
+            "elapsed_ms": 288,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host"
+          },
+          "sukebeisi": {
+            "source_id": "sukebeisi",
+            "status": "failed",
+            "elapsed_ms": 333,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host"
+          },
+          "thepiratebay": {
+            "source_id": "thepiratebay",
+            "status": "completed",
+            "elapsed_ms": 470,
+            "result_count": 3,
+            "limited": false,
+            "error": null
+          },
+          "thepiratebay_community_059": {
+            "source_id": "thepiratebay_community_059",
+            "status": "completed",
+            "elapsed_ms": 495,
+            "result_count": 3,
+            "limited": false,
+            "error": null
+          },
+          "therarbg": {
+            "source_id": "therarbg",
+            "status": "timed_out",
+            "elapsed_ms": 20012,
+            "result_count": 0,
+            "limited": false,
+            "error": "Source deadline exceeded; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-1 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-2 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-3 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-4 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-5 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-6 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-7 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-8 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-9 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-10 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-2026"
+          },
+          "tokyotoshokan": {
+            "source_id": "tokyotoshokan",
+            "status": "failed",
+            "elapsed_ms": 205,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\tokyotoshokan.py:39: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  self.get_size_regex = re_compile(\".*Size:\\s+([^ ]*)\\s+.*\")\r\n\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\tokyotoshokan.py:102: SyntaxWarning: \"\\?\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\?\"? A raw string is also an option.\r\n  additional_links = re_compile(\"\\?lastid=[0-9]+&page=[0-9]+&terms={}\".format(query.replace('%20', '\\\\+')))\r\nConnection error: [Errno 11001] getaddrinfo failed"
+          },
+          "tomadivx": {
+            "source_id": "tomadivx",
+            "status": "failed",
+            "elapsed_ms": 4871,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>"
+          },
+          "torlock": {
+            "source_id": "torlock",
+            "status": "failed",
+            "elapsed_ms": 482,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "torrenflix": {
+            "source_id": "torrenflix",
+            "status": "completed",
+            "elapsed_ms": 1547,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "torrent9": {
+            "source_id": "torrent9",
+            "status": "completed",
+            "elapsed_ms": 1602,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "torrentclaw": {
+            "source_id": "torrentclaw",
+            "status": "completed",
+            "elapsed_ms": 473,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "torrentdownload": {
+            "source_id": "torrentdownload",
+            "status": "completed",
+            "elapsed_ms": 588,
+            "result_count": 20,
+            "limited": true,
+            "error": null
+          },
+          "torrentdownload_community_066": {
+            "source_id": "torrentdownload_community_066",
+            "status": "completed",
+            "elapsed_ms": 584,
+            "result_count": 20,
+            "limited": true,
+            "error": null
+          },
+          "torrentdownloads": {
+            "source_id": "torrentdownloads",
+            "status": "timed_out",
+            "elapsed_ms": 20009,
+            "result_count": 16,
+            "limited": false,
+            "error": "Source deadline exceeded; Exception in thread Thread-2 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\torrentdownloads.py\", line 170, in threaded_search\r\n    parser.feed(retrievedHtml)\r\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^\r\n  File \"html\\parser.py\", line 187, in feed\r\n  File \"html\\parser.py\", line 281, in goahead\r\n  File \"html\\parser.py\", line 541, in parse_endtag\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\torrentdownloads.py\", line 149, in handle_endtag\r\n    prettyPrinter(self.row)\r\n    ~~~~~~~~~~~~~^^^^^^^^^^\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 98, in pretty_printer\r\n    uri = reference_uri(candidate[\"link\"])\r\n                        ~~~~~~~~~^^^^^^^^\r\nKeyError: 'link'"
+          },
+          "torrentgalaxy": {
+            "source_id": "torrentgalaxy",
+            "status": "failed",
+            "elapsed_ms": 316,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed"
+          },
+          "torrentproject": {
+            "source_id": "torrentproject",
+            "status": "failed",
+            "elapsed_ms": 13301,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)"
+          },
+          "torrentscsv": {
+            "source_id": "torrentscsv",
+            "status": "completed",
+            "elapsed_ms": 1131,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "traht": {
+            "source_id": "traht",
+            "status": "failed",
+            "elapsed_ms": 236,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed"
+          },
+          "tsukihime": {
+            "source_id": "tsukihime",
+            "status": "completed",
+            "elapsed_ms": 535,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "uindex": {
+            "source_id": "uindex",
+            "status": "completed",
+            "elapsed_ms": 431,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "uniondht": {
+            "source_id": "uniondht",
+            "status": "completed",
+            "elapsed_ms": 2191,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "xxxclubto": {
+            "source_id": "xxxclubto",
+            "status": "timed_out",
+            "elapsed_ms": 20016,
+            "result_count": 0,
+            "limited": false,
+            "error": "Source deadline exceeded; Connection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-1 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-2 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-3 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-4 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-5 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-6 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-7 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-8 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-9 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-10 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-20261017\\python\\resources\\qbit_worker.py\", line 80, in retrieve_"
+          },
+          "yggtracker": {
+            "source_id": "yggtracker",
+            "status": "failed",
+            "elapsed_ms": 546,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10051] A socket operation was attempted to an unreachable network"
+          },
+          "yourbittorrent": {
+            "source_id": "yourbittorrent",
+            "status": "failed",
+            "elapsed_ms": 208,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed"
+          },
+          "yts": {
+            "source_id": "yts",
+            "status": "completed",
+            "elapsed_ms": 1336,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "zooqle": {
+            "source_id": "zooqle",
+            "status": "completed",
+            "elapsed_ms": 891,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          }
+        }
+      },
+      "after": {
+        "statuses": {
+          "timed_out": 4,
+          "completed": 42,
+          "failed": 40
+        },
+        "merged_results": 114,
+        "matching_unique": 89,
+        "matching_sources": [
+          "bitsearch",
+          "limetorrents",
+          "piratebay",
+          "snowfl_community_052",
+          "thepiratebay",
+          "thepiratebay_community_059",
+          "torrentdownload",
+          "torrentdownload_community_066",
+          "torrentdownloads"
+        ],
+        "matching_source_count": 9,
+        "source_reports": {
+          "academictorrents": {
+            "source_id": "academictorrents",
+            "status": "timed_out",
+            "elapsed_ms": 20030,
+            "result_count": 20,
+            "limited": false,
+            "error": "Source deadline exceeded"
+          },
+          "acgrip": {
+            "source_id": "acgrip",
+            "status": "completed",
+            "elapsed_ms": 3115,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "ali213": {
+            "source_id": "ali213",
+            "status": "timed_out",
+            "elapsed_ms": 20031,
+            "result_count": 0,
+            "limited": false,
+            "error": "Source deadline exceeded"
+          },
+          "anidex": {
+            "source_id": "anidex",
+            "status": "failed",
+            "elapsed_ms": 2578,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "animetosho": {
+            "source_id": "animetosho",
+            "status": "failed",
+            "elapsed_ms": 352,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed"
+          },
+          "animetosho_community_006": {
+            "source_id": "animetosho_community_006",
+            "status": "completed",
+            "elapsed_ms": 956,
+            "result_count": 2,
+            "limited": false,
+            "error": null
+          },
+          "apachetorrent": {
+            "source_id": "apachetorrent",
+            "status": "completed",
+            "elapsed_ms": 1224,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "audiobookbay": {
+            "source_id": "audiobookbay",
+            "status": "failed",
+            "elapsed_ms": 4795,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error:"
+          },
+          "bitsearch": {
+            "source_id": "bitsearch",
+            "status": "failed",
+            "elapsed_ms": 15202,
+            "result_count": 20,
+            "limited": false,
+            "error": "Worker exceeded the result limit; Connection error: Internal Server Error\r\nConnection error: Internal Server Error\r\nConnection error: Too Many Requests\r\nConnection error: Too Many Requests\r\nConnection error: Too Many Requests\r\nConnection error: Too Many Requests\r\nConnection error: Too Many Requests\r\nConnection error: Too Many Requests"
+          },
+          "bt4gprx": {
+            "source_id": "bt4gprx",
+            "status": "completed",
+            "elapsed_ms": 985,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "btdig": {
+            "source_id": "btdig",
+            "status": "timed_out",
+            "elapsed_ms": 20018,
+            "result_count": 0,
+            "limited": false,
+            "error": "Source deadline exceeded"
+          },
+          "calidadtorrent": {
+            "source_id": "calidadtorrent",
+            "status": "failed",
+            "elapsed_ms": 439,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "cloudtorrents": {
+            "source_id": "cloudtorrents",
+            "status": "failed",
+            "elapsed_ms": 745,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>"
+          },
+          "cpasbien": {
+            "source_id": "cpasbien",
+            "status": "failed",
+            "elapsed_ms": 1191,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed"
+          },
+          "darklibria": {
+            "source_id": "darklibria",
+            "status": "failed",
+            "elapsed_ms": 12726,
+            "result_count": 0,
+            "limited": false,
+            "error": "Invalid torrent reference URL; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-vpn-20261017\\python\\resources\\qbit\\engines\\darklibria.py:32: SyntaxWarning: \"\\d\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\d\"? A raw string is also an option.\r\n  dt_regex = re_compile('\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}')\r\nConnection error: timed out"
+          },
+          "divxtotal": {
+            "source_id": "divxtotal",
+            "status": "failed",
+            "elapsed_ms": 12361,
+            "result_count": 0,
+            "limited": false,
+            "error": "TimeoutError: The read operation timed out"
+          },
+          "dmhy": {
+            "source_id": "dmhy",
+            "status": "completed",
+            "elapsed_ms": 986,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "dmhy_community_018": {
+            "source_id": "dmhy_community_018",
+            "status": "completed",
+            "elapsed_ms": 1545,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "dodi_repacks": {
+            "source_id": "dodi_repacks",
+            "status": "failed",
+            "elapsed_ms": 489,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "dontorrent": {
+            "source_id": "dontorrent",
+            "status": "failed",
+            "elapsed_ms": 12368,
+            "result_count": 0,
+            "limited": false,
+            "error": "TimeoutError: The read operation timed out"
+          },
+          "dontorrent_community_020": {
+            "source_id": "dontorrent_community_020",
+            "status": "failed",
+            "elapsed_ms": 6151,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>"
+          },
+          "elitetorrent": {
+            "source_id": "elitetorrent",
+            "status": "completed",
+            "elapsed_ms": 1333,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "esmeraldatorrent": {
+            "source_id": "esmeraldatorrent",
+            "status": "failed",
+            "elapsed_ms": 3370,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>"
+          },
+          "eztv": {
+            "source_id": "eztv",
+            "status": "failed",
+            "elapsed_ms": 675,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "eztvx": {
+            "source_id": "eztvx",
+            "status": "timed_out",
+            "elapsed_ms": 20029,
+            "result_count": 0,
+            "limited": false,
+            "error": "Source deadline exceeded; Connection error: Unauthorized"
+          },
+          "fitgirl_repacks": {
+            "source_id": "fitgirl_repacks",
+            "status": "completed",
+            "elapsed_ms": 8786,
+            "result_count": 1,
+            "limited": false,
+            "error": null
+          },
+          "glotorrents": {
+            "source_id": "glotorrents",
+            "status": "failed",
+            "elapsed_ms": 15211,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)"
+          },
+          "goggames": {
+            "source_id": "goggames",
+            "status": "completed",
+            "elapsed_ms": 495,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "jackett": {
+            "source_id": "jackett",
+            "status": "completed",
+            "elapsed_ms": 442,
+            "result_count": 1,
+            "limited": false,
+            "error": null
+          },
+          "kickasstorrents": {
+            "source_id": "kickasstorrents",
+            "status": "failed",
+            "elapsed_ms": 488,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "limetorrents": {
+            "source_id": "limetorrents",
+            "status": "completed",
+            "elapsed_ms": 1454,
+            "result_count": 20,
+            "limited": true,
+            "error": null
+          },
+          "linuxtracker": {
+            "source_id": "linuxtracker",
+            "status": "completed",
+            "elapsed_ms": 1485,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "magnetdl": {
+            "source_id": "magnetdl",
+            "status": "failed",
+            "elapsed_ms": 12569,
+            "result_count": 0,
+            "limited": false,
+            "error": "TimeoutError: The read operation timed out; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-vpn-20261017\\python\\resources\\qbit\\engines\\magnetdl.py:17: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  '<td\\sclass=\"m\"><a\\shref=\"(magnet.*?)\"\\stitle=\".*?class=\"n\"><a\\shref=\"(.*?)\"\\stitle=\"(.*?)\">.*?<td\\sclass=\"t.\">.*?</td><td>.*?</td><td>(.*?)</td><td\\sclass=\"s\">(.*?)</td><td\\sclass=\"l\">(.*?)</td>')"
+          },
+          "magnetdl_community_031": {
+            "source_id": "magnetdl_community_031",
+            "status": "failed",
+            "elapsed_ms": 12358,
+            "result_count": 0,
+            "limited": false,
+            "error": "TimeoutError: The read operation timed out"
+          },
+          "maxitorrent": {
+            "source_id": "maxitorrent",
+            "status": "failed",
+            "elapsed_ms": 3080,
+            "result_count": 0,
+            "limited": false,
+            "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+          },
+          "mejortorrent": {
+            "source_id": "mejortorrent",
+            "status": "failed",
+            "elapsed_ms": 705,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "mikan": {
+            "source_id": "mikan",
+            "status": "completed",
+            "elapsed_ms": 1040,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "mikanani": {
+            "source_id": "mikanani",
+            "status": "completed",
+            "elapsed_ms": 1182,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "mypornclub": {
+            "source_id": "mypornclub",
+            "status": "completed",
+            "elapsed_ms": 887,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "naranjatorrent": {
+            "source_id": "naranjatorrent",
+            "status": "failed",
+            "elapsed_ms": 5982,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>"
+          },
+          "nekobt": {
+            "source_id": "nekobt",
+            "status": "completed",
+            "elapsed_ms": 887,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "nyaa": {
+            "source_id": "nyaa",
+            "status": "failed",
+            "elapsed_ms": 3079,
+            "result_count": 0,
+            "limited": false,
+            "error": "AttributeError: 'NoneType' object has no attribute 'group'; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-vpn-20261017\\python\\resources\\qbit\\engines\\nyaa.py:32: SyntaxWarning: \"\\d\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\d\"? A raw string is also an option.\r\n  PATTERN = 'Displaying results 1-(\\d+) out of (\\d+) results'"
+          },
+          "nyaapantsu": {
+            "source_id": "nyaapantsu",
+            "status": "completed",
+            "elapsed_ms": 12373,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "nyaasi": {
+            "source_id": "nyaasi",
+            "status": "completed",
+            "elapsed_ms": 3007,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "onlinefix": {
+            "source_id": "onlinefix",
+            "status": "failed",
+            "elapsed_ms": 427,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "pantsu": {
+            "source_id": "pantsu",
+            "status": "failed",
+            "elapsed_ms": 532,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Not Found"
+          },
+          "pediatorrent": {
+            "source_id": "pediatorrent",
+            "status": "failed",
+            "elapsed_ms": 464,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "pediatorrent_community_043": {
+            "source_id": "pediatorrent_community_043",
+            "status": "failed",
+            "elapsed_ms": 729,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "piratebay": {
+            "source_id": "piratebay",
+            "status": "completed",
+            "elapsed_ms": 586,
+            "result_count": 3,
+            "limited": false,
+            "error": null
+          },
+          "pirateiro": {
+            "source_id": "pirateiro",
+            "status": "completed",
+            "elapsed_ms": 2681,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "redetorrent": {
+            "source_id": "redetorrent",
+            "status": "completed",
+            "elapsed_ms": 1896,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "rockbox": {
+            "source_id": "rockbox",
+            "status": "failed",
+            "elapsed_ms": 12293,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: timed out"
+          },
+          "rutor": {
+            "source_id": "rutor",
+            "status": "completed",
+            "elapsed_ms": 3982,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "sktorrent": {
+            "source_id": "sktorrent",
+            "status": "completed",
+            "elapsed_ms": 5685,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "smallgames": {
+            "source_id": "smallgames",
+            "status": "failed",
+            "elapsed_ms": 1639,
+            "result_count": 0,
+            "limited": false,
+            "error": "HTTPError: HTTP Error 403: Forbidden; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-vpn-20261017\\python\\resources\\qbit\\engines\\smallgames.py:52: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  match = re.compile('<a title=\\\"(.*?)\\\"\\shref=\\\"/.*?i=(\\d*).*?Скачать\\sигру\\s\\((.{2,11})\\)')"
+          },
+          "snowfl": {
+            "source_id": "snowfl",
+            "status": "failed",
+            "elapsed_ms": 1338,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Service Unavailable"
+          },
+          "snowfl_community_052": {
+            "source_id": "snowfl_community_052",
+            "status": "completed",
+            "elapsed_ms": 6218,
+            "result_count": 6,
+            "limited": false,
+            "error": null
+          },
+          "solidtorrents": {
+            "source_id": "solidtorrents",
+            "status": "failed",
+            "elapsed_ms": 16199,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>"
+          },
+          "solidtorrents_community_053": {
+            "source_id": "solidtorrents_community_053",
+            "status": "failed",
+            "elapsed_ms": 15190,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Internal Server Error"
+          },
+          "subsplease": {
+            "source_id": "subsplease",
+            "status": "completed",
+            "elapsed_ms": 509,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "sukebei": {
+            "source_id": "sukebei",
+            "status": "failed",
+            "elapsed_ms": 503,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Not Found"
+          },
+          "sukebeisi": {
+            "source_id": "sukebeisi",
+            "status": "completed",
+            "elapsed_ms": 2656,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "thepiratebay": {
+            "source_id": "thepiratebay",
+            "status": "completed",
+            "elapsed_ms": 488,
+            "result_count": 3,
+            "limited": false,
+            "error": null
+          },
+          "thepiratebay_community_059": {
+            "source_id": "thepiratebay_community_059",
+            "status": "completed",
+            "elapsed_ms": 820,
+            "result_count": 3,
+            "limited": false,
+            "error": null
+          },
+          "therarbg": {
+            "source_id": "therarbg",
+            "status": "completed",
+            "elapsed_ms": 2363,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "tokyotoshokan": {
+            "source_id": "tokyotoshokan",
+            "status": "failed",
+            "elapsed_ms": 883,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-vpn-20261017\\python\\resources\\qbit\\engines\\tokyotoshokan.py:39: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  self.get_size_regex = re_compile(\".*Size:\\s+([^ ]*)\\s+.*\")\r\n\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\live-paired-vpn-20261017\\python\\resources\\qbit\\engines\\tokyotoshokan.py:102: SyntaxWarning: \"\\?\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\?\"? A raw string is also an option.\r\n  additional_links = re_compile(\"\\?lastid=[0-9]+&page=[0-9]+&terms={}\".format(query.replace('%20', '\\\\+')))\r\nConnection error: Forbidden"
+          },
+          "tomadivx": {
+            "source_id": "tomadivx",
+            "status": "failed",
+            "elapsed_ms": 5055,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>"
+          },
+          "torlock": {
+            "source_id": "torlock",
+            "status": "failed",
+            "elapsed_ms": 787,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "torrenflix": {
+            "source_id": "torrenflix",
+            "status": "completed",
+            "elapsed_ms": 3763,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "torrent9": {
+            "source_id": "torrent9",
+            "status": "completed",
+            "elapsed_ms": 7593,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "torrentclaw": {
+            "source_id": "torrentclaw",
+            "status": "completed",
+            "elapsed_ms": 517,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "torrentdownload": {
+            "source_id": "torrentdownload",
+            "status": "completed",
+            "elapsed_ms": 662,
+            "result_count": 20,
+            "limited": true,
+            "error": null
+          },
+          "torrentdownload_community_066": {
+            "source_id": "torrentdownload_community_066",
+            "status": "completed",
+            "elapsed_ms": 892,
+            "result_count": 20,
+            "limited": true,
+            "error": null
+          },
+          "torrentdownloads": {
+            "source_id": "torrentdownloads",
+            "status": "completed",
+            "elapsed_ms": 16416,
+            "result_count": 20,
+            "limited": false,
+            "error": null
+          },
+          "torrentgalaxy": {
+            "source_id": "torrentgalaxy",
+            "status": "failed",
+            "elapsed_ms": 431,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed"
+          },
+          "torrentproject": {
+            "source_id": "torrentproject",
+            "status": "failed",
+            "elapsed_ms": 14581,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)"
+          },
+          "torrentscsv": {
+            "source_id": "torrentscsv",
+            "status": "completed",
+            "elapsed_ms": 2873,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "traht": {
+            "source_id": "traht",
+            "status": "failed",
+            "elapsed_ms": 842,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed"
+          },
+          "tsukihime": {
+            "source_id": "tsukihime",
+            "status": "completed",
+            "elapsed_ms": 481,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "uindex": {
+            "source_id": "uindex",
+            "status": "completed",
+            "elapsed_ms": 562,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "uniondht": {
+            "source_id": "uniondht",
+            "status": "completed",
+            "elapsed_ms": 2834,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "xxxclubto": {
+            "source_id": "xxxclubto",
+            "status": "completed",
+            "elapsed_ms": 899,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "yggtracker": {
+            "source_id": "yggtracker",
+            "status": "failed",
+            "elapsed_ms": 12709,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: timed out"
+          },
+          "yourbittorrent": {
+            "source_id": "yourbittorrent",
+            "status": "failed",
+            "elapsed_ms": 451,
+            "result_count": 0,
+            "limited": false,
+            "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+          },
+          "yts": {
+            "source_id": "yts",
+            "status": "completed",
+            "elapsed_ms": 776,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          },
+          "zooqle": {
+            "source_id": "zooqle",
+            "status": "completed",
+            "elapsed_ms": 4250,
+            "result_count": 0,
+            "limited": false,
+            "error": null
+          }
+        }
+      },
+      "gained_title_matches": [],
+      "lost_title_matches": []
+    }
+  }
+}

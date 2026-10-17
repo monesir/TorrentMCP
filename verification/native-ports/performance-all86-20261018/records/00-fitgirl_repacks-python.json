@@ -1,0 +1,28 @@
+{
+  "wall_ms": 3755.722799999603,
+  "cpu_ms": 359.375,
+  "peak_private_mib": 29.44140625,
+  "sampled_peak_working_set_mib": 72.0234375,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 1,
+  "unique_results": 1,
+  "identities": [
+    "e8a626500c470ac9d08fe01348d2a528ae01db55"
+  ],
+  "error": null,
+  "source_elapsed_ms": 3683,
+  "configuration_diagnostic": false,
+  "source": "fitgirl_repacks",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:48:36.303330+00:00",
+  "raw_report": "raw\\00-fitgirl_repacks-python.json",
+  "diagnostics": "raw\\00-fitgirl_repacks-python.stderr.log"
+}

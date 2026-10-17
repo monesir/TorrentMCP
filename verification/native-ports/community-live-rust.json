@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "query": "ubuntu",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "acgrip",
+      "status": "completed",
+      "elapsed_ms": 499,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "animetosho",
+      "status": "failed",
+      "elapsed_ms": 291,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "animetosho_community_006",
+      "status": "completed",
+      "elapsed_ms": 2292,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "cloudtorrents",
+      "status": "failed",
+      "elapsed_ms": 1883,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status server error (526 <none>)"
+    },
+    {
+      "source_id": "mikan",
+      "status": "completed",
+      "elapsed_ms": 1342,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "nyaasi",
+      "status": "completed",
+      "elapsed_ms": 491,
+      "result_count": 1,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "subsplease",
+      "status": "completed",
+      "elapsed_ms": 525,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "sukebeisi",
+      "status": "failed",
+      "elapsed_ms": 383,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "thepiratebay",
+      "status": "completed",
+      "elapsed_ms": 716,
+      "result_count": 5,
+      "limited": true,
+      "error": null
+    },
+    {
+      "source_id": "torrentclaw",
+      "status": "completed",
+      "elapsed_ms": 538,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    }
+  ],
+  "results": [
+    {
+      "title": "Ubuntu 22.04 LTS",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:2C6B6858D61DA9543D4231A71DB4B1C9264B0685&dn=Ubuntu%2022.04%20LTS&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2780%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2730%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=http%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce",
+        "info_hash_v1": "2c6b6858d61da9543d4231a71db4b1c9264b0685"
+      },
+      "observations": [
+        {
+          "source_id": "thepiratebay",
+          "title": "Ubuntu 22.04 LTS",
+          "raw_title": "Ubuntu 22.04 LTS",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=59191690",
+          "size_bytes": 3654957056,
+          "seeders": 37,
+          "leechers": 5,
+          "published_unix": null,
+          "observed_at_unix": 1792249763
+        }
+      ]
+    },
+    {
+      "title": "Clinton D., Negus C. Ubuntu Linux Bible 11ed 2025",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:232CD67EB3FFBD7C37BF9EC3EE887417E5AE1EE6&dn=Clinton%20D.%2C%20Negus%20C.%20Ubuntu%20Linux%20Bible%2011ed%202025&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2780%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2730%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=http%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce",
+        "info_hash_v1": "232cd67eb3ffbd7c37bf9ec3ee887417e5ae1ee6"
+      },
+      "observations": [
+        {
+          "source_id": "thepiratebay",
+          "title": "Clinton D., Negus C. Ubuntu Linux Bible 11ed 2025",
+          "raw_title": "Clinton D., Negus C. Ubuntu Linux Bible 11ed 2025",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=81462446",
+          "size_bytes": 8554738,
+          "seeders": 27,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792249763
+        }
+      ]
+    },
+    {
+      "title": "Linux Command Line (Hands-On) Ubuntu Linux &amp; Linux Scripting",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:C426B415D030710DF9335DAA38B2B12DBD0D48FB&dn=Linux%20Command%20Line%20%28Hands-On%29%20Ubuntu%20Linux%20%26amp%3B%20Linux%20Scripting&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2780%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2730%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=http%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce",
+        "info_hash_v1": "c426b415d030710df9335daa38b2b12dbd0d48fb"
+      },
+      "observations": [
+        {
+          "source_id": "thepiratebay",
+          "title": "Linux Command Line (Hands-On) Ubuntu Linux &amp; Linux Scripting",
+          "raw_title": "Linux Command Line (Hands-On) Ubuntu Linux &amp; Linux Scripting",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=71222161",
+          "size_bytes": 2464274774,
+          "seeders": 13,
+          "leechers": 3,
+          "published_unix": null,
+          "observed_at_unix": 1792249763
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu Linux Administration: Networking",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:BA77B012352D816702C1BAAB26F6B39660FC9B39&dn=Ubuntu%20Linux%20Administration%3A%20Networking&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2780%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2730%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=http%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce",
+        "info_hash_v1": "ba77b012352d816702c1baab26f6b39660fc9b39"
+      },
+      "observations": [
+        {
+          "source_id": "thepiratebay",
+          "title": "Ubuntu Linux Administration: Networking",
+          "raw_title": "Ubuntu Linux Administration: Networking",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=65287060",
+          "size_bytes": 298682283,
+          "seeders": 13,
+          "leechers": 1,
+          "published_unix": null,
+          "observed_at_unix": 1792249763
+        }
+      ]
+    },
+    {
+      "title": "Udemy - The Complete Ubuntu Linux Server Administration Course",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:29F629D0586EFE2F2327ECD7DBC63797437AACDE&dn=Udemy%20-%20The%20Complete%20Ubuntu%20Linux%20Server%20Administration%20Course&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2780%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2730%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=http%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce",
+        "info_hash_v1": "29f629d0586efe2f2327ecd7dbc63797437aacde"
+      },
+      "observations": [
+        {
+          "source_id": "thepiratebay",
+          "title": "Udemy - The Complete Ubuntu Linux Server Administration Course",
+          "raw_title": "Udemy - The Complete Ubuntu Linux Server Administration Course",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=23148099",
+          "size_bytes": 1112120097,
+          "seeders": 12,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792249763
+        }
+      ]
+    },
+    {
+      "title": "Koha Live CD Release 3 (3.0.4 Ubuntu 9.10 Desktop x86)",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:45008e48c8800b7d7643337b2e70a634e4c69f6a&dn=Koha%20Live%20CD%20Release%203%20%283.0.4%20Ubuntu%209.10%20Desktop%20x86%29&tr=http%3A%2F%2Fnyaa.tracker.wf%3A7777%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "info_hash_v1": "45008e48c8800b7d7643337b2e70a634e4c69f6a"
+      },
+      "observations": [
+        {
+          "source_id": "nyaasi",
+          "title": "Koha Live CD Release 3 (3.0.4 Ubuntu 9.10 Desktop x86)",
+          "raw_title": "Koha Live CD Release 3 (3.0.4 Ubuntu 9.10 Desktop x86)",
+          "site_url": "https://nyaa.si",
+          "description_url": "https://nyaa.si/view/96659",
+          "size_bytes": 654311424,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1257231780,
+          "observed_at_unix": 1792249763
+        }
+      ]
+    }
+  ]
+}

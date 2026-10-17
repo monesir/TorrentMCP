@@ -1,0 +1,206 @@
+{
+  "fixture_kind": "synthetic protocol fixtures; LimeTorrents uses captured real HTML",
+  "records": [
+    {
+      "source": "pantsu",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "pantsu",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=3_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=3_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "pantsu",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=4_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=4_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "pantsu",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=2_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=2_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "pantsu",
+      "category": "pictures",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=6_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=6_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "pantsu",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=1_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=1_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "pantsu",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=1_2&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=1_2&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "sukebei",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "sukebei",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=1_1&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=1_1&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "sukebei",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=4_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=4_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "sukebei",
+      "category": "pictures",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=1_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=1_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "sukebei",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=1_3&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=1_3&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "uindex",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?search=fixture&c=0"
+      ]
+    },
+    {
+      "source": "uindex",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?search=fixture&c=1"
+      ]
+    },
+    {
+      "source": "uindex",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?search=fixture&c=2"
+      ]
+    },
+    {
+      "source": "uindex",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?search=fixture&c=3"
+      ]
+    },
+    {
+      "source": "uindex",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?search=fixture&c=4"
+      ]
+    },
+    {
+      "source": "uindex",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?search=fixture&c=5"
+      ]
+    },
+    {
+      "source": "uindex",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?search=fixture&c=7"
+      ]
+    },
+    {
+      "source": "uniondht",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/tracker.php?nm=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&start=0"
+      ]
+    }
+  ],
+  "no_python_native": true,
+  "result_limits_passed": true,
+  "http_errors_passed": true,
+  "partial_results_passed": true,
+  "malformed_json_passed": true,
+  "empty_success_passed": true,
+  "challenge_detection_passed": true,
+  "deadline_passed": true,
+  "executable_sha256": "24bf92709b9143773e950275831c7e3c3db332f1ed4bb8a1b9fa4565135018b2"
+}

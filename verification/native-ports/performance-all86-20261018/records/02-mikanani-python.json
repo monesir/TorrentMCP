@@ -1,0 +1,26 @@
+{
+  "wall_ms": 1499.703400000726,
+  "cpu_ms": 953.125,
+  "peak_private_mib": 36.46484375,
+  "sampled_peak_working_set_mib": 76.83203125,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 1356,
+  "configuration_diagnostic": false,
+  "source": "mikanani",
+  "backend": "python",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:02:18.424656+00:00",
+  "raw_report": "raw\\02-mikanani-python.json",
+  "diagnostics": "raw\\02-mikanani-python.stderr.log"
+}

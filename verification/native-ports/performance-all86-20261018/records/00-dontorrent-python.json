@@ -1,0 +1,26 @@
+{
+  "wall_ms": 6253.582000000279,
+  "cpu_ms": 250.0,
+  "peak_private_mib": 27.84765625,
+  "sampled_peak_working_set_mib": 70.34375,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>",
+  "source_elapsed_ms": 6189,
+  "configuration_diagnostic": false,
+  "source": "dontorrent",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:44:25.935925+00:00",
+  "raw_report": "raw\\00-dontorrent-python.json",
+  "diagnostics": "raw\\00-dontorrent-python.stderr.log"
+}

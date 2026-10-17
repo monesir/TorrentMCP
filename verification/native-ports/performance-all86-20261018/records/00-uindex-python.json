@@ -1,0 +1,26 @@
+{
+  "wall_ms": 534.1998000003514,
+  "cpu_ms": 296.875,
+  "peak_private_mib": 24.6875,
+  "sampled_peak_working_set_mib": 61.94921875,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 472,
+  "configuration_diagnostic": false,
+  "source": "uindex",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:45:57.704435+00:00",
+  "raw_report": "raw\\00-uindex-python.json",
+  "diagnostics": "raw\\00-uindex-python.stderr.log"
+}

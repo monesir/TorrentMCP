@@ -1,0 +1,25 @@
+{
+  "wall_ms": 84.91810000032274,
+  "cpu_ms": 62.5,
+  "peak_private_mib": 4.9453125,
+  "sampled_peak_working_set_mib": 21.51171875,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "error sending request",
+  "source_elapsed_ms": 20,
+  "configuration_diagnostic": false,
+  "source": "tokyotoshokan",
+  "backend": "rust",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:45:38.466731+00:00",
+  "raw_report": "raw\\00-tokyotoshokan-rust.json",
+  "diagnostics": "raw\\00-tokyotoshokan-rust.stderr.log"
+}

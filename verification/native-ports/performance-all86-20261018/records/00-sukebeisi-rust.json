@@ -1,0 +1,25 @@
+{
+  "wall_ms": 184.98600000020815,
+  "cpu_ms": 78.125,
+  "peak_private_mib": 5.1484375,
+  "sampled_peak_working_set_mib": 21.98046875,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "error sending request",
+  "source_elapsed_ms": 125,
+  "configuration_diagnostic": false,
+  "source": "sukebeisi",
+  "backend": "rust",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:45:27.086312+00:00",
+  "raw_report": "raw\\00-sukebeisi-rust.json",
+  "diagnostics": "raw\\00-sukebeisi-rust.stderr.log"
+}

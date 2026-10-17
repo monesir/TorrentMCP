@@ -1,0 +1,26 @@
+{
+  "wall_ms": 2717.945200000031,
+  "cpu_ms": 453.125,
+  "peak_private_mib": 27.75390625,
+  "sampled_peak_working_set_mib": 70.42578125,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>",
+  "source_elapsed_ms": 2630,
+  "configuration_diagnostic": false,
+  "source": "esmeraldatorrent",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:53:41.331531+00:00",
+  "raw_report": "raw\\01-esmeraldatorrent-python.json",
+  "diagnostics": "raw\\01-esmeraldatorrent-python.stderr.log"
+}

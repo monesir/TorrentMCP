@@ -1,0 +1,61 @@
+{
+  "query": "nirvana in fire",
+  "coverage_verified": true,
+  "public_sources": 86,
+  "settings": {
+    "timeout": 20,
+    "limit": 20,
+    "parallel": 6,
+    "category": "all"
+  },
+  "backends": {
+    "rust": {
+      "statuses": {
+        "completed": 35,
+        "failed": 51
+      },
+      "merged_results": 79,
+      "matching_unique": 55,
+      "matching_sources": [
+        "limetorrents",
+        "piratebay",
+        "snowfl",
+        "snowfl_community_052",
+        "thepiratebay",
+        "thepiratebay_community_059",
+        "torrentdownload_community_066",
+        "torrentdownloads"
+      ],
+      "matching_source_count": 8,
+      "unrelated_unique": 24,
+      "diagnostic_rows": 0,
+      "wall_seconds": 34.762
+    },
+    "python": {
+      "statuses": {
+        "timed_out": 5,
+        "completed": 39,
+        "failed": 42
+      },
+      "merged_results": 113,
+      "matching_unique": 88,
+      "matching_sources": [
+        "bitsearch",
+        "limetorrents",
+        "piratebay",
+        "snowfl_community_052",
+        "thepiratebay",
+        "thepiratebay_community_059",
+        "torrentdownload",
+        "torrentdownload_community_066",
+        "torrentdownloads"
+      ],
+      "matching_source_count": 9,
+      "unrelated_unique": 24,
+      "diagnostic_rows": 1,
+      "wall_seconds": 60.346
+    }
+  },
+  "title_matching": "Advisory matching for Nirvana in Fire / Lang Ya Bang / 琅琊榜; no torrent payload verification.",
+  "jackett_note": "Python produced an API-key error row containing the query; excluded from relevant results. Jackett is not configured in either backend."
+}

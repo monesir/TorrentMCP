@@ -1,0 +1,26 @@
+{
+  "wall_ms": 13206.314899998688,
+  "cpu_ms": 875.0,
+  "peak_private_mib": 26.7109375,
+  "sampled_peak_working_set_mib": 70.15234375,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "TimeoutError: The read operation timed out",
+  "source_elapsed_ms": 13066,
+  "configuration_diagnostic": false,
+  "source": "solidtorrents",
+  "backend": "python",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:05:18.500236+00:00",
+  "raw_report": "raw\\02-solidtorrents-python.json",
+  "diagnostics": "raw\\02-solidtorrents-python.stderr.log"
+}

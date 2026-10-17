@@ -1,0 +1,25 @@
+{
+  "wall_ms": 12123.47039999986,
+  "cpu_ms": 203.125,
+  "peak_private_mib": 6.578125,
+  "sampled_peak_working_set_mib": 28.625,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "error sending request",
+  "source_elapsed_ms": 12001,
+  "configuration_diagnostic": false,
+  "source": "naranjatorrent",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:00:08.630533+00:00",
+  "raw_report": "raw\\02-naranjatorrent-rust.json",
+  "diagnostics": "raw\\02-naranjatorrent-rust.stderr.log"
+}

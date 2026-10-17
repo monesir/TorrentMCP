@@ -1,0 +1,11 @@
+{
+  "phase": "completed_with_measurement_failures",
+  "pid": 11800,
+  "expected_measurements": 4,
+  "completed_measurements": 4,
+  "updated_utc": "2026-10-17T22:41:50.993122+00:00",
+  "current": null,
+  "completed_utc": "2026-10-17T22:41:51.019161+00:00",
+  "measurement_failures": 2,
+  "sources_with_comparable_trials": 0
+}

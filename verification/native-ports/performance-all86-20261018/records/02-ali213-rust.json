@@ -1,0 +1,25 @@
+{
+  "wall_ms": 4744.385300000431,
+  "cpu_ms": 328.125,
+  "peak_private_mib": 9.17578125,
+  "sampled_peak_working_set_mib": 31.16015625,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 4590,
+  "configuration_diagnostic": false,
+  "source": "ali213",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:03:58.129130+00:00",
+  "raw_report": "raw\\02-ali213-rust.json",
+  "diagnostics": "raw\\02-ali213-rust.stderr.log"
+}

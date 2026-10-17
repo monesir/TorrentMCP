@@ -1,0 +1,26 @@
+{
+  "wall_ms": 1797.1037000006618,
+  "cpu_ms": 609.375,
+  "peak_private_mib": 27.21875,
+  "sampled_peak_working_set_mib": 70.12890625,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 1665,
+  "configuration_diagnostic": false,
+  "source": "dmhy_community_018",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:57:20.640279+00:00",
+  "raw_report": "raw\\01-dmhy_community_018-python.json",
+  "diagnostics": "raw\\01-dmhy_community_018-python.stderr.log"
+}

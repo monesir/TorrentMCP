@@ -1,0 +1,32 @@
+{
+  "query": "nirvana in fire",
+  "sources": 86,
+  "timeout": 20,
+  "limit": 20,
+  "parallel": 6,
+  "started_utc": "2026-10-17T17:33:19.783294+00:00",
+  "executable_sha256": "6682cf437a9b58e465e9d46f7ec28784426e96500203a17abeb42a649d170bd9",
+  "phase": "completed",
+  "backends": {
+    "rust": {
+      "exit_code": 3,
+      "wall_seconds": 34.762,
+      "statuses": {
+        "completed": 35,
+        "failed": 51
+      },
+      "merged_results": 79
+    },
+    "python": {
+      "exit_code": 3,
+      "wall_seconds": 60.346,
+      "statuses": {
+        "timed_out": 5,
+        "completed": 39,
+        "failed": 42
+      },
+      "merged_results": 113
+    }
+  },
+  "completed_utc": "2026-10-17T17:34:55.446044+00:00"
+}

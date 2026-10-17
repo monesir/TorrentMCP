@@ -1,0 +1,26 @@
+{
+  "wall_ms": 594.6415999997043,
+  "cpu_ms": 281.25,
+  "peak_private_mib": 24.671875,
+  "sampled_peak_working_set_mib": 61.7890625,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden",
+  "source_elapsed_ms": 506,
+  "configuration_diagnostic": false,
+  "source": "pediatorrent_community_043",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:51:02.683689+00:00",
+  "raw_report": "raw\\01-pediatorrent_community_043-python.json",
+  "diagnostics": "raw\\01-pediatorrent_community_043-python.stderr.log"
+}

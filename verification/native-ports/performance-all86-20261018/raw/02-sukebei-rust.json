@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "sukebei",
+      "status": "failed",
+      "elapsed_ms": 151,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    }
+  ],
+  "results": []
+}

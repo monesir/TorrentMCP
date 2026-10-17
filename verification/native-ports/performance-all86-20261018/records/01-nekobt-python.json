@@ -1,0 +1,26 @@
+{
+  "wall_ms": 1173.8853000006202,
+  "cpu_ms": 703.125,
+  "peak_private_mib": 26.71875,
+  "sampled_peak_working_set_mib": 69.90625,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 1044,
+  "configuration_diagnostic": false,
+  "source": "nekobt",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:57:25.005624+00:00",
+  "raw_report": "raw\\01-nekobt-python.json",
+  "diagnostics": "raw\\01-nekobt-python.stderr.log"
+}

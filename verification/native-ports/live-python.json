@@ -1,0 +1,1286 @@
+{
+  "schema_version": 1,
+  "query": "ubuntu",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "eztv",
+      "status": "failed",
+      "elapsed_ms": 228,
+      "result_count": 0,
+      "limited": false,
+      "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed"
+    },
+    {
+      "source_id": "limetorrents",
+      "status": "completed",
+      "elapsed_ms": 1039,
+      "result_count": 20,
+      "limited": true,
+      "error": null
+    },
+    {
+      "source_id": "piratebay",
+      "status": "completed",
+      "elapsed_ms": 612,
+      "result_count": 20,
+      "limited": true,
+      "error": null
+    },
+    {
+      "source_id": "solidtorrents",
+      "status": "failed",
+      "elapsed_ms": 1074,
+      "result_count": 0,
+      "limited": false,
+      "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Internal Server Error"
+    },
+    {
+      "source_id": "torlock",
+      "status": "failed",
+      "elapsed_ms": 437,
+      "result_count": 0,
+      "limited": false,
+      "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+    },
+    {
+      "source_id": "torrentproject",
+      "status": "failed",
+      "elapsed_ms": 719,
+      "result_count": 0,
+      "limited": false,
+      "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)"
+    },
+    {
+      "source_id": "torrentscsv",
+      "status": "completed",
+      "elapsed_ms": 477,
+      "result_count": 20,
+      "limited": true,
+      "error": null
+    }
+  ],
+  "results": [
+    {
+      "title": "Ubuntu 12 10 Server 64 Bit",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-12-10-Server-64-Bit-torrent-3465643.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 12 10 Server 64 Bit",
+          "raw_title": "Ubuntu 12 10 Server 64 Bit",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-12-10-Server-64-Bit-torrent-3465643.html",
+          "size_bytes": 26549944,
+          "seeders": 1413,
+          "leechers": 34,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 11 10 Alternate Amd64 Iso",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-11-10-Alternate-Amd64-Iso-torrent-3179061.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 11 10 Alternate Amd64 Iso",
+          "raw_title": "Ubuntu 11 10 Alternate Amd64 Iso",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-11-10-Alternate-Amd64-Iso-torrent-3179061.html",
+          "size_bytes": 25585254,
+          "seeders": 1390,
+          "leechers": 22,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-11-04-Desktop-Dvd-Amd64-X64-Iso-torrent-3138084.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+          "raw_title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-11-04-Desktop-Dvd-Amd64-X64-Iso-torrent-3138084.html",
+          "size_bytes": 25637683,
+          "seeders": 1375,
+          "leechers": 29,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-11-04-Desktop-Dvd-Amd64-X64-Iso-torrent-3480641.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+          "raw_title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-11-04-Desktop-Dvd-Amd64-X64-Iso-torrent-3480641.html",
+          "size_bytes": 26780631,
+          "seeders": 1324,
+          "leechers": 26,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 12 10 Desktop Amd64",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-12-10-Desktop-Amd64-torrent-3537239.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 12 10 Desktop Amd64",
+          "raw_title": "Ubuntu 12 10 Desktop Amd64",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-12-10-Desktop-Amd64-torrent-3537239.html",
+          "size_bytes": 25794970,
+          "seeders": 1320,
+          "leechers": 52,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-11-04-Desktop-Dvd-Amd64-X64-Iso-torrent-3180599.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+          "raw_title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-11-04-Desktop-Dvd-Amd64-X64-Iso-torrent-3180599.html",
+          "size_bytes": 25690112,
+          "seeders": 1303,
+          "leechers": 22,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 11 10 Alternate Amd64 Iso",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-11-10-Alternate-Amd64-Iso-torrent-3417631.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 11 10 Alternate Amd64 Iso",
+          "raw_title": "Ubuntu 11 10 Alternate Amd64 Iso",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-11-10-Alternate-Amd64-Iso-torrent-3417631.html",
+          "size_bytes": 24599593,
+          "seeders": 1303,
+          "leechers": 41,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-11-04-Desktop-Dvd-Amd64-X64-Iso-torrent-3527122.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+          "raw_title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-11-04-Desktop-Dvd-Amd64-X64-Iso-torrent-3527122.html",
+          "size_bytes": 26854031,
+          "seeders": 1300,
+          "leechers": 61,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 12 10 Server I386",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-12-10-Server-I386-torrent-3147068.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 12 10 Server I386",
+          "raw_title": "Ubuntu 12 10 Server I386",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-12-10-Server-I386-torrent-3147068.html",
+          "size_bytes": 25742541,
+          "seeders": 1298,
+          "leechers": 14,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 12 10 Server I386",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-12-10-Server-I386-torrent-3147057.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 12 10 Server I386",
+          "raw_title": "Ubuntu 12 10 Server I386",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-12-10-Server-I386-torrent-3147057.html",
+          "size_bytes": 25648169,
+          "seeders": 1285,
+          "leechers": 22,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 11 10 Server Amd64 Iso",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-11-10-Server-Amd64-Iso-torrent-3176681.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 11 10 Server Amd64 Iso",
+          "raw_title": "Ubuntu 11 10 Server Amd64 Iso",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-11-10-Server-Amd64-Iso-torrent-3176681.html",
+          "size_bytes": 25637683,
+          "seeders": 1276,
+          "leechers": 5,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 12 10 Desktop Amd64",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-12-10-Desktop-Amd64-torrent-3143926.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 12 10 Desktop Amd64",
+          "raw_title": "Ubuntu 12 10 Desktop Amd64",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-12-10-Desktop-Amd64-torrent-3143926.html",
+          "size_bytes": 25616712,
+          "seeders": 1256,
+          "leechers": 17,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 11 10 Alternate Amd64 Iso",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-11-10-Alternate-Amd64-Iso-torrent-3619252.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 11 10 Alternate Amd64 Iso",
+          "raw_title": "Ubuntu 11 10 Alternate Amd64 Iso",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-11-10-Alternate-Amd64-Iso-torrent-3619252.html",
+          "size_bytes": 26235372,
+          "seeders": 1249,
+          "leechers": 55,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 12 10 Desktop Amd64",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-12-10-Desktop-Amd64-torrent-3131878.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 12 10 Desktop Amd64",
+          "raw_title": "Ubuntu 12 10 Desktop Amd64",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-12-10-Desktop-Amd64-torrent-3131878.html",
+          "size_bytes": 25501368,
+          "seeders": 1243,
+          "leechers": 37,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-11-04-Desktop-Dvd-Amd64-X64-Iso-torrent-3154982.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+          "raw_title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-11-04-Desktop-Dvd-Amd64-X64-Iso-torrent-3154982.html",
+          "size_bytes": 25763512,
+          "seeders": 1239,
+          "leechers": 11,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 11 10 Desktop I386 Iso",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-11-10-Desktop-I386-Iso-torrent-3147430.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 11 10 Desktop I386 Iso",
+          "raw_title": "Ubuntu 11 10 Desktop I386 Iso",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-11-10-Desktop-I386-Iso-torrent-3147430.html",
+          "size_bytes": 25564283,
+          "seeders": 1212,
+          "leechers": 20,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 12 10 Server 64 Bit",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-12-10-Server-64-Bit-torrent-3581312.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 12 10 Server 64 Bit",
+          "raw_title": "Ubuntu 12 10 Server 64 Bit",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-12-10-Server-64-Bit-torrent-3581312.html",
+          "size_bytes": 24935137,
+          "seeders": 1179,
+          "leechers": 69,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 12 10 Desktop i386",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-12-10-Desktop-i386-torrent-2728634.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 12 10 Desktop i386",
+          "raw_title": "Ubuntu 12 10 Desktop i386",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-12-10-Desktop-i386-torrent-2728634.html",
+          "size_bytes": 774383862,
+          "seeders": 1172,
+          "leechers": 30,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 12 10 Server 64 Bit",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-12-10-Server-64-Bit-torrent-3147286.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 12 10 Server 64 Bit",
+          "raw_title": "Ubuntu 12 10 Server 64 Bit",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-12-10-Server-64-Bit-torrent-3147286.html",
+          "size_bytes": 25753027,
+          "seeders": 1167,
+          "leechers": 30,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Ubuntu-11-04-Desktop-Dvd-Amd64-X64-Iso-torrent-3412853.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+          "raw_title": "Ubuntu 11 04 Desktop Dvd Amd64 X64 Iso",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Ubuntu-11-04-Desktop-Dvd-Amd64-X64-Iso-torrent-3412853.html",
+          "size_bytes": 152232264,
+          "seeders": 154,
+          "leechers": 49,
+          "published_unix": 1760712319,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 22.04 LTS",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:2C6B6858D61DA9543D4231A71DB4B1C9264B0685&dn=Ubuntu+22.04+LTS&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "2c6b6858d61da9543d4231a71db4b1c9264b0685"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Ubuntu 22.04 LTS",
+          "raw_title": "Ubuntu 22.04 LTS",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=59191690",
+          "size_bytes": 3654957056,
+          "seeders": 37,
+          "leechers": 5,
+          "published_unix": 1652877231,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Clinton D., Negus C. Ubuntu Linux Bible 11ed 2025",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:232CD67EB3FFBD7C37BF9EC3EE887417E5AE1EE6&dn=Clinton+D.%2C+Negus+C.+Ubuntu+Linux+Bible+11ed+2025&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "232cd67eb3ffbd7c37bf9ec3ee887417e5ae1ee6"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Clinton D., Negus C. Ubuntu Linux Bible 11ed 2025",
+          "raw_title": "Clinton D., Negus C. Ubuntu Linux Bible 11ed 2025",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=81462446",
+          "size_bytes": 8554738,
+          "seeders": 27,
+          "leechers": 0,
+          "published_unix": 1765526528,
+          "observed_at_unix": 1792248319
+        },
+        {
+          "source_id": "torrentscsv",
+          "title": "Clinton D., Negus C. Ubuntu Linux Bible 11ed 2025",
+          "raw_title": "Clinton D., Negus C. Ubuntu Linux Bible 11ed 2025",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 8554738,
+          "seeders": 27,
+          "leechers": 0,
+          "published_unix": 1784214068,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Udemy - The Complete Ubuntu Linux Server Administration Course",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:29F629D0586EFE2F2327ECD7DBC63797437AACDE&dn=Udemy+-+The+Complete+Ubuntu+Linux+Server+Administration+Course&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "29f629d0586efe2f2327ecd7dbc63797437aacde"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Udemy - The Complete Ubuntu Linux Server Administration Course",
+          "raw_title": "Udemy - The Complete Ubuntu Linux Server Administration Course",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=23148099",
+          "size_bytes": 1112120097,
+          "seeders": 12,
+          "leechers": 0,
+          "published_unix": 1531492876,
+          "observed_at_unix": 1792248319
+        },
+        {
+          "source_id": "torrentscsv",
+          "title": "Udemy - The Complete Ubuntu Linux Server Administration Course",
+          "raw_title": "Udemy - The Complete Ubuntu Linux Server Administration Course",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 1112120097,
+          "seeders": 23,
+          "leechers": 0,
+          "published_unix": 1531492876,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Linux Command Line (Hands-On) Ubuntu Linux & Linux Scripting",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:C426B415D030710DF9335DAA38B2B12DBD0D48FB&dn=Linux+Command+Line+%28Hands-On%29+Ubuntu+Linux+%26+Linux+Scripting&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "c426b415d030710df9335daa38b2b12dbd0d48fb"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Linux Command Line (Hands-On) Ubuntu Linux & Linux Scripting",
+          "raw_title": "Linux Command Line (Hands-On) Ubuntu Linux & Linux Scripting",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=71222161",
+          "size_bytes": 2464274774,
+          "seeders": 13,
+          "leechers": 3,
+          "published_unix": 1691981536,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "The Ultimate Ubuntu Handbook A complete guide to Ubuntu 24.04 (True PDF)",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:c9bc96d23542e5430f6bf8232b402a85172ca28b&dn=The+Ultimate+Ubuntu+Handbook+A+complete+guide+to+Ubuntu+24.04+%28True+PDF%29&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "c9bc96d23542e5430f6bf8232b402a85172ca28b"
+      },
+      "observations": [
+        {
+          "source_id": "torrentscsv",
+          "title": "The Ultimate Ubuntu Handbook A complete guide to Ubuntu 24.04 (True PDF)",
+          "raw_title": "The Ultimate Ubuntu Handbook A complete guide to Ubuntu 24.04 (True PDF)",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 11513822,
+          "seeders": 13,
+          "leechers": 2,
+          "published_unix": 1788238728,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu Linux Administration: Networking",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:BA77B012352D816702C1BAAB26F6B39660FC9B39&dn=Ubuntu+Linux+Administration%3A+Networking&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "ba77b012352d816702c1baab26f6b39660fc9b39"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Ubuntu Linux Administration: Networking",
+          "raw_title": "Ubuntu Linux Administration: Networking",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=65287060",
+          "size_bytes": 298682283,
+          "seeders": 13,
+          "leechers": 1,
+          "published_unix": 1673585163,
+          "observed_at_unix": 1792248319
+        },
+        {
+          "source_id": "torrentscsv",
+          "title": "Ubuntu Linux Administration: Networking",
+          "raw_title": "Ubuntu Linux Administration: Networking",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 298682283,
+          "seeders": 8,
+          "leechers": 3,
+          "published_unix": 1673585163,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu Linux Bible 11E by David Clinton (epub)(Nonfiction).epub",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:45bb7b3ac77116ef4e7ec743e2a8319caddf87b1&dn=Ubuntu+Linux+Bible+11E+by+David+Clinton+%28epub%29%28Nonfiction%29.epub&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "45bb7b3ac77116ef4e7ec743e2a8319caddf87b1"
+      },
+      "observations": [
+        {
+          "source_id": "torrentscsv",
+          "title": "Ubuntu Linux Bible 11E by David Clinton (epub)(Nonfiction).epub",
+          "raw_title": "Ubuntu Linux Bible 11E by David Clinton (epub)(Nonfiction).epub",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 8488590,
+          "seeders": 10,
+          "leechers": 0,
+          "published_unix": 1790830045,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "LaCroix J. Mastering Ubuntu Server...Linux Server...4ed 2022",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:D2E30F9D9759F618F9A5E1B7243A80BCC5CC0761&dn=LaCroix+J.+Mastering+Ubuntu+Server...Linux+Server...4ed+2022&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "d2e30f9d9759f618f9a5e1b7243a80bcc5cc0761"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "LaCroix J. Mastering Ubuntu Server...Linux Server...4ed 2022",
+          "raw_title": "LaCroix J. Mastering Ubuntu Server...Linux Server...4ed 2022",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=62608908",
+          "size_bytes": 23640927,
+          "seeders": 5,
+          "leechers": 0,
+          "published_unix": 1664093844,
+          "observed_at_unix": 1792248319
+        },
+        {
+          "source_id": "torrentscsv",
+          "title": "LaCroix J. Mastering Ubuntu Server...Linux Server...4ed 2022",
+          "raw_title": "LaCroix J. Mastering Ubuntu Server...Linux Server...4ed 2022",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 23640927,
+          "seeders": 9,
+          "leechers": 0,
+          "published_unix": 1664093844,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Linux Ubuntu System Administration",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:7F1FB6EA6582D26DC1DEDE2918555115C15E379A&dn=Linux+Ubuntu+System+Administration&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "7f1fb6ea6582d26dc1dede2918555115c15e379a"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Linux Ubuntu System Administration",
+          "raw_title": "Linux Ubuntu System Administration",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=60699969",
+          "size_bytes": 2747029803,
+          "seeders": 9,
+          "leechers": 1,
+          "published_unix": 1657946886,
+          "observed_at_unix": 1792248319
+        },
+        {
+          "source_id": "torrentscsv",
+          "title": "Linux Ubuntu System Administration",
+          "raw_title": "Linux Ubuntu System Administration",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 2747029803,
+          "seeders": 6,
+          "leechers": 1,
+          "published_unix": 1657946886,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Mastering Ubuntu Server, 3rd Edition",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:22B8F63218F1E726EC2F1FB9B38239F95FC6A629&dn=Mastering+Ubuntu+Server%2C+3rd+Edition&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "22b8f63218f1e726ec2f1fb9b38239f95fc6a629"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Mastering Ubuntu Server, 3rd Edition",
+          "raw_title": "Mastering Ubuntu Server, 3rd Edition",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=39481492",
+          "size_bytes": 20501290,
+          "seeders": 9,
+          "leechers": 0,
+          "published_unix": 1609604656,
+          "observed_at_unix": 1792248319
+        },
+        {
+          "source_id": "torrentscsv",
+          "title": "Mastering Ubuntu Server, 3rd Edition",
+          "raw_title": "Mastering Ubuntu Server, 3rd Edition",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 20501290,
+          "seeders": 4,
+          "leechers": 0,
+          "published_unix": 1609604656,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "VanDine K. The Ultimate Ubuntu Handbook. A complete guide to Ubuntu 24.04,..2025",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:7B6CAE55DB21441F06EA00A25C2A21E11752EEE2&dn=VanDine+K.+The+Ultimate+Ubuntu+Handbook.+A+complete+guide+to+Ubuntu+24.04%2C..2025&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "7b6cae55db21441f06ea00a25c2a21e11752eee2"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "VanDine K. The Ultimate Ubuntu Handbook. A complete guide to Ubuntu 24.04,..2025",
+          "raw_title": "VanDine K. The Ultimate Ubuntu Handbook. A complete guide to Ubuntu 24.04,..2025",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=80062964",
+          "size_bytes": 11526650,
+          "seeders": 6,
+          "leechers": 0,
+          "published_unix": 1754304670,
+          "observed_at_unix": 1792248319
+        },
+        {
+          "source_id": "torrentscsv",
+          "title": "VanDine K. The Ultimate Ubuntu Handbook. A complete guide to Ubuntu 24.04,..2025",
+          "raw_title": "VanDine K. The Ultimate Ubuntu Handbook. A complete guide to Ubuntu 24.04,..2025",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 11526650,
+          "seeders": 8,
+          "leechers": 0,
+          "published_unix": 1756711018,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu MATE 16.04.6 LTS desktop amd64",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:54004A7A4119358D61E4DC98DB2785C936F0DE60&dn=Ubuntu+MATE+16.04.6+LTS+desktop+amd64&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "54004a7a4119358d61e4dc98db2785c936f0de60"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Ubuntu MATE 16.04.6 LTS desktop amd64",
+          "raw_title": "Ubuntu MATE 16.04.6 LTS desktop amd64",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=31063736",
+          "size_bytes": 1781137408,
+          "seeders": 7,
+          "leechers": 0,
+          "published_unix": 1554129476,
+          "observed_at_unix": 1792248319
+        },
+        {
+          "source_id": "torrentscsv",
+          "title": "Ubuntu MATE 16.04.6 LTS desktop amd64",
+          "raw_title": "Ubuntu MATE 16.04.6 LTS desktop amd64",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 1781137408,
+          "seeders": 6,
+          "leechers": 0,
+          "published_unix": 1554129476,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Hardening Ubuntu Server",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:07DA867F2C85BB15370DB3F760BA8780C1FE7B71&dn=Hardening+Ubuntu+Server&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "07da867f2c85bb15370db3f760ba8780c1fe7b71"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Hardening Ubuntu Server",
+          "raw_title": "Hardening Ubuntu Server",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=61447710",
+          "size_bytes": 455848601,
+          "seeders": 6,
+          "leechers": 1,
+          "published_unix": 1660191969,
+          "observed_at_unix": 1792248319
+        },
+        {
+          "source_id": "torrentscsv",
+          "title": "Hardening Ubuntu Server",
+          "raw_title": "Hardening Ubuntu Server",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 455848601,
+          "seeders": 4,
+          "leechers": 1,
+          "published_unix": 1660191969,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 21.10 Desktop (64-bit)",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:F1FCDC1462D36530F526C1D9402EEC9100B7BA18&dn=Ubuntu+21.10+Desktop+%2864-bit%29&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "f1fcdc1462d36530f526c1d9402eec9100b7ba18"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Ubuntu 21.10 Desktop (64-bit)",
+          "raw_title": "Ubuntu 21.10 Desktop (64-bit)",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=54358176",
+          "size_bytes": 3116482560,
+          "seeders": 6,
+          "leechers": 0,
+          "published_unix": 1637923506,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu desktop 19.04 (64bit)",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:D540FC48EB12F2833163EED6421D449DD8F1CE1F&dn=Ubuntu+desktop+19.04+%2864bit%29&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "d540fc48eb12f2833163eed6421d449dd8f1ce1f"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Ubuntu desktop 19.04 (64bit)",
+          "raw_title": "Ubuntu desktop 19.04 (64bit)",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=34348921",
+          "size_bytes": 2097152000,
+          "seeders": 6,
+          "leechers": 0,
+          "published_unix": 1566296214,
+          "observed_at_unix": 1792248319
+        },
+        {
+          "source_id": "torrentscsv",
+          "title": "Ubuntu desktop 19.04 (64bit)",
+          "raw_title": "Ubuntu desktop 19.04 (64bit)",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 2097152000,
+          "seeders": 4,
+          "leechers": 1,
+          "published_unix": 1566296214,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "ubuntu-12.10-server-armhf+omap4.img",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:d03ac544d6991dd1a29450b6adbff33477f3ab2d&dn=ubuntu-12.10-server-armhf%2Bomap4.img&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "d03ac544d6991dd1a29450b6adbff33477f3ab2d"
+      },
+      "observations": [
+        {
+          "source_id": "torrentscsv",
+          "title": "ubuntu-12.10-server-armhf+omap4.img",
+          "raw_title": "ubuntu-12.10-server-armhf+omap4.img",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 761102336,
+          "seeders": 6,
+          "leechers": 0,
+          "published_unix": 1679805346,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Aerial Africa Series 1 2of6 Spirit of Ubuntu 1080p x264 AAC HDTV",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:F33CA2C8A4255B223005E90548142E94487D1E0F&dn=Aerial+Africa+Series+1+2of6+Spirit+of+Ubuntu+1080p+x264+AAC+HDTV&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "f33ca2c8a4255b223005e90548142e94487d1e0f"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Aerial Africa Series 1 2of6 Spirit of Ubuntu 1080p x264 AAC HDTV",
+          "raw_title": "Aerial Africa Series 1 2of6 Spirit of Ubuntu 1080p x264 AAC HDTV",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=27378352",
+          "size_bytes": 1615532575,
+          "seeders": 5,
+          "leechers": 0,
+          "published_unix": 1544873670,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Linux and Unix Command Line Basics for Bash, Z Shell and Ubuntu",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:176CBE7776207F31C47A883A08547BEE23EED942&dn=Linux+and+Unix+Command+Line+Basics+for+Bash%2C+Z+Shell+and+Ubuntu&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "176cbe7776207f31c47a883a08547bee23eed942"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Linux and Unix Command Line Basics for Bash, Z Shell and Ubuntu",
+          "raw_title": "Linux and Unix Command Line Basics for Bash, Z Shell and Ubuntu",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=56257047",
+          "size_bytes": 236960609,
+          "seeders": 5,
+          "leechers": 2,
+          "published_unix": 1643554897,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "The Ultimate Ubuntu Handbook - A complete guide to Ubuntu 24.04 [ReadFling]",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:2a501e132638eb2217615588a30a2bc0c924603c&dn=The+Ultimate+Ubuntu+Handbook+-+A+complete+guide+to+Ubuntu+24.04+%5BReadFling%5D&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "2a501e132638eb2217615588a30a2bc0c924603c"
+      },
+      "observations": [
+        {
+          "source_id": "torrentscsv",
+          "title": "The Ultimate Ubuntu Handbook - A complete guide to Ubuntu 24.04 [ReadFling]",
+          "raw_title": "The Ultimate Ubuntu Handbook - A complete guide to Ubuntu 24.04 [ReadFling]",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 16420025,
+          "seeders": 5,
+          "leechers": 1,
+          "published_unix": 1767099241,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 22.04.2 Live Server amd64",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:9e638562ab1c1fced9def142864cdd5a7019e1aa&dn=Ubuntu+22.04.2+Live+Server+amd64&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "9e638562ab1c1fced9def142864cdd5a7019e1aa"
+      },
+      "observations": [
+        {
+          "source_id": "torrentscsv",
+          "title": "Ubuntu 22.04.2 Live Server amd64",
+          "raw_title": "Ubuntu 22.04.2 Live Server amd64",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 1975971840,
+          "seeders": 5,
+          "leechers": 0,
+          "published_unix": 1678578051,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu Linux Fundamentals Linux Server Administration Basics",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:DBBB12AE6ACA79ABE6FE24CE4CBFABD1D6736FD2&dn=Ubuntu+Linux+Fundamentals+Linux+Server+Administration+Basics&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "dbbb12ae6aca79abe6fe24ce4cbfabd1d6736fd2"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Ubuntu Linux Fundamentals Linux Server Administration Basics",
+          "raw_title": "Ubuntu Linux Fundamentals Linux Server Administration Basics",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=39364115",
+          "size_bytes": 4591420171,
+          "seeders": 5,
+          "leechers": 0,
+          "published_unix": 1609394345,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu MATE 16.04.6 LTS desktop i386",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:41491DC2B345789DA067F7ABAE8B29BBB8C14E9B&dn=Ubuntu+MATE+16.04.6+LTS+desktop+i386&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "41491dc2b345789da067f7abae8b29bbb8c14e9b"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Ubuntu MATE 16.04.6 LTS desktop i386",
+          "raw_title": "Ubuntu MATE 16.04.6 LTS desktop i386",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=31063731",
+          "size_bytes": 1786396672,
+          "seeders": 5,
+          "leechers": 0,
+          "published_unix": 1554129335,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "ubuntu-26.04-live-server-arm64+largemem.iso",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:8c98c0495f30074d6eb25b6369c131e4e1b44527&dn=ubuntu-26.04-live-server-arm64%2Blargemem.iso&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "8c98c0495f30074d6eb25b6369c131e4e1b44527"
+      },
+      "observations": [
+        {
+          "source_id": "torrentscsv",
+          "title": "ubuntu-26.04-live-server-arm64+largemem.iso",
+          "raw_title": "ubuntu-26.04-live-server-arm64+largemem.iso",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 3080007680,
+          "seeders": 5,
+          "leechers": 0,
+          "published_unix": 1784214068,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Infiniteskills - Learning Ubuntu Linux",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:7C7DCA2AC0D7D5C3526FB21FD52B260E6967719E&dn=Infiniteskills+-+Learning+Ubuntu+Linux&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "7c7dca2ac0d7d5c3526fb21fd52b260e6967719e"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Infiniteskills - Learning Ubuntu Linux",
+          "raw_title": "Infiniteskills - Learning Ubuntu Linux",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=9681585",
+          "size_bytes": 850069062,
+          "seeders": 4,
+          "leechers": 0,
+          "published_unix": 1393670908,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu 18.04.1 Desktop 64 bit",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:e84213a794f3ccd890382a54a64ca68b7e925433&dn=Ubuntu+18.04.1+Desktop+64+bit&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "e84213a794f3ccd890382a54a64ca68b7e925433"
+      },
+      "observations": [
+        {
+          "source_id": "torrentscsv",
+          "title": "Ubuntu 18.04.1 Desktop 64 bit",
+          "raw_title": "Ubuntu 18.04.1 Desktop 64 bit",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 1953349632,
+          "seeders": 4,
+          "leechers": 0,
+          "published_unix": 1537781526,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Ubuntu Server 22.04 Fundamentals",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:3abd948f77ccc121133a993a05def3afe38e9d99&dn=Ubuntu+Server+22.04+Fundamentals&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "3abd948f77ccc121133a993a05def3afe38e9d99"
+      },
+      "observations": [
+        {
+          "source_id": "torrentscsv",
+          "title": "Ubuntu Server 22.04 Fundamentals",
+          "raw_title": "Ubuntu Server 22.04 Fundamentals",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 1053575457,
+          "seeders": 4,
+          "leechers": 1,
+          "published_unix": 1685012818,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "[ WebToolTip.com ] Udemy - Google Adk - Agent Development Kit (Mac, Windows, Ubuntu)",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:a9ca8f62aab1b6062f24f6513e9ed612773a783f&dn=%5B+WebToolTip.com+%5D+Udemy+-+Google+Adk+-+Agent+Development+Kit+%28Mac%2C+Windows%2C+Ubuntu%29&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "a9ca8f62aab1b6062f24f6513e9ed612773a783f"
+      },
+      "observations": [
+        {
+          "source_id": "torrentscsv",
+          "title": "[ WebToolTip.com ] Udemy - Google Adk - Agent Development Kit (Mac, Windows, Ubuntu)",
+          "raw_title": "[ WebToolTip.com ] Udemy - Google Adk - Agent Development Kit (Mac, Windows, Ubuntu)",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 511718382,
+          "seeders": 4,
+          "leechers": 1,
+          "published_unix": 1765329851,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "[computer-internet] The Official Ubuntu Server Book (Second Edition) by Kyle Rankin EPUB",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:357b547d828ab8daa31c032e578e13cb71e2585d&dn=%5Bcomputer-internet%5D+The+Official+Ubuntu+Server+Book+%28Second+Edition%29+by+Kyle+Rankin+EPUB&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "357b547d828ab8daa31c032e578e13cb71e2585d"
+      },
+      "observations": [
+        {
+          "source_id": "torrentscsv",
+          "title": "[computer-internet] The Official Ubuntu Server Book (Second Edition) by Kyle Rankin EPUB",
+          "raw_title": "[computer-internet] The Official Ubuntu Server Book (Second Edition) by Kyle Rankin EPUB",
+          "site_url": "https://torrents-csv.com",
+          "description_url": "https://torrents-csv.com/#/search/torrent/ubuntu/1",
+          "size_bytes": 6205349,
+          "seeders": 4,
+          "leechers": 2,
+          "published_unix": 1738392803,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Practical Ubuntu Linux Server administration",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:031559C252DD0E335CFE72F18CC0997B8E9A4E0E&dn=Practical+Ubuntu+Linux+Server+administration&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "031559c252dd0e335cfe72f18cc0997b8e9a4e0e"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Practical Ubuntu Linux Server administration",
+          "raw_title": "Practical Ubuntu Linux Server administration",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=60918699",
+          "size_bytes": 1237691473,
+          "seeders": 3,
+          "leechers": 3,
+          "published_unix": 1658644279,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    },
+    {
+      "title": "Udemy - UBUNTU Linux Server",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:F97D29B85756D8F9FBD3EE9ECA7FFA593792E277&dn=Udemy+-+UBUNTU+Linux+Server&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "f97d29b85756d8f9fbd3ee9eca7ffa593792e277"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Udemy - UBUNTU Linux Server",
+          "raw_title": "Udemy - UBUNTU Linux Server",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=43303005",
+          "size_bytes": 1759917195,
+          "seeders": 3,
+          "leechers": 0,
+          "published_unix": 1616858021,
+          "observed_at_unix": 1792248319
+        }
+      ]
+    }
+  ]
+}

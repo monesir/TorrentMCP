@@ -1,0 +1,40 @@
+2026-10-17T17:43:16.796504Z  INFO rqbit: increased open file limit limit=1048576
+2026-10-17T17:43:17.003647Z DEBUG librqbit_dualstack_sockets::socket: listening on TCP addr=[::]:10108 requested_addr=[::]:10108 dualstack=true
+2026-10-17T17:43:17.004326Z  INFO librqbit::listen: Listening on TCP [::]:10108 for incoming peer connections
+2026-10-17T17:43:17.010216Z DEBUG librqbit_dualstack_sockets::socket: listening on UDP addr=[::]:62453 requested_addr=[::]:0 dualstack=true
+2026-10-17T17:43:17.012691Z DEBUG librqbit_dualstack_sockets::socket: ignored dualstack request as it only applies to [::] address addr=127.0.0.1:10109
+2026-10-17T17:43:17.012910Z DEBUG librqbit_dualstack_sockets::socket: listening on TCP addr=127.0.0.1:10109 requested_addr=127.0.0.1:10109 dualstack=false
+2026-10-17T17:43:17.013509Z  INFO rqbit: started HTTP API at http://127.0.0.1:10109
+2026-10-17T17:43:17.278124Z DEBUG request{method=GET uri=/ addr=127.0.0.1:10111}: tower_http::trace::on_response: finished processing request latency=1 ms status=200 response_headers={"content-type": "application/json", "vary": "origin"}
+2026-10-17T17:43:17.278952Z DEBUG request{method=GET uri=/ addr=127.0.0.1:10111}: tower_http::trace::on_eos: end of stream stream_duration=0 ms
+2026-10-17T17:43:17.306037Z  INFO torrent{id=0}: librqbit::session: added torrent name="Fixture"
+2026-10-17T17:43:17.306416Z  INFO torrent{id=0}:initialize_and_start: librqbit::torrent_state::initializing: Doing initial checksum validation, this might take a while...
+2026-10-17T17:43:17.306969Z DEBUG request{method=POST uri=/torrents?is_url=false&overwrite=true&output_folder=C%3A%5CUsers%5Cuser%5COneDrive%5C%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%86%D8%AF%D8%A7%D8%AA%5CChatGPT%5Ctorrent+mcp%5Cverification%5Ctorrent-workflow-0.5.0-local-2%5Cseed addr=127.0.0.1:10112}: tower_http::trace::on_response: finished processing request latency=12 ms status=200 response_headers={"content-type": "application/json", "vary": "origin"}
+2026-10-17T17:43:17.307004Z DEBUG request{method=POST uri=/torrents?is_url=false&overwrite=true&output_folder=C%3A%5CUsers%5Cuser%5COneDrive%5C%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%86%D8%AF%D8%A7%D8%AA%5CChatGPT%5Ctorrent+mcp%5Cverification%5Ctorrent-workflow-0.5.0-local-2%5Cseed addr=127.0.0.1:10112}: tower_http::trace::on_eos: end of stream stream_duration=0 ms
+2026-10-17T17:43:17.308273Z  INFO torrent{id=0}:initialize_and_start: librqbit::torrent_state::initializing: Initial check results: have 215.9Ki, needed 0, total selected 215.9Ki torrent=0
+2026-10-17T17:43:17.308390Z DEBUG torrent{id=0}:initialize_and_start: librqbit::storage::filesystem::opened_file: marking sparse path="C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\torrent-workflow-0.5.0-local-2\\seed\\E01.mkv" marked=true
+2026-10-17T17:43:17.308491Z DEBUG torrent{id=0}:initialize_and_start: librqbit::storage::filesystem::opened_file: marking sparse path="C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\torrent-workflow-0.5.0-local-2\\seed\\E02.mkv" marked=true
+2026-10-17T17:43:17.308519Z DEBUG torrent{id=0}:initialize_and_start: librqbit::storage::filesystem::opened_file: marking sparse path="C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\torrent-workflow-0.5.0-local-2\\seed\\readme.txt" marked=true
+2026-10-17T17:43:17.308971Z DEBUG request{method=GET uri=/torrents/0/stats/v1 addr=127.0.0.1:10113}: tower_http::trace::on_response: finished processing request latency=0 ms status=200 response_headers={"content-type": "application/json", "vary": "origin"}
+2026-10-17T17:43:17.309052Z DEBUG request{method=GET uri=/torrents/0/stats/v1 addr=127.0.0.1:10113}: tower_http::trace::on_eos: end of stream stream_duration=0 ms
+2026-10-17T17:43:17.315065Z DEBUG http_tracker{tracker=http://127.0.0.1:10110/announce info_hash=21f95ccbf5fb1fddc7e82b103a7bada0194f2371}: hyper_util::client::legacy::connect::http: connecting to 127.0.0.1:10110
+2026-10-17T17:43:17.315687Z DEBUG http_tracker{tracker=http://127.0.0.1:10110/announce info_hash=21f95ccbf5fb1fddc7e82b103a7bada0194f2371}: hyper_util::client::legacy::connect::http: connected to 127.0.0.1:10110
+2026-10-17T17:43:17.317603Z DEBUG http_tracker{tracker=http://127.0.0.1:10110/announce info_hash=21f95ccbf5fb1fddc7e82b103a7bada0194f2371}: librqbit_tracker_comms::tracker_comms: sleeping for 1s after calling tracker
+2026-10-17T17:43:17.319004Z DEBUG torrent{id=0}:manage_peer{peer=127.0.0.1:10108}:peer_connection: librqbit::stream_connect: connected over TCP addr=127.0.0.1:10108
+2026-10-17T17:43:17.319322Z DEBUG incoming{addr=127.0.0.1:10115}: librqbit::session: error checking incoming connection: seems like we are connecting to ourselves, ignoring
+2026-10-17T17:43:17.319823Z DEBUG torrent{id=0}:manage_peer{peer=127.0.0.1:10108}: librqbit::torrent_state::live: error managing peer: peer disconnected while reading handshake
+2026-10-17T17:43:17.320030Z DEBUG torrent{id=0}:manage_peer{peer=127.0.0.1:10108}: librqbit::torrent_state::live: torrent finished, not re-queueing
+2026-10-17T17:43:18.019717Z  INFO rqbit: [0]: 100.00% (215.96Ki / 215.96Ki), ↓0.00 MiB/s, ↑0.00 MiB/s (0), {live: 0, queued: 0, dead: 0, known: 1}
+2026-10-17T17:43:18.212642Z DEBUG torrent{id=0}:manage_incoming_peer{addr=127.0.0.1:10126}: librqbit::torrent_state::live: error managing peer: peer disconnected
+2026-10-17T17:43:18.212684Z DEBUG torrent{id=0}:manage_incoming_peer{addr=127.0.0.1:10126}: librqbit::torrent_state::live: torrent finished, not re-queueing
+2026-10-17T17:43:18.212697Z DEBUG torrent{id=0}:sending_pex_to_peer{peer=127.0.0.1:10126}: librqbit_core::spawn_utils: task cancelled
+2026-10-17T17:43:18.286048Z DEBUG torrent{id=0}:manage_incoming_peer{addr=127.0.0.1:10129}: librqbit::torrent_state::live: error managing peer: peer disconnected
+2026-10-17T17:43:18.286094Z DEBUG torrent{id=0}:manage_incoming_peer{addr=127.0.0.1:10129}: librqbit::torrent_state::live: torrent finished, not re-queueing
+2026-10-17T17:43:18.286114Z DEBUG torrent{id=0}:sending_pex_to_peer{peer=127.0.0.1:10129}: librqbit_core::spawn_utils: task cancelled
+2026-10-17T17:43:18.322101Z DEBUG http_tracker{tracker=http://127.0.0.1:10110/announce info_hash=21f95ccbf5fb1fddc7e82b103a7bada0194f2371}: hyper_util::client::legacy::connect::http: connecting to 127.0.0.1:10110
+2026-10-17T17:43:18.322745Z DEBUG http_tracker{tracker=http://127.0.0.1:10110/announce info_hash=21f95ccbf5fb1fddc7e82b103a7bada0194f2371}: hyper_util::client::legacy::connect::http: connected to 127.0.0.1:10110
+2026-10-17T17:43:18.323806Z DEBUG http_tracker{tracker=http://127.0.0.1:10110/announce info_hash=21f95ccbf5fb1fddc7e82b103a7bada0194f2371}: librqbit_tracker_comms::tracker_comms: sleeping for 1s after calling tracker
+2026-10-17T17:43:19.020653Z  INFO rqbit: [0]: 100.00% (215.96Ki / 215.96Ki), ↓0.00 MiB/s, ↑0.00 MiB/s (128.00Ki), {live: 0, queued: 0, dead: 0, known: 3}
+2026-10-17T17:43:19.301308Z DEBUG torrent{id=0}:manage_incoming_peer{addr=127.0.0.1:10139}: librqbit::torrent_state::live: error managing peer: peer disconnected
+2026-10-17T17:43:19.301347Z DEBUG torrent{id=0}:manage_incoming_peer{addr=127.0.0.1:10139}: librqbit::torrent_state::live: torrent finished, not re-queueing
+2026-10-17T17:43:19.301362Z DEBUG torrent{id=0}:sending_pex_to_peer{peer=127.0.0.1:10139}: librqbit_core::spawn_utils: task cancelled

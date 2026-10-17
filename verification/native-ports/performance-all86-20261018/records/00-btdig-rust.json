@@ -1,0 +1,25 @@
+{
+  "wall_ms": 554.834500000652,
+  "cpu_ms": 78.125,
+  "peak_private_mib": 5.60546875,
+  "sampled_peak_working_set_mib": 24.78125,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "HTTP status client error (429 Too Many Requests)",
+  "source_elapsed_ms": 498,
+  "configuration_diagnostic": false,
+  "source": "btdig",
+  "backend": "rust",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:43:54.409312+00:00",
+  "raw_report": "raw\\00-btdig-rust.json",
+  "diagnostics": "raw\\00-btdig-rust.stderr.log"
+}

@@ -1,0 +1,458 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "bitsearch",
+      "status": "failed",
+      "elapsed_ms": 8510,
+      "result_count": 20,
+      "limited": false,
+      "error": "Worker exceeded the result limit; Connection error: <none>\r\nConnection error: <none>"
+    }
+  ],
+  "results": [
+    {
+      "title": "Nirvana in Fire 2 [2017 - 2018]",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:B4FA5192963F5D027D9674B5F19D87C912CF1C89&dn=%5BBitsearch.to%5D%20Nirvana%20in%20Fire%202%20%5B2017%20-%202018%5D&tr=udp%3A%2F%2Ftracker.breizh.pm%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.ololosh.space%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce",
+        "info_hash_v1": "b4fa5192963f5d027d9674b5f19d87c912cf1c89"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "Nirvana in Fire 2 [2017 - 2018]",
+          "raw_title": "Nirvana in Fire 2 [2017 - 2018]",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/664121167a868426ce4c58c5",
+          "size_bytes": 41994042737,
+          "seeders": 10,
+          "leechers": 89,
+          "published_unix": 1715461200,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "【高清剧集网发布 www.DDHDTV.com】琅琊榜[全54集][国语配音+中文字幕].Nirvana.in.Fire.S01.2015.2160p.IQ.WEB-DL.H265.AAC-LelveTV",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:E125424F8F3C57F97997346F84D609F5C630BBD7&dn=%5BBitsearch.to%5D%20%E3%80%90%E9%AB%98%E6%B8%85%E5%89%A7%E9%9B%86%E7%BD%91%E5%8F%91%E5%B8%83%20www.DDHDTV.com%E3%80%91%E7%90%85%E7%90%8A%E6%A6%9C%5B%E5%85%A854%E9%9B%86%5D%5B%E5%9B%BD%E8%AF%AD%E9%85%8D%E9%9F%B3%2B%E4%B8%AD%E6%96%87%E5%AD%97%E5%B9%95%5D.Nirvana.in.Fire.S01.2015.2160p.IQ.WEB-DL.H265.AAC-LelveTV&tr=udp%3A%2F%2Ftracker.breizh.pm%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce",
+        "info_hash_v1": "e125424f8f3c57f97997346f84d609f5c630bbd7"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "【高清剧集网发布 www.DDHDTV.com】琅琊榜[全54集][国语配音+中文字幕].Nirvana.in.Fire.S01.2015.2160p.IQ.WEB-DL.H265.AAC-LelveTV",
+          "raw_title": "【高清剧集网发布 www.DDHDTV.com】琅琊榜[全54集][国语配音+中文字幕].Nirvana.in.Fire.S01.2015.2160p.IQ.WEB-DL.H265.AAC-LelveTV",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/65fecc1c7a868426ce29b21d",
+          "size_bytes": 70233452708,
+          "seeders": 6,
+          "leechers": 57,
+          "published_unix": 1711141200,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "Nirvana.in.Fire.Ⅱ.EP01-50.2017.4k&1080p.WEB-DL.x264.AAC-HQC",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:FD9CD3ACCA4F2F85BECE5F15DD9FC854E0275576&dn=%5BBitsearch.to%5D%20Nirvana.in.Fire.%E2%85%A1.EP01-50.2017.4k%261080p.WEB-DL.x264.AAC-HQC&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce",
+        "info_hash_v1": "fd9cd3acca4f2f85bece5f15dd9fc854e0275576"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "Nirvana.in.Fire.Ⅱ.EP01-50.2017.4k&1080p.WEB-DL.x264.AAC-HQC",
+          "raw_title": "Nirvana.in.Fire.Ⅱ.EP01-50.2017.4k&1080p.WEB-DL.x264.AAC-HQC",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/5bcf51b2537c2d4ccc76654d",
+          "size_bytes": 132016557261,
+          "seeders": 3,
+          "leechers": 9,
+          "published_unix": 1540242000,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "Список архива Ланъя  Nirvana in Fire (озвучка  XDUB DORAMA)",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:90B5A3734F9FFF9C15C1A4CEBFB51E2AFD9B67AF&dn=%5BBitsearch.to%5D%20%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B0%D1%80%D1%85%D0%B8%D0%B2%D0%B0%20%D0%9B%D0%B0%D0%BD%D1%8A%D1%8F%20%20Nirvana%20in%20Fire%20(%D0%BE%D0%B7%D0%B2%D1%83%D1%87%D0%BA%D0%B0%20%20XDUB%20DORAMA)&tr=udp%3A%2F%2Ftracker2.dler.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.breizh.pm%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce",
+        "info_hash_v1": "90b5a3734f9fff9c15c1a4cebfb51e2afd9b67af"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "Список архива Ланъя  Nirvana in Fire (озвучка  XDUB DORAMA)",
+          "raw_title": "Список архива Ланъя  Nirvana in Fire (озвучка  XDUB DORAMA)",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/64b520727615aea2fb27d35c",
+          "size_bytes": 109886738268,
+          "seeders": 3,
+          "leechers": 9,
+          "published_unix": 1689541200,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "Nirvana.in.Fire.Complete.1080p.WEB-DL.H264.AAC-NYHD",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:7FEF6590EE993DB78F8ED6F394860B27C2C5E81C&dn=%5BBitsearch.to%5D%20Nirvana.in.Fire.Complete.1080p.WEB-DL.H264.AAC-NYHD&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce",
+        "info_hash_v1": "7fef6590ee993db78f8ed6f394860b27c2c5e81c"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "Nirvana.in.Fire.Complete.1080p.WEB-DL.H264.AAC-NYHD",
+          "raw_title": "Nirvana.in.Fire.Complete.1080p.WEB-DL.H264.AAC-NYHD",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/5bd8f91014ab180a27a7c5d4",
+          "size_bytes": 56725780562,
+          "seeders": 2,
+          "leechers": 3,
+          "published_unix": 1540933200,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "[ViPHD]琅琊榜之风起长林（全集） Nirvana.in.Fire.2.2017.Complete.WEB-DL.Ep01-Ep50.1080P&2160P.H264.AAC-JBY@ViPHD",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:DEB3A51636BCC8DB9B4E8DA38113F4A0168F5F69&dn=%5BBitsearch.to%5D%20%5BViPHD%5D%E7%90%85%E7%90%8A%E6%A6%9C%E4%B9%8B%E9%A3%8E%E8%B5%B7%E9%95%BF%E6%9E%97%EF%BC%88%E5%85%A8%E9%9B%86%EF%BC%89%20Nirvana.in.Fire.2.2017.Complete.WEB-DL.Ep01-Ep50.1080P%262160P.H264.AAC-JBY%40ViPHD&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "info_hash_v1": "deb3a51636bcc8db9b4e8da38113f4a0168f5f69"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "[ViPHD]琅琊榜之风起长林（全集） Nirvana.in.Fire.2.2017.Complete.WEB-DL.Ep01-Ep50.1080P&2160P.H264.AAC-JBY@ViPHD",
+          "raw_title": "[ViPHD]琅琊榜之风起长林（全集） Nirvana.in.Fire.2.2017.Complete.WEB-DL.Ep01-Ep50.1080P&2160P.H264.AAC-JBY@ViPHD",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/603e1eeef2ce49c3cead90cb",
+          "size_bytes": 132854075884,
+          "seeders": 2,
+          "leechers": 1,
+          "published_unix": 1614632400,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "Nirvana.in.Fire.2015.WEB-DL.1080p.x265.Chinese.ECorrChs.Chapter-DFM",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:DEA9C0F5F13CFA47F119F15C3BE147DE38413697&dn=%5BBitsearch.to%5D%20Nirvana.in.Fire.2015.WEB-DL.1080p.x265.Chinese.ECorrChs.Chapter-DFM&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce",
+        "info_hash_v1": "dea9c0f5f13cfa47f119f15c3be147de38413697"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "Nirvana.in.Fire.2015.WEB-DL.1080p.x265.Chinese.ECorrChs.Chapter-DFM",
+          "raw_title": "Nirvana.in.Fire.2015.WEB-DL.1080p.x265.Chinese.ECorrChs.Chapter-DFM",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/60c70970e1d278ae3ce2a650",
+          "size_bytes": 38225208934,
+          "seeders": 1,
+          "leechers": 0,
+          "published_unix": 1623618000,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "Nirvana.in.Fire.2015.WEBRip.1080p.x265.10bit.FLAC-Enichi",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:BEFE53D364DD31BE6D9512286DCF1B61FAD7B0A2&dn=%5BBitsearch.to%5D%20Nirvana.in.Fire.2015.WEBRip.1080p.x265.10bit.FLAC-Enichi&tr=udp%3A%2F%2Ftracker.breizh.pm%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce",
+        "info_hash_v1": "befe53d364dd31be6d9512286dcf1b61fad7b0a2"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "Nirvana.in.Fire.2015.WEBRip.1080p.x265.10bit.FLAC-Enichi",
+          "raw_title": "Nirvana.in.Fire.2015.WEBRip.1080p.x265.10bit.FLAC-Enichi",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/65f730427a868426cef15daf",
+          "size_bytes": 159504347955,
+          "seeders": 1,
+          "leechers": 0,
+          "published_unix": 1710622800,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "[DORAMA]Nirvana in Fire (2015) Lang Ya Bang",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:9A369C16227EFB16F60E535687398C21B383F37E&dn=%5BBitsearch.to%5D%20%5BDORAMA%5DNirvana%20in%20Fire%20(2015)%20Lang%20Ya%20Bang&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
+        "info_hash_v1": "9a369c16227efb16f60e535687398c21b383f37e"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "[DORAMA]Nirvana in Fire (2015) Lang Ya Bang",
+          "raw_title": "[DORAMA]Nirvana in Fire (2015) Lang Ya Bang",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/5bd69241e8154a5ff237990a",
+          "size_bytes": 11564199444,
+          "seeders": 1,
+          "leechers": 1,
+          "published_unix": 1540760400,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "【高清剧集网 www.BTHDTV.com】琅琊榜[全54集][中文字幕].Nirvana.In.Fire.WEB-DL.1080p.H264.AAC-Xiaomi",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:18D35E9D4277CE23CEE2A015EE8A4B82FE4F0E6F&dn=%5BBitsearch.to%5D%20%E3%80%90%E9%AB%98%E6%B8%85%E5%89%A7%E9%9B%86%E7%BD%91%20www.BTHDTV.com%E3%80%91%E7%90%85%E7%90%8A%E6%A6%9C%5B%E5%85%A854%E9%9B%86%5D%5B%E4%B8%AD%E6%96%87%E5%AD%97%E5%B9%95%5D.Nirvana.In.Fire.WEB-DL.1080p.H264.AAC-Xiaomi&tr=udp%3A%2F%2Ftracker2.dler.com%3A80%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fpow7.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce",
+        "info_hash_v1": "18d35e9d4277ce23cee2a015ee8a4b82fe4f0e6f"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "【高清剧集网 www.BTHDTV.com】琅琊榜[全54集][中文字幕].Nirvana.In.Fire.WEB-DL.1080p.H264.AAC-Xiaomi",
+          "raw_title": "【高清剧集网 www.BTHDTV.com】琅琊榜[全54集][中文字幕].Nirvana.In.Fire.WEB-DL.1080p.H264.AAC-Xiaomi",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/6340aba4b4e63fe04b003c7c",
+          "size_bytes": 92438433628,
+          "seeders": 1,
+          "leechers": 10,
+          "published_unix": 1665090000,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "琅琊榜之风起长林.全集.Nirvana.in.Fire.2.2017.EP01-EP50.HD1080P.X264.AAC.Mandarin.CHS.MF",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:D92C6795E870D6DACB0CD7DB3F11AA9EC5C5E3FB&dn=%5BBitsearch.to%5D%20%E7%90%85%E7%90%8A%E6%A6%9C%E4%B9%8B%E9%A3%8E%E8%B5%B7%E9%95%BF%E6%9E%97.%E5%85%A8%E9%9B%86.Nirvana.in.Fire.2.2017.EP01-EP50.HD1080P.X264.AAC.Mandarin.CHS.MF&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce",
+        "info_hash_v1": "d92c6795e870d6dacb0cd7db3f11aa9ec5c5e3fb"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "琅琊榜之风起长林.全集.Nirvana.in.Fire.2.2017.EP01-EP50.HD1080P.X264.AAC.Mandarin.CHS.MF",
+          "raw_title": "琅琊榜之风起长林.全集.Nirvana.in.Fire.2.2017.EP01-EP50.HD1080P.X264.AAC.Mandarin.CHS.MF",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/5c464c8e29dd4319e42650c3",
+          "size_bytes": 39599598469,
+          "seeders": 1,
+          "leechers": 12,
+          "published_unix": 1546808400,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "Nirvana.in.Fire.part1.2015.Complete.4K.WEB-DL.AAC.H265-OurTV",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:0AB73018454555BF4BF3D4D9A02D28DA42D8B0F1&dn=%5BBitsearch.to%5D%20Nirvana.in.Fire.part1.2015.Complete.4K.WEB-DL.AAC.H265-OurTV&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopentracker.io%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fretracker01-msk-virt.corbina.net%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce",
+        "info_hash_v1": "0ab73018454555bf4bf3d4d9a02d28da42d8b0f1"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "Nirvana.in.Fire.part1.2015.Complete.4K.WEB-DL.AAC.H265-OurTV",
+          "raw_title": "Nirvana.in.Fire.part1.2015.Complete.4K.WEB-DL.AAC.H265-OurTV",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/69513643760c41b3caaa27ba",
+          "size_bytes": 50895362458,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1766869200,
+          "observed_at_unix": 1792278194
+        }
+      ]
+    },
+    {
+      "title": "[C-Zone].Nirvana.In.Fire.Ep48.HD.KITESVN.COM.mkv",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:E8AC110A138E97A10E6BD3B64F8348BEEA0DE8E6&dn=%5BBitsearch.to%5D%20%5BC-Zone%5D.Nirvana.In.Fire.Ep48.HD.KITESVN.COM.mkv&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.uw0.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce",
+        "info_hash_v1": "e8ac110a138e97a10e6bd3b64f8348beea0de8e6"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "[C-Zone].Nirvana.In.Fire.Ep48.HD.KITESVN.COM.mkv",
+          "raw_title": "[C-Zone].Nirvana.In.Fire.Ep48.HD.KITESVN.COM.mkv",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/5c4649de29dd4319e4188344",
+          "size_bytes": 827179663,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1546808400,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "[Mov8] Nirvana In Fire hdtv",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:2E77725CF9BECB4FE078638123F20D72FEE053F8&dn=%5BBitsearch.to%5D%20%5BMov8%5D%20Nirvana%20In%20Fire%20hdtv&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker2.dler.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce",
+        "info_hash_v1": "2e77725cf9becb4fe078638123f20d72fee053f8"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "[Mov8] Nirvana In Fire hdtv",
+          "raw_title": "[Mov8] Nirvana In Fire hdtv",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/64a0fdc5ef5957ffcc2d1d02",
+          "size_bytes": 191113462,
+          "seeders": 0,
+          "leechers": 4,
+          "published_unix": 1688245200,
+          "observed_at_unix": 1792278194
+        }
+      ]
+    },
+    {
+      "title": "[Mov8] Nirvana In Fire hdtv",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:AAFC4A1121B5197F9D425B3FF163AEF6CA24613C&dn=%5BBitsearch.to%5D%20%5BMov8%5D%20Nirvana%20In%20Fire%20hdtv&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.zerobytes.xyz%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.0x.tf%3A6969%2Fannounce",
+        "info_hash_v1": "aafc4a1121b5197f9d425b3ff163aef6ca24613c"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "[Mov8] Nirvana In Fire hdtv",
+          "raw_title": "[Mov8] Nirvana In Fire hdtv",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/628b597ef5af588db98257f2",
+          "size_bytes": 363457413,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1653253200,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "[y5y4.com]琅琊榜.全54集.简繁英软字幕.珍藏版.Nirvana.in.Fire.2015.WEB-DL.4k.H265.AAC-AIU",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:5EA8A3CD2CEDF42041E4C053F0CDD8CD3D79DFD8&dn=%5BBitsearch.to%5D%20%5By5y4.com%5D%E7%90%85%E7%90%8A%E6%A6%9C.%E5%85%A854%E9%9B%86.%E7%AE%80%E7%B9%81%E8%8B%B1%E8%BD%AF%E5%AD%97%E5%B9%95.%E7%8F%8D%E8%97%8F%E7%89%88.Nirvana.in.Fire.2015.WEB-DL.4k.H265.AAC-AIU&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce",
+        "info_hash_v1": "5ea8a3cd2cedf42041e4c053f0cdd8cd3d79dfd8"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "[y5y4.com]琅琊榜.全54集.简繁英软字幕.珍藏版.Nirvana.in.Fire.2015.WEB-DL.4k.H265.AAC-AIU",
+          "raw_title": "[y5y4.com]琅琊榜.全54集.简繁英软字幕.珍藏版.Nirvana.in.Fire.2015.WEB-DL.4k.H265.AAC-AIU",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/6107ae8faa674861c05aca39",
+          "size_bytes": 54159537603,
+          "seeders": 0,
+          "leechers": 4,
+          "published_unix": 1627851600,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "[琅琊榜之风起长林].Nirvana.In.Fire.Ⅱ.2017.Complete.WEB-DL.4K.H264.AAC-CMCTV",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:C9D402131B99B18A0995B3D21491996C6E69778F&dn=%5BBitsearch.to%5D%20%5B%E7%90%85%E7%90%8A%E6%A6%9C%E4%B9%8B%E9%A3%8E%E8%B5%B7%E9%95%BF%E6%9E%97%5D.Nirvana.In.Fire.%E2%85%A1.2017.Complete.WEB-DL.4K.H264.AAC-CMCTV&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.dstud.io%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentracker.io%3A6969%2Fannounce&tr=udp%3A%2F%2Fwepzone.net%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce",
+        "info_hash_v1": "c9d402131b99b18a0995b3d21491996c6e69778f"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "[琅琊榜之风起长林].Nirvana.In.Fire.Ⅱ.2017.Complete.WEB-DL.4K.H264.AAC-CMCTV",
+          "raw_title": "[琅琊榜之风起长林].Nirvana.In.Fire.Ⅱ.2017.Complete.WEB-DL.4K.H264.AAC-CMCTV",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/689c6c893fce430e74413ed1",
+          "size_bytes": 92588757484,
+          "seeders": 0,
+          "leechers": 3,
+          "published_unix": 1755032400,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "【高清剧集网 www.BTHDTV.com】琅琊榜之风起长林[全50集][中文字幕].Nirvana.In.Fire.S02.2017.WEB-DL.1080p.H264.AAC-Xiaomi",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:B02073F13D1086D4DB16E92ACA3F7BE2687BB91F&dn=%5BBitsearch.to%5D%20%E3%80%90%E9%AB%98%E6%B8%85%E5%89%A7%E9%9B%86%E7%BD%91%20www.BTHDTV.com%E3%80%91%E7%90%85%E7%90%8A%E6%A6%9C%E4%B9%8B%E9%A3%8E%E8%B5%B7%E9%95%BF%E6%9E%97%5B%E5%85%A850%E9%9B%86%5D%5B%E4%B8%AD%E6%96%87%E5%AD%97%E5%B9%95%5D.Nirvana.In.Fire.S02.2017.WEB-DL.1080p.H264.AAC-Xiaomi&tr=udp%3A%2F%2Ftracker2.dler.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fpow7.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce",
+        "info_hash_v1": "b02073f13d1086d4db16e92aca3f7be2687bb91f"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "【高清剧集网 www.BTHDTV.com】琅琊榜之风起长林[全50集][中文字幕].Nirvana.In.Fire.S02.2017.WEB-DL.1080p.H264.AAC-Xiaomi",
+          "raw_title": "【高清剧集网 www.BTHDTV.com】琅琊榜之风起长林[全50集][中文字幕].Nirvana.In.Fire.S02.2017.WEB-DL.1080p.H264.AAC-Xiaomi",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/633baee9fb851c15d346adf1",
+          "size_bytes": 39588861051,
+          "seeders": 0,
+          "leechers": 2,
+          "published_unix": 1664830800,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "琅琊榜.Nirvana.in.Fire.2015.4K.2160P.WEB-DL.H264.AAC-DHTCLUB",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:01F7DD8853E93780CE448EC01EC109FAEC0DF3EF&dn=%5BBitsearch.to%5D%20%E7%90%85%E7%90%8A%E6%A6%9C.Nirvana.in.Fire.2015.4K.2160P.WEB-DL.H264.AAC-DHTCLUB&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce",
+        "info_hash_v1": "01f7dd8853e93780ce448ec01ec109faec0df3ef"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "琅琊榜.Nirvana.in.Fire.2015.4K.2160P.WEB-DL.H264.AAC-DHTCLUB",
+          "raw_title": "琅琊榜.Nirvana.in.Fire.2015.4K.2160P.WEB-DL.H264.AAC-DHTCLUB",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/604612914cb6f7015416e396",
+          "size_bytes": 113730733998,
+          "seeders": 0,
+          "leechers": 1,
+          "published_unix": 1615150800,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    },
+    {
+      "title": "琅琊榜.Nirvana.in.Fire.2015.4K.2160P.WEB-DL.H264.AAC-DHTCLUB",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:4EB885A6196D3F85428992A920852BEBF5FAD992&dn=%5BBitsearch.to%5D%20%E7%90%85%E7%90%8A%E6%A6%9C.Nirvana.in.Fire.2015.4K.2160P.WEB-DL.H264.AAC-DHTCLUB&tr=udp%3A%2F%2Fopentracker.io%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fretracker01-msk-virt.corbina.net%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce",
+        "info_hash_v1": "4eb885a6196d3f85428992a920852bebf5fad992"
+      },
+      "observations": [
+        {
+          "source_id": "bitsearch",
+          "title": "琅琊榜.Nirvana.in.Fire.2015.4K.2160P.WEB-DL.H264.AAC-DHTCLUB",
+          "raw_title": "琅琊榜.Nirvana.in.Fire.2015.4K.2160P.WEB-DL.H264.AAC-DHTCLUB",
+          "site_url": "https://bitsearch.to",
+          "description_url": "https://bitsearch.to/torrent/69301140a93b5618eb5e63d5",
+          "size_bytes": 113730733998,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1764709200,
+          "observed_at_unix": 1792278191
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "wall_ms": 369.79950000022654,
+  "cpu_ms": 265.625,
+  "peak_private_mib": 24.3828125,
+  "sampled_peak_working_set_mib": 60.203125,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed",
+  "source_elapsed_ms": 310,
+  "configuration_diagnostic": false,
+  "source": "torrentgalaxy",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:52:49.213447+00:00",
+  "raw_report": "raw\\01-torrentgalaxy-python.json",
+  "diagnostics": "raw\\01-torrentgalaxy-python.stderr.log"
+}

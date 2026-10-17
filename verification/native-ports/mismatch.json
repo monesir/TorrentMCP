@@ -1,0 +1,28 @@
+{
+  "source": "fitgirl_repacks",
+  "category": "all",
+  "python": [
+    [
+      "magnet:?xt=urn:btih:1234567890abcdef1234567890abcdef12345678&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce",
+      "Fixture 中文 ~ * - release",
+      1610612736,
+      null,
+      null,
+      "http://127.0.0.1:14730/post/42",
+      "null",
+      1792108800
+    ]
+  ],
+  "rust": [
+    [
+      "magnet:?xt=urn:btih:1234567890abcdef1234567890abcdef12345678&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce",
+      "Fixture 中文 ~ * - release",
+      null,
+      null,
+      null,
+      "http://127.0.0.1:14730/post/42",
+      "null",
+      1792108800
+    ]
+  ]
+}

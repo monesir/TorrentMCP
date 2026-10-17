@@ -1,0 +1,25 @@
+{
+  "wall_ms": 409.1798999997991,
+  "cpu_ms": 140.625,
+  "peak_private_mib": 5.7265625,
+  "sampled_peak_working_set_mib": 24.70703125,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "HTTP status client error (403 Forbidden)",
+  "source_elapsed_ms": 284,
+  "configuration_diagnostic": false,
+  "source": "calidadtorrent",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T22:59:50.012407+00:00",
+  "raw_report": "raw\\02-calidadtorrent-rust.json",
+  "diagnostics": "raw\\02-calidadtorrent-rust.stderr.log"
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "operation": "inspect_media",
+  "media": {
+    "input": {
+      "kind": "download_service",
+      "url": "http://127.0.0.1:8765/files/selected-file/content",
+      "size_bytes": 12369807
+    },
+    "limits": { "timeout_seconds": 30, "max_read_bytes": 16777216 },
+    "selection": { "audio_languages": ["ja"], "subtitle_languages": ["en"] }
+  }
+}

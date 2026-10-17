@@ -1,0 +1,25 @@
+{
+  "wall_ms": 8123.48799999927,
+  "cpu_ms": 140.625,
+  "peak_private_mib": 6.0859375,
+  "sampled_peak_working_set_mib": 25.98828125,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "error sending request",
+  "source_elapsed_ms": 8006,
+  "configuration_diagnostic": false,
+  "source": "rockbox",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:04:13.068108+00:00",
+  "raw_report": "raw\\02-rockbox-rust.json",
+  "diagnostics": "raw\\02-rockbox-rust.stderr.log"
+}

@@ -1,0 +1,458 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "academictorrents",
+      "status": "timed_out",
+      "elapsed_ms": 20030,
+      "result_count": 20,
+      "limited": false,
+      "error": "Source deadline exceeded"
+    }
+  ],
+  "results": [
+    {
+      "title": "enwiki-20261001-pages-articles-multistream.xml.bz2",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/82075af82e83b99e9a4c6ef17e564947efe65a66.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "enwiki-20261001-pages-articles-multistream.xml.bz2",
+          "raw_title": "enwiki-20261001-pages-articles-multistream.xml.bz2",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/82075af82e83b99e9a4c6ef17e564947efe65a66",
+          "size_bytes": 26899580121,
+          "seeders": 67,
+          "leechers": 0,
+          "published_unix": 1791111173,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Reddit comments/submissions 2026-08",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/f4848163a5fb650e4b15eee0202858447bca120a.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Reddit comments/submissions 2026-08",
+          "raw_title": "Reddit comments/submissions 2026-08",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/f4848163a5fb650e4b15eee0202858447bca120a",
+          "size_bytes": 74613168905,
+          "seeders": 34,
+          "leechers": 5,
+          "published_unix": 1789163158,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "enwiki-20261001-pages-articles-multistream-index.txt.bz2",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/e6d8aef6d3dffd1ff9eb36d84988242871812a79.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "enwiki-20261001-pages-articles-multistream-index.txt.bz2",
+          "raw_title": "enwiki-20261001-pages-articles-multistream-index.txt.bz2",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/e6d8aef6d3dffd1ff9eb36d84988242871812a79",
+          "size_bytes": 285068855,
+          "seeders": 30,
+          "leechers": 0,
+          "published_unix": 1791111080,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Reddit comments/submissions 2026-09",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/98b6dbad155750c4d5f65d5923e0c2d11f46da85.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Reddit comments/submissions 2026-09",
+          "raw_title": "Reddit comments/submissions 2026-09",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/98b6dbad155750c4d5f65d5923e0c2d11f46da85",
+          "size_bytes": 74356662467,
+          "seeders": 29,
+          "leechers": 4,
+          "published_unix": 1791700586,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Mathematics for Computer Science (MIT 6.1200J) - Video lectures 2024",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/fb8e884242c26e60f38dedf17b37327bdcffb1d6.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Mathematics for Computer Science (MIT 6.1200J) - Video lectures 2024",
+          "raw_title": "Mathematics for Computer Science (MIT 6.1200J) - Video lectures 2024",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/fb8e884242c26e60f38dedf17b37327bdcffb1d6",
+          "size_bytes": 4588568576,
+          "seeders": 22,
+          "leechers": 1,
+          "published_unix": 1789790598,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Computer Systems Security (MIT 6.858) - Video lectures 2014",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/4b9c8a79866e71648bde841d682ad33ea3c7101b.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Computer Systems Security (MIT 6.858) - Video lectures 2014",
+          "raw_title": "Computer Systems Security (MIT 6.858) - Video lectures 2014",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/4b9c8a79866e71648bde841d682ad33ea3c7101b",
+          "size_bytes": 11035213824,
+          "seeders": 9,
+          "leechers": 0,
+          "published_unix": 1791001094,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Advanced Data Structures (MIT 6.851) - Video lectures 2012",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/a7ef136c1ad6c7924642a1ac399bc0800d9da4f4.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Advanced Data Structures (MIT 6.851) - Video lectures 2012",
+          "raw_title": "Advanced Data Structures (MIT 6.851) - Video lectures 2012",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/a7ef136c1ad6c7924642a1ac399bc0800d9da4f4",
+          "size_bytes": 14407434240,
+          "seeders": 8,
+          "leechers": 0,
+          "published_unix": 1788577047,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Advanced Topics in Cryptography (MIT 6.5630) - Video lectures 2023",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/723a9c6f86738d4111baadf87a6a51a1c038f6f1.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Advanced Topics in Cryptography (MIT 6.5630) - Video lectures 2023",
+          "raw_title": "Advanced Topics in Cryptography (MIT 6.5630) - Video lectures 2023",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/723a9c6f86738d4111baadf87a6a51a1c038f6f1",
+          "size_bytes": 3219128320,
+          "seeders": 8,
+          "leechers": 1,
+          "published_unix": 1791598315,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "UnityLV-MultiX Dataset echocardiography videos",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/6e8a8eac48777052f4f8b8f5b30954036d59405d.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "UnityLV-MultiX Dataset echocardiography videos",
+          "raw_title": "UnityLV-MultiX Dataset echocardiography videos",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/6e8a8eac48777052f4f8b8f5b30954036d59405d",
+          "size_bytes": 34590597,
+          "seeders": 8,
+          "leechers": 0,
+          "published_unix": 1788833038,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Celebrity in Places",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/04200d16ba377e1bc0c5690d87ee047e1e70a5b5.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Celebrity in Places",
+          "raw_title": "Celebrity in Places",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/04200d16ba377e1bc0c5690d87ee047e1e70a5b5",
+          "size_bytes": 1976719940,
+          "seeders": 7,
+          "leechers": 0,
+          "published_unix": 1790596622,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Data - Static Bias Controllers for XX Spin Rings",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/0bd5aa6f397a5ea4f13f1b16d857e37520702d9d.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Data - Static Bias Controllers for XX Spin Rings",
+          "raw_title": "Data - Static Bias Controllers for XX Spin Rings",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/0bd5aa6f397a5ea4f13f1b16d857e37520702d9d",
+          "size_bytes": 13754044142,
+          "seeders": 7,
+          "leechers": 0,
+          "published_unix": 1788020565,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Design and Analysis of Algorithms (MIT 6.046J) - Video lectures 2015",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/033e3357cc20338aa43ce6494d35f6324eb98063.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Design and Analysis of Algorithms (MIT 6.046J) - Video lectures 2015",
+          "raw_title": "Design and Analysis of Algorithms (MIT 6.046J) - Video lectures 2015",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/033e3357cc20338aa43ce6494d35f6324eb98063",
+          "size_bytes": 7381975040,
+          "seeders": 7,
+          "leechers": 0,
+          "published_unix": 1787984998,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Stack Exchange Data Dump (2026-09-30)",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/c32cdd0306ee7717cd63f98f8df6486af55f79c8.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Stack Exchange Data Dump (2026-09-30)",
+          "raw_title": "Stack Exchange Data Dump (2026-09-30)",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/c32cdd0306ee7717cd63f98f8df6486af55f79c8",
+          "size_bytes": 99497279488,
+          "seeders": 7,
+          "leechers": 1,
+          "published_unix": 1791738651,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Celebrity Together",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/1d959d3af14abbccc7c30293113670848d8aaa89.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Celebrity Together",
+          "raw_title": "Celebrity Together",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/1d959d3af14abbccc7c30293113670848d8aaa89",
+          "size_bytes": 22416978817,
+          "seeders": 6,
+          "leechers": 0,
+          "published_unix": 1791568116,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Results - Robustness of Energy Landscape Control - Sensitivity vs RIM",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/ddd4cbd3647db0e6f03dff94884b0e3b59f1c220.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Results - Robustness of Energy Landscape Control - Sensitivity vs RIM",
+          "raw_title": "Results - Robustness of Energy Landscape Control - Sensitivity vs RIM",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/ddd4cbd3647db0e6f03dff94884b0e3b59f1c220",
+          "size_bytes": 21872846359,
+          "seeders": 6,
+          "leechers": 1,
+          "published_unix": 1788021156,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Algorithmic Lower Bounds: Fun with Hardness Proofs (MIT 6.890) - Video lectures 2014",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/f447784b18231897c892dbe45d943924583eab64.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Algorithmic Lower Bounds: Fun with Hardness Proofs (MIT 6.890) - Video lectures 2014",
+          "raw_title": "Algorithmic Lower Bounds: Fun with Hardness Proofs (MIT 6.890) - Video lectures 2014",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/f447784b18231897c892dbe45d943924583eab64",
+          "size_bytes": 6169821184,
+          "seeders": 5,
+          "leechers": 1,
+          "published_unix": 1789184472,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Data - Energy Landscape Controllers for XX Spin Rings",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/52aeb71e1e2c4dc1618b380498cacbef722071a7.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Data - Energy Landscape Controllers for XX Spin Rings",
+          "raw_title": "Data - Energy Landscape Controllers for XX Spin Rings",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/52aeb71e1e2c4dc1618b380498cacbef722071a7",
+          "size_bytes": 189786121,
+          "seeders": 5,
+          "leechers": 0,
+          "published_unix": 1788017534,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Results - Energy Landscape Controllers for XX Spin Rings - Robustness",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/dcb9178653b651c7ca4526e11fa8e22f74e2fd7a.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Results - Energy Landscape Controllers for XX Spin Rings - Robustness",
+          "raw_title": "Results - Energy Landscape Controllers for XX Spin Rings - Robustness",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/dcb9178653b651c7ca4526e11fa8e22f74e2fd7a",
+          "size_bytes": 71000122956,
+          "seeders": 5,
+          "leechers": 0,
+          "published_unix": 1788029314,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Cara.app Art Dataset — Full Metadata Database for 52,045 Top Posts with 674k Comment Trees (SQLite)",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/cab03c1b0cbc8ed99a0495d491d281d80517146a.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Cara.app Art Dataset — Full Metadata Database for 52,045 Top Posts with 674k Comment Trees (SQLite)",
+          "raw_title": "Cara.app Art Dataset — Full Metadata Database for 52,045 Top Posts with 674k Comment Trees (SQLite)",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/cab03c1b0cbc8ed99a0495d491d281d80517146a",
+          "size_bytes": 403398656,
+          "seeders": 4,
+          "leechers": 0,
+          "published_unix": 1787390408,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    },
+    {
+      "title": "Cara.app Art Dataset — 123,056 Original Images from Top Community Posts (120 GB)",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/77d4e2a65852258420a8e47bf29c8f3a5043a446.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Cara.app Art Dataset — 123,056 Original Images from Top Community Posts (120 GB)",
+          "raw_title": "Cara.app Art Dataset — 123,056 Original Images from Top Community Posts (120 GB)",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/77d4e2a65852258420a8e47bf29c8f3a5043a446",
+          "size_bytes": 119981202380,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1787389996,
+          "observed_at_unix": 1792277105
+        }
+      ]
+    }
+  ]
+}

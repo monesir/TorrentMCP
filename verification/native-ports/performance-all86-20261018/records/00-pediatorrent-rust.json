@@ -1,0 +1,25 @@
+{
+  "wall_ms": 324.90429999961634,
+  "cpu_ms": 93.75,
+  "peak_private_mib": 5.82421875,
+  "sampled_peak_working_set_mib": 24.71484375,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "HTTP status client error (403 Forbidden)",
+  "source_elapsed_ms": 266,
+  "configuration_diagnostic": false,
+  "source": "pediatorrent",
+  "backend": "rust",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:44:27.865916+00:00",
+  "raw_report": "raw\\00-pediatorrent-rust.json",
+  "diagnostics": "raw\\00-pediatorrent-rust.stderr.log"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Controlled fixture",
+  "reference": {
+    "kind": "http",
+    "uri": "http://127.0.0.1:5087/fixture.torrent",
+    "source_id": "controlled-fixture",
+    "post_form": {
+      "id": "fixture"
+    }
+  },
+  "observations": []
+}

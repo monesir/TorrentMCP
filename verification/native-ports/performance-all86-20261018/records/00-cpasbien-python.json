@@ -1,0 +1,26 @@
+{
+  "wall_ms": 1036.7567000002964,
+  "cpu_ms": 296.875,
+  "peak_private_mib": 26.7734375,
+  "sampled_peak_working_set_mib": 69.96875,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RemoteDisconnected: Remote end closed connection without response",
+  "source_elapsed_ms": 982,
+  "configuration_diagnostic": false,
+  "source": "cpasbien",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:48:29.433273+00:00",
+  "raw_report": "raw\\00-cpasbien-python.json",
+  "diagnostics": "raw\\00-cpasbien-python.stderr.log"
+}

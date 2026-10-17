@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "version": "0.5.0",
+  "zip_sha256": "2b73652ddec43599a85b482fdf2a2f2bdceb6a5b9649edf36e642ec427bd8d5b",
+  "portable_evidence": "verification/torrent-workflow-0.5.0-portable/summary.json",
+  "verified_service_shutdowns": 6,
+  "media_streams": 5,
+  "audio_languages": [
+    "ar",
+    "en"
+  ],
+  "subtitle_languages": [
+    "ar",
+    "en"
+  ],
+  "archive_entries_verified": true,
+  "leftover_rqbit_processes": 0
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "operation": "inspect_media",
+  "media": {
+    "input": { "kind": "local_file", "path": "C:/Media/movie.mkv" },
+    "limits": { "timeout_seconds": 30, "max_read_bytes": 16777216 },
+    "selection": { "audio_languages": ["zh"], "subtitle_languages": ["ar", "en"] }
+  }
+}

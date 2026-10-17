@@ -1,0 +1,117 @@
+{
+  "fixture_kind": "synthetic protocol fixtures; LimeTorrents uses captured real HTML",
+  "records": [],
+  "no_python_native": true,
+  "result_limits_passed": true,
+  "http_errors_passed": true,
+  "resolver_records": [
+    {
+      "source": "torrentproject",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:1234567890abcdef1234567890abcdef12345678",
+        "info_hash_v1": "1234567890abcdef1234567890abcdef12345678"
+      },
+      "parity": true
+    },
+    {
+      "source": "pirateiro",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:1234567890abcdef1234567890abcdef12345678",
+        "info_hash_v1": "1234567890abcdef1234567890abcdef12345678"
+      },
+      "parity": true
+    },
+    {
+      "source": "thepiratebay_community_059",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:1234567890abcdef1234567890abcdef12345678&dn=Fixture%20%E4%B8%AD%E6%96%87%20~%20%2A%20%7C%20release&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2780%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2730%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=http%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce",
+        "info_hash_v1": "1234567890abcdef1234567890abcdef12345678"
+      },
+      "parity": true
+    },
+    {
+      "source": "cpasbien",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:7163/get_torrent/42",
+        "source_id": "cpasbien"
+      },
+      "parity": true
+    },
+    {
+      "source": "torrent9",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:7163/get/42",
+        "source_id": "torrent9"
+      },
+      "parity": true
+    },
+    {
+      "source": "rockbox",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:7163/download.php?id=42",
+        "source_id": "rockbox"
+      },
+      "parity": true
+    },
+    {
+      "source": "traht",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:7163/download.php?id=42&ok=",
+        "source_id": "traht"
+      },
+      "parity": true
+    },
+    {
+      "source": "smallgames",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:7163/getTorrent.php?direct=1&gid=42",
+        "source_id": "smallgames"
+      },
+      "parity": true
+    },
+    {
+      "source": "rutor",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:7163/download/42",
+        "source_id": "rutor"
+      },
+      "parity": true
+    },
+    {
+      "source": "zooqle",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:7163/torfile/#hid=fixture-hid",
+        "source_id": "zooqle",
+        "post_form": {
+          "hid": "fixture-hid"
+        }
+      },
+      "parity": true
+    },
+    {
+      "source": "animetosho",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:7163/direct.torrent",
+        "source_id": "animetosho"
+      },
+      "parity": true
+    }
+  ],
+  "partial_results_passed": true,
+  "malformed_json_passed": true,
+  "empty_success_passed": true,
+  "challenge_detection_passed": true,
+  "deadline_passed": true,
+  "executable_sha256": "d49583d7b1a0f2bd4c2128352ecca47a3de5b5f0f94b60972ae9eb0ab0e042fe"
+}

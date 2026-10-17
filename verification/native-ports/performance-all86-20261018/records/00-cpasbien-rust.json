@@ -1,0 +1,25 @@
+{
+  "wall_ms": 1244.0788999992947,
+  "cpu_ms": 156.25,
+  "peak_private_mib": 7.49609375,
+  "sampled_peak_working_set_mib": 29.69921875,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "error sending request",
+  "source_elapsed_ms": 1188,
+  "configuration_diagnostic": false,
+  "source": "cpasbien",
+  "backend": "rust",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:48:28.385548+00:00",
+  "raw_report": "raw\\00-cpasbien-rust.json",
+  "diagnostics": "raw\\00-cpasbien-rust.stderr.log"
+}

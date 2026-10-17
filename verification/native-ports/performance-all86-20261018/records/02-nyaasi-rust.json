@@ -1,0 +1,25 @@
+{
+  "wall_ms": 460.19840000008116,
+  "cpu_ms": 234.375,
+  "peak_private_mib": 7.9140625,
+  "sampled_peak_working_set_mib": 26.375,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 335,
+  "configuration_diagnostic": false,
+  "source": "nyaasi",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:02:46.443824+00:00",
+  "raw_report": "raw\\02-nyaasi-rust.json",
+  "diagnostics": "raw\\02-nyaasi-rust.stderr.log"
+}

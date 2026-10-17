@@ -1,0 +1,88 @@
+{
+  "settings": {
+    "bundle": "C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\dist\\torrent-search-0.5.0-torrentdownloads-fix-20261018",
+    "executable_sha256": "9db05394f0c691a0ceec860197e3668c044dfdb2c1fe911993ab2cdb5fa01208",
+    "python_sha256": "434b361fe0c5960d404974feed493db47f2603a1ace2574312104fbed0182c6f",
+    "manifest_sha256": "334c91cfb53d4d49967db7ae20ddaef7a173f64e28b01242d685362197498401",
+    "query": "nirvana in fire",
+    "category": "all",
+    "limit": 20,
+    "timeout": 20,
+    "trials": 1,
+    "source_ids": [
+      "jackett",
+      "torrentdownloads"
+    ],
+    "parallel_measured_processes": 1,
+    "order_seed": 20261018
+  },
+  "completed_measurements": 4,
+  "measurement_definition": "Fresh CLI processes, serial runs; job CPU and peak private committed memory include all descendants. Working-set sums are sampled and may count shared pages more than once. Network and OS caches are uncontrolled.",
+  "comparable_definition": "Both backends completed with positive, identical result identity sets in the same trial. Timing ratios are not computed for failed, empty, configuration-error or different-result pairs.",
+  "sources": [
+    {
+      "source": "jackett",
+      "name": "Jackett",
+      "rust_trials": 1,
+      "rust_statuses": {
+        "measurement_failed": 1
+      },
+      "rust_wall_ms_median": null,
+      "rust_cpu_ms_median": null,
+      "rust_peak_private_mib_median": null,
+      "rust_sampled_peak_working_set_mib_median": null,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": null,
+      "rust_errors": [
+        "ValueError: Native benchmark unexpectedly spawned descendants"
+      ],
+      "python_trials": 1,
+      "python_statuses": {
+        "completed": 1
+      },
+      "python_wall_ms_median": 306.140100000448,
+      "python_cpu_ms_median": 312.5,
+      "python_peak_private_mib_median": 27.61328125,
+      "python_sampled_peak_working_set_mib_median": 65.00390625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "torrentdownloads",
+      "name": "Torrent Downloads",
+      "rust_trials": 1,
+      "rust_statuses": {
+        "measurement_failed": 1
+      },
+      "rust_wall_ms_median": null,
+      "rust_cpu_ms_median": null,
+      "rust_peak_private_mib_median": null,
+      "rust_sampled_peak_working_set_mib_median": null,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": null,
+      "rust_errors": [
+        "ValueError: Native benchmark unexpectedly spawned descendants"
+      ],
+      "python_trials": 1,
+      "python_statuses": {
+        "completed": 1
+      },
+      "python_wall_ms_median": 13408.194800000274,
+      "python_cpu_ms_median": 750.0,
+      "python_peak_private_mib_median": 27.453125,
+      "python_sampled_peak_working_set_mib_median": 70.89453125,
+      "python_unique_results_median": 20,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    }
+  ]
+}

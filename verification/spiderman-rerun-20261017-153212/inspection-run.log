@@ -1,0 +1,9 @@
+{"phase": "metadata", "index": 0}
+{"phase": "probe", "index": 0, "file": "Spider-Man.Brand.New.Day.2026.2160p.iT.WEB-DL.DDP5.1.Atmos.DV.HDR10+.H.265-XEBEC.mkv"}
+{"phase": "candidate_finished", "index": 0, "status": "failed", "failure": null}
+{"phase": "metadata", "index": 1}
+{"phase": "probe", "index": 1, "file": "Spider-Man.Brand.New.Day.2026.2160p.4K.WEB.x265.10bit.AAC5.1-[YTS.GG - YTS.BZ].mkv"}
+{"phase": "candidate_finished", "index": 1, "status": "completed", "failure": null}
+{"phase": "metadata", "index": 2}
+{"phase": "probe", "index": 2, "file": "Spider-Man.Brand.New.Day.2026.1080p.WEBRip.10Bit.DDP5.1.x265-NeoNoir.mkv"}
+{"phase": "candidate_finished", "index": 2, "status": "completed", "failure": null}

@@ -1,0 +1,26 @@
+{
+  "wall_ms": 3831.5961999996944,
+  "cpu_ms": 343.75,
+  "peak_private_mib": 27.8125,
+  "sampled_peak_working_set_mib": 70.390625,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>",
+  "source_elapsed_ms": 3740,
+  "configuration_diagnostic": false,
+  "source": "divxtotal",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:52:06.478956+00:00",
+  "raw_report": "raw\\01-divxtotal-python.json",
+  "diagnostics": "raw\\01-divxtotal-python.stderr.log"
+}

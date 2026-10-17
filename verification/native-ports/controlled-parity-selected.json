@@ -1,0 +1,115 @@
+{
+  "fixture_kind": "synthetic protocol fixtures; LimeTorrents uses captured real HTML",
+  "records": [
+    {
+      "source": "divxtotal",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/buscar/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "dontorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/buscar",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "esmeraldatorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/buscar/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "naranjatorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/buscar/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "tomadivx",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/buscar/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "calidadtorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/buscar/page/1?q=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/detail/fixture",
+        "/buscar/page/2?q=fixture+%E4%B8%AD%E6%96%87+~+%2A"
+      ]
+    },
+    {
+      "source": "pediatorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/peliculas?query=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "pediatorrent",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/peliculas?query=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "pediatorrent",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/series?query=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "pediatorrent",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/documentales?query=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/detail/fixture"
+      ]
+    }
+  ],
+  "no_python_native": true,
+  "result_limits_passed": true,
+  "http_errors_passed": true,
+  "partial_results_passed": true,
+  "malformed_json_passed": true,
+  "empty_success_passed": true,
+  "challenge_detection_passed": true,
+  "deadline_passed": true,
+  "executable_sha256": "f802581eb278478ac0255e39f7b24faf73d8151da3b181ecab7e5efcc36403d1"
+}

@@ -1,0 +1,26 @@
+{
+  "wall_ms": 910.0953999986814,
+  "cpu_ms": 500.0,
+  "peak_private_mib": 24.921875,
+  "sampled_peak_working_set_mib": 62.078125,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Not Found",
+  "source_elapsed_ms": 778,
+  "configuration_diagnostic": false,
+  "source": "pantsu",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:56:50.509205+00:00",
+  "raw_report": "raw\\01-pantsu-python.json",
+  "diagnostics": "raw\\01-pantsu-python.stderr.log"
+}

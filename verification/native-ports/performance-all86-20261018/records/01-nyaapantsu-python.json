@@ -1,0 +1,26 @@
+{
+  "wall_ms": 782.7596000006452,
+  "cpu_ms": 250.0,
+  "peak_private_mib": 24.64453125,
+  "sampled_peak_working_set_mib": 61.42578125,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 713,
+  "configuration_diagnostic": false,
+  "source": "nyaapantsu",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:51:47.087535+00:00",
+  "raw_report": "raw\\01-nyaapantsu-python.json",
+  "diagnostics": "raw\\01-nyaapantsu-python.stderr.log"
+}

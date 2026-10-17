@@ -1,0 +1,28 @@
+{
+  "wall_ms": 841.5049999985058,
+  "cpu_ms": 250.0,
+  "peak_private_mib": 7.14453125,
+  "sampled_peak_working_set_mib": 29.67578125,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 2,
+  "unique_results": 2,
+  "identities": [
+    "97e73d07e36b40e16c76022003f71fa8511db41d",
+    "aa1cf914b2d134990833e744e278c7d1bba54cc2"
+  ],
+  "error": null,
+  "source_elapsed_ms": 685,
+  "configuration_diagnostic": false,
+  "source": "animetosho_community_006",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:05:31.377512+00:00",
+  "raw_report": "raw\\02-animetosho_community_006-rust.json",
+  "diagnostics": "raw\\02-animetosho_community_006-rust.stderr.log"
+}

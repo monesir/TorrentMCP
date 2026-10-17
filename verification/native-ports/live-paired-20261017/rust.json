@@ -1,0 +1,2604 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "academictorrents",
+      "status": "completed",
+      "elapsed_ms": 15220,
+      "result_count": 20,
+      "limited": true,
+      "error": null
+    },
+    {
+      "source_id": "acgrip",
+      "status": "completed",
+      "elapsed_ms": 564,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "ali213",
+      "status": "completed",
+      "elapsed_ms": 9316,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "anidex",
+      "status": "failed",
+      "elapsed_ms": 220,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "animetosho",
+      "status": "failed",
+      "elapsed_ms": 15,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "animetosho_community_006",
+      "status": "completed",
+      "elapsed_ms": 1508,
+      "result_count": 2,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "apachetorrent",
+      "status": "completed",
+      "elapsed_ms": 1154,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "audiobookbay",
+      "status": "failed",
+      "elapsed_ms": 894,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status client error (425 )"
+    },
+    {
+      "source_id": "bitsearch",
+      "status": "failed",
+      "elapsed_ms": 637,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status server error (520 <none>)"
+    },
+    {
+      "source_id": "bt4gprx",
+      "status": "failed",
+      "elapsed_ms": 494,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status client error (403 Forbidden)"
+    },
+    {
+      "source_id": "btdig",
+      "status": "failed",
+      "elapsed_ms": 596,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status client error (429 Too Many Requests)"
+    },
+    {
+      "source_id": "calidadtorrent",
+      "status": "failed",
+      "elapsed_ms": 369,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status client error (403 Forbidden)"
+    },
+    {
+      "source_id": "cloudtorrents",
+      "status": "failed",
+      "elapsed_ms": 397,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status server error (526 <none>)"
+    },
+    {
+      "source_id": "cpasbien",
+      "status": "failed",
+      "elapsed_ms": 1157,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "darklibria",
+      "status": "failed",
+      "elapsed_ms": 840,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "divxtotal",
+      "status": "failed",
+      "elapsed_ms": 4905,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status server error (523 <none>)"
+    },
+    {
+      "source_id": "dmhy",
+      "status": "failed",
+      "elapsed_ms": 290,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "dmhy_community_018",
+      "status": "completed",
+      "elapsed_ms": 1232,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "dodi_repacks",
+      "status": "failed",
+      "elapsed_ms": 410,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status client error (403 Forbidden)"
+    },
+    {
+      "source_id": "dontorrent",
+      "status": "failed",
+      "elapsed_ms": 7260,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status server error (523 <none>)"
+    },
+    {
+      "source_id": "dontorrent_community_020",
+      "status": "failed",
+      "elapsed_ms": 3635,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status server error (523 <none>)"
+    },
+    {
+      "source_id": "elitetorrent",
+      "status": "completed",
+      "elapsed_ms": 768,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "esmeraldatorrent",
+      "status": "failed",
+      "elapsed_ms": 4086,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status server error (523 <none>)"
+    },
+    {
+      "source_id": "eztv",
+      "status": "failed",
+      "elapsed_ms": 15,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "eztvx",
+      "status": "failed",
+      "elapsed_ms": 399,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "fitgirl_repacks",
+      "status": "completed",
+      "elapsed_ms": 4829,
+      "result_count": 1,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "glotorrents",
+      "status": "failed",
+      "elapsed_ms": 4671,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "goggames",
+      "status": "failed",
+      "elapsed_ms": 515,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status client error (404 Not Found)"
+    },
+    {
+      "source_id": "jackett",
+      "status": "failed",
+      "elapsed_ms": 0,
+      "result_count": 0,
+      "limited": false,
+      "error": "Jackett requires local qbit/engines/jackett.json with url and api_key"
+    },
+    {
+      "source_id": "kickasstorrents",
+      "status": "failed",
+      "elapsed_ms": 1912,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status client error (403 Forbidden)"
+    },
+    {
+      "source_id": "limetorrents",
+      "status": "completed",
+      "elapsed_ms": 3290,
+      "result_count": 20,
+      "limited": true,
+      "error": null
+    },
+    {
+      "source_id": "linuxtracker",
+      "status": "completed",
+      "elapsed_ms": 990,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "magnetdl",
+      "status": "failed",
+      "elapsed_ms": 12006,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "magnetdl_community_031",
+      "status": "failed",
+      "elapsed_ms": 12002,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "maxitorrent",
+      "status": "failed",
+      "elapsed_ms": 949,
+      "result_count": 0,
+      "limited": false,
+      "error": "expected value at line 1 column 1"
+    },
+    {
+      "source_id": "mejortorrent",
+      "status": "failed",
+      "elapsed_ms": 884,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status client error (403 Forbidden)"
+    },
+    {
+      "source_id": "mikan",
+      "status": "completed",
+      "elapsed_ms": 1807,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "mikanani",
+      "status": "completed",
+      "elapsed_ms": 1058,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "mypornclub",
+      "status": "failed",
+      "elapsed_ms": 109,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "naranjatorrent",
+      "status": "failed",
+      "elapsed_ms": 3169,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status server error (523 <none>)"
+    },
+    {
+      "source_id": "nekobt",
+      "status": "completed",
+      "elapsed_ms": 580,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "nyaa",
+      "status": "failed",
+      "elapsed_ms": 114,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "nyaapantsu",
+      "status": "failed",
+      "elapsed_ms": 735,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "nyaasi",
+      "status": "completed",
+      "elapsed_ms": 591,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "onlinefix",
+      "status": "failed",
+      "elapsed_ms": 297,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status client error (403 Forbidden)"
+    },
+    {
+      "source_id": "pantsu",
+      "status": "failed",
+      "elapsed_ms": 1029,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status client error (404 Not Found)"
+    },
+    {
+      "source_id": "pediatorrent",
+      "status": "failed",
+      "elapsed_ms": 359,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status client error (403 Forbidden)"
+    },
+    {
+      "source_id": "pediatorrent_community_043",
+      "status": "failed",
+      "elapsed_ms": 300,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status client error (403 Forbidden)"
+    },
+    {
+      "source_id": "piratebay",
+      "status": "completed",
+      "elapsed_ms": 806,
+      "result_count": 3,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "pirateiro",
+      "status": "completed",
+      "elapsed_ms": 759,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "redetorrent",
+      "status": "completed",
+      "elapsed_ms": 1209,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "rockbox",
+      "status": "failed",
+      "elapsed_ms": 8007,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "rutor",
+      "status": "completed",
+      "elapsed_ms": 570,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "sktorrent",
+      "status": "completed",
+      "elapsed_ms": 2237,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "smallgames",
+      "status": "completed",
+      "elapsed_ms": 2431,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "snowfl",
+      "status": "completed",
+      "elapsed_ms": 5470,
+      "result_count": 6,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "snowfl_community_052",
+      "status": "completed",
+      "elapsed_ms": 7458,
+      "result_count": 6,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "solidtorrents",
+      "status": "failed",
+      "elapsed_ms": 1993,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status server error (520 <none>)"
+    },
+    {
+      "source_id": "solidtorrents_community_053",
+      "status": "failed",
+      "elapsed_ms": 1032,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status server error (520 <none>)"
+    },
+    {
+      "source_id": "subsplease",
+      "status": "completed",
+      "elapsed_ms": 603,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "sukebei",
+      "status": "failed",
+      "elapsed_ms": 110,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "sukebeisi",
+      "status": "failed",
+      "elapsed_ms": 136,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "thepiratebay",
+      "status": "completed",
+      "elapsed_ms": 615,
+      "result_count": 3,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "thepiratebay_community_059",
+      "status": "completed",
+      "elapsed_ms": 272,
+      "result_count": 3,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "therarbg",
+      "status": "failed",
+      "elapsed_ms": 133,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "tokyotoshokan",
+      "status": "failed",
+      "elapsed_ms": 17,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "tomadivx",
+      "status": "failed",
+      "elapsed_ms": 4527,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status server error (523 <none>)"
+    },
+    {
+      "source_id": "torlock",
+      "status": "failed",
+      "elapsed_ms": 340,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status client error (403 Forbidden)"
+    },
+    {
+      "source_id": "torrenflix",
+      "status": "completed",
+      "elapsed_ms": 1139,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "torrent9",
+      "status": "completed",
+      "elapsed_ms": 2016,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "torrentclaw",
+      "status": "completed",
+      "elapsed_ms": 552,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "torrentdownload",
+      "status": "completed",
+      "elapsed_ms": 370,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "torrentdownload_community_066",
+      "status": "completed",
+      "elapsed_ms": 474,
+      "result_count": 20,
+      "limited": true,
+      "error": null
+    },
+    {
+      "source_id": "torrentdownloads",
+      "status": "failed",
+      "elapsed_ms": 2922,
+      "result_count": 9,
+      "limited": false,
+      "error": "Invalid torrent reference"
+    },
+    {
+      "source_id": "torrentgalaxy",
+      "status": "failed",
+      "elapsed_ms": 18,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "torrentproject",
+      "status": "failed",
+      "elapsed_ms": 4808,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "torrentscsv",
+      "status": "completed",
+      "elapsed_ms": 303,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "traht",
+      "status": "failed",
+      "elapsed_ms": 19,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "tsukihime",
+      "status": "completed",
+      "elapsed_ms": 458,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "uindex",
+      "status": "failed",
+      "elapsed_ms": 275,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status client error (403 Forbidden)"
+    },
+    {
+      "source_id": "uniondht",
+      "status": "completed",
+      "elapsed_ms": 701,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "xxxclubto",
+      "status": "failed",
+      "elapsed_ms": 10,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "yggtracker",
+      "status": "failed",
+      "elapsed_ms": 615,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "yourbittorrent",
+      "status": "failed",
+      "elapsed_ms": 17,
+      "result_count": 0,
+      "limited": false,
+      "error": "error sending request"
+    },
+    {
+      "source_id": "yts",
+      "status": "completed",
+      "elapsed_ms": 989,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    },
+    {
+      "source_id": "zooqle",
+      "status": "completed",
+      "elapsed_ms": 1009,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    }
+  ],
+  "results": [
+    {
+      "title": "[EMBER] Kaguya-sama: Love is War (2019-2020) (Season 1+2) [BDRip] [1080p Dual Audio HEVC 10 bits] (Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen)",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:VIOPSFFS2E2JSCBT45COE6GH2G52KTGC&tr=http%3A%2F%2Fnyaa.tracker.wf%3A7777%2Fannounce",
+        "info_hash_v1": "aa1cf914b2d134990833e744e278c7d1bba54cc2"
+      },
+      "observations": [
+        {
+          "source_id": "animetosho_community_006",
+          "title": "[EMBER] Kaguya-sama: Love is War (2019-2020) (Season 1+2) [BDRip] [1080p Dual Audio HEVC 10 bits] (Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen)",
+          "raw_title": "[EMBER] Kaguya-sama: Love is War (2019-2020) (Season 1+2) [BDRip] [1080p Dual Audio HEVC 10 bits] (Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen)",
+          "site_url": "https://animetosho.xyz",
+          "description_url": "https://animetosho.net/view/305135",
+          "size_bytes": 14380784391,
+          "seeders": 72,
+          "leechers": 11,
+          "published_unix": 1615388761,
+          "observed_at_unix": 1792258414
+        }
+      ]
+    },
+    {
+      "title": "enwiki-20260801-pages-articles-multistream.xml.bz2",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/7d6adf33cd9976877fdc4b487607c3bdaf733241.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "enwiki-20260801-pages-articles-multistream.xml.bz2",
+          "raw_title": "enwiki-20260801-pages-articles-multistream.xml.bz2",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/7d6adf33cd9976877fdc4b487607c3bdaf733241",
+          "size_bytes": 26668484995,
+          "seeders": 72,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258434
+        }
+      ]
+    },
+    {
+      "title": "enwiki-20261001-pages-articles-multistream.xml.bz2",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/82075af82e83b99e9a4c6ef17e564947efe65a66.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "enwiki-20261001-pages-articles-multistream.xml.bz2",
+          "raw_title": "enwiki-20261001-pages-articles-multistream.xml.bz2",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/82075af82e83b99e9a4c6ef17e564947efe65a66",
+          "size_bytes": 26899580121,
+          "seeders": 60,
+          "leechers": 2,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "Reddit comments/submissions 2026-08",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/f4848163a5fb650e4b15eee0202858447bca120a.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Reddit comments/submissions 2026-08",
+          "raw_title": "Reddit comments/submissions 2026-08",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/f4848163a5fb650e4b15eee0202858447bca120a",
+          "size_bytes": 74613168905,
+          "seeders": 34,
+          "leechers": 5,
+          "published_unix": null,
+          "observed_at_unix": 1792258426
+        }
+      ]
+    },
+    {
+      "title": "enwiki-20260801-pages-articles-multistream-index.txt.bz2",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/4d29de8b54945597064c1148b78b3e79546d07e5.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "enwiki-20260801-pages-articles-multistream-index.txt.bz2",
+          "raw_title": "enwiki-20260801-pages-articles-multistream-index.txt.bz2",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/4d29de8b54945597064c1148b78b3e79546d07e5",
+          "size_bytes": 283588691,
+          "seeders": 32,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258434
+        }
+      ]
+    },
+    {
+      "title": "enwiki-20261001-pages-articles-multistream-index.txt.bz2",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/e6d8aef6d3dffd1ff9eb36d84988242871812a79.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "enwiki-20261001-pages-articles-multistream-index.txt.bz2",
+          "raw_title": "enwiki-20261001-pages-articles-multistream-index.txt.bz2",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/e6d8aef6d3dffd1ff9eb36d84988242871812a79",
+          "size_bytes": 285068855,
+          "seeders": 30,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "Reddit comments/submissions 2026-09",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/98b6dbad155750c4d5f65d5923e0c2d11f46da85.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Reddit comments/submissions 2026-09",
+          "raw_title": "Reddit comments/submissions 2026-09",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/98b6dbad155750c4d5f65d5923e0c2d11f46da85",
+          "size_bytes": 74356662467,
+          "seeders": 29,
+          "leechers": 4,
+          "published_unix": null,
+          "observed_at_unix": 1792258422
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire â…¡ EP27-28 2017 4k&1080p WEB-DL x264 AAC-HQC",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP27-28-2017-4k%20amp%201080p-WEB-DL-x264-AAC-HQC-torrent-10349792.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Nirvana in Fire â…¡ EP27-28 2017 4k&1080p WEB-DL x264 AAC-HQC",
+          "raw_title": "Nirvana in Fire â…¡ EP27-28 2017 4k&1080p WEB-DL x264 AAC-HQC",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP27-28-2017-4k%20amp%201080p-WEB-DL-x264-AAC-HQC-torrent-10349792.html",
+          "size_bytes": 5315022029,
+          "seeders": 26,
+          "leechers": 17,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire â…¡ EP27-28 2017 4k&amp;1080p WEB-DL x264 AAC-HQC",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:CEEAEBA512923796776233EA6B7D49B26B5D6EC8&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.ololosh.space%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dump.cl%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker-udp.gbitt.info%3A80%2Fannounce&tr=udp%3A%2F%2Fretracker01-msk-virt.corbina.net%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.free-tracker.ga%3A6969%2Fannounce&tr=udp%3A%2F%2Fns-1.x-fins.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fleet-tracker.moe%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.open-internet.nl%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.pirateparty.gr%3A6969%2Fannounce&tr=udp%3A%2F%2Fdenis.stalker.upeer.me%3A6969%2Fannounce",
+        "info_hash_v1": "ceeaeba512923796776233ea6b7d49b26b5d6ec8"
+      },
+      "observations": [
+        {
+          "source_id": "snowfl",
+          "title": "Nirvana in Fire â…¡ EP27-28 2017 4k&amp;1080p WEB-DL x264 AAC-HQC",
+          "raw_title": "Nirvana in Fire â…¡ EP27-28 2017 4k&amp;1080p WEB-DL x264 AAC-HQC",
+          "site_url": "https://snowfl.com",
+          "description_url": "https://www.limetorrents.fun/Nirvana-in-Fire-â…¡-EP27-28-2017-4k amp 1080p-WEB-DL-x264-AAC-HQC-torrent-10349792.html",
+          "size_bytes": 5315022029,
+          "seeders": 26,
+          "leechers": 17,
+          "published_unix": null,
+          "observed_at_unix": 1792258415
+        },
+        {
+          "source_id": "snowfl_community_052",
+          "title": "Nirvana in Fire â…¡ EP27-28 2017 4k&amp;1080p WEB-DL x264 AAC-HQC [limetorrents]",
+          "raw_title": "Nirvana in Fire â…¡ EP27-28 2017 4k&amp;1080p WEB-DL x264 AAC-HQC [limetorrents]",
+          "site_url": "https://snowfl.com",
+          "description_url": "https://www.limetorrents.fun/Nirvana-in-Fire-â…¡-EP27-28-2017-4k amp 1080p-WEB-DL-x264-AAC-HQC-torrent-10349792.html",
+          "size_bytes": 5315022029,
+          "seeders": 26,
+          "leechers": 17,
+          "published_unix": 1761154418,
+          "observed_at_unix": 1792258418
+        },
+        {
+          "source_id": "torrentdownloads",
+          "title": "Nirvana in Fire â…¡ EP27-28 2017 4k&1080p WEB-DL x264 AAC-HQC",
+          "raw_title": "Nirvana in Fire â…¡ EP27-28 2017 4k&1080p WEB-DL x264 AAC-HQC",
+          "site_url": "https://torrentdownloads.pro",
+          "description_url": "https://torrentdownloads.pro//torrent/1664028933/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP27-28-2017-4k%261080p-WEB-DL-x264-AAC-HQC",
+          "size_bytes": 5315022029,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258421
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire â…¡ EP25-26 2017 4k&1080p WEB-DL x264 AAC-HQC",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP25-26-2017-4k%20amp%201080p-WEB-DL-x264-AAC-HQC-torrent-10353661.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Nirvana in Fire â…¡ EP25-26 2017 4k&1080p WEB-DL x264 AAC-HQC",
+          "raw_title": "Nirvana in Fire â…¡ EP25-26 2017 4k&1080p WEB-DL x264 AAC-HQC",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP25-26-2017-4k%20amp%201080p-WEB-DL-x264-AAC-HQC-torrent-10353661.html",
+          "size_bytes": 5186173010,
+          "seeders": 23,
+          "leechers": 33,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire â…¡ EP25-26 2017 4k&amp;1080p WEB-DL x264 AAC-HQC",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:0A978947A63408FC494EEC9565A67EC6ACD1DFA8&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.ololosh.space%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dump.cl%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker-udp.gbitt.info%3A80%2Fannounce&tr=udp%3A%2F%2Fretracker01-msk-virt.corbina.net%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.free-tracker.ga%3A6969%2Fannounce&tr=udp%3A%2F%2Fns-1.x-fins.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fleet-tracker.moe%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.open-internet.nl%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.pirateparty.gr%3A6969%2Fannounce&tr=udp%3A%2F%2Fdenis.stalker.upeer.me%3A6969%2Fannounce",
+        "info_hash_v1": "0a978947a63408fc494eec9565a67ec6acd1dfa8"
+      },
+      "observations": [
+        {
+          "source_id": "snowfl",
+          "title": "Nirvana in Fire â…¡ EP25-26 2017 4k&amp;1080p WEB-DL x264 AAC-HQC",
+          "raw_title": "Nirvana in Fire â…¡ EP25-26 2017 4k&amp;1080p WEB-DL x264 AAC-HQC",
+          "site_url": "https://snowfl.com",
+          "description_url": "https://www.limetorrents.fun/Nirvana-in-Fire-â…¡-EP25-26-2017-4k amp 1080p-WEB-DL-x264-AAC-HQC-torrent-10353661.html",
+          "size_bytes": 5186173010,
+          "seeders": 23,
+          "leechers": 33,
+          "published_unix": null,
+          "observed_at_unix": 1792258415
+        },
+        {
+          "source_id": "snowfl_community_052",
+          "title": "Nirvana in Fire â…¡ EP25-26 2017 4k&amp;1080p WEB-DL x264 AAC-HQC [limetorrents]",
+          "raw_title": "Nirvana in Fire â…¡ EP25-26 2017 4k&amp;1080p WEB-DL x264 AAC-HQC [limetorrents]",
+          "site_url": "https://snowfl.com",
+          "description_url": "https://www.limetorrents.fun/Nirvana-in-Fire-â…¡-EP25-26-2017-4k amp 1080p-WEB-DL-x264-AAC-HQC-torrent-10353661.html",
+          "size_bytes": 5186173010,
+          "seeders": 23,
+          "leechers": 33,
+          "published_unix": 1761154418,
+          "observed_at_unix": 1792258418
+        },
+        {
+          "source_id": "torrentdownloads",
+          "title": "Nirvana in Fire â…¡ EP25-26 2017 4k&1080p WEB-DL x264 AAC-HQC",
+          "raw_title": "Nirvana in Fire â…¡ EP25-26 2017 4k&1080p WEB-DL x264 AAC-HQC",
+          "site_url": "https://torrentdownloads.pro",
+          "description_url": "https://torrentdownloads.pro//torrent/1664032324/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP25-26-2017-4k%261080p-WEB-DL-x264-AAC-HQC",
+          "size_bytes": 5186173010,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258421
+        }
+      ]
+    },
+    {
+      "title": "Mathematics for Computer Science (MIT 6.1200J) - Video lectures 2024",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/fb8e884242c26e60f38dedf17b37327bdcffb1d6.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Mathematics for Computer Science (MIT 6.1200J) - Video lectures 2024",
+          "raw_title": "Mathematics for Computer Science (MIT 6.1200J) - Video lectures 2024",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/fb8e884242c26e60f38dedf17b37327bdcffb1d6",
+          "size_bytes": 4588568576,
+          "seeders": 22,
+          "leechers": 1,
+          "published_unix": null,
+          "observed_at_unix": 1792258424
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire â…¡ EP01 50 2017 4k&1080p WEB DL x264 AAC HQC » Other",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/FD9CD3ACCA4F2F85BECE5F15DD9FC854E0275576/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP01-50-2017-4k+amp+1080p-WEB-DL-x264-AAC-HQC",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "Nirvana in Fire â…¡ EP01 50 2017 4k&1080p WEB DL x264 AAC HQC » Other",
+          "raw_title": "Nirvana in Fire â…¡ EP01 50 2017 4k&1080p WEB DL x264 AAC HQC » Other",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/FD9CD3ACCA4F2F85BECE5F15DD9FC854E0275576/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP01-50-2017-4k+amp+1080p-WEB-DL-x264-AAC-HQC",
+          "size_bytes": 132016557261,
+          "seeders": 19,
+          "leechers": 130,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "Techtonica – v1.0.1c",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:E8A626500C470AC9D08FE01348D2A528AE01DB55&dn=Techtonica+%28v1.0.1c%2C+MULTi13%29+%5BFitGirl+Repack%5D&tr=udp%3A%2F%2Fopentor.net%3A6969&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.theoks.net%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.ccp.ovh%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=https%3A%2F%2Ftracker.tamersunion.org%3A443%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=http%3A%2F%2Ftracker.bt4g.com%3A2095%2Fannounce&tr=udp%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.filemail.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker1.bt.moack.co.kr%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce",
+        "info_hash_v1": "e8a626500c470ac9d08fe01348d2a528ae01db55"
+      },
+      "observations": [
+        {
+          "source_id": "fitgirl_repacks",
+          "title": "Techtonica – v1.0.1c",
+          "raw_title": "Techtonica – v1.0.1c",
+          "site_url": "https://fitgirl-repacks.site",
+          "description_url": "https://fitgirl-repacks.site/techtonica/",
+          "size_bytes": 2147483648,
+          "seeders": 12,
+          "leechers": 0,
+          "published_unix": 1731178527,
+          "observed_at_unix": 1792258427
+        }
+      ]
+    },
+    {
+      "title": "Nirvana.in.Fire.Complete.1080p.WEB-DL.H264.AAC-NYHD",
+      "reference": {
+        "kind": "http",
+        "uri": "https://thepiratebay.org/description.php?id=15873101",
+        "source_id": "thepiratebay_community_059"
+      },
+      "observations": [
+        {
+          "source_id": "thepiratebay_community_059",
+          "title": "Nirvana.in.Fire.Complete.1080p.WEB-DL.H264.AAC-NYHD",
+          "raw_title": "Nirvana.in.Fire.Complete.1080p.WEB-DL.H264.AAC-NYHD",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=15873101",
+          "size_bytes": 56728022388,
+          "seeders": 11,
+          "leechers": 4,
+          "published_unix": null,
+          "observed_at_unix": 1792258422
+        }
+      ]
+    },
+    {
+      "title": "Nirvana.in.Fire.Complete.1080p.WEB-DL.H264.AAC-NYHD",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:7FEF6590EE993DB78F8ED6F394860B27C2C5E81C&dn=Nirvana.in.Fire.Complete.1080p.WEB-DL.H264.AAC-NYHD&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "7fef6590ee993db78f8ed6f394860b27c2c5e81c"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Nirvana.in.Fire.Complete.1080p.WEB-DL.H264.AAC-NYHD",
+          "raw_title": "Nirvana.in.Fire.Complete.1080p.WEB-DL.H264.AAC-NYHD",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=15873101",
+          "size_bytes": 56728022388,
+          "seeders": 11,
+          "leechers": 4,
+          "published_unix": 1474453371,
+          "observed_at_unix": 1792258415
+        },
+        {
+          "source_id": "thepiratebay",
+          "title": "Nirvana.in.Fire.Complete.1080p.WEB-DL.H264.AAC-NYHD",
+          "raw_title": "Nirvana.in.Fire.Complete.1080p.WEB-DL.H264.AAC-NYHD",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=15873101",
+          "size_bytes": 56728022388,
+          "seeders": 11,
+          "leechers": 4,
+          "published_unix": null,
+          "observed_at_unix": 1792258401
+        }
+      ]
+    },
+    {
+      "title": "Computer Systems Security (MIT 6.858) - Video lectures 2014",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/4b9c8a79866e71648bde841d682ad33ea3c7101b.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Computer Systems Security (MIT 6.858) - Video lectures 2014",
+          "raw_title": "Computer Systems Security (MIT 6.858) - Video lectures 2014",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/4b9c8a79866e71648bde841d682ad33ea3c7101b",
+          "size_bytes": 11035213824,
+          "seeders": 9,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "Advanced Data Structures (MIT 6.851) - Video lectures 2012",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/a7ef136c1ad6c7924642a1ac399bc0800d9da4f4.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Advanced Data Structures (MIT 6.851) - Video lectures 2012",
+          "raw_title": "Advanced Data Structures (MIT 6.851) - Video lectures 2012",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/a7ef136c1ad6c7924642a1ac399bc0800d9da4f4",
+          "size_bytes": 14407434240,
+          "seeders": 8,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258428
+        }
+      ]
+    },
+    {
+      "title": "Advanced Topics in Cryptography (MIT 6.5630) - Video lectures 2023",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/723a9c6f86738d4111baadf87a6a51a1c038f6f1.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Advanced Topics in Cryptography (MIT 6.5630) - Video lectures 2023",
+          "raw_title": "Advanced Topics in Cryptography (MIT 6.5630) - Video lectures 2023",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/723a9c6f86738d4111baadf87a6a51a1c038f6f1",
+          "size_bytes": 3219128320,
+          "seeders": 8,
+          "leechers": 1,
+          "published_unix": null,
+          "observed_at_unix": 1792258422
+        }
+      ]
+    },
+    {
+      "title": "UnityLV-MultiX Dataset echocardiography videos",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/6e8a8eac48777052f4f8b8f5b30954036d59405d.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "UnityLV-MultiX Dataset echocardiography videos",
+          "raw_title": "UnityLV-MultiX Dataset echocardiography videos",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/6e8a8eac48777052f4f8b8f5b30954036d59405d",
+          "size_bytes": 34590597,
+          "seeders": 8,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258427
+        }
+      ]
+    },
+    {
+      "title": "Celebrity in Places",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/04200d16ba377e1bc0c5690d87ee047e1e70a5b5.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Celebrity in Places",
+          "raw_title": "Celebrity in Places",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/04200d16ba377e1bc0c5690d87ee047e1e70a5b5",
+          "size_bytes": 1976719940,
+          "seeders": 7,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258424
+        }
+      ]
+    },
+    {
+      "title": "Data - Static Bias Controllers for XX Spin Rings",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/0bd5aa6f397a5ea4f13f1b16d857e37520702d9d.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Data - Static Bias Controllers for XX Spin Rings",
+          "raw_title": "Data - Static Bias Controllers for XX Spin Rings",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/0bd5aa6f397a5ea4f13f1b16d857e37520702d9d",
+          "size_bytes": 13754044142,
+          "seeders": 7,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258431
+        }
+      ]
+    },
+    {
+      "title": "Design and Analysis of Algorithms (MIT 6.046J) - Video lectures 2015",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/033e3357cc20338aa43ce6494d35f6324eb98063.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Design and Analysis of Algorithms (MIT 6.046J) - Video lectures 2015",
+          "raw_title": "Design and Analysis of Algorithms (MIT 6.046J) - Video lectures 2015",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/033e3357cc20338aa43ce6494d35f6324eb98063",
+          "size_bytes": 7381975040,
+          "seeders": 7,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258433
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire [2015] Chinese Audio (1080p x264 AVC) » TV shows",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/EBCC79737CD85B794A52A4E06A54F3C33895E0D9/Nirvana-in-Fire-+2015+-Chinese-Audio-+1080p-x264-AVC+",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "Nirvana in Fire [2015] Chinese Audio (1080p x264 AVC) » TV shows",
+          "raw_title": "Nirvana in Fire [2015] Chinese Audio (1080p x264 AVC) » TV shows",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/EBCC79737CD85B794A52A4E06A54F3C33895E0D9/Nirvana-in-Fire-+2015+-Chinese-Audio-+1080p-x264-AVC+",
+          "size_bytes": 56725780562,
+          "seeders": 7,
+          "leechers": 7,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "Stack Exchange Data Dump (2026-09-30)",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/c32cdd0306ee7717cd63f98f8df6486af55f79c8.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Stack Exchange Data Dump (2026-09-30)",
+          "raw_title": "Stack Exchange Data Dump (2026-09-30)",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/c32cdd0306ee7717cd63f98f8df6486af55f79c8",
+          "size_bytes": 99497279488,
+          "seeders": 7,
+          "leechers": 4,
+          "published_unix": null,
+          "observed_at_unix": 1792258422
+        }
+      ]
+    },
+    {
+      "title": "Celebrity Together",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/1d959d3af14abbccc7c30293113670848d8aaa89.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Celebrity Together",
+          "raw_title": "Celebrity Together",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/1d959d3af14abbccc7c30293113670848d8aaa89",
+          "size_bytes": 22416978817,
+          "seeders": 6,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "Results - Robustness of Energy Landscape Control - Sensitivity vs RIM",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/ddd4cbd3647db0e6f03dff94884b0e3b59f1c220.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Results - Robustness of Energy Landscape Control - Sensitivity vs RIM",
+          "raw_title": "Results - Robustness of Energy Landscape Control - Sensitivity vs RIM",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/ddd4cbd3647db0e6f03dff94884b0e3b59f1c220",
+          "size_bytes": 21872846359,
+          "seeders": 6,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258430
+        }
+      ]
+    },
+    {
+      "title": "Algorithmic Lower Bounds: Fun with Hardness Proofs (MIT 6.890) - Video lectures 2014",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/f447784b18231897c892dbe45d943924583eab64.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Algorithmic Lower Bounds: Fun with Hardness Proofs (MIT 6.890) - Video lectures 2014",
+          "raw_title": "Algorithmic Lower Bounds: Fun with Hardness Proofs (MIT 6.890) - Video lectures 2014",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/f447784b18231897c892dbe45d943924583eab64",
+          "size_bytes": 6169821184,
+          "seeders": 5,
+          "leechers": 1,
+          "published_unix": null,
+          "observed_at_unix": 1792258425
+        }
+      ]
+    },
+    {
+      "title": "Data - Energy Landscape Controllers for XX Spin Rings",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/52aeb71e1e2c4dc1618b380498cacbef722071a7.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Data - Energy Landscape Controllers for XX Spin Rings",
+          "raw_title": "Data - Energy Landscape Controllers for XX Spin Rings",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/52aeb71e1e2c4dc1618b380498cacbef722071a7",
+          "size_bytes": 189786121,
+          "seeders": 5,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258432
+        }
+      ]
+    },
+    {
+      "title": "Results - Energy Landscape Controllers for XX Spin Rings - Robustness",
+      "reference": {
+        "kind": "http",
+        "uri": "https://academictorrents.com/download/dcb9178653b651c7ca4526e11fa8e22f74e2fd7a.torrent",
+        "source_id": "academictorrents"
+      },
+      "observations": [
+        {
+          "source_id": "academictorrents",
+          "title": "Results - Energy Landscape Controllers for XX Spin Rings - Robustness",
+          "raw_title": "Results - Energy Landscape Controllers for XX Spin Rings - Robustness",
+          "site_url": "https://academictorrents.com",
+          "description_url": "https://academictorrents.com/details/dcb9178653b651c7ca4526e11fa8e22f74e2fd7a",
+          "size_bytes": 71000122956,
+          "seeders": 5,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258429
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire [2015] English Audio (1080p x264 AVC) » TV shows",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/229D17570B6B28D211F79F8DEBA4D5DC5158DB92/Nirvana-in-Fire-+2015+-English-Audio-+1080p-x264-AVC+",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "Nirvana in Fire [2015] English Audio (1080p x264 AVC) » TV shows",
+          "raw_title": "Nirvana in Fire [2015] English Audio (1080p x264 AVC) » TV shows",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/229D17570B6B28D211F79F8DEBA4D5DC5158DB92/Nirvana-in-Fire-+2015+-English-Audio-+1080p-x264-AVC+",
+          "size_bytes": 46342697124,
+          "seeders": 4,
+          "leechers": 16,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire Ⅱ EP01-50 2017 4k&1080p WEB-DL x264",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Nirvana-in-Fire-%E2%85%A1-EP01-50-2017-4k%201080p-WEB-DL-x264-torrent-15935155.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Nirvana in Fire Ⅱ EP01-50 2017 4k&1080p WEB-DL x264",
+          "raw_title": "Nirvana in Fire Ⅱ EP01-50 2017 4k&1080p WEB-DL x264",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Nirvana-in-Fire-%E2%85%A1-EP01-50-2017-4k%201080p-WEB-DL-x264-torrent-15935155.html",
+          "size_bytes": 132016557261,
+          "seeders": 4,
+          "leechers": 12,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire Ⅱ EP01-50 2017 4k&1080p WEB-DL x264",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:FD9CD3ACCA4F2F85BECE5F15DD9FC854E0275576&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.ololosh.space%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dump.cl%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker-udp.gbitt.info%3A80%2Fannounce&tr=udp%3A%2F%2Fretracker01-msk-virt.corbina.net%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.free-tracker.ga%3A6969%2Fannounce&tr=udp%3A%2F%2Fns-1.x-fins.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fleet-tracker.moe%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.open-internet.nl%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.pirateparty.gr%3A6969%2Fannounce&tr=udp%3A%2F%2Fdenis.stalker.upeer.me%3A6969%2Fannounce",
+        "info_hash_v1": "fd9cd3acca4f2f85bece5f15dd9fc854e0275576"
+      },
+      "observations": [
+        {
+          "source_id": "snowfl",
+          "title": "Nirvana in Fire Ⅱ EP01-50 2017 4k&1080p WEB-DL x264",
+          "raw_title": "Nirvana in Fire Ⅱ EP01-50 2017 4k&1080p WEB-DL x264",
+          "site_url": "https://snowfl.com",
+          "description_url": "https://www.limetorrents.fun/Nirvana-in-Fire-Ⅱ-EP01-50-2017-4k 1080p-WEB-DL-x264-torrent-15935155.html",
+          "size_bytes": 132016557261,
+          "seeders": 4,
+          "leechers": 12,
+          "published_unix": null,
+          "observed_at_unix": 1792258415
+        },
+        {
+          "source_id": "snowfl_community_052",
+          "title": "Nirvana in Fire Ⅱ EP01-50 2017 4k&1080p WEB-DL x264 [limetorrents]",
+          "raw_title": "Nirvana in Fire Ⅱ EP01-50 2017 4k&1080p WEB-DL x264 [limetorrents]",
+          "site_url": "https://snowfl.com",
+          "description_url": "https://www.limetorrents.fun/Nirvana-in-Fire-Ⅱ-EP01-50-2017-4k 1080p-WEB-DL-x264-torrent-15935155.html",
+          "size_bytes": 132016557261,
+          "seeders": 4,
+          "leechers": 12,
+          "published_unix": 1761154418,
+          "observed_at_unix": 1792258418
+        },
+        {
+          "source_id": "torrentdownloads",
+          "title": "Nirvana in Fire â…¡ EP01-50 2017 4k&1080p WEB-DL x264 AAC-HQC",
+          "raw_title": "Nirvana in Fire â…¡ EP01-50 2017 4k&1080p WEB-DL x264 AAC-HQC",
+          "site_url": "https://torrentdownloads.pro",
+          "description_url": "https://torrentdownloads.pro//torrent/1664553985/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP01-50-2017-4k%261080p-WEB-DL-x264-AAC-HQC",
+          "size_bytes": 132016557261,
+          "seeders": 2,
+          "leechers": 2,
+          "published_unix": null,
+          "observed_at_unix": 1792258420
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire 2 [2017 - 2018] Chinese Audio (1080p x264 AVC)",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Nirvana-in-Fire-2-%5B2017--2018%5D-Chinese-Audio-%281080p-x264-AVC%29-torrent-18471462.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Nirvana in Fire 2 [2017 - 2018] Chinese Audio (1080p x264 AVC)",
+          "raw_title": "Nirvana in Fire 2 [2017 - 2018] Chinese Audio (1080p x264 AVC)",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Nirvana-in-Fire-2-%5B2017--2018%5D-Chinese-Audio-%281080p-x264-AVC%29-torrent-18471462.html",
+          "size_bytes": 41994042737,
+          "seeders": 3,
+          "leechers": 3,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire 2 [2017 - 2018] Chinese Audio (1080p x264 AVC)",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:B4FA5192963F5D027D9674B5F19D87C912CF1C89&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.ololosh.space%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dump.cl%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker-udp.gbitt.info%3A80%2Fannounce&tr=udp%3A%2F%2Fretracker01-msk-virt.corbina.net%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.free-tracker.ga%3A6969%2Fannounce&tr=udp%3A%2F%2Fns-1.x-fins.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fleet-tracker.moe%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.open-internet.nl%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.pirateparty.gr%3A6969%2Fannounce&tr=udp%3A%2F%2Fdenis.stalker.upeer.me%3A6969%2Fannounce",
+        "info_hash_v1": "b4fa5192963f5d027d9674b5f19d87c912cf1c89"
+      },
+      "observations": [
+        {
+          "source_id": "snowfl",
+          "title": "Nirvana in Fire 2 [2017 - 2018] Chinese Audio (1080p x264 AVC)",
+          "raw_title": "Nirvana in Fire 2 [2017 - 2018] Chinese Audio (1080p x264 AVC)",
+          "site_url": "https://snowfl.com",
+          "description_url": "https://www.limetorrents.fun/Nirvana-in-Fire-2-[2017--2018]-Chinese-Audio-(1080p-x264-AVC)-torrent-18471462.html",
+          "size_bytes": 41994042737,
+          "seeders": 3,
+          "leechers": 3,
+          "published_unix": null,
+          "observed_at_unix": 1792258415
+        },
+        {
+          "source_id": "snowfl_community_052",
+          "title": "Nirvana in Fire 2 [2017 - 2018] Chinese Audio (1080p x264 AVC) [limetorrents]",
+          "raw_title": "Nirvana in Fire 2 [2017 - 2018] Chinese Audio (1080p x264 AVC) [limetorrents]",
+          "site_url": "https://snowfl.com",
+          "description_url": "https://www.limetorrents.fun/Nirvana-in-Fire-2-[2017--2018]-Chinese-Audio-(1080p-x264-AVC)-torrent-18471462.html",
+          "size_bytes": 41994042737,
+          "seeders": 3,
+          "leechers": 3,
+          "published_unix": 1761154418,
+          "observed_at_unix": 1792258418
+        },
+        {
+          "source_id": "torrentdownloads",
+          "title": "Nirvana in Fire 2 [2017 - 2018]",
+          "raw_title": "Nirvana in Fire 2 [2017 - 2018]",
+          "site_url": "https://torrentdownloads.pro",
+          "description_url": "https://torrentdownloads.pro//torrent/1704703650/Nirvana-in-Fire-2-%5B2017---2018%5D",
+          "size_bytes": 41994042737,
+          "seeders": 2,
+          "leechers": 2,
+          "published_unix": null,
+          "observed_at_unix": 1792258420
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire EP01-54 2015 1080p WEB-DL x264 AAC-HQC",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:C2E97D9F015F80720EB13CF2BD6EE566B0370EE0&dn=Nirvana+in+Fire+EP01-54+2015+1080p+WEB-DL+x264+AAC-HQC&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://tracker.vanitycore.co:6969/announce&tr=udp://public.popcorn-tracker.org:6969/announce&tr=udp://tracker.internetwarriors.net:1337/announce&tr=udp://tracker.pirateparty.gr:6969/announce&tr=udp://eddie4.nl:6969/announce&tr=udp://9.rarbg.to:2710/announce&tr=udp://9.rarbg.me:2710/announce&tr=udp://tracker.leechers-paradise.org:6969/announce&tr=udp://tracker.coppersurfer.tk:6969/announce&tr=udp://p4p.arenabg.ch:1337/announce&tr=udp://p4p.arenabg.com:1337/announce&tr=udp://denis.stalker.upeer.me:6969/announce&tr=udp://open.demonii.si:1337/announce&tr=udp://bt1.archive.org:6969/announce",
+        "info_hash_v1": "c2e97d9f015f80720eb13cf2bd6ee566b0370ee0"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownloads",
+          "title": "Nirvana in Fire EP01-54 2015 1080p WEB-DL x264 AAC-HQC",
+          "raw_title": "Nirvana in Fire EP01-54 2015 1080p WEB-DL x264 AAC-HQC",
+          "site_url": "https://torrentdownloads.pro",
+          "description_url": "https://torrentdownloads.pro//torrent/1664132428/Nirvana-in-Fire-EP01-54-2015-1080p-WEB-DL-x264-AAC-HQC",
+          "size_bytes": 67516885893,
+          "seeders": 2,
+          "leechers": 2,
+          "published_unix": null,
+          "observed_at_unix": 1792258420
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire [2015] Chinese Audio (1080p x264 AVC)",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Nirvana-in-Fire-%5B2015%5D-Chinese-Audio-%281080p-x264-AVC%29-torrent-18465898.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Nirvana in Fire [2015] Chinese Audio (1080p x264 AVC)",
+          "raw_title": "Nirvana in Fire [2015] Chinese Audio (1080p x264 AVC)",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Nirvana-in-Fire-%5B2015%5D-Chinese-Audio-%281080p-x264-AVC%29-torrent-18465898.html",
+          "size_bytes": 56725780562,
+          "seeders": 2,
+          "leechers": 1,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire [2015] Chinese Audio (1080p x264 AVC)",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:EBCC79737CD85B794A52A4E06A54F3C33895E0D9&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.ololosh.space%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dump.cl%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker-udp.gbitt.info%3A80%2Fannounce&tr=udp%3A%2F%2Fretracker01-msk-virt.corbina.net%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.free-tracker.ga%3A6969%2Fannounce&tr=udp%3A%2F%2Fns-1.x-fins.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fleet-tracker.moe%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.open-internet.nl%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.pirateparty.gr%3A6969%2Fannounce&tr=udp%3A%2F%2Fdenis.stalker.upeer.me%3A6969%2Fannounce",
+        "info_hash_v1": "ebcc79737cd85b794a52a4e06a54f3c33895e0d9"
+      },
+      "observations": [
+        {
+          "source_id": "snowfl",
+          "title": "Nirvana in Fire [2015] Chinese Audio (1080p x264 AVC)",
+          "raw_title": "Nirvana in Fire [2015] Chinese Audio (1080p x264 AVC)",
+          "site_url": "https://snowfl.com",
+          "description_url": "https://www.limetorrents.fun/Nirvana-in-Fire-[2015]-Chinese-Audio-(1080p-x264-AVC)-torrent-18465898.html",
+          "size_bytes": 56725780562,
+          "seeders": 2,
+          "leechers": 1,
+          "published_unix": null,
+          "observed_at_unix": 1792258415
+        },
+        {
+          "source_id": "snowfl_community_052",
+          "title": "Nirvana in Fire [2015] Chinese Audio (1080p x264 AVC) [limetorrents]",
+          "raw_title": "Nirvana in Fire [2015] Chinese Audio (1080p x264 AVC) [limetorrents]",
+          "site_url": "https://snowfl.com",
+          "description_url": "https://www.limetorrents.fun/Nirvana-in-Fire-[2015]-Chinese-Audio-(1080p-x264-AVC)-torrent-18465898.html",
+          "size_bytes": 56725780562,
+          "seeders": 2,
+          "leechers": 1,
+          "published_unix": 1761154418,
+          "observed_at_unix": 1792258418
+        }
+      ]
+    },
+    {
+      "title": "Nirvana_in_Fire_2 » Other",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/93D9DF790E212C11C97B880AF67EEDFE05A51F1B/Nirvana+in+Fire+2",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "Nirvana_in_Fire_2 » Other",
+          "raw_title": "Nirvana_in_Fire_2 » Other",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/93D9DF790E212C11C97B880AF67EEDFE05A51F1B/Nirvana+in+Fire+2",
+          "size_bytes": 4756676280,
+          "seeders": 2,
+          "leechers": 3,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "[HDPT ORG] Nirvana in Fire Complete 2015 1080p WEB DL H264 AAC BYRHD » TV shows",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/FE8959687A9A12C133980B70984760C6F11E2390/+HDPT-ORG+-Nirvana-in-Fire-Complete-2015-1080p-WEB-DL-H264-AAC-BYRHD",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "[HDPT ORG] Nirvana in Fire Complete 2015 1080p WEB DL H264 AAC BYRHD » TV shows",
+          "raw_title": "[HDPT ORG] Nirvana in Fire Complete 2015 1080p WEB DL H264 AAC BYRHD » TV shows",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/FE8959687A9A12C133980B70984760C6F11E2390/+HDPT-ORG+-Nirvana-in-Fire-Complete-2015-1080p-WEB-DL-H264-AAC-BYRHD",
+          "size_bytes": 93114890977,
+          "seeders": 2,
+          "leechers": 2,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "Nirvana In Fire â…¡ 2017 E47 E48 WEB DL 1080P H264 AAC VAM » Other",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/36E787888DE74F1E6B9E459840D08EE6602756C8/Nirvana-In-Fire-%C3%A2%E2%80%A6%C2%A1-2017-E47-E48-WEB-DL-1080P-H264-AAC-VAM",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "Nirvana In Fire â…¡ 2017 E47 E48 WEB DL 1080P H264 AAC VAM » Other",
+          "raw_title": "Nirvana In Fire â…¡ 2017 E47 E48 WEB DL 1080P H264 AAC VAM » Other",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/36E787888DE74F1E6B9E459840D08EE6602756C8/Nirvana-In-Fire-%C3%A2%E2%80%A6%C2%A1-2017-E47-E48-WEB-DL-1080P-H264-AAC-VAM",
+          "size_bytes": 1621350154,
+          "seeders": 1,
+          "leechers": 3,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire [2015] English Audio (1080p x264 AVC)",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Nirvana-in-Fire-%5B2015%5D-English-Audio-%281080p-x264-AVC%29-torrent-18465901.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Nirvana in Fire [2015] English Audio (1080p x264 AVC)",
+          "raw_title": "Nirvana in Fire [2015] English Audio (1080p x264 AVC)",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Nirvana-in-Fire-%5B2015%5D-English-Audio-%281080p-x264-AVC%29-torrent-18465901.html",
+          "size_bytes": 46342697124,
+          "seeders": 1,
+          "leechers": 1,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire [2015] English Audio (1080p x264 AVC)",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:229D17570B6B28D211F79F8DEBA4D5DC5158DB92&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.ololosh.space%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dump.cl%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker-udp.gbitt.info%3A80%2Fannounce&tr=udp%3A%2F%2Fretracker01-msk-virt.corbina.net%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.free-tracker.ga%3A6969%2Fannounce&tr=udp%3A%2F%2Fns-1.x-fins.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fleet-tracker.moe%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.open-internet.nl%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.pirateparty.gr%3A6969%2Fannounce&tr=udp%3A%2F%2Fdenis.stalker.upeer.me%3A6969%2Fannounce",
+        "info_hash_v1": "229d17570b6b28d211f79f8deba4d5dc5158db92"
+      },
+      "observations": [
+        {
+          "source_id": "snowfl",
+          "title": "Nirvana in Fire [2015] English Audio (1080p x264 AVC)",
+          "raw_title": "Nirvana in Fire [2015] English Audio (1080p x264 AVC)",
+          "site_url": "https://snowfl.com",
+          "description_url": "https://www.limetorrents.fun/Nirvana-in-Fire-[2015]-English-Audio-(1080p-x264-AVC)-torrent-18465901.html",
+          "size_bytes": 46342697124,
+          "seeders": 1,
+          "leechers": 1,
+          "published_unix": null,
+          "observed_at_unix": 1792258415
+        },
+        {
+          "source_id": "snowfl_community_052",
+          "title": "Nirvana in Fire [2015] English Audio (1080p x264 AVC) [limetorrents]",
+          "raw_title": "Nirvana in Fire [2015] English Audio (1080p x264 AVC) [limetorrents]",
+          "site_url": "https://snowfl.com",
+          "description_url": "https://www.limetorrents.fun/Nirvana-in-Fire-[2015]-English-Audio-(1080p-x264-AVC)-torrent-18465901.html",
+          "size_bytes": 46342697124,
+          "seeders": 1,
+          "leechers": 1,
+          "published_unix": 1761154418,
+          "observed_at_unix": 1792258418
+        }
+      ]
+    },
+    {
+      "title": "[Mr.Deadpool] Kaguya-sama - Love is War - (Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen) S1 & S2 BD 720p Dual Audio x265",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:S7TT2B7DNNAOC3DWAIQAH5Y7VBIR3NA5&tr=http%3A%2F%2Fnyaa.tracker.wf%3A7777%2Fannounce",
+        "info_hash_v1": "97e73d07e36b40e16c76022003f71fa8511db41d"
+      },
+      "observations": [
+        {
+          "source_id": "animetosho_community_006",
+          "title": "[Mr.Deadpool] Kaguya-sama - Love is War - (Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen) S1 & S2 BD 720p Dual Audio x265",
+          "raw_title": "[Mr.Deadpool] Kaguya-sama - Love is War - (Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen) S1 & S2 BD 720p Dual Audio x265",
+          "site_url": "https://animetosho.xyz",
+          "description_url": "https://animetosho.net/view/305105",
+          "size_bytes": 6766633691,
+          "seeders": 1,
+          "leechers": 2,
+          "published_unix": 1615383361,
+          "observed_at_unix": 1792258414
+        }
+      ]
+    },
+    {
+      "title": "Nirvana In Fire S02 WEB DL 4K H264 AAC PuTao » TV shows",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/1160118580AA5A82AC56E88EB68D9AF0725E030A/Nirvana-In-Fire-S02-WEB-DL-4K-H264-AAC-PuTao",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "Nirvana In Fire S02 WEB DL 4K H264 AAC PuTao » TV shows",
+          "raw_title": "Nirvana In Fire S02 WEB DL 4K H264 AAC PuTao » TV shows",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/1160118580AA5A82AC56E88EB68D9AF0725E030A/Nirvana-In-Fire-S02-WEB-DL-4K-H264-AAC-PuTao",
+          "size_bytes": 3929895076,
+          "seeders": 0,
+          "leechers": 1,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "Nirvana In Fire â…¡ 2017 E45-E46 WEB-DL 1080P H264 AAC-VAM",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Nirvana-In-Fire-%C3%A2%E2%80%A6%C2%A1-2017-E45-E46-WEB-DL-1080P-H264-AAC-VAM-torrent-10557159.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Nirvana In Fire â…¡ 2017 E45-E46 WEB-DL 1080P H264 AAC-VAM",
+          "raw_title": "Nirvana In Fire â…¡ 2017 E45-E46 WEB-DL 1080P H264 AAC-VAM",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Nirvana-In-Fire-%C3%A2%E2%80%A6%C2%A1-2017-E45-E46-WEB-DL-1080P-H264-AAC-VAM-torrent-10557159.html",
+          "size_bytes": 1589137900,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Nirvana-in-Fire-torrent-9883185.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Nirvana in Fire",
+          "raw_title": "Nirvana in Fire",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Nirvana-in-Fire-torrent-9883185.html",
+          "size_bytes": 34714073170,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:7489407499553099DC28B21CE7106B55C1D41C8D&dn=Nirvana+in+Fire&tr=udp://tracker.coppersurfer.tk:6969/announce&tr=udp://tracker.leechers-paradise.org:6969/announce&tr=udp://9.rarbg.to:2710/announce&tr=udp://tracker.pirateparty.gr:6969/announce&tr=udp://tracker.internetwarriors.net:1337/announce&tr=udp://p4p.arenabg.com:1337/announce&tr=udp://denis.stalker.upeer.me:6969/announce&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://open.demonii.si:1337/announce&tr=udp://bt1.archive.org:6969/announce",
+        "info_hash_v1": "7489407499553099dc28b21ce7106b55c1d41c8d"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownloads",
+          "title": "Nirvana in Fire",
+          "raw_title": "Nirvana in Fire",
+          "site_url": "https://torrentdownloads.pro",
+          "description_url": "https://torrentdownloads.pro//torrent/1662333256/Nirvana-in-Fire",
+          "size_bytes": 48372069171,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258420
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire EP01 54 2015 1080p WEB DL x264 AAC HQC » Other",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/C2E97D9F015F80720EB13CF2BD6EE566B0370EE0/Nirvana-in-Fire-EP01-54-2015-1080p-WEB-DL-x264-AAC-HQC",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "Nirvana in Fire EP01 54 2015 1080p WEB DL x264 AAC HQC » Other",
+          "raw_title": "Nirvana in Fire EP01 54 2015 1080p WEB DL x264 AAC HQC » Other",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/C2E97D9F015F80720EB13CF2BD6EE566B0370EE0/Nirvana-in-Fire-EP01-54-2015-1080p-WEB-DL-x264-AAC-HQC",
+          "size_bytes": 67516885893,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire EP01-54 2015 1080p WEB-DL x264 AAC-HQC",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Nirvana-in-Fire-EP01-54-2015-1080p-WEB-DL-x264-AAC-HQC-torrent-10430150.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Nirvana in Fire EP01-54 2015 1080p WEB-DL x264 AAC-HQC",
+          "raw_title": "Nirvana in Fire EP01-54 2015 1080p WEB-DL x264 AAC-HQC",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Nirvana-in-Fire-EP01-54-2015-1080p-WEB-DL-x264-AAC-HQC-torrent-10430150.html",
+          "size_bytes": 67516885893,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire à¸«à¸¥à¸²à¸‡à¸«à¸¢à¸²à¸›à¹ˆà¸²à..",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Nirvana-in-Fire-%C3%A0%C2%B8%C2%AB%C3%A0%C2%B8%C2%A5%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%A1%C3%A0%C2%B8%C2%AB%C3%A0%C2%B8%C2%A2%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%BA%C3%A0%C2%B9%CB%86%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%A1-28-54-torrent-9062716.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Nirvana in Fire à¸«à¸¥à¸²à¸‡à¸«à¸¢à¸²à¸›à¹ˆà¸²à..",
+          "raw_title": "Nirvana in Fire à¸«à¸¥à¸²à¸‡à¸«à¸¢à¸²à¸›à¹ˆà¸²à..",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Nirvana-in-Fire-%C3%A0%C2%B8%C2%AB%C3%A0%C2%B8%C2%A5%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%A1%C3%A0%C2%B8%C2%AB%C3%A0%C2%B8%C2%A2%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%BA%C3%A0%C2%B9%CB%86%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%A1-28-54-torrent-9062716.html",
+          "size_bytes": 15182709391,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB DL AAC H264 OurTV » Other",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/A22806EFA38E6545792E88DC72E7C4C0D3BFF506/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB DL AAC H264 OurTV » Other",
+          "raw_title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB DL AAC H264 OurTV » Other",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/A22806EFA38E6545792E88DC72E7C4C0D3BFF506/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV",
+          "size_bytes": 3779571220,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB DL AAC H264 OurTV » Other",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/B33DE89FF77518E249287675A26513C9FB6A8738/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB DL AAC H264 OurTV » Other",
+          "raw_title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB DL AAC H264 OurTV » Other",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/B33DE89FF77518E249287675A26513C9FB6A8738/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV",
+          "size_bytes": 15451144847,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV-torrent-10388386.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+          "raw_title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV-torrent-10388386.html",
+          "size_bytes": 15451144847,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV-torrent-10477698.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+          "raw_title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV-torrent-10477698.html",
+          "size_bytes": 3747358966,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV-torrent-10482692.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+          "raw_title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV-torrent-10482692.html",
+          "size_bytes": 3779571220,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV-torrent-10580759.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+          "raw_title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV-torrent-10580759.html",
+          "size_bytes": 3919157658,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire â…¡ EP45 46 2017 4k 1080p WEB DL x264 AAC HQC » Other",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/73E7E330CE042DDFC8FA355D96B2BE3713DFD8FC/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP45-46-2017-4k-1080p-WEB-DL-x264-AAC-HQC",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "Nirvana in Fire â…¡ EP45 46 2017 4k 1080p WEB DL x264 AAC HQC » Other",
+          "raw_title": "Nirvana in Fire â…¡ EP45 46 2017 4k 1080p WEB DL x264 AAC HQC » Other",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/73E7E330CE042DDFC8FA355D96B2BE3713DFD8FC/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP45-46-2017-4k-1080p-WEB-DL-x264-AAC-HQC",
+          "size_bytes": 5368709120,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire â…¡ EP45-46 2017 4k&1080p WEB-DL x264 AAC-HQC",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP45-46-2017-4k%201080p-WEB-DL-x264-AAC-HQC-torrent-10443426.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Nirvana in Fire â…¡ EP45-46 2017 4k&1080p WEB-DL x264 AAC-HQC",
+          "raw_title": "Nirvana in Fire â…¡ EP45-46 2017 4k&1080p WEB-DL x264 AAC-HQC",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP45-46-2017-4k%201080p-WEB-DL-x264-AAC-HQC-torrent-10443426.html",
+          "size_bytes": 5368709120,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire, Lang ya bang, 720p eng sub",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/Nirvana-in-Fire--Lang-ya-bang--720p-eng-sub-torrent-8281889.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "Nirvana in Fire, Lang ya bang, 720p eng sub",
+          "raw_title": "Nirvana in Fire, Lang ya bang, 720p eng sub",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/Nirvana-in-Fire--Lang-ya-bang--720p-eng-sub-torrent-8281889.html",
+          "size_bytes": 48372069171,
+          "seeders": 0,
+          "leechers": 1,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire, Lang ya bang, 720p eng sub » TV > Other",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/7489407499553099dc28b21ce7106b55c1d41c8d/Nirvana-in-Fire+-Lang-ya-bang+-720p-eng-sub",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "Nirvana in Fire, Lang ya bang, 720p eng sub » TV > Other",
+          "raw_title": "Nirvana in Fire, Lang ya bang, 720p eng sub » TV > Other",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/7489407499553099dc28b21ce7106b55c1d41c8d/Nirvana-in-Fire+-Lang-ya-bang+-720p-eng-sub",
+          "size_bytes": 48372069171,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "Nirvana-in-Fire-à¸«à¸¥à¸²à¸‡à¸«à¸¢à¸²à¸›à¹ˆà¸²à.. » Other",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/1BC28D968D393CD43B5E96448B962E90BD3CD127/Nirvana-in-Fire-%C3%A0%C2%B8%C2%AB%C3%A0%C2%B8%C2%A5%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%A1%C3%A0%C2%B8%C2%AB%C3%A0%C2%B8%C2%A2%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%BA%C3%A0%C2%B9%CB%86%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%A1-28-54",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "Nirvana-in-Fire-à¸«à¸¥à¸²à¸‡à¸«à¸¢à¸²à¸›à¹ˆà¸²à.. » Other",
+          "raw_title": "Nirvana-in-Fire-à¸«à¸¥à¸²à¸‡à¸«à¸¢à¸²à¸›à¹ˆà¸²à.. » Other",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/1BC28D968D393CD43B5E96448B962E90BD3CD127/Nirvana-in-Fire-%C3%A0%C2%B8%C2%AB%C3%A0%C2%B8%C2%A5%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%A1%C3%A0%C2%B8%C2%AB%C3%A0%C2%B8%C2%A2%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%BA%C3%A0%C2%B9%CB%86%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%A1-28-54",
+          "size_bytes": 8428,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+      "reference": {
+        "kind": "http",
+        "uri": "https://thepiratebay.org/description.php?id=28482922",
+        "source_id": "thepiratebay_community_059"
+      },
+      "observations": [
+        {
+          "source_id": "thepiratebay_community_059",
+          "title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+          "raw_title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=28482922",
+          "size_bytes": 15154838187,
+          "seeders": 0,
+          "leechers": 1,
+          "published_unix": null,
+          "observed_at_unix": 1792258422
+        }
+      ]
+    },
+    {
+      "title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+      "reference": {
+        "kind": "http",
+        "uri": "https://thepiratebay.org/description.php?id=28734452",
+        "source_id": "thepiratebay_community_059"
+      },
+      "observations": [
+        {
+          "source_id": "thepiratebay_community_059",
+          "title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+          "raw_title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=28734452",
+          "size_bytes": 15155651494,
+          "seeders": 0,
+          "leechers": 1,
+          "published_unix": null,
+          "observed_at_unix": 1792258422
+        }
+      ]
+    },
+    {
+      "title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:764D464C99DA0BCE6C3713BD0BACC2098B6CCD93&dn=Nirvana.in.Fire.%E2%85%A1.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "764d464c99da0bce6c3713bd0bacc2098b6ccd93"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+          "raw_title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=28482922",
+          "size_bytes": 15154838187,
+          "seeders": 0,
+          "leechers": 1,
+          "published_unix": 1547651947,
+          "observed_at_unix": 1792258415
+        },
+        {
+          "source_id": "thepiratebay",
+          "title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+          "raw_title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=28482922",
+          "size_bytes": 15154838187,
+          "seeders": 0,
+          "leechers": 1,
+          "published_unix": null,
+          "observed_at_unix": 1792258401
+        }
+      ]
+    },
+    {
+      "title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:CBB358ED8886AB18CE3B6C338169556B118CEA83&dn=Nirvana.in.Fire.%E2%85%A1.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fwww.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce",
+        "info_hash_v1": "cbb358ed8886ab18ce3b6c338169556b118cea83"
+      },
+      "observations": [
+        {
+          "source_id": "piratebay",
+          "title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+          "raw_title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=28734452",
+          "size_bytes": 15155651494,
+          "seeders": 0,
+          "leechers": 1,
+          "published_unix": 1548065453,
+          "observed_at_unix": 1792258415
+        },
+        {
+          "source_id": "thepiratebay",
+          "title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+          "raw_title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=28734452",
+          "size_bytes": 15155651494,
+          "seeders": 0,
+          "leechers": 1,
+          "published_unix": null,
+          "observed_at_unix": 1792258401
+        }
+      ]
+    },
+    {
+      "title": "[Nirvana in Fire 2l][2017][E01-E50][WEB-MP4][1080P][æ— æ°´å°][Liang c..",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/%5BNirvana-in-Fire-2l%5D%5B2017%5D%5BE01-E50%5D%5BWEB-MP4%5D%5B1080P%5D%5B%C3%A6%E2%80%94%C2%A0%C3%A6%C2%B0%C2%B4%C3%A5%C2%8D%C2%B0%5D%5BLiang-cx%5D-torrent-10480198.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "[Nirvana in Fire 2l][2017][E01-E50][WEB-MP4][1080P][æ— æ°´å°][Liang c..",
+          "raw_title": "[Nirvana in Fire 2l][2017][E01-E50][WEB-MP4][1080P][æ— æ°´å°][Liang c..",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/%5BNirvana-in-Fire-2l%5D%5B2017%5D%5BE01-E50%5D%5BWEB-MP4%5D%5B1080P%5D%5B%C3%A6%E2%80%94%C2%A0%C3%A6%C2%B0%C2%B4%C3%A5%C2%8D%C2%B0%5D%5BLiang-cx%5D-torrent-10480198.html",
+          "size_bytes": 39352637850,
+          "seeders": 0,
+          "leechers": 2,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "[Nirvana-in-Fire-2l][2017][E01-E50][WEB-MP4][1080P][æ— æ°´å°][Liang-c.. » Other",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/96271211BE8CA1C18A5E9B79657FCA302E20B1D9/+Nirvana-in-Fire-2l++2017++E01-E50++WEB-MP4++1080P++%C3%A6%E2%80%94%C2%A0%C3%A6%C2%B0%C2%B4%C3%A5%C2%8D%C2%B0++Liang-cx+",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "[Nirvana-in-Fire-2l][2017][E01-E50][WEB-MP4][1080P][æ— æ°´å°][Liang-c.. » Other",
+          "raw_title": "[Nirvana-in-Fire-2l][2017][E01-E50][WEB-MP4][1080P][æ— æ°´å°][Liang-c.. » Other",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/96271211BE8CA1C18A5E9B79657FCA302E20B1D9/+Nirvana-in-Fire-2l++2017++E01-E50++WEB-MP4++1080P++%C3%A6%E2%80%94%C2%A0%C3%A6%C2%B0%C2%B4%C3%A5%C2%8D%C2%B0++Liang-cx+",
+          "size_bytes": 39352637850,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "[P] Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:81F95F488E2ED06FEBD6F6225F0CE003CDA0758E&dn=Nirvana+in+Fire+â…¡+2017+Complete+4K+WEB-DL+AAC+H264-OurTV&tr=udp://tracker.coppersurfer.tk:6969/announce&tr=udp://tracker.leechers-paradise.org:6969/announce&tr=udp://9.rarbg.to:2710/announce&tr=udp://tracker.pirateparty.gr:6969/announce&tr=udp://tracker.internetwarriors.net:1337/announce&tr=udp://p4p.arenabg.com:1337/announce&tr=udp://denis.stalker.upeer.me:6969/announce&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://open.demonii.si:1337/announce&tr=udp://bt1.archive.org:6969/announce",
+        "info_hash_v1": "81f95f488e2ed06febd6f6225f0ce003cda0758e"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownloads",
+          "title": "[P] Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+          "raw_title": "[P] Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+          "site_url": "https://torrentdownloads.pro",
+          "description_url": "https://torrentdownloads.pro//torrent/1664067568/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV",
+          "size_bytes": 3811783475,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258421
+        }
+      ]
+    },
+    {
+      "title": "[P] Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:922F07F2AE89445EF4C4854E59661ACC4568A5BC&dn=Nirvana+in+Fire+â…¡+2017+Complete+4K+WEB-DL+AAC+H264-OurTV&tr=udp://tracker.coppersurfer.tk:6969/announce&tr=udp://tracker.leechers-paradise.org:6969/announce&tr=udp://9.rarbg.to:2710/announce&tr=udp://tracker.pirateparty.gr:6969/announce&tr=udp://tracker.internetwarriors.net:1337/announce&tr=udp://p4p.arenabg.com:1337/announce&tr=udp://denis.stalker.upeer.me:6969/announce&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://open.demonii.si:1337/announce&tr=udp://bt1.archive.org:6969/announce",
+        "info_hash_v1": "922f07f2ae89445ef4c4854e59661acc4568a5bc"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownloads",
+          "title": "[P] Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+          "raw_title": "[P] Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+          "site_url": "https://torrentdownloads.pro",
+          "description_url": "https://torrentdownloads.pro//torrent/1664094391/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV",
+          "size_bytes": 3650722202,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258422
+        }
+      ]
+    },
+    {
+      "title": "[P] Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:B33DE89FF77518E249287675A26513C9FB6A8738&dn=Nirvana+in+Fire+â…¡+2017+Complete+4K+WEB-DL+AAC+H264-OurTV&tr=udp://tracker.coppersurfer.tk:6969/announce&tr=udp://tracker.leechers-paradise.org:6969/announce&tr=udp://9.rarbg.to:2710/announce&tr=udp://tracker.pirateparty.gr:6969/announce&tr=udp://tracker.internetwarriors.net:1337/announce&tr=udp://p4p.arenabg.com:1337/announce&tr=udp://denis.stalker.upeer.me:6969/announce&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://open.demonii.si:1337/announce&tr=udp://bt1.archive.org:6969/announce",
+        "info_hash_v1": "b33de89ff77518e249287675a26513c9fb6a8738"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownloads",
+          "title": "[P] Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+          "raw_title": "[P] Nirvana in Fire â…¡ 2017 Complete 4K WEB-DL AAC H264-OurTV",
+          "site_url": "https://torrentdownloads.pro",
+          "description_url": "https://torrentdownloads.pro//torrent/1664053964/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV",
+          "size_bytes": 15451144847,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258421
+        }
+      ]
+    },
+    {
+      "title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž— Nirvana in Fire 2 20..",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/%5BViPHD%5D%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-Nirvana-in-Fire-2-2017-WEB-DL-Ep31-Ep38-1080P%202160P-H264-AAC-JBY%20ViPHD-torrent-10435655.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž— Nirvana in Fire 2 20..",
+          "raw_title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž— Nirvana in Fire 2 20..",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/%5BViPHD%5D%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-Nirvana-in-Fire-2-2017-WEB-DL-Ep31-Ep38-1080P%202160P-H264-AAC-JBY%20ViPHD-torrent-10435655.html",
+          "size_bytes": 21732534518,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž— Nirvana in Fire 2 20..",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/%5BViPHD%5D%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-Nirvana-in-Fire-2-2017-WEB-DL-Ep43-Ep48-1080P%202160P-H264-AAC-JBY%20ViPHD-torrent-10472777.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž— Nirvana in Fire 2 20..",
+          "raw_title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž— Nirvana in Fire 2 20..",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/%5BViPHD%5D%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-Nirvana-in-Fire-2-2017-WEB-DL-Ep43-Ep48-1080P%202160P-H264-AAC-JBY%20ViPHD-torrent-10472777.html",
+          "size_bytes": 16675210527,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž— Nirvana in Fire 2 20.. » Other",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/92ED39A17FE821449FBA7B7EA453BCE9010290D5/+ViPHD+%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-Nirvana-in-Fire-2-2017-WEB-DL-Ep39-Ep42-1080P+amp+2160P-H264-AAC-JBY+ViPHD",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž— Nirvana in Fire 2 20.. » Other",
+          "raw_title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž— Nirvana in Fire 2 20.. » Other",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/92ED39A17FE821449FBA7B7EA453BCE9010290D5/+ViPHD+%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-Nirvana-in-Fire-2-2017-WEB-DL-Ep39-Ep42-1080P+amp+2160P-H264-AAC-JBY+ViPHD",
+          "size_bytes": 10758893076,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž—-Nirvana-in-Fire-2-20.. » Other",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/31ACCF3DD0EED47A982D533AA6A31B2F4B5BB7AB/+ViPHD+%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-Nirvana-in-Fire-2-2017-WEB-DL-Ep43-Ep48-1080P-2160P-H264-AAC-JBY-ViPHD",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž—-Nirvana-in-Fire-2-20.. » Other",
+          "raw_title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž—-Nirvana-in-Fire-2-20.. » Other",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/31ACCF3DD0EED47A982D533AA6A31B2F4B5BB7AB/+ViPHD+%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-Nirvana-in-Fire-2-2017-WEB-DL-Ep43-Ep48-1080P-2160P-H264-AAC-JBY-ViPHD",
+          "size_bytes": 16675210527,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž—-Nirvana-in-Fire-2-20.. » Other",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/89630FDA0152FD7CC1C6FC8D6BD91A326D25D730/+ViPHD+%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-Nirvana-in-Fire-2-2017-WEB-DL-Ep31-Ep38-1080P-2160P-H264-AAC-JBY-ViPHD",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž—-Nirvana-in-Fire-2-20.. » Other",
+          "raw_title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž—-Nirvana-in-Fire-2-20.. » Other",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/89630FDA0152FD7CC1C6FC8D6BD91A326D25D730/+ViPHD+%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-Nirvana-in-Fire-2-2017-WEB-DL-Ep31-Ep38-1080P-2160P-H264-AAC-JBY-ViPHD",
+          "size_bytes": 21732534518,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž— å…¨é›† Nirvana in ..",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.limetorrents.lol/%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-%C3%A5%E2%80%A6%C2%A8%C3%A9%E2%80%BA%E2%80%A0-Nirvana-in-Fire-2-2017-EP01-EP50-HD1080P-X264-AAC-Mandarin-CHS-MF-torrent-10614780.html",
+        "source_id": "limetorrents"
+      },
+      "observations": [
+        {
+          "source_id": "limetorrents",
+          "title": "ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž— å…¨é›† Nirvana in ..",
+          "raw_title": "ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž— å…¨é›† Nirvana in ..",
+          "site_url": "https://www.limetorrents.lol",
+          "description_url": "https://www.limetorrents.lol/%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-%C3%A5%E2%80%A6%C2%A8%C3%A9%E2%80%BA%E2%80%A0-Nirvana-in-Fire-2-2017-EP01-EP50-HD1080P-X264-AAC-Mandarin-CHS-MF-torrent-10614780.html",
+          "size_bytes": 39599598469,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": 1760722404,
+          "observed_at_unix": 1792258404
+        }
+      ]
+    },
+    {
+      "title": "nirvana in fire Download Anonymously",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.info/td.php?search=1&keyword=nirvana in fire",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "nirvana in fire Download Anonymously",
+          "raw_title": "nirvana in fire Download Anonymously",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/td.php?search=1&keyword=nirvana in fire",
+          "size_bytes": null,
+          "seeders": null,
+          "leechers": null,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        },
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "nirvana in fire Direct Download",
+          "raw_title": "nirvana in fire Direct Download",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/td.php?search=1&keyword=nirvana in fire",
+          "size_bytes": null,
+          "seeders": null,
+          "leechers": null,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    },
+    {
+      "title": "nirvana in fire Torrent",
+      "reference": {
+        "kind": "http",
+        "uri": "https://www.torrentdownload.infohttps://www.limetorrents.info/search/all/nirvana in fire/",
+        "source_id": "torrentdownload_community_066"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload_community_066",
+          "title": "nirvana in fire Torrent",
+          "raw_title": "nirvana in fire Torrent",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.infohttps://www.limetorrents.info/search/all/nirvana in fire/",
+          "size_bytes": null,
+          "seeders": null,
+          "leechers": null,
+          "published_unix": null,
+          "observed_at_unix": 1792258423
+        }
+      ]
+    }
+  ]
+}

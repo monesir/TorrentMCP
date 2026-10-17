@@ -1,0 +1,22 @@
+[
+  {
+    "File": "nova2.py",
+    "EqualIgnoringLineEndings": true
+  },
+  {
+    "File": "nova2dl.py",
+    "EqualIgnoringLineEndings": true
+  },
+  {
+    "File": "helpers.py",
+    "EqualIgnoringLineEndings": true
+  },
+  {
+    "File": "novaprinter.py",
+    "EqualIgnoringLineEndings": true
+  },
+  {
+    "File": "socks.py",
+    "EqualIgnoringLineEndings": true
+  }
+]

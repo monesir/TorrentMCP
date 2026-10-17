@@ -1,0 +1,26 @@
+{
+  "wall_ms": 812.7609999992274,
+  "cpu_ms": 218.75,
+  "peak_private_mib": 24.75,
+  "sampled_peak_working_set_mib": 61.92578125,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed",
+  "source_elapsed_ms": 753,
+  "configuration_diagnostic": false,
+  "source": "cpasbien",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:53:10.868477+00:00",
+  "raw_report": "raw\\01-cpasbien-python.json",
+  "diagnostics": "raw\\01-cpasbien-python.stderr.log"
+}

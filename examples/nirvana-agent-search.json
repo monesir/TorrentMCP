@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "operation": "search",
+  "search": {
+    "query": "nirvana in fire",
+    "category": "all",
+    "sources": []
+  },
+  "analysis": {
+    "target": { "title": "Nirvana in Fire", "year": 2015 },
+    "constraints": { "resolutions": [1080] },
+    "preferences": {
+      "resolutions": [1080],
+      "codecs": ["h264"],
+      "audio_languages": ["zh"]
+    }
+  },
+  "limits": {
+    "timeout_seconds": 30,
+    "parallel_sources": 4,
+    "results_per_source": 100
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "verification_date": "2026-10-17",
+  "archive_sha256": "194c09ef4253b37b2481365e176f52a7bae8a88391ec14c3f48d0209bbdf8c1b",
+  "tested_from_fresh_zip_extraction": true,
+  "system_python_removed_from_path": true,
+  "conflicting_python_environment_ignored": true,
+  "bundled_python_version": "3.14.8",
+  "query": "ubuntu",
+  "results": 20,
+  "sources": [
+    {
+      "source_id": "limetorrents",
+      "status": "completed",
+      "elapsed_ms": 1811,
+      "result_count": 10,
+      "limited": true,
+      "error": null
+    },
+    {
+      "source_id": "torrentscsv",
+      "status": "completed",
+      "elapsed_ms": 1106,
+      "result_count": 10,
+      "limited": true,
+      "error": null
+    }
+  ],
+  "search_exit_code": 0,
+  "resolution_exit_code": 0,
+  "resolved_reference_kind": "magnet",
+  "downloaded_torrent_payload": false
+}

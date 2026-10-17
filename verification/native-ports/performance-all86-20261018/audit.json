@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "measurements": 516,
+  "expected_coverage_verified": true,
+  "all_raw_reports_verified": true,
+  "full_csv_86_rows_verified": true,
+  "all_metrics_positive": true,
+  "original_86_plugin_and_common_pins_verified": true,
+  "six_backend_trial_resource_copies_verified": true,
+  "immutable_executable_and_python_hashes_verified": true,
+  "process_tree_accounting_verified": true,
+  "measurement_failures": 0,
+  "process_counts": {
+    "rust": 2,
+    "python": 4
+  },
+  "matched_sources": 9,
+  "source_groups": {
+    "failed_or_partial": 51,
+    "configuration": 1,
+    "matching_positive_some": 9,
+    "both_empty": 23,
+    "different_results": 2
+  },
+  "audit_script": ".cache/audit-performance-all86-20261018.py",
+  "report_sha256": {
+    "comparison.json": "ad95daa08d5aab1df111cee4837b704ee891352349ed094ecb49e32818461124",
+    "sources.csv": "d718ec015f74d10ddf537c67a1f639cd366d72484c7f82e76ef54b1f46cac1a6",
+    "comparison-readable.csv": "102dfbf2ce36b5d2ff3dcb9e60f4c87291533b222f4e6abccc72f6fb765925d9",
+    "matched-sources.csv": "27ba975af4f753fdc0af9e96c6a765dcd64060223281aa7f13c59ab50fa9a3c6",
+    "summary.json": "bf4c378591ca90a07424fa6a4404fdee25fb9eaac437e1637950422f3f129a52"
+  }
+}

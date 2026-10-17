@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": false,
+  "sources": [
+    {
+      "source_id": "thepiratebay_community_059",
+      "status": "completed",
+      "elapsed_ms": 279,
+      "result_count": 3,
+      "limited": false,
+      "error": null
+    }
+  ],
+  "results": [
+    {
+      "title": "Nirvana.in.Fire.Complete.1080p.WEB-DL.H264.AAC-NYHD",
+      "reference": {
+        "kind": "http",
+        "uri": "https://thepiratebay.org/description.php?id=15873101",
+        "source_id": "thepiratebay_community_059"
+      },
+      "observations": [
+        {
+          "source_id": "thepiratebay_community_059",
+          "title": "Nirvana.in.Fire.Complete.1080p.WEB-DL.H264.AAC-NYHD",
+          "raw_title": "Nirvana.in.Fire.Complete.1080p.WEB-DL.H264.AAC-NYHD",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=15873101",
+          "size_bytes": 56728022388,
+          "seeders": 11,
+          "leechers": 4,
+          "published_unix": null,
+          "observed_at_unix": 1792277827
+        }
+      ]
+    },
+    {
+      "title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+      "reference": {
+        "kind": "http",
+        "uri": "https://thepiratebay.org/description.php?id=28482922",
+        "source_id": "thepiratebay_community_059"
+      },
+      "observations": [
+        {
+          "source_id": "thepiratebay_community_059",
+          "title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+          "raw_title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=28482922",
+          "size_bytes": 15154838187,
+          "seeders": 0,
+          "leechers": 1,
+          "published_unix": null,
+          "observed_at_unix": 1792277827
+        }
+      ]
+    },
+    {
+      "title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+      "reference": {
+        "kind": "http",
+        "uri": "https://thepiratebay.org/description.php?id=28734452",
+        "source_id": "thepiratebay_community_059"
+      },
+      "observations": [
+        {
+          "source_id": "thepiratebay_community_059",
+          "title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+          "raw_title": "Nirvana.in.Fire.Ⅱ.EP01-20.2017.1080p.WEB-DL.x264.AAC-HQC",
+          "site_url": "https://thepiratebay.org",
+          "description_url": "https://thepiratebay.org/description.php?id=28734452",
+          "size_bytes": 15155651494,
+          "seeders": 0,
+          "leechers": 1,
+          "published_unix": null,
+          "observed_at_unix": 1792277827
+        }
+      ]
+    }
+  ]
+}

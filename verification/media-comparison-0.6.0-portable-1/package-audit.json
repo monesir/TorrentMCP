@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "version": "0.6.0",
+  "rust_tests_passed": 71,
+  "archive_sha256": "c9a1c6002997c897ff16f47696678cb72304a609baf002192e5932785c074a5e",
+  "archive_entries_verified": true,
+  "runtime_hashes_verified": true,
+  "comparison": {
+    "total": 4,
+    "eligible": 2,
+    "uncertain": 1,
+    "excluded": 1
+  },
+  "candidate_order": "complete-small,complete-large,unavailable,missing-arabic",
+  "inline_assessments_verified": true,
+  "offline_without_runtimes_verified": true,
+  "owned_service_shutdowns": 8,
+  "owned_processes_remaining": 0,
+  "seeder_stopped": true
+}

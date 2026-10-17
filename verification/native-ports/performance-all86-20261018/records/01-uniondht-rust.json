@@ -1,0 +1,25 @@
+{
+  "wall_ms": 523.3917000005022,
+  "cpu_ms": 62.5,
+  "peak_private_mib": 5.5234375,
+  "sampled_peak_working_set_mib": 22.2109375,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 463,
+  "configuration_diagnostic": false,
+  "source": "uniondht",
+  "backend": "rust",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:51:09.654909+00:00",
+  "raw_report": "raw\\01-uniondht-rust.json",
+  "diagnostics": "raw\\01-uniondht-rust.stderr.log"
+}

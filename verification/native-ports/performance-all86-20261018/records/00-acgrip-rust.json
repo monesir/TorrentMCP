@@ -1,0 +1,25 @@
+{
+  "wall_ms": 442.48760000027687,
+  "cpu_ms": 62.5,
+  "peak_private_mib": 5.91015625,
+  "sampled_peak_working_set_mib": 24.3984375,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 382,
+  "configuration_diagnostic": false,
+  "source": "acgrip",
+  "backend": "rust",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:50:43.419671+00:00",
+  "raw_report": "raw\\00-acgrip-rust.json",
+  "diagnostics": "raw\\00-acgrip-rust.stderr.log"
+}

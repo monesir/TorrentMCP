@@ -1,0 +1,26 @@
+{
+  "wall_ms": 12532.12859999985,
+  "cpu_ms": 359.375,
+  "peak_private_mib": 27.9140625,
+  "sampled_peak_working_set_mib": 70.4375,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "TimeoutError: The read operation timed out",
+  "source_elapsed_ms": 12465,
+  "configuration_diagnostic": false,
+  "source": "dontorrent",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:53:09.969489+00:00",
+  "raw_report": "raw\\01-dontorrent-python.json",
+  "diagnostics": "raw\\01-dontorrent-python.stderr.log"
+}

@@ -1,0 +1,25 @@
+{
+  "wall_ms": 67.63969999974506,
+  "cpu_ms": 46.875,
+  "peak_private_mib": 4.91015625,
+  "sampled_peak_working_set_mib": 17.51953125,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "error sending request",
+  "source_elapsed_ms": 6,
+  "configuration_diagnostic": false,
+  "source": "yourbittorrent",
+  "backend": "rust",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:48:49.865009+00:00",
+  "raw_report": "raw\\00-yourbittorrent-rust.json",
+  "diagnostics": "raw\\00-yourbittorrent-rust.stderr.log"
+}

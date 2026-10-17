@@ -1,0 +1,25 @@
+{
+  "wall_ms": 626.5516999992542,
+  "cpu_ms": 171.875,
+  "peak_private_mib": 5.71484375,
+  "sampled_peak_working_set_mib": 24.67578125,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "HTTP status client error (403 Forbidden)",
+  "source_elapsed_ms": 521,
+  "configuration_diagnostic": false,
+  "source": "dodi_repacks",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:02:44.031794+00:00",
+  "raw_report": "raw\\02-dodi_repacks-rust.json",
+  "diagnostics": "raw\\02-dodi_repacks-rust.stderr.log"
+}

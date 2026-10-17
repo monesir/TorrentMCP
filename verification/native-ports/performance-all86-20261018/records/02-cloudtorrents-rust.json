@@ -1,0 +1,25 @@
+{
+  "wall_ms": 493.2014000005438,
+  "cpu_ms": 281.25,
+  "peak_private_mib": 6.69140625,
+  "sampled_peak_working_set_mib": 28.72265625,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "HTTP status server error (526 <none>)",
+  "source_elapsed_ms": 346,
+  "configuration_diagnostic": false,
+  "source": "cloudtorrents",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:04:27.637939+00:00",
+  "raw_report": "raw\\02-cloudtorrents-rust.json",
+  "diagnostics": "raw\\02-cloudtorrents-rust.stderr.log"
+}

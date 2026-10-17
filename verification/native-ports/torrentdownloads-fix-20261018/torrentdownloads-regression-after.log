@@ -1,0 +1,35 @@
+   Compiling torrent-search v0.5.0 (C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\.cache\torrentdownloads-fix-validation-20261018)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.43s
+     Running unittests src\lib.rs (.cache/native-ports-target\debug\deps\torrent_search-a8d73c84b9730439.exe)
+
+running 27 tests
+test markdown::tests::exports_errors_and_rejects_unsupported_shapes_and_versions ... ok
+test analysis::title::tests::repairs_observed_roman_corruption_without_touching_legitimate_multilingual_titles ... ok
+test media::report::tests::separates_requested_languages_and_reports_tag_based_payload_sizes ... ok
+test markdown::tests::escapes_untrusted_titles_preserves_unknowns_and_outputs_complete_tables ... ok
+test media::report::tests::never_substitutes_total_bitrate_for_unknown_video_bitrate ... ok
+test media::report::tests::multiple_video_tracks_require_selection_and_missing_tags_remain_unclassified ... ok
+test reference::tests::rejects_invalid_and_conflicting_magnets_and_unsafe_schemes ... ok
+test engine::reference_tests::post_download_identities_do_not_merge_and_old_get_json_still_roundtrips ... ok
+test reference::tests::normalizes_hex_and_base32_without_changing_the_download_uri ... ok
+test sources::native::html::tests::accepts_a_whole_uri_wrapper_without_decoding_inner_escapes_twice ... ok
+test sources::native::html::tests::preserves_magnet_query_boundaries_and_encoded_trackers ... ok
+test sources::native::html::tests::preserves_captured_torrentdownloads_magnets ... ok
+test sources::native::html::tests::tries_later_magnets_but_reports_an_all_invalid_page ... ok
+test sources::native::tests::auto_keeps_a_python_only_source_available ... ok
+test sources::native::tests::cancellation_prevents_native_network_requests ... ok
+test sources::limetorrents::tests::preserves_raw_titles_and_matches_shared_display_sanitization ... ok
+test sources::native::tests::unknown_native_source_is_an_explicit_per_source_failure ... ok
+test sources::native::tracker_scrape::tests::rejects_truncated_and_deep_tracker_data ... ok
+test sources::native::tracker_scrape::tests::validates_udp_transactions_and_reads_batched_scrape_counts ... ok
+test sources::native::tracker_scrape::tests::http_scrape_preserves_binary_hash_and_tracker_query ... ok
+test sources::native::catalogue_tables::tests::torrentdownloads_keeps_row_errors_when_the_result_limit_is_reached ... ok
+test sources::native::catalogue_tables::tests::torrentdownloads_continues_after_a_bad_detail_until_end_of_search ... ok
+test sources::limetorrents::tests::parses_captured_real_page_and_preserves_unknowns ... ok
+test sources::native::fitgirl::tests::image_checksums_do_not_become_torrent_identities ... ok
+test sources::native::fitgirl::tests::parses_repack_units_and_only_repack_size ... ok
+test markdown::tests::exports_actual_search_and_media_reports_without_mixing_bitrates ... ok
+test media::gateway::tests::dropping_gateway_closes_the_listener_even_if_caller_drops_its_future ... ok
+
+test result: ok. 27 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.03s
+

@@ -1,0 +1,25 @@
+{
+  "wall_ms": 20163.606000000073,
+  "cpu_ms": 187.5,
+  "peak_private_mib": 6.1640625,
+  "sampled_peak_working_set_mib": 26.20703125,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "timed_out",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "Source deadline exceeded",
+  "source_elapsed_ms": 20013,
+  "configuration_diagnostic": false,
+  "source": "audiobookbay",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:01:02.316248+00:00",
+  "raw_report": "raw\\02-audiobookbay-rust.json",
+  "diagnostics": "raw\\02-audiobookbay-rust.stderr.log"
+}

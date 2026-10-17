@@ -1,0 +1,26 @@
+{
+  "wall_ms": 1930.8237999994162,
+  "cpu_ms": 546.875,
+  "peak_private_mib": 26.8125,
+  "sampled_peak_working_set_mib": 68.94140625,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host",
+  "source_elapsed_ms": 1827,
+  "configuration_diagnostic": false,
+  "source": "anidex",
+  "backend": "python",
+  "trial": 2,
+  "completed_utc": "2026-10-17T22:58:35.674724+00:00",
+  "raw_report": "raw\\02-anidex-python.json",
+  "diagnostics": "raw\\02-anidex-python.stderr.log"
+}

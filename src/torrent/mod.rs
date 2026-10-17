@@ -1,0 +1,298 @@
+//! Torrent metadata and file inspection, independent of search adapters and the P2P implementation.
+mod rqbit;
+mod workflow;
+
+use crate::{
+    SearchError, TorrentReference,
+    media::{MediaInput, MediaInspectionReport},
+};
+use async_trait::async_trait;
+pub use rqbit::RqbitService;
+use serde::{Deserialize, Serialize};
+use std::path::PathBuf;
+use tokio_util::sync::CancellationToken;
+pub use workflow::{TorrentOperation, run, run_with_service};
+
+#[derive(Debug, Clone)]
+pub struct TorrentRuntime {
+    pub rqbit: PathBuf,
+    pub cache_directory: PathBuf,
+}
+
+impl TorrentRuntime {
+    pub fn bundled() -> Self {
+        let directory = std::env::current_exe()
+            .unwrap_or_default()
+            .parent()
+            .unwrap_or(std::path::Path::new("."))
+            .to_owned();
+        let cache = std::env::var_os("LOCALAPPDATA")
+            .map(PathBuf::from)
+            .unwrap_or_else(std::env::temp_dir);
+        Self {
+            rqbit: directory.join(if cfg!(windows) {
+                "runtime/torrent/rqbit.exe"
+            } else {
+                "runtime/torrent/rqbit"
+            }),
+            cache_directory: cache.join("torrent-search/inspections"),
+        }
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(default, deny_unknown_fields)]
+pub struct TorrentServiceLimits {
+    pub timeout_seconds: u64,
+}
+impl Default for TorrentServiceLimits {
+    fn default() -> Self {
+        Self {
+            timeout_seconds: 60,
+        }
+    }
+}
+impl TorrentServiceLimits {
+    pub fn validate(&self) -> Result<(), SearchError> {
+        if !(1..=120).contains(&self.timeout_seconds) {
+            return Err(SearchError::InvalidRequest(
+                "Torrent service timeout_seconds must be 1..120".into(),
+            ));
+        }
+        Ok(())
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct TorrentFile {
+    pub id: usize,
+    pub path: String,
+    pub size_bytes: u64,
+    pub media_kind: String,
+}
+
+pub fn media_kind(path: &str) -> &'static str {
+    match path
+        .rsplit('.')
+        .next()
+        .unwrap_or("")
+        .to_ascii_lowercase()
+        .as_str()
+    {
+        "mkv" | "mp4" | "m4v" | "avi" | "m2ts" | "ts" | "webm" | "mov" | "mpg" | "mpeg" => "video",
+        "wav" | "flac" | "ogg" | "m4a" | "mp3" | "aac" => "audio",
+        "srt" | "ass" | "ssa" | "sub" | "vtt" => "subtitle",
+        _ => "other",
+    }
+}
+
+pub(crate) fn safe_components(path: &str) -> bool {
+    !path.is_empty()
+        && path.len() <= 4096
+        && path.split('/').all(|part| {
+            let stem = part.split('.').next().unwrap_or("").to_ascii_uppercase();
+            !part.is_empty()
+                && !matches!(part, "." | "..")
+                && !part.ends_with(['.', ' '])
+                && !part
+                    .chars()
+                    .any(|c| c.is_control() || "\\:<>\"|?*".contains(c))
+                && !matches!(stem.as_str(), "CON" | "PRN" | "AUX" | "NUL")
+                && !(stem.len() == 4
+                    && (stem.starts_with("COM") || stem.starts_with("LPT"))
+                    && matches!(stem.as_bytes()[3], b'1'..=b'9'))
+        })
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct TorrentCatalog {
+    pub schema_version: u32,
+    pub source_reference: TorrentReference,
+    pub resolved_reference: TorrentReference,
+    pub info_hash_v1: String,
+    pub name: Option<String>,
+    pub files: Vec<TorrentFile>,
+}
+impl TorrentCatalog {
+    pub fn validate(&self) -> Result<(), SearchError> {
+        validate_reference(&self.source_reference)?;
+        validate_reference(&self.resolved_reference)?;
+        let mut paths = std::collections::HashSet::new();
+        if self.schema_version != 1
+            || self.info_hash_v1.len() != 40
+            || !self
+                .info_hash_v1
+                .bytes()
+                .all(|c| c.is_ascii_hexdigit() && !c.is_ascii_uppercase())
+            || self.files.is_empty()
+            || self.files.len() > 10000
+            || self.files.iter().enumerate().any(|(i, f)| {
+                f.id != i
+                    || !safe_components(&f.path)
+                    || !paths.insert(f.path.to_ascii_lowercase())
+                    || f.size_bytes > 16 * 1024u64.pow(4)
+                    || f.media_kind != media_kind(&f.path)
+            })
+        {
+            return Err(SearchError::InvalidRequest(
+                "Invalid torrent catalog or unsafe file paths".into(),
+            ));
+        }
+        for reference in [&self.source_reference, &self.resolved_reference] {
+            if let TorrentReference::Magnet {
+                info_hash_v1: Some(hash),
+                ..
+            } = reference
+            {
+                if hash != &self.info_hash_v1 {
+                    return Err(SearchError::InvalidRequest(
+                        "Catalog and magnet identities differ".into(),
+                    ));
+                }
+            }
+        }
+        Ok(())
+    }
+    pub fn selected_file(&self, id: usize) -> Result<&TorrentFile, SearchError> {
+        self.files
+            .get(id)
+            .filter(|f| {
+                f.id == id && f.size_bytes > 0 && matches!(f.media_kind.as_str(), "video" | "audio")
+            })
+            .ok_or_else(|| {
+                SearchError::InvalidRequest(
+                    "file_id must identify a nonempty video or audio file from the catalog".into(),
+                )
+            })
+    }
+}
+
+pub fn validate_reference(reference: &TorrentReference) -> Result<(), SearchError> {
+    let parsed = crate::reference::parse_reference(reference.uri(), "torrent")
+        .map_err(|e| SearchError::InvalidRequest(e.to_string()))?;
+    if std::mem::discriminant(reference) != std::mem::discriminant(&parsed) {
+        return Err(SearchError::InvalidRequest(
+            "Reference kind differs from URI scheme".into(),
+        ));
+    }
+    if let (
+        TorrentReference::Magnet {
+            info_hash_v1: supplied,
+            ..
+        },
+        TorrentReference::Magnet {
+            info_hash_v1: actual,
+            ..
+        },
+    ) = (reference, parsed)
+    {
+        if supplied != &actual || actual.is_none() {
+            return Err(SearchError::InvalidRequest(
+                "rqbit requires a consistent v1 magnet identity".into(),
+            ));
+        }
+    }
+    if let TorrentReference::Http {
+        post_form: Some(form),
+        ..
+    } = reference
+    {
+        if form.is_empty()
+            || form.len() > 64
+            || form.iter().any(|(k, v)| k.len() > 1024 || v.len() > 32768)
+        {
+            return Err(SearchError::InvalidRequest(
+                "Invalid torrent POST form".into(),
+            ));
+        }
+    }
+    Ok(())
+}
+
+#[derive(Debug)]
+pub struct TorrentMetadata {
+    pub info_hash_v1: String,
+    pub name: Option<String>,
+    pub files: Vec<TorrentFile>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct TorrentServiceRun {
+    pub backend: String,
+    pub working_directory: PathBuf,
+    pub started: bool,
+    pub stopped: bool,
+    pub shutdown_error: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct TorrentOperationReport {
+    pub schema_version: u32,
+    pub operation: String,
+    pub torrent: Option<TorrentCatalog>,
+    pub file: Option<TorrentFile>,
+    pub media: Option<MediaInspectionReport>,
+    pub service: TorrentServiceRun,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub assessment: Option<crate::comparison::MediaAssessment>,
+}
+
+#[derive(Debug)]
+pub struct TorrentFailure {
+    pub code: &'static str,
+    pub message: String,
+}
+impl TorrentFailure {
+    pub fn new(code: &'static str, message: impl Into<String>) -> Self {
+        Self {
+            code,
+            message: message.into(),
+        }
+    }
+}
+impl From<SearchError> for TorrentFailure {
+    fn from(error: SearchError) -> Self {
+        Self::new("torrent_service_failed", error.to_string())
+    }
+}
+impl From<std::io::Error> for TorrentFailure {
+    fn from(error: std::io::Error) -> Self {
+        Self::new("torrent_service_failed", error.to_string())
+    }
+}
+
+/// Implementations supply verified file bytes; the search engine never handles P2P itself.
+#[async_trait]
+pub trait TorrentService: Send {
+    fn description(&self) -> TorrentServiceRun;
+    async fn metadata(
+        &mut self,
+        reference: &TorrentReference,
+    ) -> Result<TorrentMetadata, TorrentFailure>;
+    async fn open_file(
+        &mut self,
+        torrent: &TorrentCatalog,
+        file: &TorrentFile,
+    ) -> Result<MediaInput, TorrentFailure>;
+    async fn shutdown(&mut self) -> Result<(), TorrentFailure>;
+}
+
+pub(crate) fn cancelled() -> TorrentFailure {
+    TorrentFailure::new("cancelled", "Torrent operation cancelled")
+}
+pub(crate) fn timeout() -> TorrentFailure {
+    TorrentFailure::new(
+        "torrent_service_timeout",
+        "Torrent service deadline exceeded",
+    )
+}
+
+pub(crate) async fn bounded<T>(
+    seconds: u64,
+    cancel: &CancellationToken,
+    work: impl std::future::Future<Output = Result<T, TorrentFailure>>,
+) -> Result<T, TorrentFailure> {
+    tokio::select! { biased; _ = cancel.cancelled() => Err(cancelled()), result = tokio::time::timeout(std::time::Duration::from_secs(seconds), work) => result.unwrap_or_else(|_| Err(timeout())) }
+}

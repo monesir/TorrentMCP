@@ -1,0 +1,26 @@
+{
+  "wall_ms": 3410.5674999991606,
+  "cpu_ms": 281.25,
+  "peak_private_mib": 26.46484375,
+  "sampled_peak_working_set_mib": 69.7578125,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>",
+  "source_elapsed_ms": 3344,
+  "configuration_diagnostic": false,
+  "source": "solidtorrents",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:47:34.833605+00:00",
+  "raw_report": "raw\\00-solidtorrents-python.json",
+  "diagnostics": "raw\\00-solidtorrents-python.stderr.log"
+}

@@ -1,0 +1,165 @@
+{
+  "fixture_kind": "synthetic protocol fixtures; LimeTorrents uses captured real HTML",
+  "records": [
+    {
+      "source": "nyaa",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0",
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0&p=1"
+      ]
+    },
+    {
+      "source": "nyaa",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0",
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0&p=1"
+      ]
+    },
+    {
+      "source": "nyaa",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0",
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0&p=1"
+      ]
+    },
+    {
+      "source": "nyaa",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0",
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0&p=1"
+      ]
+    },
+    {
+      "source": "nyaa",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0",
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0&p=1"
+      ]
+    },
+    {
+      "source": "nyaa",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0",
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0&p=1"
+      ]
+    },
+    {
+      "source": "nyaa",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0",
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0&p=1"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?c3=1&c46=1&c45=1&c42=1&c4=1&c1=1&sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?c41=1&c5=1&c6=1&c7=1&sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?c23=1&c24=1&c25=1&c26=1&c17=1&sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?c43=1&c10=1&sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?c28=1&sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?c20=1&c21=1&c18=1&sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "pictures",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?c37=1&sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?c13=1&c19=1&c12=1&c14=1&c15=1&sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    }
+  ],
+  "no_python_native": true,
+  "result_limits_passed": true,
+  "http_errors_passed": true,
+  "partial_results_passed": true,
+  "malformed_json_passed": true,
+  "empty_success_passed": true,
+  "challenge_detection_passed": true,
+  "deadline_passed": true,
+  "executable_sha256": "585eda03d77e750a38b436a19275fb50ea9af8e58d48854dd77527e782364185"
+}

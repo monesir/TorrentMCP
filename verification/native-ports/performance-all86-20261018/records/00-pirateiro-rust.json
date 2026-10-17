@@ -1,0 +1,25 @@
+{
+  "wall_ms": 724.4712000001527,
+  "cpu_ms": 156.25,
+  "peak_private_mib": 7.99609375,
+  "sampled_peak_working_set_mib": 29.33203125,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 655,
+  "configuration_diagnostic": false,
+  "source": "pirateiro",
+  "backend": "rust",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:48:39.217403+00:00",
+  "raw_report": "raw\\00-pirateiro-rust.json",
+  "diagnostics": "raw\\00-pirateiro-rust.stderr.log"
+}

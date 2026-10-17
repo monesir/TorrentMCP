@@ -1,0 +1,25 @@
+{
+  "wall_ms": 143.22989999982383,
+  "cpu_ms": 62.5,
+  "peak_private_mib": 5.14453125,
+  "sampled_peak_working_set_mib": 22.34375,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "error sending request",
+  "source_elapsed_ms": 78,
+  "configuration_diagnostic": false,
+  "source": "dmhy",
+  "backend": "rust",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:48:27.071285+00:00",
+  "raw_report": "raw\\00-dmhy-rust.json",
+  "diagnostics": "raw\\00-dmhy-rust.stderr.log"
+}

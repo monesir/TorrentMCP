@@ -1,0 +1,25 @@
+{
+  "wall_ms": 4645.692199999758,
+  "cpu_ms": 171.875,
+  "peak_private_mib": 6.21484375,
+  "sampled_peak_working_set_mib": 26.421875,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "error sending request",
+  "source_elapsed_ms": 4488,
+  "configuration_diagnostic": false,
+  "source": "glotorrents",
+  "backend": "rust",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:56:17.195198+00:00",
+  "raw_report": "raw\\01-glotorrents-rust.json",
+  "diagnostics": "raw\\01-glotorrents-rust.stderr.log"
+}

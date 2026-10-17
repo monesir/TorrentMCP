@@ -1,0 +1,26 @@
+{
+  "wall_ms": 949.2503000001307,
+  "cpu_ms": 734.375,
+  "peak_private_mib": 26.6796875,
+  "sampled_peak_working_set_mib": 69.9921875,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden",
+  "source_elapsed_ms": 819,
+  "configuration_diagnostic": false,
+  "source": "kickasstorrents",
+  "backend": "python",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:04:58.007042+00:00",
+  "raw_report": "raw\\02-kickasstorrents-python.json",
+  "diagnostics": "raw\\02-kickasstorrents-python.stderr.log"
+}

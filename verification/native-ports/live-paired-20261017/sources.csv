@@ -1,0 +1,311 @@
+﻿id,name,rust_status,rust_result_count,rust_unique_results,rust_title_matches,rust_elapsed_ms,rust_limited,rust_error,python_status,python_result_count,python_unique_results,python_title_matches,python_elapsed_ms,python_limited,python_error
+eztv,EZTV,failed,0,0,0,15,False,error sending request,failed,0,0,0,836,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed
+jackett,Jackett,failed,0,0,0,0,False,Jackett requires local qbit/engines/jackett.json with url and api_key,completed,1,1,1,880,False,
+limetorrents,LimeTorrents,completed,20,20,19,3290,True,,completed,20,20,19,2113,True,
+piratebay,The Pirate Bay,completed,3,3,3,806,False,,completed,3,3,3,490,False,
+solidtorrents,Solid Torrents,failed,0,0,0,1993,False,HTTP status server error (520 <none>),failed,0,0,0,13376,False,TimeoutError: The read operation timed out
+torlock,TorLock,failed,0,0,0,340,False,HTTP status client error (403 Forbidden),failed,0,0,0,482,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+torrentproject,TorrentProject,failed,0,0,0,4808,False,error sending request,failed,0,0,0,13301,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)
+torrentscsv,torrents-csv,completed,0,0,0,303,False,,completed,0,0,0,1131,False,
+acgrip,acg.rip,completed,0,0,0,564,False,,completed,0,0,0,811,False,
+animetosho,Anime Tosho,failed,0,0,0,15,False,error sending request,failed,0,0,0,550,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed
+animetosho_community_006,Anime Tosho,completed,2,2,0,1508,False,,completed,2,2,0,1287,False,
+cloudtorrents,CloudTorrents,failed,0,0,0,397,False,HTTP status server error (526 <none>),failed,0,0,0,475,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>
+mikan,MikanProject,completed,0,0,0,1807,False,,completed,0,0,0,1539,False,
+nyaasi,Nyaa.si,completed,0,0,0,591,False,,completed,0,0,0,506,False,
+subsplease,SubsPlease,completed,0,0,0,603,False,,completed,0,0,0,483,False,
+sukebeisi,Sukebei (Nyaa),failed,0,0,0,136,False,error sending request,failed,0,0,0,333,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host
+thepiratebay,The Pirate Bay,completed,3,3,3,615,False,,completed,3,3,3,470,False,
+torrentclaw,TorrentClaw,completed,0,0,0,552,False,,completed,0,0,0,473,False,
+divxtotal,DivxTotal,failed,0,0,0,4905,False,HTTP status server error (523 <none>),failed,0,0,0,3980,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>
+dontorrent,DonTorrent,failed,0,0,0,7260,False,HTTP status server error (523 <none>),failed,0,0,0,1983,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>
+esmeraldatorrent,EsmeraldaTorrent,failed,0,0,0,4086,False,HTTP status server error (523 <none>),failed,0,0,0,12351,False,TimeoutError: The read operation timed out
+naranjatorrent,NaranjaTorrent,failed,0,0,0,3169,False,HTTP status server error (523 <none>),failed,0,0,0,12366,False,TimeoutError: The read operation timed out
+tomadivx,TomaDivx,failed,0,0,0,4527,False,HTTP status server error (523 <none>),failed,0,0,0,4871,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>
+calidadtorrent,CalidadTorrent,failed,0,0,0,369,False,HTTP status client error (403 Forbidden),failed,0,0,0,481,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+pediatorrent,PediaTorrent,failed,0,0,0,359,False,HTTP status client error (403 Forbidden),failed,0,0,0,489,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+glotorrents,GloTorrents,failed,0,0,0,4671,False,error sending request,failed,0,0,0,12654,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)
+kickasstorrents,Kickasstorrents,failed,0,0,0,1912,False,HTTP status client error (403 Forbidden),failed,0,0,0,450,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+pirateiro,Pirateiro,completed,0,0,0,759,False,,completed,0,0,0,728,False,
+rockbox,RockBox,failed,0,0,0,8007,False,error sending request,failed,0,0,0,12204,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: timed out
+torrentdownload,TorrentDownload,completed,0,0,0,370,False,,completed,20,20,20,588,True,
+yourbittorrent,YourBittorrent,failed,0,0,0,17,False,error sending request,failed,0,0,0,208,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed
+magnetdl,MagnetDL,failed,0,0,0,12006,False,error sending request,failed,0,0,0,12836,False,"TimeoutError: The read operation timed out; \\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\magnetdl.py:17: SyntaxWarning: ""\s"" is an invalid escape sequence. Such sequences will not work in the future. Did you mean ""\\s""? A raw string is also an option.
+  '<td\sclass=""m""><a\shref=""(magnet.*?)""\stitle="".*?class=""n""><a\shref=""(.*?)""\stitle=""(.*?)"">.*?<td\sclass=""t."">.*?</td><td>.*?</td><td>(.*?)</td><td\sclass=""s"">(.*?)</td><td\sclass=""l"">(.*?)</td>')"
+magnetdl_community_031,MagnetDL w. categories,failed,0,0,0,12002,False,error sending request,failed,0,0,0,12395,False,TimeoutError: The read operation timed out
+solidtorrents_community_053,Solid Torrents,failed,0,0,0,1032,False,HTTP status server error (520 <none>),completed,0,0,0,2802,False,
+nekobt,NekoBT,completed,0,0,0,580,False,,completed,0,0,0,777,False,
+tsukihime,Tsukihime ,completed,0,0,0,458,False,,completed,0,0,0,535,False,
+yts,YTS,completed,0,0,0,989,False,,completed,0,0,0,1336,False,
+yggtracker,YGGtracker,failed,0,0,0,615,False,error sending request,failed,0,0,0,546,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10051] A socket operation was attempted to an unreachable network
+goggames,GOG-Games,failed,0,0,0,515,False,HTTP status client error (404 Not Found),completed,0,0,0,2064,False,
+snowfl,Snowfl,completed,6,6,6,5470,False,,failed,0,0,0,1833,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Service Unavailable
+snowfl_community_052,Snowfl,completed,6,6,6,7458,False,,completed,6,6,6,6702,False,
+btdig,btdig,failed,0,0,0,596,False,HTTP status client error (429 Too Many Requests),completed,0,0,0,834,False,
+anidex,AniDex,failed,0,0,0,220,False,error sending request,failed,0,0,0,434,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host
+dmhy,DMHY,failed,0,0,0,290,False,error sending request,failed,0,0,0,404,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host
+dmhy_community_018,dmhy,completed,0,0,0,1232,False,,completed,0,0,0,1094,False,
+mikanani,mikanani,completed,0,0,0,1058,False,,completed,0,0,0,2884,False,
+nyaapantsu,Nyaa.pantsu,failed,0,0,0,735,False,error sending request,completed,0,0,0,771,False,
+nyaa,Sukebei Nyaa,failed,0,0,0,114,False,error sending request,failed,0,0,0,757,False,"RuntimeError: Source returned an empty HTTP response or the request failed; \\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\nyaa.py:32: SyntaxWarning: ""\d"" is an invalid escape sequence. Such sequences will not work in the future. Did you mean ""\\d""? A raw string is also an option.
+  PATTERN = 'Displaying results 1-(\d+) out of (\d+) results'
+Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host"
+torrentgalaxy,TorrentGalaxy,failed,0,0,0,18,False,error sending request,failed,0,0,0,316,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed
+pantsu,pantsu,failed,0,0,0,1029,False,HTTP status client error (404 Not Found),failed,0,0,0,740,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Not Found
+sukebei,sukebei,failed,0,0,0,110,False,error sending request,failed,0,0,0,288,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host
+uindex,Uindex,failed,0,0,0,275,False,HTTP status client error (403 Forbidden),completed,0,0,0,431,False,
+uniondht,UnionDHT,completed,0,0,0,701,False,,completed,0,0,0,2191,False,
+dodi_repacks,DODI Repacks,failed,0,0,0,410,False,HTTP status client error (403 Forbidden),failed,0,0,0,468,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+onlinefix,Online-Fix,failed,0,0,0,297,False,HTTP status client error (403 Forbidden),failed,0,0,0,1665,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+apachetorrent,ApacheTorrent,completed,0,0,0,1154,False,,completed,0,0,0,1649,False,
+redetorrent,RedeTorrent,completed,0,0,0,1209,False,,completed,0,0,0,943,False,
+smallgames,small-games.info,completed,0,0,0,2431,False,,failed,0,0,0,476,False,"HTTPError: HTTP Error 403: Forbidden; \\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\smallgames.py:52: SyntaxWarning: ""\s"" is an invalid escape sequence. Such sequences will not work in the future. Did you mean ""\\s""? A raw string is also an option.
+  match = re.compile('<a title=\""(.*?)\""\shref=\""/.*?i=(\d*).*?Скачать\sигру\s\((.{2,11})\)')"
+torrenflix,Torrentflix,completed,0,0,0,1139,False,,completed,0,0,0,1547,False,
+bitsearch,Bit Search,failed,0,0,0,637,False,HTTP status server error (520 <none>),timed_out,20,20,20,20033,False,"Source deadline exceeded; Connection error: <none>
+Connection error: <none>
+Connection error: <none>
+Connection error: <none>
+Connection error: <none>
+Connection error: <none>
+Connection error: <none>"
+therarbg,The RarBg,failed,0,0,0,133,False,error sending request,timed_out,0,0,0,20012,False,"Source deadline exceeded; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host
+Exception in thread Thread-1 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\therarbg.py"", line 166, in threaded_search
+    retrievedHtml = retrieve_url(page_url)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host
+Exception in thread Thread-2 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\therarbg.py"", line 166, in threaded_search
+    retrievedHtml = retrieve_url(page_url)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host
+Exception in thread Thread-3 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\therarbg.py"", line 166, in threaded_search
+    retrievedHtml = retrieve_url(page_url)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host
+Exception in thread Thread-4 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\therarbg.py"", line 166, in threaded_search
+    retrievedHtml = retrieve_url(page_url)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host
+Exception in thread Thread-5 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\therarbg.py"", line 166, in threaded_search
+    retrievedHtml = retrieve_url(page_url)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host
+Exception in thread Thread-6 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\therarbg.py"", line 166, in threaded_search
+    retrievedHtml = retrieve_url(page_url)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host
+Exception in thread Thread-7 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\therarbg.py"", line 166, in threaded_search
+    retrievedHtml = retrieve_url(page_url)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host
+Exception in thread Thread-8 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\therarbg.py"", line 166, in threaded_search
+    retrievedHtml = retrieve_url(page_url)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host
+Exception in thread Thread-9 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\therarbg.py"", line 166, in threaded_search
+    retrievedHtml = retrieve_url(page_url)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host
+Exception in thread Thread-10 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-2026"
+torrentdownloads,Torrent Downloads,failed,9,9,9,2922,False,Invalid torrent reference,timed_out,16,16,16,20009,False,"Source deadline exceeded; Exception in thread Thread-2 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\torrentdownloads.py"", line 170, in threaded_search
+    parser.feed(retrievedHtml)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File ""html\parser.py"", line 187, in feed
+  File ""html\parser.py"", line 281, in goahead
+  File ""html\parser.py"", line 541, in parse_endtag
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\torrentdownloads.py"", line 149, in handle_endtag
+    prettyPrinter(self.row)
+    ~~~~~~~~~~~~~^^^^^^^^^^
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 98, in pretty_printer
+    uri = reference_uri(candidate[""link""])
+                        ~~~~~~~~~^^^^^^^^
+KeyError: 'link'"
+traht,Traht,failed,0,0,0,19,False,error sending request,failed,0,0,0,236,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed
+xxxclubto,XXXClub,failed,0,0,0,10,False,error sending request,timed_out,0,0,0,20016,False,"Source deadline exceeded; Connection error: [Errno 11001] getaddrinfo failed
+Exception in thread Thread-1 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\xxxclubto.py"", line 172, in threaded_search
+    retrieved_html = retrieve_url(page_url, self.headers)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [Errno 11001] getaddrinfo failed
+Exception in thread Thread-2 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\xxxclubto.py"", line 172, in threaded_search
+    retrieved_html = retrieve_url(page_url, self.headers)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [Errno 11001] getaddrinfo failed
+Exception in thread Thread-3 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\xxxclubto.py"", line 172, in threaded_search
+    retrieved_html = retrieve_url(page_url, self.headers)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [Errno 11001] getaddrinfo failed
+Exception in thread Thread-4 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\xxxclubto.py"", line 172, in threaded_search
+    retrieved_html = retrieve_url(page_url, self.headers)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [Errno 11001] getaddrinfo failed
+Exception in thread Thread-5 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\xxxclubto.py"", line 172, in threaded_search
+    retrieved_html = retrieve_url(page_url, self.headers)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [Errno 11001] getaddrinfo failed
+Exception in thread Thread-6 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\xxxclubto.py"", line 172, in threaded_search
+    retrieved_html = retrieve_url(page_url, self.headers)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [Errno 11001] getaddrinfo failed
+Exception in thread Thread-7 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\xxxclubto.py"", line 172, in threaded_search
+    retrieved_html = retrieve_url(page_url, self.headers)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [Errno 11001] getaddrinfo failed
+Exception in thread Thread-8 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\xxxclubto.py"", line 172, in threaded_search
+    retrieved_html = retrieve_url(page_url, self.headers)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [Errno 11001] getaddrinfo failed
+Exception in thread Thread-9 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\xxxclubto.py"", line 172, in threaded_search
+    retrieved_html = retrieve_url(page_url, self.headers)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_url
+    raise RuntimeError(""Source returned an empty HTTP response or the request failed"")
+RuntimeError: Source returned an empty HTTP response or the request failed
+Connection error: [Errno 11001] getaddrinfo failed
+Exception in thread Thread-10 (threaded_search):
+Traceback (most recent call last):
+  File ""threading.py"", line 1082, in _bootstrap_inner
+  File ""threading.py"", line 1024, in run
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\xxxclubto.py"", line 172, in threaded_search
+    retrieved_html = retrieve_url(page_url, self.headers)
+  File ""\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit_worker.py"", line 80, in retrieve_"
+bt4gprx,bt4gprx,failed,0,0,0,494,False,HTTP status client error (403 Forbidden),completed,0,0,0,784,False,
+linuxtracker,Linux Tracker,completed,0,0,0,990,False,,completed,0,0,0,1337,False,
+sktorrent,SkTorrent,completed,0,0,0,2237,False,,completed,0,0,0,1722,False,
+tokyotoshokan,Tokyo Toshokan,failed,0,0,0,17,False,error sending request,failed,0,0,0,205,False,"RuntimeError: Source returned an empty HTTP response or the request failed; \\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\tokyotoshokan.py:39: SyntaxWarning: ""\s"" is an invalid escape sequence. Such sequences will not work in the future. Did you mean ""\\s""? A raw string is also an option.
+  self.get_size_regex = re_compile("".*Size:\s+([^ ]*)\s+.*"")
+\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\tokyotoshokan.py:102: SyntaxWarning: ""\?"" is an invalid escape sequence. Such sequences will not work in the future. Did you mean ""\\?""? A raw string is also an option.
+  additional_links = re_compile(""\?lastid=[0-9]+&page=[0-9]+&terms={}"".format(query.replace('%20', '\\+')))
+Connection error: [Errno 11001] getaddrinfo failed"
+academictorrents,AcademicTorrents,completed,20,20,0,15220,True,,timed_out,20,20,0,20024,False,Source deadline exceeded
+audiobookbay,AudioBook Bay (ABB),failed,0,0,0,894,False,HTTP status client error (425 ),failed,0,0,0,1002,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error:
+cpasbien,Cpasbien (french),failed,0,0,0,1157,False,error sending request,failed,0,0,0,2123,False,RuntimeError: Source returned an empty HTTP response or the request failed
+darklibria,dark-libria,failed,0,0,0,840,False,error sending request,failed,0,0,0,782,False,"Invalid torrent reference URL; \\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-20261017\python\resources\qbit\engines\darklibria.py:32: SyntaxWarning: ""\d"" is an invalid escape sequence. Such sequences will not work in the future. Did you mean ""\\d""? A raw string is also an option.
+  dt_regex = re_compile('\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}')
+Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)"
+dontorrent_community_020,DonTorrent,failed,0,0,0,3635,False,HTTP status server error (523 <none>),failed,0,0,0,4888,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>
+elitetorrent,Elitetorrent,completed,0,0,0,768,False,,completed,0,0,0,703,False,
+eztvx,EZTVX,failed,0,0,0,399,False,error sending request,completed,0,0,0,586,False,
+maxitorrent,MaxiTorrent,failed,0,0,0,949,False,expected value at line 1 column 1,failed,0,0,0,991,False,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+mejortorrent,MejorTorrent,failed,0,0,0,884,False,HTTP status client error (403 Forbidden),failed,0,0,0,2280,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+pediatorrent_community_043,PediaTorrent,failed,0,0,0,300,False,HTTP status client error (403 Forbidden),failed,0,0,0,1098,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+thepiratebay_community_059,The Pirate Bay w. categories,completed,3,3,3,272,False,,completed,3,3,3,495,False,
+torrent9,Torrent9 (french),completed,0,0,0,2016,False,,completed,0,0,0,1602,False,
+torrentdownload_community_066,TorrentDownload w. categories,completed,20,19,19,474,True,,completed,20,20,20,584,True,
+zooqle,Zooqle,completed,0,0,0,1009,False,,completed,0,0,0,891,False,
+ali213,ali213,completed,0,0,0,9316,False,,failed,0,0,0,13641,False,TimeoutError: timed out
+fitgirl_repacks,FitGirl Repacks,completed,1,1,0,4829,False,,completed,1,1,0,6907,False,
+mypornclub,MyPorn Club,failed,0,0,0,109,False,error sending request,failed,0,0,0,320,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host
+rutor,Rutor,completed,0,0,0,570,False,,completed,0,0,0,564,False,

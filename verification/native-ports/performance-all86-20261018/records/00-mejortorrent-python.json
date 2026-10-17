@@ -1,0 +1,26 @@
+{
+  "wall_ms": 530.1894000003813,
+  "cpu_ms": 296.875,
+  "peak_private_mib": 24.76953125,
+  "sampled_peak_working_set_mib": 62.2421875,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden",
+  "source_elapsed_ms": 453,
+  "configuration_diagnostic": false,
+  "source": "mejortorrent",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:44:59.168974+00:00",
+  "raw_report": "raw\\00-mejortorrent-python.json",
+  "diagnostics": "raw\\00-mejortorrent-python.stderr.log"
+}

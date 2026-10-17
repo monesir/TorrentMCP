@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "goggames",
+      "status": "failed",
+      "elapsed_ms": 671,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status client error (404 Not Found)"
+    }
+  ],
+  "results": []
+}

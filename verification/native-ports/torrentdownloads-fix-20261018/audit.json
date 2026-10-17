@@ -1,0 +1,15 @@
+{
+  "source_discovery_count": 86,
+  "all_86_original_plugin_pins_verified": true,
+  "fix_files_match_workspace": true,
+  "base_bundle_audit_changed_existing_files": [
+    "package-info.json",
+    "torrent-search.exe",
+    "source/src/sources/native/html.rs",
+    "source/src/sources/native/catalogue_tables.rs"
+  ],
+  "added_source_fixture": "source/tests/fixtures/torrentdownloads-magnets.json",
+  "executable_sha256": "9db05394f0c691a0ceec860197e3668c044dfdb2c1fe911993ab2cdb5fa01208",
+  "package_tests_passed": 61,
+  "original_packages_unchanged": true
+}

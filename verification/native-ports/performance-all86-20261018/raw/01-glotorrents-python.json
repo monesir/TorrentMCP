@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "glotorrents",
+      "status": "failed",
+      "elapsed_ms": 13170,
+      "result_count": 0,
+      "limited": false,
+      "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)"
+    }
+  ],
+  "results": []
+}

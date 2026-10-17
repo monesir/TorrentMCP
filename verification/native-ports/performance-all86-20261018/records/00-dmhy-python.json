@@ -1,0 +1,26 @@
+{
+  "wall_ms": 440.42369999988296,
+  "cpu_ms": 281.25,
+  "peak_private_mib": 28.03125,
+  "sampled_peak_working_set_mib": 70.61328125,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host",
+  "source_elapsed_ms": 382,
+  "configuration_diagnostic": false,
+  "source": "dmhy",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:48:26.916710+00:00",
+  "raw_report": "raw\\00-dmhy-python.json",
+  "diagnostics": "raw\\00-dmhy-python.stderr.log"
+}

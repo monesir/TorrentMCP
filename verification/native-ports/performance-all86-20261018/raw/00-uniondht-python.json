@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": false,
+  "sources": [
+    {
+      "source_id": "uniondht",
+      "status": "completed",
+      "elapsed_ms": 2210,
+      "result_count": 0,
+      "limited": false,
+      "error": null
+    }
+  ],
+  "results": []
+}

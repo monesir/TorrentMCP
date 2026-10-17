@@ -1,0 +1,25 @@
+{
+  "wall_ms": 547.642900000028,
+  "cpu_ms": 62.5,
+  "peak_private_mib": 6.703125,
+  "sampled_peak_working_set_mib": 28.7265625,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 486,
+  "configuration_diagnostic": false,
+  "source": "tsukihime",
+  "backend": "rust",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:47:30.797731+00:00",
+  "raw_report": "raw\\00-tsukihime-rust.json",
+  "diagnostics": "raw\\00-tsukihime-rust.stderr.log"
+}

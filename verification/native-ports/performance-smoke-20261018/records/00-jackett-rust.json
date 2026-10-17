@@ -1,0 +1,14 @@
+{
+  "status": "measurement_failed",
+  "identities": [],
+  "unique_results": 0,
+  "configuration_diagnostic": false,
+  "error": "ValueError: Native benchmark unexpectedly spawned descendants",
+  "harness_wall_ms": 65.39169999996375,
+  "source": "jackett",
+  "backend": "rust",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:41:50.991523+00:00",
+  "raw_report": "raw\\00-jackett-rust.json",
+  "diagnostics": "raw\\00-jackett-rust.stderr.log"
+}

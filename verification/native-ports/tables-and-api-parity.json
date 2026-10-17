@@ -1,0 +1,326 @@
+{
+  "fixture_kind": "synthetic protocol fixtures; LimeTorrents uses captured real HTML",
+  "records": [
+    {
+      "source": "yourbittorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture-%E4%B8%AD%E6%96%87-~-%2A"
+      ]
+    },
+    {
+      "source": "yourbittorrent",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture-%E4%B8%AD%E6%96%87-~-%2A&c=1"
+      ]
+    },
+    {
+      "source": "yourbittorrent",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture-%E4%B8%AD%E6%96%87-~-%2A&c=3"
+      ]
+    },
+    {
+      "source": "yourbittorrent",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture-%E4%B8%AD%E6%96%87-~-%2A&c=2"
+      ]
+    },
+    {
+      "source": "yourbittorrent",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture-%E4%B8%AD%E6%96%87-~-%2A&c=4"
+      ]
+    },
+    {
+      "source": "yourbittorrent",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture-%E4%B8%AD%E6%96%87-~-%2A&c=6"
+      ]
+    },
+    {
+      "source": "yourbittorrent",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture-%E4%B8%AD%E6%96%87-~-%2A&c=5"
+      ]
+    },
+    {
+      "source": "magnetdl",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/f/fixture-%e4%b8%ad%e6%96%87-~-%2a/1"
+      ]
+    },
+    {
+      "source": "magnetdl_community_031",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/f/fixture-%e4%b8%ad%e6%96%87-~-%2a/se/desc/1/"
+      ]
+    },
+    {
+      "source": "magnetdl_community_031",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/f/fixture-%e4%b8%ad%e6%96%87-~-%2a/se/desc/1/"
+      ]
+    },
+    {
+      "source": "magnetdl_community_031",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/f/fixture-%e4%b8%ad%e6%96%87-~-%2a/se/desc/1/"
+      ]
+    },
+    {
+      "source": "magnetdl_community_031",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/f/fixture-%e4%b8%ad%e6%96%87-~-%2a/se/desc/1/"
+      ]
+    },
+    {
+      "source": "magnetdl_community_031",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/f/fixture-%e4%b8%ad%e6%96%87-~-%2a/se/desc/1/"
+      ]
+    },
+    {
+      "source": "magnetdl_community_031",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/f/fixture-%e4%b8%ad%e6%96%87-~-%2a/se/desc/1/"
+      ]
+    },
+    {
+      "source": "magnetdl_community_031",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/f/fixture-%e4%b8%ad%e6%96%87-~-%2a/se/desc/1/"
+      ]
+    },
+    {
+      "source": "solidtorrents_community_053",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1"
+      ]
+    },
+    {
+      "source": "nekobt",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v1/torrents/search?query=fixture+%E4%B8%AD%E6%96%87+~+%2A"
+      ]
+    },
+    {
+      "source": "tsukihime",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/v1/search/torrents?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/v1/torrents/42"
+      ]
+    },
+    {
+      "source": "tsukihime",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/v1/search/torrents?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/v1/torrents/42"
+      ]
+    },
+    {
+      "source": "yts",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v2/list_movies.json?query_term=fixture+%E4%B8%AD%E6%96%87+~+%2A"
+      ]
+    },
+    {
+      "source": "yts",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v2/list_movies.json?query_term=fixture+%E4%B8%AD%E6%96%87+~+%2A"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "pictures",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "goggames",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?page=1&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&sort_by=lastUpdateDescending"
+      ]
+    },
+    {
+      "source": "snowfl",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.html",
+        "/b.min.js?fixture=1",
+        "/fixturekey/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/4a74d06c/0/SEED/NONE/1?_=1792250531948"
+      ]
+    },
+    {
+      "source": "snowfl_community_052",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/",
+        "/b.min.js?fixture=1",
+        "/fixturekey/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/DH5kKsJw/0/SEED/NONE/0"
+      ]
+    }
+  ],
+  "no_python_native": true,
+  "result_limits_passed": true,
+  "http_errors_passed": true,
+  "partial_results_passed": true,
+  "malformed_json_passed": true,
+  "empty_success_passed": true,
+  "challenge_detection_passed": true,
+  "deadline_passed": true,
+  "executable_sha256": "162d8e6d00dfc2605aee93172649f14347d908d9b42b1258fbdea09d9aed9736"
+}

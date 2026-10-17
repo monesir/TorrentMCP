@@ -1,0 +1,26 @@
+{
+  "wall_ms": 488.41539999921224,
+  "cpu_ms": 218.75,
+  "peak_private_mib": 26.82421875,
+  "sampled_peak_working_set_mib": 69.9921875,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden",
+  "source_elapsed_ms": 426,
+  "configuration_diagnostic": false,
+  "source": "dodi_repacks",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:44:14.124512+00:00",
+  "raw_report": "raw\\00-dodi_repacks-python.json",
+  "diagnostics": "raw\\00-dodi_repacks-python.stderr.log"
+}

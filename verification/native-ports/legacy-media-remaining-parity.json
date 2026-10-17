@@ -1,0 +1,55 @@
+{
+  "fixture_kind": "synthetic protocol fixtures; LimeTorrents uses captured real HTML",
+  "records": [
+    {
+      "source": "mejortorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/busqueda?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/pelicula/42/fixture"
+      ]
+    },
+    {
+      "source": "mejortorrent",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/busqueda?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/pelicula/42/fixture"
+      ]
+    },
+    {
+      "source": "mejortorrent",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/busqueda?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/serie/42/fixture"
+      ]
+    },
+    {
+      "source": "pediatorrent_community_043",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/buscar?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/buscar/page/1?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/peliculas/42-fixture-release"
+      ]
+    }
+  ],
+  "no_python_native": true,
+  "result_limits_passed": true,
+  "http_errors_passed": true,
+  "partial_results_passed": true,
+  "malformed_json_passed": true,
+  "empty_success_passed": true,
+  "challenge_detection_passed": true,
+  "deadline_passed": true,
+  "executable_sha256": "91942465528879aefebb7c9353af68ddbdc71fa368e7c83c8360b8ca33be41bc"
+}

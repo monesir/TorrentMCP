@@ -1,0 +1,26 @@
+{
+  "wall_ms": 239.7008999996615,
+  "cpu_ms": 250.0,
+  "peak_private_mib": 26.66015625,
+  "sampled_peak_working_set_mib": 65.61328125,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\tokyotoshokan.py:39: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  self.get_size_regex = re_compile(\".*Size:\\s+([^ ]*)\\s+.*\")\r\n\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\tokyotoshokan.py:102: SyntaxWarning: \"\\?\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\?\"? A raw string is also an option.\r\n  additional_links = re_compile(\"\\?lastid=[0-9]+&page=[0-9]+&terms={}\".format(query.replace('%20', '\\\\+')))\r\nConnection error: [Errno 11001] getaddrinfo failed",
+  "source_elapsed_ms": 181,
+  "configuration_diagnostic": false,
+  "source": "tokyotoshokan",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:45:38.717855+00:00",
+  "raw_report": "raw\\00-tokyotoshokan-python.json",
+  "diagnostics": "raw\\00-tokyotoshokan-python.stderr.log"
+}

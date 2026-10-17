@@ -1,0 +1,26 @@
+{
+  "wall_ms": 1080.6458999995812,
+  "cpu_ms": 515.625,
+  "peak_private_mib": 25.83203125,
+  "sampled_peak_working_set_mib": 66.24609375,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "source_elapsed_ms": 939,
+  "configuration_diagnostic": false,
+  "source": "maxitorrent",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:58:28.379847+00:00",
+  "raw_report": "raw\\01-maxitorrent-python.json",
+  "diagnostics": "raw\\01-maxitorrent-python.stderr.log"
+}

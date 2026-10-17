@@ -1,0 +1,54 @@
+   Compiling torrent-search v0.5.0 (C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\.cache\torrentdownloads-fix-validation-20261018)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 16.97s
+     Running unittests src\lib.rs (.cache/native-ports-target\debug\deps\torrent_search-a8d73c84b9730439.exe)
+
+running 14 tests
+test sources::native::tests::auto_keeps_a_python_only_source_available ... ok
+
+thread 'sources::native::html::tests::preserves_magnet_query_boundaries_and_encoded_trackers' (17156) panicked at src\sources\native\html.rs:385:9:
+assertion `left == right` failed
+  left: "magnet:?xt=urn:btih:0000000000000000000000000000000000000000&dn=A&B=1%20&tr=https://example.org/announce?key=a&pass=b"
+ right: "magnet:?xt=urn:btih:0000000000000000000000000000000000000000&dn=A%26B%3D1%2520&tr=https%3A%2F%2Fexample.org%2Fannounce%3Fkey%3Da%26pass%3Db"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test sources::native::html::tests::accepts_a_whole_uri_wrapper_without_decoding_inner_escapes_twice ... ok
+test sources::native::tracker_scrape::tests::rejects_truncated_and_deep_tracker_data ... ok
+
+thread 'sources::native::html::tests::preserves_captured_torrentdownloads_magnets' (3388) panicked at src\sources\native\html.rs:377:66:
+called `Result::unwrap()` on an `Err` value: Runtime("Invalid torrent reference")
+
+thread 'sources::native::html::tests::tries_later_magnets_but_reports_an_all_invalid_page' (6460) panicked at src\sources\native\html.rs:401:62:
+called `Result::unwrap()` on an `Err` value: Runtime("Invalid magnet v1 infohash")
+test sources::native::tests::unknown_native_source_is_an_explicit_per_source_failure ... ok
+test sources::native::html::tests::preserves_magnet_query_boundaries_and_encoded_trackers ... FAILED
+test sources::native::html::tests::preserves_captured_torrentdownloads_magnets ... FAILED
+test sources::native::html::tests::tries_later_magnets_but_reports_an_all_invalid_page ... FAILED
+test sources::native::tests::cancellation_prevents_native_network_requests ... ok
+test sources::native::tracker_scrape::tests::validates_udp_transactions_and_reads_batched_scrape_counts ... ok
+test sources::native::tracker_scrape::tests::http_scrape_preserves_binary_hash_and_tracker_query ... ok
+
+thread 'sources::native::catalogue_tables::tests::torrentdownloads_keeps_row_errors_when_the_result_limit_is_reached' (26704) panicked at src\sources\native\catalogue_tables.rs:125:9:
+assertion `left == right` failed
+  left: 0
+ right: 2
+
+thread 'sources::native::catalogue_tables::tests::torrentdownloads_continues_after_a_bad_detail_until_end_of_search' (26400) panicked at src\sources\native\catalogue_tables.rs:125:9:
+assertion `left == right` failed
+  left: 0
+ right: 2
+test sources::native::catalogue_tables::tests::torrentdownloads_keeps_row_errors_when_the_result_limit_is_reached ... FAILED
+test sources::native::catalogue_tables::tests::torrentdownloads_continues_after_a_bad_detail_until_end_of_search ... FAILED
+test sources::native::fitgirl::tests::parses_repack_units_and_only_repack_size ... ok
+test sources::native::fitgirl::tests::image_checksums_do_not_become_torrent_identities ... ok
+
+failures:
+
+failures:
+    sources::native::catalogue_tables::tests::torrentdownloads_continues_after_a_bad_detail_until_end_of_search
+    sources::native::catalogue_tables::tests::torrentdownloads_keeps_row_errors_when_the_result_limit_is_reached
+    sources::native::html::tests::preserves_captured_torrentdownloads_magnets
+    sources::native::html::tests::preserves_magnet_query_boundaries_and_encoded_trackers
+    sources::native::html::tests::tries_later_magnets_but_reports_an_all_invalid_page
+
+test result: FAILED. 9 passed; 5 failed; 0 ignored; 0 measured; 13 filtered out; finished in 0.03s
+
+error: test failed, to rerun pass `--lib`

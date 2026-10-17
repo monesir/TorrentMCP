@@ -1,0 +1,26 @@
+{
+  "wall_ms": 12676.827299999786,
+  "cpu_ms": 734.375,
+  "peak_private_mib": 26.4921875,
+  "sampled_peak_working_set_mib": 68.6015625,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: timed out",
+  "source_elapsed_ms": 12523,
+  "configuration_diagnostic": false,
+  "source": "rockbox",
+  "backend": "python",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:04:25.773660+00:00",
+  "raw_report": "raw\\02-rockbox-python.json",
+  "diagnostics": "raw\\02-rockbox-python.stderr.log"
+}

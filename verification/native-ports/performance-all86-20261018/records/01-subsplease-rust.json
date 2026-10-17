@@ -1,0 +1,25 @@
+{
+  "wall_ms": 528.3825999995315,
+  "cpu_ms": 93.75,
+  "peak_private_mib": 6.74609375,
+  "sampled_peak_working_set_mib": 28.890625,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 460,
+  "configuration_diagnostic": false,
+  "source": "subsplease",
+  "backend": "rust",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:51:13.362269+00:00",
+  "raw_report": "raw\\01-subsplease-rust.json",
+  "diagnostics": "raw\\01-subsplease-rust.stderr.log"
+}

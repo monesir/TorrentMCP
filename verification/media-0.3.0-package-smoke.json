@@ -1,0 +1,14 @@
+{
+  "mkv_stream_count": 6,
+  "mkv_size": 12369807,
+  "ffprobe_version": "ffprobe version 9.0.1-full_build-www.gyan.dev Copyright (c) 2007-2026 the FFmpeg developers",
+  "archive_sha256": "5ad787e7569e5a39dc9f95e663a00cb101520e92d85f159cae41cf03664d6236",
+  "mkv_read_bytes": 262144,
+  "executable_sha256": "9bd5bbd5d2ee5fc062691bd223d8e09e4b19af28e0bdd3e741cc8fe13d304f85",
+  "legacy_summary": {
+    "total": 31,
+    "eligible": 4,
+    "uncertain": 6,
+    "excluded": 21
+  }
+}

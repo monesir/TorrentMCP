@@ -1,0 +1,26 @@
+{
+  "wall_ms": 744.2589000002044,
+  "cpu_ms": 515.625,
+  "peak_private_mib": 26.859375,
+  "sampled_peak_working_set_mib": 69.9921875,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 610,
+  "configuration_diagnostic": false,
+  "source": "torrentclaw",
+  "backend": "python",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:02:56.736615+00:00",
+  "raw_report": "raw\\02-torrentclaw-python.json",
+  "diagnostics": "raw\\02-torrentclaw-python.stderr.log"
+}

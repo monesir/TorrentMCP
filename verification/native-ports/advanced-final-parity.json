@@ -1,0 +1,137 @@
+{
+  "fixture_kind": "synthetic protocol fixtures; LimeTorrents uses captured real HTML",
+  "records": [
+    {
+      "source": "maxitorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/get/result/",
+        "/detail/42",
+        "/get/result/"
+      ]
+    },
+    {
+      "source": "zooqle",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/query/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/torrent-page/"
+      ]
+    },
+    {
+      "source": "zooqle",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/query/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/torrent-page/"
+      ]
+    },
+    {
+      "source": "zooqle",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/query/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/torrent-page/"
+      ]
+    },
+    {
+      "source": "zooqle",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/query/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/torrent-page/"
+      ]
+    },
+    {
+      "source": "zooqle",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/query/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/torrent-page/"
+      ]
+    },
+    {
+      "source": "zooqle",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/query/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/torrent-page/"
+      ]
+    },
+    {
+      "source": "zooqle",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/query/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/torrent-page/"
+      ]
+    },
+    {
+      "source": "zooqle",
+      "category": "books",
+      "results": 0,
+      "parity": true,
+      "routes": [
+        "/query/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/torrent-page/"
+      ]
+    },
+    {
+      "source": "fitgirl_repacks",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?s=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "fitgirl_repacks",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?s=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    }
+  ],
+  "no_python_native": true,
+  "result_limits_passed": true,
+  "http_errors_passed": true,
+  "resolver_records": [
+    {
+      "source": "zooqle",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:6146/torfile/#hid=fixture-hid",
+        "source_id": "zooqle",
+        "post_form": {
+          "hid": "fixture-hid"
+        }
+      },
+      "parity": true
+    }
+  ],
+  "partial_results_passed": true,
+  "malformed_json_passed": true,
+  "empty_success_passed": true,
+  "challenge_detection_passed": true,
+  "deadline_passed": true,
+  "executable_sha256": "d49583d7b1a0f2bd4c2128352ecca47a3de5b5f0f94b60972ae9eb0ab0e042fe"
+}

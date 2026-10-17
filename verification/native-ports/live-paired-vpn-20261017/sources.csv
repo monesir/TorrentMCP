@@ -1,0 +1,103 @@
+﻿id,name,rust_status,rust_result_count,rust_unique_results,rust_title_matches,rust_elapsed_ms,rust_limited,rust_error,python_status,python_result_count,python_unique_results,python_title_matches,python_elapsed_ms,python_limited,python_error
+eztv,EZTV,failed,0,0,0,460,False,HTTP status client error (403 Forbidden),failed,0,0,0,675,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+jackett,Jackett,failed,0,0,0,0,False,Jackett requires local qbit/engines/jackett.json with url and api_key,completed,1,1,1,442,False,
+limetorrents,LimeTorrents,completed,20,20,19,924,True,,completed,20,20,19,1454,True,
+piratebay,The Pirate Bay,completed,3,3,3,629,False,,completed,3,3,3,586,False,
+solidtorrents,Solid Torrents,failed,0,0,0,3039,False,HTTP status server error (520 <none>),failed,0,0,0,16199,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>
+torlock,TorLock,failed,0,0,0,475,False,HTTP status client error (403 Forbidden),failed,0,0,0,787,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+torrentproject,TorrentProject,failed,0,0,0,6644,False,error sending request,failed,0,0,0,14581,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)
+torrentscsv,torrents-csv,completed,0,0,0,2656,False,,completed,0,0,0,2873,False,
+acgrip,acg.rip,completed,0,0,0,3157,False,,completed,0,0,0,3115,False,
+animetosho,Anime Tosho,failed,0,0,0,75,False,error sending request,failed,0,0,0,352,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed
+animetosho_community_006,Anime Tosho,completed,2,2,0,785,False,,completed,2,2,0,956,False,
+cloudtorrents,CloudTorrents,failed,0,0,0,514,False,HTTP status server error (526 <none>),failed,0,0,0,745,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>
+mikan,MikanProject,completed,0,0,0,616,False,,completed,0,0,0,1040,False,
+nyaasi,Nyaa.si,completed,0,0,0,2721,False,,completed,0,0,0,3007,False,
+subsplease,SubsPlease,completed,0,0,0,415,False,,completed,0,0,0,509,False,
+sukebeisi,Sukebei (Nyaa),completed,0,0,0,2773,False,,completed,0,0,0,2656,False,
+thepiratebay,The Pirate Bay,completed,3,3,3,238,False,,completed,3,3,3,488,False,
+torrentclaw,TorrentClaw,completed,0,0,0,810,False,,completed,0,0,0,517,False,
+divxtotal,DivxTotal,failed,0,0,0,5098,False,HTTP status server error (523 <none>),failed,0,0,0,12361,False,TimeoutError: The read operation timed out
+dontorrent,DonTorrent,failed,0,0,0,1953,False,HTTP status server error (523 <none>),failed,0,0,0,12368,False,TimeoutError: The read operation timed out
+esmeraldatorrent,EsmeraldaTorrent,failed,0,0,0,1908,False,HTTP status server error (523 <none>),failed,0,0,0,3370,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>
+naranjatorrent,NaranjaTorrent,failed,0,0,0,8031,False,HTTP status server error (523 <none>),failed,0,0,0,5982,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>
+tomadivx,TomaDivx,failed,0,0,0,1615,False,HTTP status server error (523 <none>),failed,0,0,0,5055,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>
+calidadtorrent,CalidadTorrent,failed,0,0,0,411,False,HTTP status client error (403 Forbidden),failed,0,0,0,439,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+pediatorrent,PediaTorrent,failed,0,0,0,439,False,HTTP status client error (403 Forbidden),failed,0,0,0,464,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+glotorrents,GloTorrents,failed,0,0,0,6763,False,error sending request,failed,0,0,0,15211,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)
+kickasstorrents,Kickasstorrents,failed,0,0,0,447,False,HTTP status client error (403 Forbidden),failed,0,0,0,488,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+pirateiro,Pirateiro,completed,0,0,0,2835,False,,completed,0,0,0,2681,False,
+rockbox,RockBox,failed,0,0,0,8014,False,error sending request,failed,0,0,0,12293,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: timed out
+torrentdownload,TorrentDownload,completed,0,0,0,614,False,,completed,20,20,20,662,True,
+yourbittorrent,YourBittorrent,failed,0,0,0,395,False,HTTP status client error (403 Forbidden),failed,0,0,0,451,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+magnetdl,MagnetDL,failed,0,0,0,12008,False,error sending request,failed,0,0,0,12569,False,"TimeoutError: The read operation timed out; \\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-vpn-20261017\python\resources\qbit\engines\magnetdl.py:17: SyntaxWarning: ""\s"" is an invalid escape sequence. Such sequences will not work in the future. Did you mean ""\\s""? A raw string is also an option.
+  '<td\sclass=""m""><a\shref=""(magnet.*?)""\stitle="".*?class=""n""><a\shref=""(.*?)""\stitle=""(.*?)"">.*?<td\sclass=""t."">.*?</td><td>.*?</td><td>(.*?)</td><td\sclass=""s"">(.*?)</td><td\sclass=""l"">(.*?)</td>')"
+magnetdl_community_031,MagnetDL w. categories,failed,0,0,0,12006,False,error sending request,failed,0,0,0,12358,False,TimeoutError: The read operation timed out
+solidtorrents_community_053,Solid Torrents,failed,0,0,0,5425,False,HTTP status server error (500 Internal Server Error),failed,0,0,0,15190,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Internal Server Error
+nekobt,NekoBT,completed,0,0,0,843,False,,completed,0,0,0,887,False,
+tsukihime,Tsukihime ,completed,0,0,0,522,False,,completed,0,0,0,481,False,
+yts,YTS,completed,0,0,0,617,False,,completed,0,0,0,776,False,
+yggtracker,YGGtracker,failed,0,0,0,8571,False,error sending request,failed,0,0,0,12709,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: timed out
+goggames,GOG-Games,failed,0,0,0,419,False,HTTP status client error (404 Not Found),completed,0,0,0,495,False,
+snowfl,Snowfl,completed,6,6,6,5649,False,,failed,0,0,0,1338,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Service Unavailable
+snowfl_community_052,Snowfl,failed,0,0,0,557,False,HTTP status server error (503 Service Unavailable),completed,6,6,6,6218,False,
+btdig,btdig,failed,0,0,0,8006,False,error sending request,timed_out,0,0,0,20018,False,Source deadline exceeded
+anidex,AniDex,failed,0,0,0,3218,False,HTTP status server error (502 Bad Gateway),failed,0,0,0,2578,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+dmhy,DMHY,completed,0,0,0,869,False,,completed,0,0,0,986,False,
+dmhy_community_018,dmhy,completed,0,0,0,1451,False,,completed,0,0,0,1545,False,
+mikanani,mikanani,completed,0,0,0,2259,False,,completed,0,0,0,1182,False,
+nyaapantsu,Nyaa.pantsu,failed,0,0,0,8012,False,error sending request,completed,0,0,0,12373,False,
+nyaa,Sukebei Nyaa,completed,0,0,0,3941,False,,failed,0,0,0,3079,False,"AttributeError: 'NoneType' object has no attribute 'group'; \\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-vpn-20261017\python\resources\qbit\engines\nyaa.py:32: SyntaxWarning: ""\d"" is an invalid escape sequence. Such sequences will not work in the future. Did you mean ""\\d""? A raw string is also an option.
+  PATTERN = 'Displaying results 1-(\d+) out of (\d+) results'"
+torrentgalaxy,TorrentGalaxy,failed,0,0,0,84,False,error sending request,failed,0,0,0,431,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed
+pantsu,pantsu,failed,0,0,0,550,False,HTTP status client error (404 Not Found),failed,0,0,0,532,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Not Found
+sukebei,sukebei,failed,0,0,0,511,False,HTTP status client error (404 Not Found),failed,0,0,0,503,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Not Found
+uindex,Uindex,failed,0,0,0,354,False,HTTP status client error (403 Forbidden),completed,0,0,0,562,False,
+uniondht,UnionDHT,failed,0,0,0,8003,False,error sending request,completed,0,0,0,2834,False,
+dodi_repacks,DODI Repacks,failed,0,0,0,379,False,HTTP status client error (403 Forbidden),failed,0,0,0,489,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+onlinefix,Online-Fix,failed,0,0,0,312,False,HTTP status client error (403 Forbidden),failed,0,0,0,427,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+apachetorrent,ApacheTorrent,completed,0,0,0,1288,False,,completed,0,0,0,1224,False,
+redetorrent,RedeTorrent,completed,0,0,0,1107,False,,completed,0,0,0,1896,False,
+smallgames,small-games.info,completed,0,0,0,981,False,,failed,0,0,0,1639,False,"HTTPError: HTTP Error 403: Forbidden; \\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-vpn-20261017\python\resources\qbit\engines\smallgames.py:52: SyntaxWarning: ""\s"" is an invalid escape sequence. Such sequences will not work in the future. Did you mean ""\\s""? A raw string is also an option.
+  match = re.compile('<a title=\""(.*?)\""\shref=\""/.*?i=(\d*).*?Скачать\sигру\s\((.{2,11})\)')"
+torrenflix,Torrentflix,completed,0,0,0,3851,False,,completed,0,0,0,3763,False,
+bitsearch,Bit Search,failed,0,0,0,351,False,HTTP status server error (500 Internal Server Error),failed,20,20,20,15202,False,"Worker exceeded the result limit; Connection error: Internal Server Error
+Connection error: Internal Server Error
+Connection error: Too Many Requests
+Connection error: Too Many Requests
+Connection error: Too Many Requests
+Connection error: Too Many Requests
+Connection error: Too Many Requests
+Connection error: Too Many Requests"
+therarbg,The RarBg,completed,20,20,3,9091,True,,completed,0,0,0,2363,False,
+torrentdownloads,Torrent Downloads,failed,9,9,9,5281,False,Invalid torrent reference,completed,20,20,20,16416,False,
+traht,Traht,failed,0,0,0,499,False,Source returned an empty HTTP response,failed,0,0,0,842,False,RuntimeError: Source returned an empty HTTP response or the request failed
+xxxclubto,XXXClub,completed,0,0,0,409,False,,completed,0,0,0,899,False,
+bt4gprx,bt4gprx,failed,0,0,0,497,False,HTTP status client error (403 Forbidden),completed,0,0,0,985,False,
+linuxtracker,Linux Tracker,completed,0,0,0,940,False,,completed,0,0,0,1485,False,
+sktorrent,SkTorrent,completed,0,0,0,5104,False,,completed,0,0,0,5685,False,
+tokyotoshokan,Tokyo Toshokan,failed,0,0,0,538,False,HTTP status client error (403 Forbidden),failed,0,0,0,883,False,"RuntimeError: Source returned an empty HTTP response or the request failed; \\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-vpn-20261017\python\resources\qbit\engines\tokyotoshokan.py:39: SyntaxWarning: ""\s"" is an invalid escape sequence. Such sequences will not work in the future. Did you mean ""\\s""? A raw string is also an option.
+  self.get_size_regex = re_compile("".*Size:\s+([^ ]*)\s+.*"")
+\\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-vpn-20261017\python\resources\qbit\engines\tokyotoshokan.py:102: SyntaxWarning: ""\?"" is an invalid escape sequence. Such sequences will not work in the future. Did you mean ""\\?""? A raw string is also an option.
+  additional_links = re_compile(""\?lastid=[0-9]+&page=[0-9]+&terms={}"".format(query.replace('%20', '\\+')))
+Connection error: Forbidden"
+academictorrents,AcademicTorrents,completed,20,20,0,2643,True,,timed_out,20,20,0,20030,False,Source deadline exceeded
+audiobookbay,AudioBook Bay (ABB),failed,0,0,0,2812,False,HTTP status client error (425 ),failed,0,0,0,4795,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error:
+cpasbien,Cpasbien (french),failed,0,0,0,901,False,error sending request,failed,0,0,0,1191,False,RuntimeError: Source returned an empty HTTP response or the request failed
+darklibria,dark-libria,failed,0,0,0,8011,False,error sending request,failed,0,0,0,12726,False,"Invalid torrent reference URL; \\?\C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\verification\native-ports\live-paired-vpn-20261017\python\resources\qbit\engines\darklibria.py:32: SyntaxWarning: ""\d"" is an invalid escape sequence. Such sequences will not work in the future. Did you mean ""\\d""? A raw string is also an option.
+  dt_regex = re_compile('\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}')
+Connection error: timed out"
+dontorrent_community_020,DonTorrent,failed,0,0,0,12006,False,error sending request,failed,0,0,0,6151,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>
+elitetorrent,Elitetorrent,completed,0,0,0,822,False,,completed,0,0,0,1333,False,
+eztvx,EZTVX,timed_out,0,0,0,20005,False,Source deadline exceeded,timed_out,0,0,0,20029,False,Source deadline exceeded; Connection error: Unauthorized
+maxitorrent,MaxiTorrent,failed,0,0,0,3133,False,expected value at line 1 column 1,failed,0,0,0,3080,False,JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+mejortorrent,MejorTorrent,failed,0,0,0,374,False,HTTP status client error (403 Forbidden),failed,0,0,0,705,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+pediatorrent_community_043,PediaTorrent,failed,0,0,0,249,False,HTTP status client error (403 Forbidden),failed,0,0,0,729,False,RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden
+thepiratebay_community_059,The Pirate Bay w. categories,completed,3,3,3,410,False,,completed,3,3,3,820,False,
+torrent9,Torrent9 (french),failed,0,0,0,6510,False,HTTP status client error (445 status code 445),completed,0,0,0,7593,False,
+torrentdownload_community_066,TorrentDownload w. categories,completed,20,19,19,435,True,,completed,20,20,20,892,True,
+zooqle,Zooqle,completed,0,0,0,2695,False,,completed,0,0,0,4250,False,
+ali213,ali213,completed,0,0,0,12363,False,,timed_out,0,0,0,20031,False,Source deadline exceeded
+fitgirl_repacks,FitGirl Repacks,completed,1,1,0,4296,False,,completed,1,1,0,8786,False,
+mypornclub,MyPorn Club,completed,0,0,0,419,False,,completed,0,0,0,887,False,
+rutor,Rutor,completed,0,0,0,2568,False,,completed,0,0,0,3982,False,

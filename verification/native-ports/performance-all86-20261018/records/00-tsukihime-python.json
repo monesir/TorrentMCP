@@ -1,0 +1,26 @@
+{
+  "wall_ms": 512.4740000001111,
+  "cpu_ms": 234.375,
+  "peak_private_mib": 25.04296875,
+  "sampled_peak_working_set_mib": 62.10546875,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 445,
+  "configuration_diagnostic": false,
+  "source": "tsukihime",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:47:31.324125+00:00",
+  "raw_report": "raw\\00-tsukihime-python.json",
+  "diagnostics": "raw\\00-tsukihime-python.stderr.log"
+}

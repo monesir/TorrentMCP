@@ -1,0 +1,26 @@
+{
+  "wall_ms": 8069.8982000003525,
+  "cpu_ms": 437.5,
+  "peak_private_mib": 28.45703125,
+  "sampled_peak_working_set_mib": 71.08203125,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 8006,
+  "configuration_diagnostic": false,
+  "source": "ali213",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:43:08.435244+00:00",
+  "raw_report": "raw\\00-ali213-python.json",
+  "diagnostics": "raw\\00-ali213-python.stderr.log"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "file": "comparison.md",
+    "table_rows": 344,
+    "columns_consistent": true
+  },
+  {
+    "file": "report.md",
+    "table_rows": 344,
+    "columns_consistent": true
+  },
+  {
+    "file": "spiderman-inspected-0.md",
+    "table_rows": 112,
+    "columns_consistent": true
+  },
+  {
+    "file": "spiderman-inspected-1.md",
+    "table_rows": 104,
+    "columns_consistent": true
+  },
+  {
+    "file": "spiderman-inspected-2.md",
+    "table_rows": 102,
+    "columns_consistent": true
+  },
+  {
+    "file": "spiderman-search.md",
+    "table_rows": 2509,
+    "columns_consistent": true
+  }
+]

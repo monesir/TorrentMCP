@@ -1,0 +1,26 @@
+{
+  "wall_ms": 12503.555999999662,
+  "cpu_ms": 593.75,
+  "peak_private_mib": 26.671875,
+  "sampled_peak_working_set_mib": 68.984375,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: timed out",
+  "source_elapsed_ms": 12386,
+  "configuration_diagnostic": false,
+  "source": "audiobookbay",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:57:40.133375+00:00",
+  "raw_report": "raw\\01-audiobookbay-python.json",
+  "diagnostics": "raw\\01-audiobookbay-python.stderr.log"
+}

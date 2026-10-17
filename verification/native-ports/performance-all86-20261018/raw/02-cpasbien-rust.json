@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "cpasbien",
+      "status": "failed",
+      "elapsed_ms": 828,
+      "result_count": 0,
+      "limited": false,
+      "error": "Source returned an empty HTTP response"
+    }
+  ],
+  "results": []
+}

@@ -1,0 +1,26 @@
+{
+  "wall_ms": 975.2263000009407,
+  "cpu_ms": 640.625,
+  "peak_private_mib": 24.90625,
+  "sampled_peak_working_set_mib": 61.90625,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 821,
+  "configuration_diagnostic": false,
+  "source": "torrentscsv",
+  "backend": "python",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:05:54.885183+00:00",
+  "raw_report": "raw\\02-torrentscsv-python.json",
+  "diagnostics": "raw\\02-torrentscsv-python.stderr.log"
+}

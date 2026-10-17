@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "maxitorrent",
+      "status": "failed",
+      "elapsed_ms": 720,
+      "result_count": 0,
+      "limited": false,
+      "error": "expected value at line 1 column 1"
+    }
+  ],
+  "results": []
+}

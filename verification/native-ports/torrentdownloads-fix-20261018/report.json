@@ -1,0 +1,63 @@
+{
+  "completed_utc": "2026-10-17T22:22:43.901612+00:00",
+  "scope": "TorrentDownloads magnet decoding and row error isolation; original Python plugins unchanged.",
+  "changes": [
+    "Preserve percent escapes in direct magnet URIs. HTML entity decoding is handled by the HTML parser.",
+    "Decode a percent-encoded whole-URI wrapper once; preserve escapes inside query values.",
+    "Try remaining magnet anchors when an earlier anchor is invalid.",
+    "Continue TorrentDownloads past an invalid or failed detail row. Retain the first row error in the source report instead of silently reporting success."
+  ],
+  "regressions": {
+    "captured_python_magnet_references": 4,
+    "new_tests": 6,
+    "before_fix": {
+      "passed": 9,
+      "failed": 5,
+      "filtered_out": 13
+    },
+    "after_fix_library_passed": 27,
+    "full_package_tests_passed": 61,
+    "log": "package-tests.log"
+  },
+  "parity": {
+    "source_count": 12,
+    "search_category_comparisons": 40,
+    "resolver_comparisons": 1,
+    "report": "parity.json",
+    "deadline_http_error_partial_result_and_limit_checks": true
+  },
+  "live": {
+    "query": "nirvana in fire",
+    "category": "all",
+    "before": {
+      "source_id": "torrentdownloads",
+      "status": "failed",
+      "elapsed_ms": 5281,
+      "result_count": 9,
+      "limited": false,
+      "error": "Invalid torrent reference"
+    },
+    "after": {
+      "source_id": "torrentdownloads",
+      "status": "completed",
+      "elapsed_ms": 5725,
+      "result_count": 20,
+      "limited": true,
+      "error": null
+    },
+    "encoded_C1_names_preserved_in_current_live_results": 4,
+    "note": "Same query/category/20-result limit/20-second deadline. Sequential observations are not a speed benchmark. No payload downloads."
+  },
+  "build": {
+    "base": "Existing packaged 0.5.0 source plus exactly the two changed source files and the captured regression fixture",
+    "current_workspace_observed_failure": "Current src/comparison/mod.rs references missing evaluate/ranking modules and incomplete AgentFailure/AgentStatus derives; these unrelated in-progress files were preserved.",
+    "bundle": "dist\\torrent-search-0.5.0-torrentdownloads-fix-20261018",
+    "executable_sha256": "9db05394f0c691a0ceec860197e3668c044dfdb2c1fe911993ab2cdb5fa01208",
+    "archive": "dist\\torrent-search-0.5.0-torrentdownloads-fix-20261018.zip"
+  },
+  "changed_source_sha256": {
+    "src/sources/native/html.rs": "18e7eb516b9a821d35778bd1b927cc92a774bf9ea37fa56d50bd2791d72b40c3",
+    "src/sources/native/catalogue_tables.rs": "ff70dca945658b68221fbc50157bcc60a82a8bf43554e9a38f5ca2301ec15227",
+    "tests/fixtures/torrentdownloads-magnets.json": "f1501e60a8e974fafc3c4ef5f85119bdbe9c38af9904278bc0b80770600ba553"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "wall_ms": 2108.183000000281,
+  "cpu_ms": 578.125,
+  "peak_private_mib": 26.8984375,
+  "sampled_peak_working_set_mib": 70.2734375,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 1996,
+  "configuration_diagnostic": false,
+  "source": "torrent9",
+  "backend": "python",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:01:10.001914+00:00",
+  "raw_report": "raw\\02-torrent9-python.json",
+  "diagnostics": "raw\\02-torrent9-python.stderr.log"
+}

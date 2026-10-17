@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "dmhy",
+      "status": "failed",
+      "elapsed_ms": 382,
+      "result_count": 0,
+      "limited": false,
+      "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host"
+    }
+  ],
+  "results": []
+}

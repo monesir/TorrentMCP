@@ -1,0 +1,26 @@
+{
+  "wall_ms": 276.88189999935275,
+  "cpu_ms": 296.875,
+  "peak_private_mib": 27.46484375,
+  "sampled_peak_working_set_mib": 64.9140625,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 1,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 220,
+  "configuration_diagnostic": true,
+  "source": "jackett",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:42:22.185457+00:00",
+  "raw_report": "raw\\00-jackett-python.json",
+  "diagnostics": "raw\\00-jackett-python.stderr.log"
+}

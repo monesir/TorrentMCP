@@ -1,0 +1,26 @@
+{
+  "wall_ms": 917.0949999997902,
+  "cpu_ms": 312.5,
+  "peak_private_mib": 26.70703125,
+  "sampled_peak_working_set_mib": 70.11328125,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 840,
+  "configuration_diagnostic": false,
+  "source": "bt4gprx",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:50:38.453846+00:00",
+  "raw_report": "raw\\00-bt4gprx-python.json",
+  "diagnostics": "raw\\00-bt4gprx-python.stderr.log"
+}

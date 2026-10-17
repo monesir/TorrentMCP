@@ -1,0 +1,40 @@
+{
+  "analysis": {
+    "preferences": {
+      "resolutions": [
+        2160,
+        1080
+      ],
+      "codecs": [
+        "hevc",
+        "h264"
+      ],
+      "audio_languages": [
+        "en"
+      ]
+    },
+    "target": {
+      "aliases": [
+        "Spiderman Brand New Day",
+        "Spider Man Brand New Day"
+      ],
+      "year": 2026,
+      "title": "Spider-Man Brand New Day"
+    }
+  },
+  "limits": {
+    "parallel_sources": 4,
+    "results_per_source": 100,
+    "timeout_seconds": 30
+  },
+  "search": {
+    "sources": [
+      "limetorrents",
+      "torrentscsv"
+    ],
+    "category": "all",
+    "query": "spider man brand new day"
+  },
+  "schema_version": 1,
+  "operation": "search"
+}

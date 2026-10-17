@@ -1,0 +1,25 @@
+{
+  "wall_ms": 763.8638999997056,
+  "cpu_ms": 203.125,
+  "peak_private_mib": 6.0234375,
+  "sampled_peak_working_set_mib": 25.359375,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 618,
+  "configuration_diagnostic": false,
+  "source": "mikanani",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:02:19.216967+00:00",
+  "raw_report": "raw\\02-mikanani-rust.json",
+  "diagnostics": "raw\\02-mikanani-rust.stderr.log"
+}

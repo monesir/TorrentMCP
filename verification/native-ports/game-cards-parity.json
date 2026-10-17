@@ -1,0 +1,140 @@
+{
+  "fixture_kind": "synthetic protocol fixtures; LimeTorrents uses captured real HTML",
+  "records": [
+    {
+      "source": "dodi_repacks",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/sources/dodi.json"
+      ]
+    },
+    {
+      "source": "onlinefix",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/sources/onlinefix.json"
+      ]
+    },
+    {
+      "source": "apachetorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?s=fixture+%25E4%25B8%25AD%25E6%2596%2587+~+%252A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "apachetorrent",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?s=fixture+%25E4%25B8%25AD%25E6%2596%2587+~+%252A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "apachetorrent",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?s=fixture+%25E4%25B8%25AD%25E6%2596%2587+~+%252A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "apachetorrent",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?s=fixture+%25E4%25B8%25AD%25E6%2596%2587+~+%252A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "redetorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?s=fixture+%25E4%25B8%25AD%25E6%2596%2587+~+%252A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "redetorrent",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?s=fixture+%25E4%25B8%25AD%25E6%2596%2587+~+%252A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "redetorrent",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?s=fixture+%25E4%25B8%25AD%25E6%2596%2587+~+%252A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "redetorrent",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?s=fixture+%25E4%25B8%25AD%25E6%2596%2587+~+%252A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "smallgames",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?go=search&go=search&search_text=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "smallgames",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?go=search&go=search&search_text=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrenflix",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?s=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/baixar-torrent/42"
+      ]
+    }
+  ],
+  "no_python_native": true,
+  "result_limits_passed": true,
+  "http_errors_passed": true,
+  "partial_results_passed": true,
+  "malformed_json_passed": true,
+  "empty_success_passed": true,
+  "challenge_detection_passed": true,
+  "deadline_passed": true,
+  "executable_sha256": "827fa498d724fc6e97ad415cdffee128f070e9950edc5b9c9ba411f9e63b04e1"
+}

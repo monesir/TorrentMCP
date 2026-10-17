@@ -1,0 +1,35 @@
+{
+  "folder": "C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\spiderman-rerun-20261017-153212",
+  "program": "C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\dist\\torrent-search-0.4.0-windows-x64-final\\torrent-search.exe",
+  "cache_folder": "C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\.cache\\spiderman-rerun-20261017-153212",
+  "search_ms": 3692,
+  "search_count": 125,
+  "phase": "exported",
+  "goal": "Fresh Spider-Man search and actual torrent stream inspection; export only through torrent-search export-markdown",
+  "next": "Run inspect-rqbit-candidates.py using candidates.json then export each returned inspection envelope using the executable",
+  "outputs": [
+    {
+      "index": 0,
+      "title": "Spider-Man Brand New Day 2026 2160p iT WEB-DL DDP5 1 Atmos DV HDR10+ H 265-XEBEC",
+      "status": "failed",
+      "markdown": "C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\spiderman-rerun-20261017-153212\\inspection-0.md",
+      "probe_ms": 60099
+    },
+    {
+      "index": 1,
+      "title": "Spider-Man: Brand New Day (2026) [2160p] [WEBRip] [x265] [10bit] [5.1]",
+      "status": "completed",
+      "markdown": "C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\spiderman-rerun-20261017-153212\\inspection-1.md",
+      "probe_ms": 7174
+    },
+    {
+      "index": 2,
+      "title": "Spider-Man Brand New Day 2026 1080p WEBRip 10Bit DDP5 1 x265-NeoNoir",
+      "status": "completed",
+      "markdown": "C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\spiderman-rerun-20261017-153212\\inspection-2.md",
+      "probe_ms": 7921
+    }
+  ],
+  "inspection_and_export_ms": 84953,
+  "exporter": "torrent-search.exe export-markdown"
+}

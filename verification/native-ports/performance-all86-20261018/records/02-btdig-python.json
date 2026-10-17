@@ -1,0 +1,26 @@
+{
+  "wall_ms": 1188.1782000000385,
+  "cpu_ms": 796.875,
+  "peak_private_mib": 26.765625,
+  "sampled_peak_working_set_mib": 69.7109375,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 1054,
+  "configuration_diagnostic": false,
+  "source": "btdig",
+  "backend": "python",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:05:02.779194+00:00",
+  "raw_report": "raw\\02-btdig-python.json",
+  "diagnostics": "raw\\02-btdig-python.stderr.log"
+}

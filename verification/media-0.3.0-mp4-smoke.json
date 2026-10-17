@@ -1,0 +1,474 @@
+{
+  "program_sha256": "9bd5bbd5d2ee5fc062691bd223d8e09e4b19af28e0bdd3e741cc8fe13d304f85",
+  "media_sha256": "ac09211c0ba9f5d5ad2884f9a86812000deea86eaebe4bf51a9c3560472ea609",
+  "media_size_bytes": 8040917,
+  "system_tools_excluded_from_child_path": true,
+  "local": {
+    "schema_version": 1,
+    "status": "completed",
+    "result": {
+      "schema_version": 1,
+      "evidence_source": "ffprobe_media_headers",
+      "inspection_scope": "bounded_header_probe",
+      "input_kind": "local_file",
+      "format": {
+        "name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "duration_seconds": 30.904,
+        "file_size_bytes": 8040917,
+        "overall_bitrate_bps": {
+          "value": 2081521,
+          "basis": "ffprobe_format"
+        }
+      },
+      "streams": [
+        {
+          "index": 0,
+          "kind": "video",
+          "codec": "mpeg4",
+          "profile": "Simple Profile",
+          "width": 640,
+          "height": 480,
+          "pixel_format": "yuv420p",
+          "component_bit_depth": {
+            "value": 8,
+            "basis": "derived_from_pixel_format"
+          },
+          "frame_rate": "370000/15431",
+          "color_primaries": null,
+          "color_transfer": null,
+          "color_space": null,
+          "hdr_signals": [],
+          "sample_rate_hz": null,
+          "channels": null,
+          "channel_layout": null,
+          "language": "ja",
+          "title": null,
+          "bitrate_bps": {
+            "value": 1919753,
+            "basis": "ffprobe_stream"
+          },
+          "payload_size_bytes": {
+            "value": null,
+            "basis": "unknown"
+          },
+          "dispositions": {
+            "attached_pic": false,
+            "captions": false,
+            "clean_effects": false,
+            "comment": false,
+            "default": true,
+            "dependent": false,
+            "descriptions": false,
+            "dub": false,
+            "forced": false,
+            "hearing_impaired": false,
+            "karaoke": false,
+            "lyrics": false,
+            "metadata": false,
+            "multilayer": false,
+            "non_diegetic": false,
+            "original": false,
+            "still_image": false,
+            "timed_thumbnails": false,
+            "visual_impaired": false
+          },
+          "side_data": [],
+          "tags": {
+            "handler_name": "VideoHandler",
+            "language": "jpn",
+            "name": "[KAA] Kimi Ga Nozomu Eien - Ayu Mayu Theater 6 (for ep 13) [XviD 1.0.2]"
+          }
+        },
+        {
+          "index": 1,
+          "kind": "audio",
+          "codec": "aac",
+          "profile": "LC",
+          "width": null,
+          "height": null,
+          "pixel_format": null,
+          "component_bit_depth": {
+            "value": null,
+            "basis": "unknown"
+          },
+          "frame_rate": null,
+          "color_primaries": null,
+          "color_transfer": null,
+          "color_space": null,
+          "hdr_signals": [],
+          "sample_rate_hz": 44100,
+          "channels": 2,
+          "channel_layout": "stereo",
+          "language": "ja",
+          "title": null,
+          "bitrate_bps": {
+            "value": 155580,
+            "basis": "ffprobe_stream"
+          },
+          "payload_size_bytes": {
+            "value": null,
+            "basis": "unknown"
+          },
+          "dispositions": {
+            "attached_pic": false,
+            "captions": false,
+            "clean_effects": false,
+            "comment": false,
+            "default": true,
+            "dependent": false,
+            "descriptions": false,
+            "dub": false,
+            "forced": false,
+            "hearing_impaired": false,
+            "karaoke": false,
+            "lyrics": false,
+            "metadata": false,
+            "multilayer": false,
+            "non_diegetic": false,
+            "original": false,
+            "still_image": false,
+            "timed_thumbnails": false,
+            "visual_impaired": false
+          },
+          "side_data": [],
+          "tags": {
+            "handler_name": "SoundHandler",
+            "language": "jpn",
+            "name": "Japanese Audio (2ch LC-AAC)"
+          }
+        },
+        {
+          "index": 2,
+          "kind": "data",
+          "codec": "bin_data",
+          "profile": null,
+          "width": null,
+          "height": null,
+          "pixel_format": null,
+          "component_bit_depth": {
+            "value": null,
+            "basis": "unknown"
+          },
+          "frame_rate": null,
+          "color_primaries": null,
+          "color_transfer": null,
+          "color_space": null,
+          "hdr_signals": [],
+          "sample_rate_hz": null,
+          "channels": null,
+          "channel_layout": null,
+          "language": "en",
+          "title": null,
+          "bitrate_bps": {
+            "value": 9,
+            "basis": "ffprobe_stream"
+          },
+          "payload_size_bytes": {
+            "value": null,
+            "basis": "unknown"
+          },
+          "dispositions": {
+            "attached_pic": false,
+            "captions": false,
+            "clean_effects": false,
+            "comment": false,
+            "default": false,
+            "dependent": false,
+            "descriptions": false,
+            "dub": false,
+            "forced": false,
+            "hearing_impaired": false,
+            "karaoke": false,
+            "lyrics": false,
+            "metadata": false,
+            "multilayer": false,
+            "non_diegetic": false,
+            "original": false,
+            "still_image": false,
+            "timed_thumbnails": false,
+            "visual_impaired": false
+          },
+          "side_data": [],
+          "tags": {
+            "handler_name": "SubtitleHandler",
+            "language": "eng"
+          }
+        }
+      ],
+      "selection": {
+        "video_selection_unresolved": false,
+        "selected_stream_indices": [
+          0,
+          1
+        ],
+        "unclassified_stream_indices": [
+          2
+        ],
+        "omitted_stream_indices": [],
+        "missing_audio_languages": [],
+        "missing_subtitle_languages": [
+          "en"
+        ],
+        "selected_payload_bytes": {
+          "value": null,
+          "basis": "unknown"
+        },
+        "omitted_payload_bytes": {
+          "value": 0,
+          "basis": "sum_of_container_statistics_tags"
+        },
+        "changes_applied": false
+      },
+      "read_bytes_charged": 262144,
+      "read_requests": 1,
+      "read_budget_bytes": 16777216,
+      "elapsed_ms": 131,
+      "limitations": [
+        "full_file_integrity_not_checked",
+        "visual_quality_not_measured",
+        "metadata_and_language_tags_may_be_missing_or_incorrect",
+        "track_sizes_and_bitrates_are_not_full_packet_scan_measurements",
+        "selection_does_not_reduce_torrent_download_bytes"
+      ]
+    },
+    "error": null
+  },
+  "download_service": {
+    "schema_version": 1,
+    "status": "completed",
+    "result": {
+      "schema_version": 1,
+      "evidence_source": "ffprobe_media_headers",
+      "inspection_scope": "bounded_header_probe",
+      "input_kind": "download_service",
+      "format": {
+        "name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "duration_seconds": 30.904,
+        "file_size_bytes": 8040917,
+        "overall_bitrate_bps": {
+          "value": 2081521,
+          "basis": "ffprobe_format"
+        }
+      },
+      "streams": [
+        {
+          "index": 0,
+          "kind": "video",
+          "codec": "mpeg4",
+          "profile": "Simple Profile",
+          "width": 640,
+          "height": 480,
+          "pixel_format": "yuv420p",
+          "component_bit_depth": {
+            "value": 8,
+            "basis": "derived_from_pixel_format"
+          },
+          "frame_rate": "370000/15431",
+          "color_primaries": null,
+          "color_transfer": null,
+          "color_space": null,
+          "hdr_signals": [],
+          "sample_rate_hz": null,
+          "channels": null,
+          "channel_layout": null,
+          "language": "ja",
+          "title": null,
+          "bitrate_bps": {
+            "value": 1919753,
+            "basis": "ffprobe_stream"
+          },
+          "payload_size_bytes": {
+            "value": null,
+            "basis": "unknown"
+          },
+          "dispositions": {
+            "attached_pic": false,
+            "captions": false,
+            "clean_effects": false,
+            "comment": false,
+            "default": true,
+            "dependent": false,
+            "descriptions": false,
+            "dub": false,
+            "forced": false,
+            "hearing_impaired": false,
+            "karaoke": false,
+            "lyrics": false,
+            "metadata": false,
+            "multilayer": false,
+            "non_diegetic": false,
+            "original": false,
+            "still_image": false,
+            "timed_thumbnails": false,
+            "visual_impaired": false
+          },
+          "side_data": [],
+          "tags": {
+            "handler_name": "VideoHandler",
+            "language": "jpn",
+            "name": "[KAA] Kimi Ga Nozomu Eien - Ayu Mayu Theater 6 (for ep 13) [XviD 1.0.2]"
+          }
+        },
+        {
+          "index": 1,
+          "kind": "audio",
+          "codec": "aac",
+          "profile": "LC",
+          "width": null,
+          "height": null,
+          "pixel_format": null,
+          "component_bit_depth": {
+            "value": null,
+            "basis": "unknown"
+          },
+          "frame_rate": null,
+          "color_primaries": null,
+          "color_transfer": null,
+          "color_space": null,
+          "hdr_signals": [],
+          "sample_rate_hz": 44100,
+          "channels": 2,
+          "channel_layout": "stereo",
+          "language": "ja",
+          "title": null,
+          "bitrate_bps": {
+            "value": 155580,
+            "basis": "ffprobe_stream"
+          },
+          "payload_size_bytes": {
+            "value": null,
+            "basis": "unknown"
+          },
+          "dispositions": {
+            "attached_pic": false,
+            "captions": false,
+            "clean_effects": false,
+            "comment": false,
+            "default": true,
+            "dependent": false,
+            "descriptions": false,
+            "dub": false,
+            "forced": false,
+            "hearing_impaired": false,
+            "karaoke": false,
+            "lyrics": false,
+            "metadata": false,
+            "multilayer": false,
+            "non_diegetic": false,
+            "original": false,
+            "still_image": false,
+            "timed_thumbnails": false,
+            "visual_impaired": false
+          },
+          "side_data": [],
+          "tags": {
+            "handler_name": "SoundHandler",
+            "language": "jpn",
+            "name": "Japanese Audio (2ch LC-AAC)"
+          }
+        },
+        {
+          "index": 2,
+          "kind": "data",
+          "codec": "bin_data",
+          "profile": null,
+          "width": null,
+          "height": null,
+          "pixel_format": null,
+          "component_bit_depth": {
+            "value": null,
+            "basis": "unknown"
+          },
+          "frame_rate": null,
+          "color_primaries": null,
+          "color_transfer": null,
+          "color_space": null,
+          "hdr_signals": [],
+          "sample_rate_hz": null,
+          "channels": null,
+          "channel_layout": null,
+          "language": "en",
+          "title": null,
+          "bitrate_bps": {
+            "value": 9,
+            "basis": "ffprobe_stream"
+          },
+          "payload_size_bytes": {
+            "value": null,
+            "basis": "unknown"
+          },
+          "dispositions": {
+            "attached_pic": false,
+            "captions": false,
+            "clean_effects": false,
+            "comment": false,
+            "default": false,
+            "dependent": false,
+            "descriptions": false,
+            "dub": false,
+            "forced": false,
+            "hearing_impaired": false,
+            "karaoke": false,
+            "lyrics": false,
+            "metadata": false,
+            "multilayer": false,
+            "non_diegetic": false,
+            "original": false,
+            "still_image": false,
+            "timed_thumbnails": false,
+            "visual_impaired": false
+          },
+          "side_data": [],
+          "tags": {
+            "handler_name": "SubtitleHandler",
+            "language": "eng"
+          }
+        }
+      ],
+      "selection": {
+        "video_selection_unresolved": false,
+        "selected_stream_indices": [
+          0,
+          1
+        ],
+        "unclassified_stream_indices": [
+          2
+        ],
+        "omitted_stream_indices": [],
+        "missing_audio_languages": [],
+        "missing_subtitle_languages": [
+          "en"
+        ],
+        "selected_payload_bytes": {
+          "value": null,
+          "basis": "unknown"
+        },
+        "omitted_payload_bytes": {
+          "value": 0,
+          "basis": "sum_of_container_statistics_tags"
+        },
+        "changes_applied": false
+      },
+      "read_bytes_charged": 262144,
+      "read_requests": 1,
+      "read_budget_bytes": 16777216,
+      "elapsed_ms": 132,
+      "limitations": [
+        "full_file_integrity_not_checked",
+        "visual_quality_not_measured",
+        "metadata_and_language_tags_may_be_missing_or_incorrect",
+        "track_sizes_and_bitrates_are_not_full_packet_scan_measurements",
+        "selection_does_not_reduce_torrent_download_bytes"
+      ]
+    },
+    "error": null
+  },
+  "downloader_reads": [
+    {
+      "start": 0,
+      "end": 262143,
+      "bytes": 262144
+    }
+  ],
+  "matching_streams": true
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "dontorrent",
+      "status": "failed",
+      "elapsed_ms": 4445,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status server error (523 <none>)"
+    }
+  ],
+  "results": []
+}

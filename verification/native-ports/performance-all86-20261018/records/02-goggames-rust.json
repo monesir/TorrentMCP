@@ -1,0 +1,25 @@
+{
+  "wall_ms": 793.400800001109,
+  "cpu_ms": 171.875,
+  "peak_private_mib": 5.69140625,
+  "sampled_peak_working_set_mib": 24.66796875,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "HTTP status client error (404 Not Found)",
+  "source_elapsed_ms": 671,
+  "configuration_diagnostic": false,
+  "source": "goggames",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T22:59:32.677798+00:00",
+  "raw_report": "raw\\02-goggames-rust.json",
+  "diagnostics": "raw\\02-goggames-rust.stderr.log"
+}

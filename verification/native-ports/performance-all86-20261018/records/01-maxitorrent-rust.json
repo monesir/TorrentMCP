@@ -1,0 +1,25 @@
+{
+  "wall_ms": 837.1506999992562,
+  "cpu_ms": 187.5,
+  "peak_private_mib": 6.03515625,
+  "sampled_peak_working_set_mib": 25.35546875,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "expected value at line 1 column 1",
+  "source_elapsed_ms": 720,
+  "configuration_diagnostic": false,
+  "source": "maxitorrent",
+  "backend": "rust",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:58:27.270799+00:00",
+  "raw_report": "raw\\01-maxitorrent-rust.json",
+  "diagnostics": "raw\\01-maxitorrent-rust.stderr.log"
+}

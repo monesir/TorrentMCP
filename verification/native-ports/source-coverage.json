@@ -1,0 +1,699 @@
+{
+  "main": 8,
+  "public_community": 78,
+  "private_excluded": 28,
+  "sources": [
+    {
+      "id": "eztv",
+      "community_entry": null,
+      "native": true,
+      "python_retained": true,
+      "sha256": "22a051ae9de6403a5735540c074b78d4eb247de9d6366ef896dc750b8c51c4bb",
+      "category_cases": 2
+    },
+    {
+      "id": "jackett",
+      "community_entry": null,
+      "native": true,
+      "python_retained": true,
+      "sha256": "d035fca325dce689d87bd900fa1951ff5bca535aedfa71f6e040b7ca954537bf",
+      "category_cases": 8
+    },
+    {
+      "id": "limetorrents",
+      "community_entry": null,
+      "native": true,
+      "python_retained": true,
+      "sha256": "aca3fbc4956970474a66295f5e61f02532bcdf5399ae97c144bf826a7c8fddce",
+      "category_cases": 7
+    },
+    {
+      "id": "piratebay",
+      "community_entry": null,
+      "native": true,
+      "python_retained": true,
+      "sha256": "b37f13d21ff5f22ff2154a497cd3ed2d727784024d09d393c1bead88e438dab5",
+      "category_cases": 5
+    },
+    {
+      "id": "solidtorrents",
+      "community_entry": null,
+      "native": true,
+      "python_retained": true,
+      "sha256": "e10e039b02c675fbeae6503482f1fb12683bba1c39f5424e7c2729dc44d12a71",
+      "category_cases": 3
+    },
+    {
+      "id": "torlock",
+      "community_entry": null,
+      "native": true,
+      "python_retained": true,
+      "sha256": "b848190656534a78a980cb925a14df0d61914ff769cb5c71973e04e527778477",
+      "category_cases": 8
+    },
+    {
+      "id": "torrentproject",
+      "community_entry": null,
+      "native": true,
+      "python_retained": true,
+      "sha256": "64960bb8d7ebde829b55fdb5a669f96cb0694d8d49cc87aaf960f1f1dae793f0",
+      "category_cases": 1
+    },
+    {
+      "id": "torrentscsv",
+      "community_entry": null,
+      "native": true,
+      "python_retained": true,
+      "sha256": "7c7c8a54249e5f2ce237df6421a735a5c1bd7acefd1304d736ee8f925fd6031b",
+      "category_cases": 1
+    },
+    {
+      "id": "acgrip",
+      "community_entry": "002",
+      "native": true,
+      "python_retained": true,
+      "sha256": "81c51080d5610ea7eefcc2749355d15ac82174375245a1805294f733db4928a5",
+      "category_cases": 1
+    },
+    {
+      "id": "animetosho",
+      "community_entry": "005",
+      "native": true,
+      "python_retained": true,
+      "sha256": "00f041833a06de3f32821101b06535f2bd2255f228a8aa40e0f8e91850bd73c9",
+      "category_cases": 2
+    },
+    {
+      "id": "animetosho_community_006",
+      "community_entry": "006",
+      "native": true,
+      "python_retained": true,
+      "sha256": "78af019cbf2c0b315f2c6b877541ea40483e4c48209b06f9d4c9e9941cfef6d9",
+      "category_cases": 2
+    },
+    {
+      "id": "cloudtorrents",
+      "community_entry": "013",
+      "native": true,
+      "python_retained": true,
+      "sha256": "861485972efd8f442f289c80146e5d7b113c071667f07c2e2484d265859ba720",
+      "category_cases": 8
+    },
+    {
+      "id": "mikan",
+      "community_entry": "034",
+      "native": true,
+      "python_retained": true,
+      "sha256": "91d6a0a308443fbb8501a1238a07179630ee34d1b253a5248b8dbfbcc88a4907",
+      "category_cases": 2
+    },
+    {
+      "id": "nyaasi",
+      "community_entry": "041",
+      "native": true,
+      "python_retained": true,
+      "sha256": "8b38deb7d22d86c3d64300cd58d55810260ea61b96b0fd552c3748201de44e46",
+      "category_cases": 8
+    },
+    {
+      "id": "subsplease",
+      "community_entry": "054",
+      "native": true,
+      "python_retained": true,
+      "sha256": "3348ff9076b03c34ce87152597ffe0034ce1e192520d79b154952aa862bfc21c",
+      "category_cases": 1
+    },
+    {
+      "id": "sukebeisi",
+      "community_entry": "055",
+      "native": true,
+      "python_retained": true,
+      "sha256": "353cb88a05a37f6ca30f9ce36163d64926c8706a5a41bef634e4b4e07b155539",
+      "category_cases": 6
+    },
+    {
+      "id": "thepiratebay",
+      "community_entry": "058",
+      "native": true,
+      "python_retained": true,
+      "sha256": "0a8e83eeaf15aa65a714828d28ef9b6a99139c6e056298671d4a1d5c6a7437d5",
+      "category_cases": 1
+    },
+    {
+      "id": "torrentclaw",
+      "community_entry": "064",
+      "native": true,
+      "python_retained": true,
+      "sha256": "2bff362c05f2bc9cf84cfdaf2109e12d1ff90b066113babf83e2d6713f52cc2c",
+      "category_cases": 3
+    },
+    {
+      "id": "divxtotal",
+      "community_entry": "016",
+      "native": true,
+      "python_retained": true,
+      "sha256": "cec809857e1087a13bf27f74a8f46d710ba8b353fec772f92fc011e8fc8746e9",
+      "category_cases": 1
+    },
+    {
+      "id": "dontorrent",
+      "community_entry": "021",
+      "native": true,
+      "python_retained": true,
+      "sha256": "f9a0ada328c01598f00d34a30b6447a9fdf86810c870b2cbcc65e99098857ae2",
+      "category_cases": 1
+    },
+    {
+      "id": "esmeraldatorrent",
+      "community_entry": "023",
+      "native": true,
+      "python_retained": true,
+      "sha256": "1004b06f4bac2af34270fcecb29d81ca7b918f28bea6dadc710643360f528baf",
+      "category_cases": 1
+    },
+    {
+      "id": "naranjatorrent",
+      "community_entry": "037",
+      "native": true,
+      "python_retained": true,
+      "sha256": "b0aee03a25844b2aef789afa0da6e4258b4e9a6b69970172f435a118410bfa6d",
+      "category_cases": 1
+    },
+    {
+      "id": "tomadivx",
+      "community_entry": "061",
+      "native": true,
+      "python_retained": true,
+      "sha256": "fed83e5beacad5c38940d34aa650ba451e74fc90949df3a0eb74815c6693f017",
+      "category_cases": 1
+    },
+    {
+      "id": "calidadtorrent",
+      "community_entry": "012",
+      "native": true,
+      "python_retained": true,
+      "sha256": "6cf8c997c762c807d3d48fe966b7957e88d1a1d0ef747f138656348c517d53d0",
+      "category_cases": 1
+    },
+    {
+      "id": "pediatorrent",
+      "community_entry": "044",
+      "native": true,
+      "python_retained": true,
+      "sha256": "33539ee6edd1733dee72cc6a474a6861edfb16a66d9a2008428d5757421fe327",
+      "category_cases": 4
+    },
+    {
+      "id": "glotorrents",
+      "community_entry": "026",
+      "native": true,
+      "python_retained": true,
+      "sha256": "66f7ac3ec14f7739451d4614823f82acda619430dda59bb521c51f507b5966ca",
+      "category_cases": 9
+    },
+    {
+      "id": "kickasstorrents",
+      "community_entry": "028",
+      "native": true,
+      "python_retained": true,
+      "sha256": "b3e9f714f06936a9185b3a54bd58a6f4230d13d1378d87012284f2955bf68d69",
+      "category_cases": 7
+    },
+    {
+      "id": "pirateiro",
+      "community_entry": "045",
+      "native": true,
+      "python_retained": true,
+      "sha256": "eb71a8f5e9cd05b5e469193cc5960c2ba9c109fafc8498752c868e1dabe26f15",
+      "category_cases": 7
+    },
+    {
+      "id": "rockbox",
+      "community_entry": "047",
+      "native": true,
+      "python_retained": true,
+      "sha256": "fe17c0a0a51029abe159143ad9ce0178ce05aeaa7f12da3453f19c429815ed7c",
+      "category_cases": 1
+    },
+    {
+      "id": "torrentdownload",
+      "community_entry": "065",
+      "native": true,
+      "python_retained": true,
+      "sha256": "4f7f8b025c25d6a73d20a34befcc206421e7e74f6ff607a985bf2dc9bcef6aa7",
+      "category_cases": 8
+    },
+    {
+      "id": "yourbittorrent",
+      "community_entry": "075",
+      "native": true,
+      "python_retained": true,
+      "sha256": "5aeccc1e6addce6e632d159b412cd43335c6dc8a31a55397655af1dd14938187",
+      "category_cases": 7
+    },
+    {
+      "id": "magnetdl",
+      "community_entry": "030",
+      "native": true,
+      "python_retained": true,
+      "sha256": "e87857e3c48a9bc71583d9d68378cb52da6c685c89fa3ea41d47e3370f6bdb7b",
+      "category_cases": 1
+    },
+    {
+      "id": "magnetdl_community_031",
+      "community_entry": "031",
+      "native": true,
+      "python_retained": true,
+      "sha256": "a1cc2b920f1a9c94e902aa0361d1f57fcf372bb6a84c1f8c608e66c48f15f4e3",
+      "category_cases": 7
+    },
+    {
+      "id": "solidtorrents_community_053",
+      "community_entry": "053",
+      "native": true,
+      "python_retained": true,
+      "sha256": "b71443fdb67f3714c722f2ef7886ce376db94d5d791b47fb267cfb3559b1ffa0",
+      "category_cases": 1
+    },
+    {
+      "id": "nekobt",
+      "community_entry": "038",
+      "native": true,
+      "python_retained": true,
+      "sha256": "29aba65332f19823208c1186d4366b5d909f0cab4043a6876f204e417819964a",
+      "category_cases": 1
+    },
+    {
+      "id": "tsukihime",
+      "community_entry": "071",
+      "native": true,
+      "python_retained": true,
+      "sha256": "1b12c5ee8ea7e9dfdab0d7f1c705b150f57cee249d18ed18d88e719bf73b535a",
+      "category_cases": 2
+    },
+    {
+      "id": "yts",
+      "community_entry": "076",
+      "native": true,
+      "python_retained": true,
+      "sha256": "cb066319b5f6092621b21debc4303d937bacd2bdaef643f1740a516145cbfb9e",
+      "category_cases": 2
+    },
+    {
+      "id": "yggtracker",
+      "community_entry": "077",
+      "native": true,
+      "python_retained": true,
+      "sha256": "e5fdede3e0f2f721c8fbcf5cbd1af9643e423b7a1baf8bf689e65b623d78d8d9",
+      "category_cases": 9
+    },
+    {
+      "id": "goggames",
+      "community_entry": "027",
+      "native": true,
+      "python_retained": true,
+      "sha256": "756bf172b89051f15f726618fc38cd3a44cb74a2a810a46ed2d1ed8fcbdb7642",
+      "category_cases": 1
+    },
+    {
+      "id": "snowfl",
+      "community_entry": "051",
+      "native": true,
+      "python_retained": true,
+      "sha256": "04a1f767f03c18134ce193eabcda43f4c37c53d56ed06d67b4fc7627ca0eb710",
+      "category_cases": 1
+    },
+    {
+      "id": "snowfl_community_052",
+      "community_entry": "052",
+      "native": true,
+      "python_retained": true,
+      "sha256": "58e17e41590dd362cbee0f148f896b2b72bcaba619cfd5d9da3673dbe8c6942c",
+      "category_cases": 1
+    },
+    {
+      "id": "btdig",
+      "community_entry": "011",
+      "native": true,
+      "python_retained": true,
+      "sha256": "32ea79f5686fff4e3cea0f3fcd97bf1df9da16c29a64e5f742db8a055ce87d84",
+      "category_cases": 1
+    },
+    {
+      "id": "anidex",
+      "community_entry": "004",
+      "native": true,
+      "python_retained": true,
+      "sha256": "79a66e01e573e2df4d5511f09c67ec3b341f47cd8aa2926b5adfa698562ab02e",
+      "category_cases": 7
+    },
+    {
+      "id": "dmhy",
+      "community_entry": "017",
+      "native": true,
+      "python_retained": true,
+      "sha256": "c09c07139f12d31d0b6d26bc62d2943ef8188cbe0451a3b433a697a7e9967bbe",
+      "category_cases": 1
+    },
+    {
+      "id": "dmhy_community_018",
+      "community_entry": "018",
+      "native": true,
+      "python_retained": true,
+      "sha256": "f946209618a8cbe8cda9c0498e8bc3cfe04221d4010b578ae39f84232ab34576",
+      "category_cases": 1
+    },
+    {
+      "id": "mikanani",
+      "community_entry": "035",
+      "native": true,
+      "python_retained": true,
+      "sha256": "6718aa913e7f244b4699835eec05cb91c9acdaaf741f6c3ef651fc348e383a52",
+      "category_cases": 1
+    },
+    {
+      "id": "nyaapantsu",
+      "community_entry": "040",
+      "native": true,
+      "python_retained": true,
+      "sha256": "32d4b6488d72d6a42f31bb70c05e2d01b8cfc62a370daafda4eed7d2971a1173",
+      "category_cases": 8
+    },
+    {
+      "id": "nyaa",
+      "community_entry": "056",
+      "native": true,
+      "python_retained": true,
+      "sha256": "416a318040aa6359ae14bddd083a947b7910e2de944b8ae2b801c174de65a485",
+      "category_cases": 7
+    },
+    {
+      "id": "torrentgalaxy",
+      "community_entry": "069",
+      "native": true,
+      "python_retained": true,
+      "sha256": "9448cbebc24ebf2db5f422d4e0ae13917b8512a82d465ba27edad58202ddc32e",
+      "category_cases": 9
+    },
+    {
+      "id": "pantsu",
+      "community_entry": "039",
+      "native": true,
+      "python_retained": true,
+      "sha256": "fab225b2231918665fc370737be42118d359c637ee29720d31bd27883bbb0010",
+      "category_cases": 7
+    },
+    {
+      "id": "sukebei",
+      "community_entry": "057",
+      "native": true,
+      "python_retained": true,
+      "sha256": "97d2084383a56b368b5977ddff4088d421efbcd4b2755061a167ce45f53022d3",
+      "category_cases": 5
+    },
+    {
+      "id": "uindex",
+      "community_entry": "072",
+      "native": true,
+      "python_retained": true,
+      "sha256": "41ee5886d00dd4cf90a08e98f110653f61f6a6dc909fcc03115cc6e6809aa773",
+      "category_cases": 7
+    },
+    {
+      "id": "uniondht",
+      "community_entry": "073",
+      "native": true,
+      "python_retained": true,
+      "sha256": "4b298abdd30844dde360729c718d31be19410207659d7d667a83b2dd43304877",
+      "category_cases": 1
+    },
+    {
+      "id": "dodi_repacks",
+      "community_entry": "019",
+      "native": true,
+      "python_retained": true,
+      "sha256": "51b49a2c181088da532afa2fdd75b64e480d20f0d67c83076a1f85bc16bd8506",
+      "category_cases": 1
+    },
+    {
+      "id": "onlinefix",
+      "community_entry": "042",
+      "native": true,
+      "python_retained": true,
+      "sha256": "614fbe675d23bc60def90828aef3d8b4b2f2bf1ccdd58c395f0dc4e686f2f155",
+      "category_cases": 1
+    },
+    {
+      "id": "apachetorrent",
+      "community_entry": "007",
+      "native": true,
+      "python_retained": true,
+      "sha256": "528566aa9144ccfec70e862e0af9ebc51c794979f181ae7146b04bca9b5ec105",
+      "category_cases": 4
+    },
+    {
+      "id": "redetorrent",
+      "community_entry": "046",
+      "native": true,
+      "python_retained": true,
+      "sha256": "ce2016fc6bd2c6a0f417d0167a5906ffed09f4656077c046058ca6a919d206da",
+      "category_cases": 4
+    },
+    {
+      "id": "smallgames",
+      "community_entry": "050",
+      "native": true,
+      "python_retained": true,
+      "sha256": "7d1086be858e8b4f59fc8c8c201b612c740a1b22c98a75b27477a1f00f1ed233",
+      "category_cases": 2
+    },
+    {
+      "id": "torrenflix",
+      "community_entry": "068",
+      "native": true,
+      "python_retained": true,
+      "sha256": "badadbc0f51edb4de0302270c304e0dc539c9fdecfc0879ee34e91157287547e",
+      "category_cases": 1
+    },
+    {
+      "id": "bitsearch",
+      "community_entry": "009",
+      "native": true,
+      "python_retained": true,
+      "sha256": "21b856f02ebcc28497a020539e80d347d5df5b6e2d6997d42cb5f9d90ab2a895",
+      "category_cases": 1
+    },
+    {
+      "id": "therarbg",
+      "community_entry": "060",
+      "native": true,
+      "python_retained": true,
+      "sha256": "4e748cbe68989c3d26bfda76a03d8640314802507fde8005f05878165f803cbc",
+      "category_cases": 7
+    },
+    {
+      "id": "torrentdownloads",
+      "community_entry": "067",
+      "native": true,
+      "python_retained": true,
+      "sha256": "c97e0405d5b9cd4db9c91da94ddd1a1da0326cf8d8ee9671f10be33f8b449c8a",
+      "category_cases": 8
+    },
+    {
+      "id": "traht",
+      "community_entry": "070",
+      "native": true,
+      "python_retained": true,
+      "sha256": "de1d9447998276a807ac8ee20007ec4049d17de0b3b7886094136806d0e2b6bc",
+      "category_cases": 1
+    },
+    {
+      "id": "xxxclubto",
+      "community_entry": "074",
+      "native": true,
+      "python_retained": true,
+      "sha256": "212470cca92675c7752ae6dc6516af42c72d93931176324ebd9349b3443071d0",
+      "category_cases": 2
+    },
+    {
+      "id": "bt4gprx",
+      "community_entry": "010",
+      "native": true,
+      "python_retained": true,
+      "sha256": "9c6cc2672592239c18f75d9c3c939d1f3e3b952a556fc196dc8fe3f8b18469ac",
+      "category_cases": 6
+    },
+    {
+      "id": "linuxtracker",
+      "community_entry": "029",
+      "native": true,
+      "python_retained": true,
+      "sha256": "1e0bd56b2146f8b12b5a966b3c26fb9668e43c20bff9a3551ee1ebc749093c87",
+      "category_cases": 2
+    },
+    {
+      "id": "sktorrent",
+      "community_entry": "049",
+      "native": true,
+      "python_retained": true,
+      "sha256": "a917b482741a0b301f09ce0c1edbfe5d7b4663c2367ede1a1bcde2641d62e28c",
+      "category_cases": 1
+    },
+    {
+      "id": "tokyotoshokan",
+      "community_entry": "062",
+      "native": true,
+      "python_retained": true,
+      "sha256": "e0cac329d5787d9a83a5bb7365af64fa939152dd5b9104daeaa1a37713c0dbe5",
+      "category_cases": 3
+    },
+    {
+      "id": "academictorrents",
+      "community_entry": "001",
+      "native": true,
+      "python_retained": true,
+      "sha256": "5a4e025814e1fc8ae97a6c267fb706e03976fef1b629cb63eeb9944ebd9b49d3",
+      "category_cases": 1
+    },
+    {
+      "id": "audiobookbay",
+      "community_entry": "008",
+      "native": true,
+      "python_retained": true,
+      "sha256": "a815c16da570e58b1eba211d4bd1fbee835dddcd9e7f9a1ac63d7becbf41cb5e",
+      "category_cases": 1
+    },
+    {
+      "id": "cpasbien",
+      "community_entry": "014",
+      "native": true,
+      "python_retained": true,
+      "sha256": "69884cfd0e78708f5227859bca9e310227c1a9507d5cd0d03e4992dfdb2c76e6",
+      "category_cases": 1
+    },
+    {
+      "id": "darklibria",
+      "community_entry": "015",
+      "native": true,
+      "python_retained": true,
+      "sha256": "c2e2cd728b69e3a1ddb75374dc95a0010b6f85d037dc9f38eefb48c7f42b058f",
+      "category_cases": 1
+    },
+    {
+      "id": "dontorrent_community_020",
+      "community_entry": "020",
+      "native": true,
+      "python_retained": true,
+      "sha256": "09bcbf582ce55c54d3605e711a2ba7456e71c9f27db7ec258280b187c4dcec21",
+      "category_cases": 1
+    },
+    {
+      "id": "elitetorrent",
+      "community_entry": "022",
+      "native": true,
+      "python_retained": true,
+      "sha256": "181186dbb86f5b3b817ac97d96169ea0c5b0d907a9ddb0cff204456a8014e994",
+      "category_cases": 3
+    },
+    {
+      "id": "eztvx",
+      "community_entry": "024",
+      "native": true,
+      "python_retained": true,
+      "sha256": "07383109341fd035073f35ca3ddcd9095a407afcba8248b573419ae90759767a",
+      "category_cases": 2
+    },
+    {
+      "id": "maxitorrent",
+      "community_entry": "032",
+      "native": true,
+      "python_retained": true,
+      "sha256": "7dfd624b206f74a4f65dbb47f430082dac580a75e8edb657ef6b90d576b485a0",
+      "category_cases": 1
+    },
+    {
+      "id": "mejortorrent",
+      "community_entry": "033",
+      "native": true,
+      "python_retained": true,
+      "sha256": "3ba2a8d31316970a05d933cdd563aa17ec3d4976cb355da24ed5e47834ff783a",
+      "category_cases": 3
+    },
+    {
+      "id": "pediatorrent_community_043",
+      "community_entry": "043",
+      "native": true,
+      "python_retained": true,
+      "sha256": "88099fa1203755c23646c2c1c2ccb19e5c4c51053b70a11aedcec1da258e9f50",
+      "category_cases": 1
+    },
+    {
+      "id": "thepiratebay_community_059",
+      "community_entry": "059",
+      "native": true,
+      "python_retained": true,
+      "sha256": "58e4672890ae3d769dbcbdef8cf29205b24a4a2a38562d32c9c6a9f68c3128a5",
+      "category_cases": 9
+    },
+    {
+      "id": "torrent9",
+      "community_entry": "063",
+      "native": true,
+      "python_retained": true,
+      "sha256": "e178e65032c2dd6e60c54713943eedc3c51de4f4c6b18c1d671cf9b3a41b3e7a",
+      "category_cases": 1
+    },
+    {
+      "id": "torrentdownload_community_066",
+      "community_entry": "066",
+      "native": true,
+      "python_retained": true,
+      "sha256": "a77676406966dffd1f93485fe6c9548a462e0e93629003d773273f8389f7889f",
+      "category_cases": 9
+    },
+    {
+      "id": "zooqle",
+      "community_entry": "078",
+      "native": true,
+      "python_retained": true,
+      "sha256": "beb30e1de0577b07d031e5e66174bf724bc5e2821f3f4924bd5d9a79256e5f62",
+      "category_cases": 8
+    },
+    {
+      "id": "ali213",
+      "community_entry": "003",
+      "native": true,
+      "python_retained": true,
+      "sha256": "ca6167e6717896f4034fa14b1ad773b3ab613a643a6bd435b664788ab5a8022b",
+      "category_cases": 3
+    },
+    {
+      "id": "fitgirl_repacks",
+      "community_entry": "025",
+      "native": true,
+      "python_retained": true,
+      "sha256": "63c365da7d91bc45f0a86fe71f99b9b3f965be64b893ebb40378d977520fdb26",
+      "category_cases": 2
+    },
+    {
+      "id": "mypornclub",
+      "community_entry": "036",
+      "native": true,
+      "python_retained": true,
+      "sha256": "11aa1fdbe2e9ffa48aa0a89fa9115b6b7bc0fe979d6a99d58882ea9e2484558b",
+      "category_cases": 1
+    },
+    {
+      "id": "rutor",
+      "community_entry": "048",
+      "native": true,
+      "python_retained": true,
+      "sha256": "1cf9c5c302ad8defbe6ddb90bcbdf56cc905b49517b9233618b0f5a252845913",
+      "category_cases": 9
+    }
+  ],
+  "verification_report": "verification/native-ports/portable-all86-parity.json",
+  "category_comparisons": 300,
+  "resolver_comparisons": 11,
+  "rust_tests": 49
+}

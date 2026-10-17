@@ -1,0 +1,29 @@
+{
+  "wall_ms": 345.08090000053926,
+  "cpu_ms": 156.25,
+  "peak_private_mib": 5.80078125,
+  "sampled_peak_working_set_mib": 24.76953125,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 3,
+  "unique_results": 3,
+  "identities": [
+    "764d464c99da0bce6c3713bd0bacc2098b6ccd93",
+    "7fef6590ee993db78f8ed6f394860b27c2c5e81c",
+    "cbb358ed8886ab18ce3b6c338169556b118cea83"
+  ],
+  "error": null,
+  "source_elapsed_ms": 253,
+  "configuration_diagnostic": false,
+  "source": "thepiratebay",
+  "backend": "rust",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:52:49.764930+00:00",
+  "raw_report": "raw\\01-thepiratebay-rust.json",
+  "diagnostics": "raw\\01-thepiratebay-rust.stderr.log"
+}

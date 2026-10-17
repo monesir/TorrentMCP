@@ -1,0 +1,17 @@
+{
+  "bundle": "C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\dist\\torrent-search-0.5.0-torrentdownloads-fix-20261018",
+  "executable_sha256": "9db05394f0c691a0ceec860197e3668c044dfdb2c1fe911993ab2cdb5fa01208",
+  "python_sha256": "434b361fe0c5960d404974feed493db47f2603a1ace2574312104fbed0182c6f",
+  "manifest_sha256": "334c91cfb53d4d49967db7ae20ddaef7a173f64e28b01242d685362197498401",
+  "query": "nirvana in fire",
+  "category": "all",
+  "limit": 20,
+  "timeout": 20,
+  "trials": 1,
+  "source_ids": [
+    "jackett",
+    "torrentdownloads"
+  ],
+  "parallel_measured_processes": 1,
+  "order_seed": 20261018
+}

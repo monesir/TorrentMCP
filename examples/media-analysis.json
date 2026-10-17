@@ -1,0 +1,12 @@
+{
+  "constraints": {
+    "min_video_width": 1920,
+    "audio_languages": ["en"],
+    "subtitle_languages": ["ar"],
+    "max_file_size_bytes": 8589934592
+  },
+  "preferences": {
+    "video_codecs": ["hevc", "h264"],
+    "rank_by": ["video_codecs", "smaller_file"]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "version": "torrent-search 0.4.0",
+  "archive_sha256": "ab4f8df102061f2c55ae720643f83d6ae94e62f15bc6d38d13b14a6c3918264f",
+  "executable_sha256": "7fc55590070fd0ceefbeb64516d002276a675c8a7ff428902f1fc6960ef70209",
+  "fresh_zip_extraction": true,
+  "path": "C:\\Windows\\System32",
+  "portable_markdown_export": "passed",
+  "existing_output_preserved": true,
+  "bundled_ffprobe_markdown": "passed",
+  "default_json": "passed",
+  "legacy_summary": {
+    "total": 31,
+    "eligible": 4,
+    "uncertain": 6,
+    "excluded": 21
+  },
+  "elapsed_ms_available": true
+}

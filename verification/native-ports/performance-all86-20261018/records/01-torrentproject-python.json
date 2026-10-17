@@ -1,0 +1,26 @@
+{
+  "wall_ms": 1276.7217000000528,
+  "cpu_ms": 531.25,
+  "peak_private_mib": 26.78515625,
+  "sampled_peak_working_set_mib": 69.52734375,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)",
+  "source_elapsed_ms": 1141,
+  "configuration_diagnostic": false,
+  "source": "torrentproject",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:54:24.168527+00:00",
+  "raw_report": "raw\\01-torrentproject-python.json",
+  "diagnostics": "raw\\01-torrentproject-python.stderr.log"
+}

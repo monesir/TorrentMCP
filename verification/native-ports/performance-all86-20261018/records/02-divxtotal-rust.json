@@ -1,0 +1,25 @@
+{
+  "wall_ms": 3103.0964000001404,
+  "cpu_ms": 328.125,
+  "peak_private_mib": 6.62109375,
+  "sampled_peak_working_set_mib": 28.65234375,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "HTTP status server error (523 <none>)",
+  "source_elapsed_ms": 2940,
+  "configuration_diagnostic": false,
+  "source": "divxtotal",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:05:30.248476+00:00",
+  "raw_report": "raw\\02-divxtotal-rust.json",
+  "diagnostics": "raw\\02-divxtotal-rust.stderr.log"
+}

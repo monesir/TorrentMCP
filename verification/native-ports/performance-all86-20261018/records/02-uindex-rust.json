@@ -1,0 +1,25 @@
+{
+  "wall_ms": 412.49900000002526,
+  "cpu_ms": 156.25,
+  "peak_private_mib": 5.81640625,
+  "sampled_peak_working_set_mib": 25.13671875,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "HTTP status client error (403 Forbidden)",
+  "source_elapsed_ms": 263,
+  "configuration_diagnostic": false,
+  "source": "uindex",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:02:02.114077+00:00",
+  "raw_report": "raw\\02-uindex-rust.json",
+  "diagnostics": "raw\\02-uindex-rust.stderr.log"
+}

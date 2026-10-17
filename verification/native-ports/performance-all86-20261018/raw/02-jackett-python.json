@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": false,
+  "sources": [
+    {
+      "source_id": "jackett",
+      "status": "completed",
+      "elapsed_ms": 415,
+      "result_count": 1,
+      "limited": false,
+      "error": null
+    }
+  ],
+  "results": [
+    {
+      "title": "Jackett: api key error! Right-click this row and select 'Open description page' to open help. Configuration file: '\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\jackett.json' Search: 'nirvana in fire'",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:9117",
+        "source_id": "jackett"
+      },
+      "observations": [
+        {
+          "source_id": "jackett",
+          "title": "Jackett: api key error! Right-click this row and select 'Open description page' to open help. Configuration file: '\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\jackett.json' Search: 'nirvana in fire'",
+          "raw_title": "Jackett: api key error! Right-click this row and select 'Open description page' to open help. Configuration file: '\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\jackett.json' Search: 'nirvana in fire'",
+          "site_url": "http://127.0.0.1:9117",
+          "description_url": "https://github.com/qbittorrent/search-plugins/wiki/How-to-configure-Jackett-plugin",
+          "size_bytes": null,
+          "seeders": null,
+          "leechers": null,
+          "published_unix": null,
+          "observed_at_unix": 1792278063
+        }
+      ]
+    }
+  ]
+}

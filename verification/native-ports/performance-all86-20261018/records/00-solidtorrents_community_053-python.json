@@ -1,0 +1,26 @@
+{
+  "wall_ms": 1640.6364000004032,
+  "cpu_ms": 328.125,
+  "peak_private_mib": 27.87890625,
+  "sampled_peak_working_set_mib": 70.2109375,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 1570,
+  "configuration_diagnostic": false,
+  "source": "solidtorrents_community_053",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:45:40.418834+00:00",
+  "raw_report": "raw\\00-solidtorrents_community_053-python.json",
+  "diagnostics": "raw\\00-solidtorrents_community_053-python.stderr.log"
+}

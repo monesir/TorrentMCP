@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "cloudtorrents",
+      "status": "failed",
+      "elapsed_ms": 410,
+      "result_count": 0,
+      "limited": false,
+      "error": "HTTP status server error (526 <none>)"
+    }
+  ],
+  "results": []
+}

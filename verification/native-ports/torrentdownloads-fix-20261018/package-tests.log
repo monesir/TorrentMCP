@@ -1,0 +1,117 @@
+   Compiling torrent-search v0.5.0 (C:\Users\user\OneDrive\المستندات\ChatGPT\torrent mcp\.cache\torrentdownloads-fix-validation-20261018)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 46.20s
+     Running unittests src\lib.rs (.cache/native-ports-target\debug\deps\torrent_search-a8d73c84b9730439.exe)
+
+running 27 tests
+test reference::tests::rejects_invalid_and_conflicting_magnets_and_unsafe_schemes ... ok
+test media::report::tests::never_substitutes_total_bitrate_for_unknown_video_bitrate ... ok
+test media::report::tests::multiple_video_tracks_require_selection_and_missing_tags_remain_unclassified ... ok
+test media::report::tests::separates_requested_languages_and_reports_tag_based_payload_sizes ... ok
+test markdown::tests::exports_errors_and_rejects_unsupported_shapes_and_versions ... ok
+test markdown::tests::escapes_untrusted_titles_preserves_unknowns_and_outputs_complete_tables ... ok
+test engine::reference_tests::post_download_identities_do_not_merge_and_old_get_json_still_roundtrips ... ok
+test analysis::title::tests::repairs_observed_roman_corruption_without_touching_legitimate_multilingual_titles ... ok
+test reference::tests::normalizes_hex_and_base32_without_changing_the_download_uri ... ok
+test sources::native::html::tests::accepts_a_whole_uri_wrapper_without_decoding_inner_escapes_twice ... ok
+test sources::native::tests::auto_keeps_a_python_only_source_available ... ok
+test sources::native::html::tests::preserves_magnet_query_boundaries_and_encoded_trackers ... ok
+test sources::native::html::tests::tries_later_magnets_but_reports_an_all_invalid_page ... ok
+test sources::native::html::tests::preserves_captured_torrentdownloads_magnets ... ok
+test sources::native::tests::unknown_native_source_is_an_explicit_per_source_failure ... ok
+test sources::native::tracker_scrape::tests::rejects_truncated_and_deep_tracker_data ... ok
+test sources::native::tests::cancellation_prevents_native_network_requests ... ok
+test sources::native::tracker_scrape::tests::validates_udp_transactions_and_reads_batched_scrape_counts ... ok
+test sources::limetorrents::tests::preserves_raw_titles_and_matches_shared_display_sanitization ... ok
+test sources::native::tracker_scrape::tests::http_scrape_preserves_binary_hash_and_tracker_query ... ok
+test sources::native::catalogue_tables::tests::torrentdownloads_keeps_row_errors_when_the_result_limit_is_reached ... ok
+test sources::native::catalogue_tables::tests::torrentdownloads_continues_after_a_bad_detail_until_end_of_search ... ok
+test sources::limetorrents::tests::parses_captured_real_page_and_preserves_unknowns ... ok
+test sources::native::fitgirl::tests::parses_repack_units_and_only_repack_size ... ok
+test sources::native::fitgirl::tests::image_checksums_do_not_become_torrent_identities ... ok
+test markdown::tests::exports_actual_search_and_media_reports_without_mixing_bitrates ... ok
+test media::gateway::tests::dropping_gateway_closes_the_listener_even_if_caller_drops_its_future ... ok
+
+test result: ok. 27 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.04s
+
+     Running unittests src\main.rs (.cache/native-ports-target\debug\deps\torrent_search-7623873a9d69864e.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\agent_cli.rs (.cache/native-ports-target\debug\deps\agent_cli-58d1c3aa71b0944e.exe)
+
+running 4 tests
+test accepts_file_stdin_and_windows_utf8_bom_without_assets ... ok
+test validates_torrent_operations_before_loading_runtimes ... ok
+test failed_source_report_keeps_results_and_returns_nonzero ... ok
+test malformed_unknown_and_invalid_requests_return_machine_readable_errors ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.21s
+
+     Running tests\markdown_cli.rs (.cache/native-ports-target\debug\deps\markdown_cli-135af728ef47c604.exe)
+
+running 2 tests
+test exports_saved_search_and_preserves_existing_output ... ok
+test agent_markdown_and_json_file_output_work_without_search_assets ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+
+     Running tests\media_inspection.rs (.cache/native-ports-target\debug\deps\media_inspection-bd82a4add747e0f6.exe)
+
+running 7 tests
+test rejects_public_urls_hostnames_and_unknown_request_fields ... ok
+test timeout_and_cancellation_stop_stalled_source_reads ... ok
+test rejects_downloader_that_ignores_ranges ... ok
+test enforces_read_budget_and_reports_partial_metadata_instead_of_complete ... ok
+test local_probe_reads_real_container_metadata_and_keeps_unknown_language ... ok
+test reads_ranges_from_download_service_without_loading_the_full_file ... ok
+test waits_for_a_cold_first_piece_within_the_requested_deadline ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.06s
+
+     Running tests\release_analysis.rs (.cache/native-ports-target\debug\deps\release_analysis-9802fc6487eef19a.exe)
+
+running 8 tests
+test disjoint_episode_labels_do_not_invent_the_missing_episode ... ok
+test equivalent_episode_ranges_from_multiple_sources_are_one_claim ... ok
+test extracts_explicit_metadata_with_evidence_and_preserves_the_original ... ok
+test bare_titles_complete_labels_and_subtitles_do_not_prove_missing_facts ... ok
+test numeric_title_aliases_and_sequel_suffix_are_not_confused ... ok
+test conflicting_claims_are_uncertain_but_explicit_mismatch_is_excluded ... ok
+test preferences_rank_without_excluding_and_unknown_size_is_uncertain ... ok
+test real_nirvana_report_separates_original_and_sequel_and_keeps_all_references ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests\search_sources.rs (.cache/native-ports-target\debug\deps\search_sources-98d3c76f35db6eeb.exe)
+
+running 8 tests
+test cancellation_includes_queued_sources ... ok
+test changed_plugin_is_rejected_without_breaking_other_sources ... ok
+test malformed_output_is_isolated_and_large_diagnostics_do_not_block_search ... ok
+test merges_known_identities_preserves_observations_and_keeps_partial_results ... ok
+test result_caps_and_empty_results_are_successful_and_unknown_sources_are_rejected ... ok
+test import_failures_and_unsupported_categories_have_explicit_states ... ok
+test same_title_is_not_enough_to_merge_different_torrents_and_output_is_bounded ... ok
+test timeout_preserves_results_and_cleans_up_the_worker ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.09s
+
+     Running tests\torrent_workflow.rs (.cache/native-ports-target\debug\deps\torrent_workflow-206966cef560d6ea.exe)
+
+running 5 tests
+test validates_identity_paths_and_selection_before_starting_service ... ok
+test rejects_replaced_metadata_and_always_stops_before_returning ... ok
+test preserves_original_search_reference_when_resolving_details ... ok
+test lists_then_inspects_explicit_file_and_keeps_identity_and_streams ... ok
+test timeout_cancellation_and_probe_failure_keep_cleanup_and_binding ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.01s
+
+   Doc-tests torrent_search
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

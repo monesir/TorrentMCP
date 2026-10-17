@@ -1,0 +1,152 @@
+{
+  "upstream_commit": "240b57a90ca4f9e3869151b73c76c46f1b7bb59b",
+  "sources": [
+    {
+      "id": "eztv",
+      "name": "EZTV",
+      "site_url": "https://eztvx.to",
+      "categories": [
+        "all",
+        "tv"
+      ],
+      "resolves_http": false,
+      "sha256": "22a051ae9de6403a5735540c074b78d4eb247de9d6366ef896dc750b8c51c4bb",
+      "upstream_commit": "240b57a90ca4f9e3869151b73c76c46f1b7bb59b",
+      "upstream_url": "https://github.com/qbittorrent/search-plugins/blob/240b57a90ca4f9e3869151b73c76c46f1b7bb59b/nova3/engines/eztv.py",
+      "version": "1.24",
+      "rust_status": "implemented_pending_verification",
+      "python_retained": true
+    },
+    {
+      "id": "jackett",
+      "name": "Jackett",
+      "site_url": "http://127.0.0.1:9117",
+      "categories": [
+        "all",
+        "anime",
+        "books",
+        "games",
+        "movies",
+        "music",
+        "software",
+        "tv"
+      ],
+      "resolves_http": true,
+      "sha256": "d035fca325dce689d87bd900fa1951ff5bca535aedfa71f6e040b7ca954537bf",
+      "upstream_commit": "240b57a90ca4f9e3869151b73c76c46f1b7bb59b",
+      "upstream_url": "https://github.com/qbittorrent/search-plugins/blob/240b57a90ca4f9e3869151b73c76c46f1b7bb59b/nova3/engines/jackett.py",
+      "version": "4.13",
+      "rust_status": "implemented_pending_verification",
+      "python_retained": true
+    },
+    {
+      "id": "limetorrents",
+      "name": "LimeTorrents",
+      "site_url": "https://www.limetorrents.lol",
+      "categories": [
+        "all",
+        "anime",
+        "software",
+        "games",
+        "movies",
+        "music",
+        "tv"
+      ],
+      "resolves_http": true,
+      "sha256": "aca3fbc4956970474a66295f5e61f02532bcdf5399ae97c144bf826a7c8fddce",
+      "upstream_commit": "240b57a90ca4f9e3869151b73c76c46f1b7bb59b",
+      "upstream_url": "https://github.com/qbittorrent/search-plugins/blob/240b57a90ca4f9e3869151b73c76c46f1b7bb59b/nova3/engines/limetorrents.py",
+      "version": "4.15",
+      "rust_status": "implemented_pending_verification",
+      "python_retained": true
+    },
+    {
+      "id": "piratebay",
+      "name": "The Pirate Bay",
+      "site_url": "https://thepiratebay.org",
+      "categories": [
+        "all",
+        "music",
+        "movies",
+        "games",
+        "software"
+      ],
+      "resolves_http": false,
+      "sha256": "b37f13d21ff5f22ff2154a497cd3ed2d727784024d09d393c1bead88e438dab5",
+      "upstream_commit": "240b57a90ca4f9e3869151b73c76c46f1b7bb59b",
+      "upstream_url": "https://github.com/qbittorrent/search-plugins/blob/240b57a90ca4f9e3869151b73c76c46f1b7bb59b/nova3/engines/piratebay.py",
+      "version": "3.10",
+      "rust_status": "implemented_pending_verification",
+      "python_retained": true
+    },
+    {
+      "id": "solidtorrents",
+      "name": "Solid Torrents",
+      "site_url": "https://solidtorrents.to",
+      "categories": [
+        "all",
+        "music",
+        "books"
+      ],
+      "resolves_http": false,
+      "sha256": "e10e039b02c675fbeae6503482f1fb12683bba1c39f5424e7c2729dc44d12a71",
+      "upstream_commit": "240b57a90ca4f9e3869151b73c76c46f1b7bb59b",
+      "upstream_url": "https://github.com/qbittorrent/search-plugins/blob/240b57a90ca4f9e3869151b73c76c46f1b7bb59b/nova3/engines/solidtorrents.py",
+      "version": "2.9",
+      "rust_status": "implemented_pending_verification",
+      "python_retained": true
+    },
+    {
+      "id": "torlock",
+      "name": "TorLock",
+      "site_url": "https://www.torlock.com",
+      "categories": [
+        "all",
+        "anime",
+        "software",
+        "games",
+        "movies",
+        "music",
+        "tv",
+        "books"
+      ],
+      "resolves_http": true,
+      "sha256": "b848190656534a78a980cb925a14df0d61914ff769cb5c71973e04e527778477",
+      "upstream_commit": "240b57a90ca4f9e3869151b73c76c46f1b7bb59b",
+      "upstream_url": "https://github.com/qbittorrent/search-plugins/blob/240b57a90ca4f9e3869151b73c76c46f1b7bb59b/nova3/engines/torlock.py",
+      "version": "2.31",
+      "rust_status": "implemented_pending_verification",
+      "python_retained": true
+    },
+    {
+      "id": "torrentproject",
+      "name": "TorrentProject",
+      "site_url": "https://torrentproject.com.se",
+      "categories": [
+        "all"
+      ],
+      "resolves_http": true,
+      "sha256": "64960bb8d7ebde829b55fdb5a669f96cb0694d8d49cc87aaf960f1f1dae793f0",
+      "upstream_commit": "240b57a90ca4f9e3869151b73c76c46f1b7bb59b",
+      "upstream_url": "https://github.com/qbittorrent/search-plugins/blob/240b57a90ca4f9e3869151b73c76c46f1b7bb59b/nova3/engines/torrentproject.py",
+      "version": "1.92",
+      "rust_status": "implemented_pending_verification",
+      "python_retained": true
+    },
+    {
+      "id": "torrentscsv",
+      "name": "torrents-csv",
+      "site_url": "https://torrents-csv.com",
+      "categories": [
+        "all"
+      ],
+      "resolves_http": false,
+      "sha256": "7c7c8a54249e5f2ce237df6421a735a5c1bd7acefd1304d736ee8f925fd6031b",
+      "upstream_commit": "240b57a90ca4f9e3869151b73c76c46f1b7bb59b",
+      "upstream_url": "https://github.com/qbittorrent/search-plugins/blob/240b57a90ca4f9e3869151b73c76c46f1b7bb59b/nova3/engines/torrentscsv.py",
+      "version": "1.8",
+      "rust_status": "implemented_pending_verification",
+      "python_retained": true
+    }
+  ]
+}

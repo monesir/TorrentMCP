@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "operation": "torrent_files",
+  "reference": {
+    "kind": "magnet",
+    "uri": "magnet:?xt=urn:btih:c25374282b66018e46755adac1f38fce5bac7aa6&tr=http%3A%2F%2F127.0.0.1%3A6399%2Fannounce",
+    "info_hash_v1": "c25374282b66018e46755adac1f38fce5bac7aa6"
+  },
+  "limits": {
+    "timeout_seconds": 45
+  }
+}

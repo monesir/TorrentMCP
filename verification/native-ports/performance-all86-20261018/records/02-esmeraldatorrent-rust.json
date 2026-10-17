@@ -1,0 +1,25 @@
+{
+  "wall_ms": 1004.8077999999805,
+  "cpu_ms": 203.125,
+  "peak_private_mib": 6.6640625,
+  "sampled_peak_working_set_mib": 28.671875,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "HTTP status server error (523 <none>)",
+  "source_elapsed_ms": 887,
+  "configuration_diagnostic": false,
+  "source": "esmeraldatorrent",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:02:03.353228+00:00",
+  "raw_report": "raw\\02-esmeraldatorrent-rust.json",
+  "diagnostics": "raw\\02-esmeraldatorrent-rust.stderr.log"
+}

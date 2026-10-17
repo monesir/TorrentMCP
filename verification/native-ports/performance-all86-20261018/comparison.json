@@ -1,0 +1,2910 @@
+{
+  "settings": {
+    "bundle": "C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\dist\\torrent-search-0.5.0-torrentdownloads-fix-20261018",
+    "executable_sha256": "9db05394f0c691a0ceec860197e3668c044dfdb2c1fe911993ab2cdb5fa01208",
+    "python_sha256": "434b361fe0c5960d404974feed493db47f2603a1ace2574312104fbed0182c6f",
+    "manifest_sha256": "334c91cfb53d4d49967db7ae20ddaef7a173f64e28b01242d685362197498401",
+    "query": "nirvana in fire",
+    "category": "all",
+    "limit": 20,
+    "timeout": 20,
+    "trials": 3,
+    "source_ids": [
+      "eztv",
+      "jackett",
+      "limetorrents",
+      "piratebay",
+      "solidtorrents",
+      "torlock",
+      "torrentproject",
+      "torrentscsv",
+      "acgrip",
+      "animetosho",
+      "animetosho_community_006",
+      "cloudtorrents",
+      "mikan",
+      "nyaasi",
+      "subsplease",
+      "sukebeisi",
+      "thepiratebay",
+      "torrentclaw",
+      "divxtotal",
+      "dontorrent",
+      "esmeraldatorrent",
+      "naranjatorrent",
+      "tomadivx",
+      "calidadtorrent",
+      "pediatorrent",
+      "glotorrents",
+      "kickasstorrents",
+      "pirateiro",
+      "rockbox",
+      "torrentdownload",
+      "yourbittorrent",
+      "magnetdl",
+      "magnetdl_community_031",
+      "solidtorrents_community_053",
+      "nekobt",
+      "tsukihime",
+      "yts",
+      "yggtracker",
+      "goggames",
+      "snowfl",
+      "snowfl_community_052",
+      "btdig",
+      "anidex",
+      "dmhy",
+      "dmhy_community_018",
+      "mikanani",
+      "nyaapantsu",
+      "nyaa",
+      "torrentgalaxy",
+      "pantsu",
+      "sukebei",
+      "uindex",
+      "uniondht",
+      "dodi_repacks",
+      "onlinefix",
+      "apachetorrent",
+      "redetorrent",
+      "smallgames",
+      "torrenflix",
+      "bitsearch",
+      "therarbg",
+      "torrentdownloads",
+      "traht",
+      "xxxclubto",
+      "bt4gprx",
+      "linuxtracker",
+      "sktorrent",
+      "tokyotoshokan",
+      "academictorrents",
+      "audiobookbay",
+      "cpasbien",
+      "darklibria",
+      "dontorrent_community_020",
+      "elitetorrent",
+      "eztvx",
+      "maxitorrent",
+      "mejortorrent",
+      "pediatorrent_community_043",
+      "thepiratebay_community_059",
+      "torrent9",
+      "torrentdownload_community_066",
+      "zooqle",
+      "ali213",
+      "fitgirl_repacks",
+      "mypornclub",
+      "rutor"
+    ],
+    "parallel_measured_processes": 1,
+    "order_seed": 20261018
+  },
+  "completed_measurements": 516,
+  "measurement_definition": "Fresh CLI processes, serial runs; job CPU and peak private committed memory include all descendants. Working-set sums are sampled and may count shared pages more than once. Network and OS caches are uncontrolled.",
+  "comparable_definition": "Both backends completed with positive, identical result identity sets in the same trial. Timing ratios are not computed for failed, empty, configuration-error or different-result pairs.",
+  "sources": [
+    {
+      "source": "eztv",
+      "name": "EZTV",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 140.91240000016114,
+      "rust_cpu_ms_median": 125.0,
+      "rust_peak_private_mib_median": 4.96484375,
+      "rust_sampled_peak_working_set_mib_median": 16.9765625,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 513.0663999998433,
+      "python_cpu_ms_median": 578.125,
+      "python_peak_private_mib_median": 26.62890625,
+      "python_sampled_peak_working_set_mib_median": 67.5625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "jackett",
+      "name": "Jackett",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 124.26129999948898,
+      "rust_cpu_ms_median": 109.375,
+      "rust_peak_private_mib_median": 4.73046875,
+      "rust_sampled_peak_working_set_mib_median": 16.23828125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "Jackett requires local qbit/engines/jackett.json with url and api_key"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 531.1463000016374,
+      "python_cpu_ms_median": 484.375,
+      "python_peak_private_mib_median": 24.8125,
+      "python_sampled_peak_working_set_mib_median": 56.76171875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "limetorrents",
+      "name": "LimeTorrents",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 1047.483000000284,
+      "rust_cpu_ms_median": 265.625,
+      "rust_peak_private_mib_median": 7.70703125,
+      "rust_sampled_peak_working_set_mib_median": 28.921875,
+      "rust_unique_results_median": 20,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 1291.20519999924,
+      "python_cpu_ms_median": 531.25,
+      "python_peak_private_mib_median": 26.99609375,
+      "python_sampled_peak_working_set_mib_median": 70.2421875,
+      "python_unique_results_median": 20,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 3,
+      "python_over_rust_wall_ratio": 1.0865593443780404,
+      "python_over_rust_cpu_ratio": 2.2941176470588234,
+      "rust_private_memory_reduction_pct": 71.4513095065837
+    },
+    {
+      "source": "piratebay",
+      "name": "The Pirate Bay",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 530.786099998295,
+      "rust_cpu_ms_median": 156.25,
+      "rust_peak_private_mib_median": 5.7109375,
+      "rust_sampled_peak_working_set_mib_median": 24.6640625,
+      "rust_unique_results_median": 3,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 748.2939000001352,
+      "python_cpu_ms_median": 453.125,
+      "python_peak_private_mib_median": 26.671875,
+      "python_sampled_peak_working_set_mib_median": 69.9453125,
+      "python_unique_results_median": 3,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 3,
+      "python_over_rust_wall_ratio": 1.409784280339178,
+      "python_over_rust_cpu_ratio": 3.4166666666666665,
+      "rust_private_memory_reduction_pct": 77.19188767550702
+    },
+    {
+      "source": "solidtorrents",
+      "name": "Solid Torrents",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 1026.2770999997883,
+      "rust_cpu_ms_median": 140.625,
+      "rust_peak_private_mib_median": 6.8203125,
+      "rust_sampled_peak_working_set_mib_median": 28.96875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status server error (500 Internal Server Error)",
+        "HTTP status server error (520 <none>)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 3410.5674999991606,
+      "python_cpu_ms_median": 296.875,
+      "python_peak_private_mib_median": 26.7109375,
+      "python_sampled_peak_working_set_mib_median": 69.96875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>",
+        "TimeoutError: The read operation timed out"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "torlock",
+      "name": "TorLock",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 431.35200000051555,
+      "rust_cpu_ms_median": 109.375,
+      "rust_peak_private_mib_median": 6.69921875,
+      "rust_sampled_peak_working_set_mib_median": 28.65625,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status client error (403 Forbidden)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 704.3307000003551,
+      "python_cpu_ms_median": 562.5,
+      "python_peak_private_mib_median": 26.48828125,
+      "python_sampled_peak_working_set_mib_median": 69.82421875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "torrentproject",
+      "name": "TorrentProject",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 5126.640599999519,
+      "rust_cpu_ms_median": 109.375,
+      "rust_peak_private_mib_median": 6.140625,
+      "rust_sampled_peak_working_set_mib_median": 26.33984375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 12746.63319999945,
+      "python_cpu_ms_median": 531.25,
+      "python_peak_private_mib_median": 26.73828125,
+      "python_sampled_peak_working_set_mib_median": 69.34375,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "torrentscsv",
+      "name": "torrents-csv",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 382.0869999999559,
+      "rust_cpu_ms_median": 93.75,
+      "rust_peak_private_mib_median": 5.71484375,
+      "rust_sampled_peak_working_set_mib_median": 24.69921875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 561.581699999806,
+      "python_cpu_ms_median": 296.875,
+      "python_peak_private_mib_median": 24.76171875,
+      "python_sampled_peak_working_set_mib_median": 61.9296875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "acgrip",
+      "name": "acg.rip",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 469.9686000003567,
+      "rust_cpu_ms_median": 125.0,
+      "rust_peak_private_mib_median": 6.9296875,
+      "rust_sampled_peak_working_set_mib_median": 28.44921875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 764.1276999993352,
+      "python_cpu_ms_median": 390.625,
+      "python_peak_private_mib_median": 26.6484375,
+      "python_sampled_peak_working_set_mib_median": 70.0234375,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "animetosho",
+      "name": "Anime Tosho",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 207.92489999985264,
+      "rust_cpu_ms_median": 109.375,
+      "rust_peak_private_mib_median": 4.98046875,
+      "rust_sampled_peak_working_set_mib_median": 21.5625,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 531.6832999997132,
+      "python_cpu_ms_median": 515.625,
+      "python_peak_private_mib_median": 24.74609375,
+      "python_sampled_peak_working_set_mib_median": 56.63671875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "animetosho_community_006",
+      "name": "Anime Tosho",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 841.5049999985058,
+      "rust_cpu_ms_median": 250.0,
+      "rust_peak_private_mib_median": 7.1328125,
+      "rust_sampled_peak_working_set_mib_median": 29.1640625,
+      "rust_unique_results_median": 2,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 1072.2363999993831,
+      "python_cpu_ms_median": 546.875,
+      "python_peak_private_mib_median": 26.94140625,
+      "python_sampled_peak_working_set_mib_median": 70.0,
+      "python_unique_results_median": 2,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 3,
+      "python_over_rust_wall_ratio": 1.274188982835856,
+      "python_over_rust_cpu_ratio": 2.6875,
+      "rust_private_memory_reduction_pct": 73.64318706697459
+    },
+    {
+      "source": "cloudtorrents",
+      "name": "CloudTorrents",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 493.2014000005438,
+      "rust_cpu_ms_median": 218.75,
+      "rust_peak_private_mib_median": 6.69140625,
+      "rust_sampled_peak_working_set_mib_median": 28.71875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status server error (526 <none>)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 835.4471999991802,
+      "python_cpu_ms_median": 484.375,
+      "python_peak_private_mib_median": 25.79296875,
+      "python_sampled_peak_working_set_mib_median": 66.00390625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "mikan",
+      "name": "MikanProject",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 624.9594999999317,
+      "rust_cpu_ms_median": 93.75,
+      "rust_peak_private_mib_median": 5.9140625,
+      "rust_sampled_peak_working_set_mib_median": 24.9921875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 1105.6331999998292,
+      "python_cpu_ms_median": 375.0,
+      "python_peak_private_mib_median": 26.71484375,
+      "python_sampled_peak_working_set_mib_median": 70.27734375,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "nyaasi",
+      "name": "Nyaa.si",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 402.3899000003439,
+      "rust_cpu_ms_median": 109.375,
+      "rust_peak_private_mib_median": 6.97265625,
+      "rust_sampled_peak_working_set_mib_median": 25.9296875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 777.1321000000171,
+      "python_cpu_ms_median": 281.25,
+      "python_peak_private_mib_median": 26.625,
+      "python_sampled_peak_working_set_mib_median": 69.78515625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "subsplease",
+      "name": "SubsPlease",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 486.6416999993817,
+      "rust_cpu_ms_median": 93.75,
+      "rust_peak_private_mib_median": 6.74609375,
+      "rust_sampled_peak_working_set_mib_median": 28.75,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 637.7614000002723,
+      "python_cpu_ms_median": 343.75,
+      "python_peak_private_mib_median": 24.765625,
+      "python_sampled_peak_working_set_mib_median": 61.890625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "sukebeisi",
+      "name": "Sukebei (Nyaa)",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 214.37220000007073,
+      "rust_cpu_ms_median": 109.375,
+      "rust_peak_private_mib_median": 5.13671875,
+      "rust_sampled_peak_working_set_mib_median": 21.98046875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 636.8947000009939,
+      "python_cpu_ms_median": 453.125,
+      "python_peak_private_mib_median": 24.68359375,
+      "python_sampled_peak_working_set_mib_median": 60.87109375,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "thepiratebay",
+      "name": "The Pirate Bay",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 345.08090000053926,
+      "rust_cpu_ms_median": 156.25,
+      "rust_peak_private_mib_median": 5.69140625,
+      "rust_sampled_peak_working_set_mib_median": 24.76953125,
+      "rust_unique_results_median": 3,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 611.9048999998995,
+      "python_cpu_ms_median": 265.625,
+      "python_peak_private_mib_median": 26.6640625,
+      "python_sampled_peak_working_set_mib_median": 69.87109375,
+      "python_unique_results_median": 3,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 3,
+      "python_over_rust_wall_ratio": 1.727222577428747,
+      "python_over_rust_cpu_ratio": 2.4285714285714284,
+      "rust_private_memory_reduction_pct": 78.71374157632582
+    },
+    {
+      "source": "torrentclaw",
+      "name": "TorrentClaw",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 417.43639999913285,
+      "rust_cpu_ms_median": 171.875,
+      "rust_peak_private_mib_median": 5.7734375,
+      "rust_sampled_peak_working_set_mib_median": 24.9296875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 755.3920999998809,
+      "python_cpu_ms_median": 453.125,
+      "python_peak_private_mib_median": 26.6484375,
+      "python_sampled_peak_working_set_mib_median": 69.87109375,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "divxtotal",
+      "name": "DivxTotal",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 3188.1143000009615,
+      "rust_cpu_ms_median": 109.375,
+      "rust_peak_private_mib_median": 6.73046875,
+      "rust_sampled_peak_working_set_mib_median": 28.74609375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status server error (523 <none>)",
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 8373.645900001065,
+      "python_cpu_ms_median": 343.75,
+      "python_peak_private_mib_median": 27.8125,
+      "python_sampled_peak_working_set_mib_median": 70.390625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>",
+        "TimeoutError: The read operation timed out"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "dontorrent",
+      "name": "DonTorrent",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 4520.142600000327,
+      "rust_cpu_ms_median": 109.375,
+      "rust_peak_private_mib_median": 6.6328125,
+      "rust_sampled_peak_working_set_mib_median": 28.69140625,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status server error (523 <none>)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 6253.582000000279,
+      "python_cpu_ms_median": 359.375,
+      "python_peak_private_mib_median": 27.859375,
+      "python_sampled_peak_working_set_mib_median": 70.4375,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>",
+        "TimeoutError: The read operation timed out"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "esmeraldatorrent",
+      "name": "EsmeraldaTorrent",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 3122.556299998905,
+      "rust_cpu_ms_median": 109.375,
+      "rust_peak_private_mib_median": 6.6640625,
+      "rust_sampled_peak_working_set_mib_median": 28.68359375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status server error (523 <none>)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 6555.354199999783,
+      "python_cpu_ms_median": 453.125,
+      "python_peak_private_mib_median": 28.359375,
+      "python_sampled_peak_working_set_mib_median": 70.62890625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "naranjatorrent",
+      "name": "NaranjaTorrent",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 12123.47039999986,
+      "rust_cpu_ms_median": 203.125,
+      "rust_peak_private_mib_median": 6.63671875,
+      "rust_sampled_peak_working_set_mib_median": 28.703125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status server error (523 <none>)",
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 7307.771000000685,
+      "python_cpu_ms_median": 546.875,
+      "python_peak_private_mib_median": 27.94921875,
+      "python_sampled_peak_working_set_mib_median": 70.41015625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>",
+        "TimeoutError: The read operation timed out"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "tomadivx",
+      "name": "TomaDivx",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 3141.550399999687,
+      "rust_cpu_ms_median": 125.0,
+      "rust_peak_private_mib_median": 6.67578125,
+      "rust_sampled_peak_working_set_mib_median": 28.6953125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status server error (523 <none>)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 3347.1783000004507,
+      "python_cpu_ms_median": 531.25,
+      "python_peak_private_mib_median": 27.87109375,
+      "python_sampled_peak_working_set_mib_median": 70.3828125,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>",
+        "TimeoutError: The read operation timed out"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "calidadtorrent",
+      "name": "CalidadTorrent",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 462.7960999996503,
+      "rust_cpu_ms_median": 140.625,
+      "rust_peak_private_mib_median": 5.8671875,
+      "rust_sampled_peak_working_set_mib_median": 24.71875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status client error (403 Forbidden)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 727.4823999996443,
+      "python_cpu_ms_median": 484.375,
+      "python_peak_private_mib_median": 26.8046875,
+      "python_sampled_peak_working_set_mib_median": 69.9609375,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "pediatorrent",
+      "name": "PediaTorrent",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 379.45639999998093,
+      "rust_cpu_ms_median": 187.5,
+      "rust_peak_private_mib_median": 5.82421875,
+      "rust_sampled_peak_working_set_mib_median": 24.7265625,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status client error (403 Forbidden)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 704.2342999993707,
+      "python_cpu_ms_median": 406.25,
+      "python_peak_private_mib_median": 26.71484375,
+      "python_sampled_peak_working_set_mib_median": 69.98828125,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "glotorrents",
+      "name": "GloTorrents",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 4633.475399999952,
+      "rust_cpu_ms_median": 156.25,
+      "rust_peak_private_mib_median": 6.171875,
+      "rust_sampled_peak_working_set_mib_median": 26.421875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 13078.526799999963,
+      "python_cpu_ms_median": 546.875,
+      "python_peak_private_mib_median": 26.7109375,
+      "python_sampled_peak_working_set_mib_median": 69.3203125,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "kickasstorrents",
+      "name": "Kickasstorrents",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 453.7187999994785,
+      "rust_cpu_ms_median": 140.625,
+      "rust_peak_private_mib_median": 5.734375,
+      "rust_sampled_peak_working_set_mib_median": 24.6875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status client error (403 Forbidden)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 712.5877999988006,
+      "python_cpu_ms_median": 296.875,
+      "python_peak_private_mib_median": 26.9296875,
+      "python_sampled_peak_working_set_mib_median": 69.9921875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "pirateiro",
+      "name": "Pirateiro",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 724.4712000001527,
+      "rust_cpu_ms_median": 156.25,
+      "rust_peak_private_mib_median": 7.99609375,
+      "rust_sampled_peak_working_set_mib_median": 29.33203125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 993.4018000003562,
+      "python_cpu_ms_median": 562.5,
+      "python_peak_private_mib_median": 26.69140625,
+      "python_sampled_peak_working_set_mib_median": 69.78125,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "rockbox",
+      "name": "RockBox",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 8107.920399999784,
+      "rust_cpu_ms_median": 78.125,
+      "rust_peak_private_mib_median": 6.0859375,
+      "rust_sampled_peak_working_set_mib_median": 25.98828125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 12271.348500000386,
+      "python_cpu_ms_median": 375.0,
+      "python_peak_private_mib_median": 26.4921875,
+      "python_sampled_peak_working_set_mib_median": 68.6015625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: timed out"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "torrentdownload",
+      "name": "TorrentDownload",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 627.8925999995408,
+      "rust_cpu_ms_median": 187.5,
+      "rust_peak_private_mib_median": 7.3203125,
+      "rust_sampled_peak_working_set_mib_median": 28.73046875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 908.6831000004167,
+      "python_cpu_ms_median": 500.0,
+      "python_peak_private_mib_median": 26.7890625,
+      "python_sampled_peak_working_set_mib_median": 69.98046875,
+      "python_unique_results_median": 20,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "yourbittorrent",
+      "name": "YourBittorrent",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 99.81649999826914,
+      "rust_cpu_ms_median": 93.75,
+      "rust_peak_private_mib_median": 4.97265625,
+      "rust_sampled_peak_working_set_mib_median": 20.5234375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 320.3516000003219,
+      "python_cpu_ms_median": 250.0,
+      "python_peak_private_mib_median": 24.61328125,
+      "python_sampled_peak_working_set_mib_median": 60.4921875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "magnetdl",
+      "name": "MagnetDL",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 12073.531000000003,
+      "rust_cpu_ms_median": 156.25,
+      "rust_peak_private_mib_median": 6.6875,
+      "rust_sampled_peak_working_set_mib_median": 28.88671875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 12603.114199999254,
+      "python_cpu_ms_median": 312.5,
+      "python_peak_private_mib_median": 26.84765625,
+      "python_sampled_peak_working_set_mib_median": 70.03515625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "TimeoutError: The read operation timed out; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\magnetdl.py:17: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  '<td\\sclass=\"m\"><a\\shref=\"(magnet.*?)\"\\stitle=\".*?class=\"n\"><a\\shref=\"(.*?)\"\\stitle=\"(.*?)\">.*?<td\\sclass=\"t.\">.*?</td><td>.*?</td><td>(.*?)</td><td\\sclass=\"s\">(.*?)</td><td\\sclass=\"l\">(.*?)</td>')",
+        "TimeoutError: The read operation timed out; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\magnetdl.py:17: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  '<td\\sclass=\"m\"><a\\shref=\"(magnet.*?)\"\\stitle=\".*?class=\"n\"><a\\shref=\"(.*?)\"\\stitle=\"(.*?)\">.*?<td\\sclass=\"t.\">.*?</td><td>.*?</td><td>(.*?)</td><td\\sclass=\"s\">(.*?)</td><td\\sclass=\"l\">(.*?)</td>')",
+        "TimeoutError: The read operation timed out; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\magnetdl.py:17: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  '<td\\sclass=\"m\"><a\\shref=\"(magnet.*?)\"\\stitle=\".*?class=\"n\"><a\\shref=\"(.*?)\"\\stitle=\"(.*?)\">.*?<td\\sclass=\"t.\">.*?</td><td>.*?</td><td>(.*?)</td><td\\sclass=\"s\">(.*?)</td><td\\sclass=\"l\">(.*?)</td>')"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "magnetdl_community_031",
+      "name": "MagnetDL w. categories",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 12162.41649999938,
+      "rust_cpu_ms_median": 203.125,
+      "rust_peak_private_mib_median": 6.64453125,
+      "rust_sampled_peak_working_set_mib_median": 28.71484375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 12645.09739999994,
+      "python_cpu_ms_median": 531.25,
+      "python_peak_private_mib_median": 26.89453125,
+      "python_sampled_peak_working_set_mib_median": 70.078125,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "TimeoutError: The read operation timed out"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "solidtorrents_community_053",
+      "name": "Solid Torrents",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 1035.5933999999252,
+      "rust_cpu_ms_median": 125.0,
+      "rust_peak_private_mib_median": 6.7734375,
+      "rust_sampled_peak_working_set_mib_median": 28.953125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status server error (500 Internal Server Error)",
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 2,
+        "failed": 1
+      },
+      "python_wall_ms_median": 1640.6364000004032,
+      "python_cpu_ms_median": 328.125,
+      "python_peak_private_mib_median": 27.76171875,
+      "python_sampled_peak_working_set_mib_median": 70.2109375,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Internal Server Error"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "nekobt",
+      "name": "NekoBT",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 678.2002999989345,
+      "rust_cpu_ms_median": 171.875,
+      "rust_peak_private_mib_median": 5.98828125,
+      "rust_sampled_peak_working_set_mib_median": 24.6796875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 1040.1925999995,
+      "python_cpu_ms_median": 562.5,
+      "python_peak_private_mib_median": 24.98046875,
+      "python_sampled_peak_working_set_mib_median": 62.18359375,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "tsukihime",
+      "name": "Tsukihime ",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 547.642900000028,
+      "rust_cpu_ms_median": 125.0,
+      "rust_peak_private_mib_median": 5.796875,
+      "rust_sampled_peak_working_set_mib_median": 24.73828125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 890.9080999983416,
+      "python_cpu_ms_median": 500.0,
+      "python_peak_private_mib_median": 27.0078125,
+      "python_sampled_peak_working_set_mib_median": 70.1796875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "yts",
+      "name": "YTS",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 550.8107000005111,
+      "rust_cpu_ms_median": 203.125,
+      "rust_peak_private_mib_median": 6.9921875,
+      "rust_sampled_peak_working_set_mib_median": 29.50390625,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 984.6795000012207,
+      "python_cpu_ms_median": 546.875,
+      "python_peak_private_mib_median": 25.76171875,
+      "python_sampled_peak_working_set_mib_median": 66.12890625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "yggtracker",
+      "name": "YGGtracker",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 508.2173000000694,
+      "rust_cpu_ms_median": 140.625,
+      "rust_peak_private_mib_median": 6.3203125,
+      "rust_sampled_peak_working_set_mib_median": 25.296875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 757.0395000002463,
+      "python_cpu_ms_median": 468.75,
+      "python_peak_private_mib_median": 26.8125,
+      "python_sampled_peak_working_set_mib_median": 69.65625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10051] A socket operation was attempted to an unreachable network"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "goggames",
+      "name": "GOG-Games",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 662.1866999994381,
+      "rust_cpu_ms_median": 78.125,
+      "rust_peak_private_mib_median": 5.74609375,
+      "rust_sampled_peak_working_set_mib_median": 24.69921875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status client error (404 Not Found)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 821.6586999988067,
+      "python_cpu_ms_median": 375.0,
+      "python_peak_private_mib_median": 26.73828125,
+      "python_sampled_peak_working_set_mib_median": 69.8671875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "snowfl",
+      "name": "Snowfl",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 5607.687499999884,
+      "rust_cpu_ms_median": 218.75,
+      "rust_peak_private_mib_median": 7.5625,
+      "rust_sampled_peak_working_set_mib_median": 29.83984375,
+      "rust_unique_results_median": 6,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 6076.281100000415,
+      "python_cpu_ms_median": 671.875,
+      "python_peak_private_mib_median": 27.1328125,
+      "python_sampled_peak_working_set_mib_median": 70.25,
+      "python_unique_results_median": 6,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 2,
+      "python_over_rust_wall_ratio": 1.0678944328151427,
+      "python_over_rust_cpu_ratio": 2.869047619047619,
+      "rust_private_memory_reduction_pct": 71.73867655884328
+    },
+    {
+      "source": "snowfl_community_052",
+      "name": "Snowfl",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 5661.835600001723,
+      "rust_cpu_ms_median": 187.5,
+      "rust_peak_private_mib_median": 8.375,
+      "rust_sampled_peak_working_set_mib_median": 29.87109375,
+      "rust_unique_results_median": 6,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 5973.239000000831,
+      "python_cpu_ms_median": 687.5,
+      "python_peak_private_mib_median": 27.26953125,
+      "python_sampled_peak_working_set_mib_median": 70.2421875,
+      "python_unique_results_median": 6,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 3,
+      "python_over_rust_wall_ratio": 1.0484431934852183,
+      "python_over_rust_cpu_ratio": 2.857142857142857,
+      "rust_private_memory_reduction_pct": 69.23076923076923
+    },
+    {
+      "source": "btdig",
+      "name": "btdig",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 665.7804000005854,
+      "rust_cpu_ms_median": 125.0,
+      "rust_peak_private_mib_median": 5.625,
+      "rust_sampled_peak_working_set_mib_median": 24.82421875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status client error (429 Too Many Requests)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 1021.1216000006971,
+      "python_cpu_ms_median": 562.5,
+      "python_peak_private_mib_median": 26.765625,
+      "python_sampled_peak_working_set_mib_median": 69.7109375,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "anidex",
+      "name": "AniDex",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 291.09059999973397,
+      "rust_cpu_ms_median": 109.375,
+      "rust_peak_private_mib_median": 5.15234375,
+      "rust_sampled_peak_working_set_mib_median": 22.3984375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 650.9968999998819,
+      "python_cpu_ms_median": 546.875,
+      "python_peak_private_mib_median": 26.796875,
+      "python_sampled_peak_working_set_mib_median": 68.94140625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "dmhy",
+      "name": "DMHY",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 178.94579999847338,
+      "rust_cpu_ms_median": 62.5,
+      "rust_peak_private_mib_median": 5.12109375,
+      "rust_sampled_peak_working_set_mib_median": 22.3203125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 440.42369999988296,
+      "python_cpu_ms_median": 281.25,
+      "python_peak_private_mib_median": 28.03125,
+      "python_sampled_peak_working_set_mib_median": 70.61328125,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "dmhy_community_018",
+      "name": "dmhy",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 1448.1622999992396,
+      "rust_cpu_ms_median": 187.5,
+      "rust_peak_private_mib_median": 7.12109375,
+      "rust_sampled_peak_working_set_mib_median": 28.8046875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 1714.5513000014034,
+      "python_cpu_ms_median": 609.375,
+      "python_peak_private_mib_median": 26.89453125,
+      "python_sampled_peak_working_set_mib_median": 69.94140625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "mikanani",
+      "name": "mikanani",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 722.3933000004763,
+      "rust_cpu_ms_median": 156.25,
+      "rust_peak_private_mib_median": 6.0234375,
+      "rust_sampled_peak_working_set_mib_median": 25.359375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 1499.703400000726,
+      "python_cpu_ms_median": 734.375,
+      "python_peak_private_mib_median": 36.0703125,
+      "python_sampled_peak_working_set_mib_median": 76.765625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "nyaapantsu",
+      "name": "Nyaa.pantsu",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 710.3926999998293,
+      "rust_cpu_ms_median": 46.875,
+      "rust_peak_private_mib_median": 6.1640625,
+      "rust_sampled_peak_working_set_mib_median": 26.37109375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 971.4874999999665,
+      "python_cpu_ms_median": 265.625,
+      "python_peak_private_mib_median": 26.609375,
+      "python_sampled_peak_working_set_mib_median": 69.26953125,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "nyaa",
+      "name": "Sukebei Nyaa",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 182.4584000005416,
+      "rust_cpu_ms_median": 62.5,
+      "rust_peak_private_mib_median": 5.140625,
+      "rust_sampled_peak_working_set_mib_median": 22.09375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 830.0996999996642,
+      "python_cpu_ms_median": 453.125,
+      "python_peak_private_mib_median": 35.58984375,
+      "python_sampled_peak_working_set_mib_median": 71.38671875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\nyaa.py:32: SyntaxWarning: \"\\d\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\d\"? A raw string is also an option.\r\n  PATTERN = 'Displaying results 1-(\\d+) out of (\\d+) results'\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host",
+        "RuntimeError: Source returned an empty HTTP response or the request failed; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\nyaa.py:32: SyntaxWarning: \"\\d\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\d\"? A raw string is also an option.\r\n  PATTERN = 'Displaying results 1-(\\d+) out of (\\d+) results'\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host",
+        "RuntimeError: Source returned an empty HTTP response or the request failed; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\nyaa.py:32: SyntaxWarning: \"\\d\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\d\"? A raw string is also an option.\r\n  PATTERN = 'Displaying results 1-(\\d+) out of (\\d+) results'\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "torrentgalaxy",
+      "name": "TorrentGalaxy",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 90.17800000037823,
+      "rust_cpu_ms_median": 78.125,
+      "rust_peak_private_mib_median": 4.953125,
+      "rust_sampled_peak_working_set_mib_median": 15.703125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 369.79950000022654,
+      "python_cpu_ms_median": 265.625,
+      "python_peak_private_mib_median": 24.46484375,
+      "python_sampled_peak_working_set_mib_median": 60.5078125,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "pantsu",
+      "name": "pantsu",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 522.7189999986877,
+      "rust_cpu_ms_median": 109.375,
+      "rust_peak_private_mib_median": 6.64453125,
+      "rust_sampled_peak_working_set_mib_median": 28.59375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status client error (404 Not Found)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 910.0953999986814,
+      "python_cpu_ms_median": 500.0,
+      "python_peak_private_mib_median": 24.921875,
+      "python_sampled_peak_working_set_mib_median": 62.078125,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Not Found"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "sukebei",
+      "name": "sukebei",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 157.084999998915,
+      "rust_cpu_ms_median": 62.5,
+      "rust_peak_private_mib_median": 5.08984375,
+      "rust_sampled_peak_working_set_mib_median": 22.328125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 438.4213000012096,
+      "python_cpu_ms_median": 281.25,
+      "python_peak_private_mib_median": 24.8515625,
+      "python_sampled_peak_working_set_mib_median": 61.26953125,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "uindex",
+      "name": "Uindex",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 412.49900000002526,
+      "rust_cpu_ms_median": 93.75,
+      "rust_peak_private_mib_median": 5.81640625,
+      "rust_sampled_peak_working_set_mib_median": 25.13671875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status client error (403 Forbidden)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 541.2881000011112,
+      "python_cpu_ms_median": 296.875,
+      "python_peak_private_mib_median": 24.6875,
+      "python_sampled_peak_working_set_mib_median": 61.984375,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "uniondht",
+      "name": "UnionDHT",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 523.3917000005022,
+      "rust_cpu_ms_median": 93.75,
+      "rust_peak_private_mib_median": 6.5390625,
+      "rust_sampled_peak_working_set_mib_median": 26.1953125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 2278.197600000567,
+      "python_cpu_ms_median": 312.5,
+      "python_peak_private_mib_median": 26.81640625,
+      "python_sampled_peak_working_set_mib_median": 69.06640625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "dodi_repacks",
+      "name": "DODI Repacks",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 502.90230000064184,
+      "rust_cpu_ms_median": 93.75,
+      "rust_peak_private_mib_median": 5.734375,
+      "rust_sampled_peak_working_set_mib_median": 24.67578125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status client error (403 Forbidden)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 752.8444999989006,
+      "python_cpu_ms_median": 296.875,
+      "python_peak_private_mib_median": 26.82421875,
+      "python_sampled_peak_working_set_mib_median": 69.89453125,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "onlinefix",
+      "name": "Online-Fix",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 437.3840999996901,
+      "rust_cpu_ms_median": 218.75,
+      "rust_peak_private_mib_median": 6.69140625,
+      "rust_sampled_peak_working_set_mib_median": 28.64453125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status client error (403 Forbidden)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 776.9555000013497,
+      "python_cpu_ms_median": 453.125,
+      "python_peak_private_mib_median": 25.0390625,
+      "python_sampled_peak_working_set_mib_median": 62.04296875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "apachetorrent",
+      "name": "ApacheTorrent",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 907.8424999988783,
+      "rust_cpu_ms_median": 93.75,
+      "rust_peak_private_mib_median": 7.1875,
+      "rust_sampled_peak_working_set_mib_median": 29.0,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 1334.203800000978,
+      "python_cpu_ms_median": 531.25,
+      "python_peak_private_mib_median": 27.06640625,
+      "python_sampled_peak_working_set_mib_median": 70.33203125,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "redetorrent",
+      "name": "RedeTorrent",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 1059.3683000006422,
+      "rust_cpu_ms_median": 171.875,
+      "rust_peak_private_mib_median": 7.53125,
+      "rust_sampled_peak_working_set_mib_median": 28.953125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 1062.212400000135,
+      "python_cpu_ms_median": 531.25,
+      "python_peak_private_mib_median": 27.0078125,
+      "python_sampled_peak_working_set_mib_median": 70.1015625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "smallgames",
+      "name": "small-games.info",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 1010.5880000010075,
+      "rust_cpu_ms_median": 125.0,
+      "rust_peak_private_mib_median": 7.1875,
+      "rust_sampled_peak_working_set_mib_median": 28.6640625,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 800.3802000002906,
+      "python_cpu_ms_median": 515.625,
+      "python_peak_private_mib_median": 24.5625,
+      "python_sampled_peak_working_set_mib_median": 60.96875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "HTTPError: HTTP Error 403: Forbidden; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\smallgames.py:52: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  match = re.compile('<a title=\\\"(.*?)\\\"\\shref=\\\"/.*?i=(\\d*).*?Скачать\\sигру\\s\\((.{2,11})\\)')",
+        "HTTPError: HTTP Error 403: Forbidden; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\smallgames.py:52: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  match = re.compile('<a title=\\\"(.*?)\\\"\\shref=\\\"/.*?i=(\\d*).*?Скачать\\sигру\\s\\((.{2,11})\\)')",
+        "HTTPError: HTTP Error 403: Forbidden; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\smallgames.py:52: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  match = re.compile('<a title=\\\"(.*?)\\\"\\shref=\\\"/.*?i=(\\d*).*?Скачать\\sигру\\s\\((.{2,11})\\)')"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "torrenflix",
+      "name": "Torrentflix",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 1275.8794000001217,
+      "rust_cpu_ms_median": 250.0,
+      "rust_peak_private_mib_median": 6.88671875,
+      "rust_sampled_peak_working_set_mib_median": 28.8984375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 1845.59740000077,
+      "python_cpu_ms_median": 593.75,
+      "python_peak_private_mib_median": 26.86328125,
+      "python_sampled_peak_working_set_mib_median": 70.24609375,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "bitsearch",
+      "name": "Bit Search",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 863.2907000010164,
+      "rust_cpu_ms_median": 171.875,
+      "rust_peak_private_mib_median": 6.609375,
+      "rust_sampled_peak_working_set_mib_median": 28.63671875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status server error (500 Internal Server Error)",
+        "HTTP status server error (504 Gateway Timeout)",
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "timed_out": 2,
+        "failed": 1
+      },
+      "python_wall_ms_median": 20090.380800000275,
+      "python_cpu_ms_median": 656.25,
+      "python_peak_private_mib_median": 29.55859375,
+      "python_sampled_peak_working_set_mib_median": 71.28125,
+      "python_unique_results_median": 20,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "Source deadline exceeded; Connection error: <none>",
+        "Worker exceeded the result limit; Connection error: <none>\r\nConnection error: <none>"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "therarbg",
+      "name": "The RarBg",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 235.14609999983804,
+      "rust_cpu_ms_median": 93.75,
+      "rust_peak_private_mib_median": 5.1171875,
+      "rust_sampled_peak_working_set_mib_median": 21.96484375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "timed_out": 3
+      },
+      "python_wall_ms_median": 20152.456800000436,
+      "python_cpu_ms_median": 890.625,
+      "python_peak_private_mib_median": 27.83203125,
+      "python_sampled_peak_working_set_mib_median": 69.8671875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "Source deadline exceeded; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-1 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-2 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-3 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-4 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-5 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-6 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-7 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-8 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-9 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-10 (threaded_search):",
+        "Source deadline exceeded; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-1 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-2 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-3 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-4 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-5 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-6 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-7 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-8 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-9 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-10 (threaded_search):",
+        "Source deadline exceeded; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-1 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-2 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-3 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-4 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-5 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-6 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-7 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-8 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-9 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\therarbg.py\", line 166, in threaded_search\r\n    retrievedHtml = retrieve_url(page_url)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [WinError 10054] An existing connection was forcibly closed by the remote host\r\nException in thread Thread-10 (threaded_search):"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "torrentdownloads",
+      "name": "Torrent Downloads",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 6410.838600000716,
+      "rust_cpu_ms_median": 281.25,
+      "rust_peak_private_mib_median": 8.328125,
+      "rust_sampled_peak_working_set_mib_median": 31.0390625,
+      "rust_unique_results_median": 20,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 13599.00319999906,
+      "python_cpu_ms_median": 1156.25,
+      "python_peak_private_mib_median": 27.40234375,
+      "python_sampled_peak_working_set_mib_median": 71.05859375,
+      "python_unique_results_median": 20,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 3,
+      "python_over_rust_wall_ratio": 2.1460073413791516,
+      "python_over_rust_cpu_ratio": 4.111111111111111,
+      "rust_private_memory_reduction_pct": 69.45996275605214
+    },
+    {
+      "source": "traht",
+      "name": "Traht",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 83.63470000040252,
+      "rust_cpu_ms_median": 62.5,
+      "rust_peak_private_mib_median": 4.93359375,
+      "rust_sampled_peak_working_set_mib_median": 16.1484375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 284.22069999942323,
+      "python_cpu_ms_median": 250.0,
+      "python_peak_private_mib_median": 24.734375,
+      "python_sampled_peak_working_set_mib_median": 58.3046875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "xxxclubto",
+      "name": "XXXClub",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 145.20639999864215,
+      "rust_cpu_ms_median": 125.0,
+      "rust_peak_private_mib_median": 4.94921875,
+      "rust_sampled_peak_working_set_mib_median": 20.828125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "timed_out": 3
+      },
+      "python_wall_ms_median": 20140.49309999973,
+      "python_cpu_ms_median": 921.875,
+      "python_peak_private_mib_median": 26.8125,
+      "python_sampled_peak_working_set_mib_median": 68.90625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "Source deadline exceeded; Connection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-1 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-2 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-3 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-4 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-5 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-6 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-7 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-8 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-9 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-10 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\xxxclubto.py\",",
+        "Source deadline exceeded; Connection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-1 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-2 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-3 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-4 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-5 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-6 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-7 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-8 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-9 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-10 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\xxxclubto.py\",",
+        "Source deadline exceeded; Connection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-1 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-2 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-3 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-4 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-5 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-6 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-7 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-8 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-9 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\xxxclubto.py\", line 172, in threaded_search\r\n    retrieved_html = retrieve_url(page_url, self.headers)\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit_worker.py\", line 80, in retrieve_url\r\n    raise RuntimeError(\"Source returned an empty HTTP response or the request failed\")\r\nRuntimeError: Source returned an empty HTTP response or the request failed\r\nConnection error: [Errno 11001] getaddrinfo failed\r\nException in thread Thread-10 (threaded_search):\r\nTraceback (most recent call last):\r\n  File \"threading.py\", line 1082, in _bootstrap_inner\r\n  File \"threading.py\", line 1024, in run\r\n  File \"\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\xxxclubto.py\","
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "bt4gprx",
+      "name": "bt4gprx",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 459.7412000002805,
+      "rust_cpu_ms_median": 78.125,
+      "rust_peak_private_mib_median": 5.73828125,
+      "rust_sampled_peak_working_set_mib_median": 24.828125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status client error (403 Forbidden)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 917.0949999997902,
+      "python_cpu_ms_median": 312.5,
+      "python_peak_private_mib_median": 26.72265625,
+      "python_sampled_peak_working_set_mib_median": 70.0703125,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "linuxtracker",
+      "name": "Linux Tracker",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 783.0575999996654,
+      "rust_cpu_ms_median": 125.0,
+      "rust_peak_private_mib_median": 7.64453125,
+      "rust_sampled_peak_working_set_mib_median": 25.99609375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 1323.2951999998477,
+      "python_cpu_ms_median": 375.0,
+      "python_peak_private_mib_median": 26.78515625,
+      "python_sampled_peak_working_set_mib_median": 70.25,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "sktorrent",
+      "name": "SkTorrent",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 1595.4999000005046,
+      "rust_cpu_ms_median": 187.5,
+      "rust_peak_private_mib_median": 6.79296875,
+      "rust_sampled_peak_working_set_mib_median": 28.8125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 2095.3847999990103,
+      "python_cpu_ms_median": 296.875,
+      "python_peak_private_mib_median": 26.88671875,
+      "python_sampled_peak_working_set_mib_median": 69.94140625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "tokyotoshokan",
+      "name": "Tokyo Toshokan",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 84.91810000032274,
+      "rust_cpu_ms_median": 62.5,
+      "rust_peak_private_mib_median": 4.99609375,
+      "rust_sampled_peak_working_set_mib_median": 21.51171875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 277.8661000002103,
+      "python_cpu_ms_median": 250.0,
+      "python_peak_private_mib_median": 25.69921875,
+      "python_sampled_peak_working_set_mib_median": 63.2890625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\tokyotoshokan.py:39: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  self.get_size_regex = re_compile(\".*Size:\\s+([^ ]*)\\s+.*\")\r\n\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\tokyotoshokan.py:102: SyntaxWarning: \"\\?\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\?\"? A raw string is also an option.\r\n  additional_links = re_compile(\"\\?lastid=[0-9]+&page=[0-9]+&terms={}\".format(query.replace('%20', '\\\\+')))\r\nConnection error: [Errno 11001] getaddrinfo failed",
+        "RuntimeError: Source returned an empty HTTP response or the request failed; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\tokyotoshokan.py:39: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  self.get_size_regex = re_compile(\".*Size:\\s+([^ ]*)\\s+.*\")\r\n\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\tokyotoshokan.py:102: SyntaxWarning: \"\\?\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\?\"? A raw string is also an option.\r\n  additional_links = re_compile(\"\\?lastid=[0-9]+&page=[0-9]+&terms={}\".format(query.replace('%20', '\\\\+')))\r\nConnection error: [Errno 11001] getaddrinfo failed",
+        "RuntimeError: Source returned an empty HTTP response or the request failed; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\tokyotoshokan.py:39: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  self.get_size_regex = re_compile(\".*Size:\\s+([^ ]*)\\s+.*\")\r\n\\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\tokyotoshokan.py:102: SyntaxWarning: \"\\?\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\?\"? A raw string is also an option.\r\n  additional_links = re_compile(\"\\?lastid=[0-9]+&page=[0-9]+&terms={}\".format(query.replace('%20', '\\\\+')))\r\nConnection error: [Errno 11001] getaddrinfo failed"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "academictorrents",
+      "name": "AcademicTorrents",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 2248.02869999985,
+      "rust_cpu_ms_median": 218.75,
+      "rust_peak_private_mib_median": 19.09375,
+      "rust_sampled_peak_working_set_mib_median": 34.34765625,
+      "rust_unique_results_median": 20,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "timed_out": 3
+      },
+      "python_wall_ms_median": 20113.034800000605,
+      "python_cpu_ms_median": 7250.0,
+      "python_peak_private_mib_median": 61.94140625,
+      "python_sampled_peak_working_set_mib_median": 88.85546875,
+      "python_unique_results_median": 20,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "Source deadline exceeded"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "audiobookbay",
+      "name": "AudioBook Bay (ABB)",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "timed_out": 3
+      },
+      "rust_wall_ms_median": 20163.606000000073,
+      "rust_cpu_ms_median": 187.5,
+      "rust_peak_private_mib_median": 6.14453125,
+      "rust_sampled_peak_working_set_mib_median": 26.14453125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "Source deadline exceeded"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 12503.555999999662,
+      "python_cpu_ms_median": 593.75,
+      "python_peak_private_mib_median": 26.70703125,
+      "python_sampled_peak_working_set_mib_median": 68.859375,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: timed out"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "cpasbien",
+      "name": "Cpasbien (french)",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 969.7360000009212,
+      "rust_cpu_ms_median": 156.25,
+      "rust_peak_private_mib_median": 7.41796875,
+      "rust_sampled_peak_working_set_mib_median": 29.6484375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "Source returned an empty HTTP response",
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 1036.7567000002964,
+      "python_cpu_ms_median": 296.875,
+      "python_peak_private_mib_median": 26.7734375,
+      "python_sampled_peak_working_set_mib_median": 69.96875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RemoteDisconnected: Remote end closed connection without response",
+        "RuntimeError: Source returned an empty HTTP response or the request failed"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "darklibria",
+      "name": "dark-libria",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 892.9306999998516,
+      "rust_cpu_ms_median": 78.125,
+      "rust_peak_private_mib_median": 6.1328125,
+      "rust_sampled_peak_working_set_mib_median": 26.30859375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 1008.5885000007693,
+      "python_cpu_ms_median": 281.25,
+      "python_peak_private_mib_median": 27.75390625,
+      "python_sampled_peak_working_set_mib_median": 69.73046875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "Invalid torrent reference URL; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\darklibria.py:32: SyntaxWarning: \"\\d\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\d\"? A raw string is also an option.\r\n  dt_regex = re_compile('\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}')\r\nConnection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)",
+        "Invalid torrent reference URL; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\01-python\\resources\\qbit\\engines\\darklibria.py:32: SyntaxWarning: \"\\d\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\d\"? A raw string is also an option.\r\n  dt_regex = re_compile('\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}')\r\nConnection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)",
+        "Invalid torrent reference URL; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\02-python\\resources\\qbit\\engines\\darklibria.py:32: SyntaxWarning: \"\\d\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\d\"? A raw string is also an option.\r\n  dt_regex = re_compile('\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}')\r\nConnection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "dontorrent_community_020",
+      "name": "DonTorrent",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 6208.285000000615,
+      "rust_cpu_ms_median": 156.25,
+      "rust_peak_private_mib_median": 6.59765625,
+      "rust_sampled_peak_working_set_mib_median": 28.671875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status server error (523 <none>)",
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 7589.602600000035,
+      "python_cpu_ms_median": 578.125,
+      "python_peak_private_mib_median": 26.81640625,
+      "python_sampled_peak_working_set_mib_median": 70.0390625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>",
+        "TimeoutError: The read operation timed out"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "elitetorrent",
+      "name": "Elitetorrent",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 813.3606999999756,
+      "rust_cpu_ms_median": 203.125,
+      "rust_peak_private_mib_median": 6.77734375,
+      "rust_sampled_peak_working_set_mib_median": 28.62890625,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 1082.6223000003665,
+      "python_cpu_ms_median": 406.25,
+      "python_peak_private_mib_median": 26.8046875,
+      "python_sampled_peak_working_set_mib_median": 70.0390625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "eztvx",
+      "name": "EZTVX",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 411.40290000112145,
+      "rust_cpu_ms_median": 93.75,
+      "rust_peak_private_mib_median": 6.1640625,
+      "rust_sampled_peak_working_set_mib_median": 23.4453125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 918.3274999995774,
+      "python_cpu_ms_median": 453.125,
+      "python_peak_private_mib_median": 25.01953125,
+      "python_sampled_peak_working_set_mib_median": 61.1484375,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "maxitorrent",
+      "name": "MaxiTorrent",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 861.2803999985772,
+      "rust_cpu_ms_median": 187.5,
+      "rust_peak_private_mib_median": 7.0703125,
+      "rust_sampled_peak_working_set_mib_median": 29.33984375,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "expected value at line 1 column 1"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 1080.6458999995812,
+      "python_cpu_ms_median": 515.625,
+      "python_peak_private_mib_median": 26.515625,
+      "python_sampled_peak_working_set_mib_median": 67.1875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "mejortorrent",
+      "name": "MejorTorrent",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 352.09089999989374,
+      "rust_cpu_ms_median": 78.125,
+      "rust_peak_private_mib_median": 5.66015625,
+      "rust_sampled_peak_working_set_mib_median": 24.625,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status client error (403 Forbidden)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 608.1848999983777,
+      "python_cpu_ms_median": 296.875,
+      "python_peak_private_mib_median": 26.796875,
+      "python_sampled_peak_working_set_mib_median": 70.109375,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "pediatorrent_community_043",
+      "name": "PediaTorrent",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 377.2486999996545,
+      "rust_cpu_ms_median": 78.125,
+      "rust_peak_private_mib_median": 6.7578125,
+      "rust_sampled_peak_working_set_mib_median": 28.63671875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "HTTP status client error (403 Forbidden)"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 594.6415999997043,
+      "python_cpu_ms_median": 281.25,
+      "python_peak_private_mib_median": 24.671875,
+      "python_sampled_peak_working_set_mib_median": 61.9453125,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "thepiratebay_community_059",
+      "name": "The Pirate Bay w. categories",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 488.19970000113244,
+      "rust_cpu_ms_median": 140.625,
+      "rust_peak_private_mib_median": 6.64453125,
+      "rust_sampled_peak_working_set_mib_median": 28.59765625,
+      "rust_unique_results_median": 3,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 932.964699999502,
+      "python_cpu_ms_median": 578.125,
+      "python_peak_private_mib_median": 26.875,
+      "python_sampled_peak_working_set_mib_median": 70.01953125,
+      "python_unique_results_median": 3,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 3,
+      "python_over_rust_wall_ratio": 1.9110308752695626,
+      "python_over_rust_cpu_ratio": 2.5714285714285716,
+      "rust_private_memory_reduction_pct": 75.27616279069768
+    },
+    {
+      "source": "torrent9",
+      "name": "Torrent9 (french)",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 1964.9542999995901,
+      "rust_cpu_ms_median": 281.25,
+      "rust_peak_private_mib_median": 7.625,
+      "rust_sampled_peak_working_set_mib_median": 30.1171875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 2108.183000000281,
+      "python_cpu_ms_median": 578.125,
+      "python_peak_private_mib_median": 26.88671875,
+      "python_sampled_peak_working_set_mib_median": 70.16015625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "torrentdownload_community_066",
+      "name": "TorrentDownload w. categories",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 576.7517000003863,
+      "rust_cpu_ms_median": 203.125,
+      "rust_peak_private_mib_median": 8.07421875,
+      "rust_sampled_peak_working_set_mib_median": 28.6953125,
+      "rust_unique_results_median": 19,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 976.4383000001544,
+      "python_cpu_ms_median": 593.75,
+      "python_peak_private_mib_median": 26.94921875,
+      "python_sampled_peak_working_set_mib_median": 70.0546875,
+      "python_unique_results_median": 20,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "zooqle",
+      "name": "Zooqle",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 707.9446999996435,
+      "rust_cpu_ms_median": 140.625,
+      "rust_peak_private_mib_median": 7.38671875,
+      "rust_sampled_peak_working_set_mib_median": 29.55078125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 1197.146800000155,
+      "python_cpu_ms_median": 343.75,
+      "python_peak_private_mib_median": 27.765625,
+      "python_sampled_peak_working_set_mib_median": 70.15625,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "ali213",
+      "name": "ali213",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 4826.108100000056,
+      "rust_cpu_ms_median": 218.75,
+      "rust_peak_private_mib_median": 9.26953125,
+      "rust_sampled_peak_working_set_mib_median": 31.35546875,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 6478.376900000512,
+      "python_cpu_ms_median": 437.5,
+      "python_peak_private_mib_median": 28.45703125,
+      "python_sampled_peak_working_set_mib_median": 70.8671875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "fitgirl_repacks",
+      "name": "FitGirl Repacks",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 1943.3681000009528,
+      "rust_cpu_ms_median": 171.875,
+      "rust_peak_private_mib_median": 8.88671875,
+      "rust_sampled_peak_working_set_mib_median": 31.93359375,
+      "rust_unique_results_median": 1,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 3518.866500000513,
+      "python_cpu_ms_median": 390.625,
+      "python_peak_private_mib_median": 29.44140625,
+      "python_sampled_peak_working_set_mib_median": 72.0234375,
+      "python_unique_results_median": 1,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 3,
+      "python_over_rust_wall_ratio": 1.7866832040615328,
+      "python_over_rust_cpu_ratio": 3.2777777777777777,
+      "rust_private_memory_reduction_pct": 69.84043254648556
+    },
+    {
+      "source": "mypornclub",
+      "name": "MyPorn Club",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "failed": 3
+      },
+      "rust_wall_ms_median": 199.04239999959827,
+      "rust_cpu_ms_median": 140.625,
+      "rust_peak_private_mib_median": 5.15234375,
+      "rust_sampled_peak_working_set_mib_median": 22.1328125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [
+        "error sending request"
+      ],
+      "python_trials": 3,
+      "python_statuses": {
+        "failed": 3
+      },
+      "python_wall_ms_median": 561.2803999993048,
+      "python_cpu_ms_median": 281.25,
+      "python_peak_private_mib_median": 24.5859375,
+      "python_sampled_peak_working_set_mib_median": 61.15234375,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [
+        "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10054] An existing connection was forcibly closed by the remote host"
+      ],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    },
+    {
+      "source": "rutor",
+      "name": "Rutor",
+      "rust_trials": 3,
+      "rust_statuses": {
+        "completed": 3
+      },
+      "rust_wall_ms_median": 550.6426000010833,
+      "rust_cpu_ms_median": 187.5,
+      "rust_peak_private_mib_median": 6.34765625,
+      "rust_sampled_peak_working_set_mib_median": 25.55078125,
+      "rust_unique_results_median": 0,
+      "rust_process_count_median": 2,
+      "rust_errors": [],
+      "python_trials": 3,
+      "python_statuses": {
+        "completed": 3
+      },
+      "python_wall_ms_median": 967.3782000008941,
+      "python_cpu_ms_median": 625.0,
+      "python_peak_private_mib_median": 26.71484375,
+      "python_sampled_peak_working_set_mib_median": 70.23046875,
+      "python_unique_results_median": 0,
+      "python_process_count_median": 4,
+      "python_errors": [],
+      "comparable_trials": 0,
+      "python_over_rust_wall_ratio": null,
+      "python_over_rust_cpu_ratio": null,
+      "rust_private_memory_reduction_pct": null
+    }
+  ]
+}

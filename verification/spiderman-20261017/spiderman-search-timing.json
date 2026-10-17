@@ -1,0 +1,31 @@
+{
+  "wall_ms": 3420,
+  "request_ms": 2873,
+  "exit_code": 0,
+  "sources": [
+    {
+      "source_id": "limetorrents",
+      "status": "completed",
+      "elapsed_ms": 2806,
+      "result_count": 100,
+      "limited": true,
+      "error": null
+    },
+    {
+      "source_id": "torrentscsv",
+      "status": "completed",
+      "elapsed_ms": 324,
+      "result_count": 25,
+      "limited": false,
+      "error": null
+    }
+  ],
+  "summary": {
+    "total": 125,
+    "eligible": 113,
+    "uncertain": 3,
+    "excluded": 9
+  },
+  "backend": "rust",
+  "observed_at_utc": "2026-10-17T15:19:51.0379165Z"
+}

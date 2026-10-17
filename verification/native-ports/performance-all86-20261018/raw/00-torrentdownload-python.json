@@ -1,0 +1,458 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": false,
+  "sources": [
+    {
+      "source_id": "torrentdownload",
+      "status": "completed",
+      "elapsed_ms": 933,
+      "result_count": 20,
+      "limited": true,
+      "error": null
+    }
+  ],
+  "results": [
+    {
+      "title": "Nirvana in Fire â…¡ EP01 50 2017 4k&1080p WEB DL x264 AAC HQC",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:fd9cd3acca4f2f85bece5f15dd9fc854e0275576&dn=Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP01-50-2017-4k+amp+1080p-WEB-DL-x264-AAC-HQC&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "fd9cd3acca4f2f85bece5f15dd9fc854e0275576"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "Nirvana in Fire â…¡ EP01 50 2017 4k&1080p WEB DL x264 AAC HQC",
+          "raw_title": "Nirvana in Fire â…¡ EP01 50 2017 4k&1080p WEB DL x264 AAC HQC",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/FD9CD3ACCA4F2F85BECE5F15DD9FC854E0275576/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP01-50-2017-4k+amp+1080p-WEB-DL-x264-AAC-HQC",
+          "size_bytes": 132016557261,
+          "seeders": 19,
+          "leechers": 130,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire [2015] Chinese Audio (1080p x264 AVC)",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:ebcc79737cd85b794a52a4e06a54f3c33895e0d9&dn=Nirvana-in-Fire-+2015+-Chinese-Audio-+1080p-x264-AVC+&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "ebcc79737cd85b794a52a4e06a54f3c33895e0d9"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "Nirvana in Fire [2015] Chinese Audio (1080p x264 AVC)",
+          "raw_title": "Nirvana in Fire [2015] Chinese Audio (1080p x264 AVC)",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/EBCC79737CD85B794A52A4E06A54F3C33895E0D9/Nirvana-in-Fire-+2015+-Chinese-Audio-+1080p-x264-AVC+",
+          "size_bytes": 56725780562,
+          "seeders": 7,
+          "leechers": 7,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire [2015] English Audio (1080p x264 AVC)",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:229d17570b6b28d211f79f8deba4d5dc5158db92&dn=Nirvana-in-Fire-+2015+-English-Audio-+1080p-x264-AVC+&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "229d17570b6b28d211f79f8deba4d5dc5158db92"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "Nirvana in Fire [2015] English Audio (1080p x264 AVC)",
+          "raw_title": "Nirvana in Fire [2015] English Audio (1080p x264 AVC)",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/229D17570B6B28D211F79F8DEBA4D5DC5158DB92/Nirvana-in-Fire-+2015+-English-Audio-+1080p-x264-AVC+",
+          "size_bytes": 46342697124,
+          "seeders": 4,
+          "leechers": 16,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "Nirvana_in_Fire_2",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:93d9df790e212c11c97b880af67eedfe05a51f1b&dn=Nirvana+in+Fire+2&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "93d9df790e212c11c97b880af67eedfe05a51f1b"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "Nirvana_in_Fire_2",
+          "raw_title": "Nirvana_in_Fire_2",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/93D9DF790E212C11C97B880AF67EEDFE05A51F1B/Nirvana+in+Fire+2",
+          "size_bytes": 4756676280,
+          "seeders": 2,
+          "leechers": 3,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "[HDPT ORG] Nirvana in Fire Complete 2015 1080p WEB DL H264 AAC BYRHD",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:fe8959687a9a12c133980b70984760c6f11e2390&dn=+HDPT-ORG+-Nirvana-in-Fire-Complete-2015-1080p-WEB-DL-H264-AAC-BYRHD&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "fe8959687a9a12c133980b70984760c6f11e2390"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "[HDPT ORG] Nirvana in Fire Complete 2015 1080p WEB DL H264 AAC BYRHD",
+          "raw_title": "[HDPT ORG] Nirvana in Fire Complete 2015 1080p WEB DL H264 AAC BYRHD",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/FE8959687A9A12C133980B70984760C6F11E2390/+HDPT-ORG+-Nirvana-in-Fire-Complete-2015-1080p-WEB-DL-H264-AAC-BYRHD",
+          "size_bytes": 93114890977,
+          "seeders": 2,
+          "leechers": 2,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "Nirvana In Fire â…¡ 2017 E47 E48 WEB DL 1080P H264 AAC VAM",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:36e787888de74f1e6b9e459840d08ee6602756c8&dn=Nirvana-In-Fire-%C3%A2%E2%80%A6%C2%A1-2017-E47-E48-WEB-DL-1080P-H264-AAC-VAM&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "36e787888de74f1e6b9e459840d08ee6602756c8"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "Nirvana In Fire â…¡ 2017 E47 E48 WEB DL 1080P H264 AAC VAM",
+          "raw_title": "Nirvana In Fire â…¡ 2017 E47 E48 WEB DL 1080P H264 AAC VAM",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/36E787888DE74F1E6B9E459840D08EE6602756C8/Nirvana-In-Fire-%C3%A2%E2%80%A6%C2%A1-2017-E47-E48-WEB-DL-1080P-H264-AAC-VAM",
+          "size_bytes": 1621350154,
+          "seeders": 1,
+          "leechers": 3,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "Nirvana In Fire S02 WEB DL 4K H264 AAC PuTao",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:1160118580aa5a82ac56e88eb68d9af0725e030a&dn=Nirvana-In-Fire-S02-WEB-DL-4K-H264-AAC-PuTao&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "1160118580aa5a82ac56e88eb68d9af0725e030a"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "Nirvana In Fire S02 WEB DL 4K H264 AAC PuTao",
+          "raw_title": "Nirvana In Fire S02 WEB DL 4K H264 AAC PuTao",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/1160118580AA5A82AC56E88EB68D9AF0725E030A/Nirvana-In-Fire-S02-WEB-DL-4K-H264-AAC-PuTao",
+          "size_bytes": 3929895076,
+          "seeders": 0,
+          "leechers": 1,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "Nirvana In Fire â…¡ 2017 E35 E36 WEB DL 1080P H264 AAC MTTV",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:961c94b849b90abc241899c53ba573477d16cfd0&dn=Nirvana-In-Fire-%C3%A2%E2%80%A6%C2%A1-2017-E35-E36-WEB-DL-1080P-H264-AAC-MTTV&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "961c94b849b90abc241899c53ba573477d16cfd0"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "Nirvana In Fire â…¡ 2017 E35 E36 WEB DL 1080P H264 AAC MTTV",
+          "raw_title": "Nirvana In Fire â…¡ 2017 E35 E36 WEB DL 1080P H264 AAC MTTV",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/961C94B849B90ABC241899C53BA573477D16CFD0/Nirvana-In-Fire-%C3%A2%E2%80%A6%C2%A1-2017-E35-E36-WEB-DL-1080P-H264-AAC-MTTV",
+          "size_bytes": 1599875318,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "Nirvana In Fire â…¡ 2017 E43 E44 WEB DL 1080P H264 AAC VAM",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:1b6dd5a5bbb836cd5a4f9266fc4274ccdf961dd1&dn=Nirvana-In-Fire-%C3%A2%E2%80%A6%C2%A1-2017-E43-E44-WEB-DL-1080P-H264-AAC-VAM&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "1b6dd5a5bbb836cd5a4f9266fc4274ccdf961dd1"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "Nirvana In Fire â…¡ 2017 E43 E44 WEB DL 1080P H264 AAC VAM",
+          "raw_title": "Nirvana In Fire â…¡ 2017 E43 E44 WEB DL 1080P H264 AAC VAM",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/1B6DD5A5BBB836CD5A4F9266FC4274CCDF961DD1/Nirvana-In-Fire-%C3%A2%E2%80%A6%C2%A1-2017-E43-E44-WEB-DL-1080P-H264-AAC-VAM",
+          "size_bytes": 1621350154,
+          "seeders": 0,
+          "leechers": 3,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "Nirvana In Fire â…¡ 2017 E45 E46 WEB DL 1080P H264 AAC VAM",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:6c588dccda64c3c928c683323cee015a124e3acf&dn=Nirvana-In-Fire-%C3%A2%E2%80%A6%C2%A1-2017-E45-E46-WEB-DL-1080P-H264-AAC-VAM&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "6c588dccda64c3c928c683323cee015a124e3acf"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "Nirvana In Fire â…¡ 2017 E45 E46 WEB DL 1080P H264 AAC VAM",
+          "raw_title": "Nirvana In Fire â…¡ 2017 E45 E46 WEB DL 1080P H264 AAC VAM",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/6C588DCCDA64C3C928C683323CEE015A124E3ACF/Nirvana-In-Fire-%C3%A2%E2%80%A6%C2%A1-2017-E45-E46-WEB-DL-1080P-H264-AAC-VAM",
+          "size_bytes": 1589137900,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire EP01 54 2015 1080p WEB DL x264 AAC HQC",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:c2e97d9f015f80720eb13cf2bd6ee566b0370ee0&dn=Nirvana-in-Fire-EP01-54-2015-1080p-WEB-DL-x264-AAC-HQC&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "c2e97d9f015f80720eb13cf2bd6ee566b0370ee0"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "Nirvana in Fire EP01 54 2015 1080p WEB DL x264 AAC HQC",
+          "raw_title": "Nirvana in Fire EP01 54 2015 1080p WEB DL x264 AAC HQC",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/C2E97D9F015F80720EB13CF2BD6EE566B0370EE0/Nirvana-in-Fire-EP01-54-2015-1080p-WEB-DL-x264-AAC-HQC",
+          "size_bytes": 67516885893,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB DL AAC H264 OurTV",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:a22806efa38e6545792e88dc72e7c4c0d3bff506&dn=Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "a22806efa38e6545792e88dc72e7c4c0d3bff506"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB DL AAC H264 OurTV",
+          "raw_title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB DL AAC H264 OurTV",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/A22806EFA38E6545792E88DC72E7C4C0D3BFF506/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV",
+          "size_bytes": 3779571220,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB DL AAC H264 OurTV",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:b33de89ff77518e249287675a26513c9fb6a8738&dn=Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "b33de89ff77518e249287675a26513c9fb6a8738"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB DL AAC H264 OurTV",
+          "raw_title": "Nirvana in Fire â…¡ 2017 Complete 4K WEB DL AAC H264 OurTV",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/B33DE89FF77518E249287675A26513C9FB6A8738/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-2017-Complete-4K-WEB-DL-AAC-H264-OurTV",
+          "size_bytes": 15451144847,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire â…¡ EP45 46 2017 4k 1080p WEB DL x264 AAC HQC",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:73e7e330ce042ddfc8fa355d96b2be3713dfd8fc&dn=Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP45-46-2017-4k-1080p-WEB-DL-x264-AAC-HQC&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "73e7e330ce042ddfc8fa355d96b2be3713dfd8fc"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "Nirvana in Fire â…¡ EP45 46 2017 4k 1080p WEB DL x264 AAC HQC",
+          "raw_title": "Nirvana in Fire â…¡ EP45 46 2017 4k 1080p WEB DL x264 AAC HQC",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/73E7E330CE042DDFC8FA355D96B2BE3713DFD8FC/Nirvana-in-Fire-%C3%A2%E2%80%A6%C2%A1-EP45-46-2017-4k-1080p-WEB-DL-x264-AAC-HQC",
+          "size_bytes": 5368709120,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "Nirvana in Fire, Lang ya bang, 720p eng sub",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:7489407499553099dc28b21ce7106b55c1d41c8d&dn=Nirvana-in-Fire+-Lang-ya-bang+-720p-eng-sub&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "7489407499553099dc28b21ce7106b55c1d41c8d"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "Nirvana in Fire, Lang ya bang, 720p eng sub",
+          "raw_title": "Nirvana in Fire, Lang ya bang, 720p eng sub",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/7489407499553099dc28b21ce7106b55c1d41c8d/Nirvana-in-Fire+-Lang-ya-bang+-720p-eng-sub",
+          "size_bytes": 48372069171,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "Nirvana-in-Fire-à¸«à¸¥à¸²à¸‡à¸«à¸¢à¸²à¸›à¹ˆà¸²à..",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:1bc28d968d393cd43b5e96448b962e90bd3cd127&dn=Nirvana-in-Fire-%C3%A0%C2%B8%C2%AB%C3%A0%C2%B8%C2%A5%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%A1%C3%A0%C2%B8%C2%AB%C3%A0%C2%B8%C2%A2%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%BA%C3%A0%C2%B9%CB%86%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%A1-28-54&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "1bc28d968d393cd43b5e96448b962e90bd3cd127"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "Nirvana-in-Fire-à¸«à¸¥à¸²à¸‡à¸«à¸¢à¸²à¸›à¹ˆà¸²à..",
+          "raw_title": "Nirvana-in-Fire-à¸«à¸¥à¸²à¸‡à¸«à¸¢à¸²à¸›à¹ˆà¸²à..",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/1BC28D968D393CD43B5E96448B962E90BD3CD127/Nirvana-in-Fire-%C3%A0%C2%B8%C2%AB%C3%A0%C2%B8%C2%A5%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%A1%C3%A0%C2%B8%C2%AB%C3%A0%C2%B8%C2%A2%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%BA%C3%A0%C2%B9%CB%86%C3%A0%C2%B8%C2%B2%C3%A0%C2%B8%E2%80%A1-28-54",
+          "size_bytes": 8428,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "[Nirvana-in-Fire-2l][2017][E01-E50][WEB-MP4][1080P][æ— æ°´å°][Liang-c..",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:96271211be8ca1c18a5e9b79657fca302e20b1d9&dn=+Nirvana-in-Fire-2l++2017++E01-E50++WEB-MP4++1080P++%C3%A6%E2%80%94%C2%A0%C3%A6%C2%B0%C2%B4%C3%A5%C2%8D%C2%B0++Liang-cx+&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "96271211be8ca1c18a5e9b79657fca302e20b1d9"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "[Nirvana-in-Fire-2l][2017][E01-E50][WEB-MP4][1080P][æ— æ°´å°][Liang-c..",
+          "raw_title": "[Nirvana-in-Fire-2l][2017][E01-E50][WEB-MP4][1080P][æ— æ°´å°][Liang-c..",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/96271211BE8CA1C18A5E9B79657FCA302E20B1D9/+Nirvana-in-Fire-2l++2017++E01-E50++WEB-MP4++1080P++%C3%A6%E2%80%94%C2%A0%C3%A6%C2%B0%C2%B4%C3%A5%C2%8D%C2%B0++Liang-cx+",
+          "size_bytes": 39352637850,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž— Nirvana in Fire 2 20..",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:92ed39a17fe821449fba7b7ea453bce9010290d5&dn=+ViPHD+%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-Nirvana-in-Fire-2-2017-WEB-DL-Ep39-Ep42-1080P+amp+2160P-H264-AAC-JBY+ViPHD&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "92ed39a17fe821449fba7b7ea453bce9010290d5"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž— Nirvana in Fire 2 20..",
+          "raw_title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž— Nirvana in Fire 2 20..",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/92ED39A17FE821449FBA7B7EA453BCE9010290D5/+ViPHD+%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-Nirvana-in-Fire-2-2017-WEB-DL-Ep39-Ep42-1080P+amp+2160P-H264-AAC-JBY+ViPHD",
+          "size_bytes": 10758893076,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž—-Nirvana-in-Fire-2-20..",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:31accf3dd0eed47a982d533aa6a31b2f4b5bb7ab&dn=+ViPHD+%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-Nirvana-in-Fire-2-2017-WEB-DL-Ep43-Ep48-1080P-2160P-H264-AAC-JBY-ViPHD&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "31accf3dd0eed47a982d533aa6a31b2f4b5bb7ab"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž—-Nirvana-in-Fire-2-20..",
+          "raw_title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž—-Nirvana-in-Fire-2-20..",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/31ACCF3DD0EED47A982D533AA6A31B2F4B5BB7AB/+ViPHD+%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-Nirvana-in-Fire-2-2017-WEB-DL-Ep43-Ep48-1080P-2160P-H264-AAC-JBY-ViPHD",
+          "size_bytes": 16675210527,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    },
+    {
+      "title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž—-Nirvana-in-Fire-2-20..",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:89630fda0152fd7cc1c6fc8d6bd91a326d25d730&dn=+ViPHD+%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-Nirvana-in-Fire-2-2017-WEB-DL-Ep31-Ep38-1080P-2160P-H264-AAC-JBY-ViPHD&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce",
+        "info_hash_v1": "89630fda0152fd7cc1c6fc8d6bd91a326d25d730"
+      },
+      "observations": [
+        {
+          "source_id": "torrentdownload",
+          "title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž—-Nirvana-in-Fire-2-20..",
+          "raw_title": "[ViPHD]ç…çŠæ¦œä¹‹é£Žèµ·é•¿æž—-Nirvana-in-Fire-2-20..",
+          "site_url": "https://www.torrentdownload.info",
+          "description_url": "https://www.torrentdownload.info/89630FDA0152FD7CC1C6FC8D6BD91A326D25D730/+ViPHD+%C3%A7%C2%90%E2%80%A6%C3%A7%C2%90%C5%A0%C3%A6%C2%A6%C5%93%C3%A4%C2%B9%E2%80%B9%C3%A9%C2%A3%C5%BD%C3%A8%C2%B5%C2%B7%C3%A9%E2%80%A2%C2%BF%C3%A6%C5%BE%E2%80%94-Nirvana-in-Fire-2-2017-WEB-DL-Ep31-Ep38-1080P-2160P-H264-AAC-JBY-ViPHD",
+          "size_bytes": 21732534518,
+          "seeders": 0,
+          "leechers": 0,
+          "published_unix": null,
+          "observed_at_unix": 1792277154
+        }
+      ]
+    }
+  ]
+}

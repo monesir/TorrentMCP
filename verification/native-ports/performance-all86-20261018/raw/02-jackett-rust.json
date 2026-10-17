@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "jackett",
+      "status": "failed",
+      "elapsed_ms": 0,
+      "result_count": 0,
+      "limited": false,
+      "error": "Jackett requires local qbit/engines/jackett.json with url and api_key"
+    }
+  ],
+  "results": []
+}

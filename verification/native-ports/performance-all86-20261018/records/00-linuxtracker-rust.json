@@ -1,0 +1,25 @@
+{
+  "wall_ms": 731.6559999999299,
+  "cpu_ms": 93.75,
+  "peak_private_mib": 6.6796875,
+  "sampled_peak_working_set_mib": 25.7578125,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 668,
+  "configuration_diagnostic": false,
+  "source": "linuxtracker",
+  "backend": "rust",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:49:10.020289+00:00",
+  "raw_report": "raw\\00-linuxtracker-rust.json",
+  "diagnostics": "raw\\00-linuxtracker-rust.stderr.log"
+}

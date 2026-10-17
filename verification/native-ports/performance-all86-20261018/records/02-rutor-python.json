@@ -1,0 +1,26 @@
+{
+  "wall_ms": 1043.3471999986068,
+  "cpu_ms": 671.875,
+  "peak_private_mib": 27.015625,
+  "sampled_peak_working_set_mib": 70.35546875,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 872,
+  "configuration_diagnostic": false,
+  "source": "rutor",
+  "backend": "python",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:02:00.511274+00:00",
+  "raw_report": "raw\\02-rutor-python.json",
+  "diagnostics": "raw\\02-rutor-python.stderr.log"
+}

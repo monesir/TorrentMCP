@@ -1,0 +1,26 @@
+{
+  "wall_ms": 517.9684999993697,
+  "cpu_ms": 234.375,
+  "peak_private_mib": 24.5625,
+  "sampled_peak_working_set_mib": 60.96875,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "HTTPError: HTTP Error 403: Forbidden; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\smallgames.py:52: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  match = re.compile('<a title=\\\"(.*?)\\\"\\shref=\\\"/.*?i=(\\d*).*?Скачать\\sигру\\s\\((.{2,11})\\)')",
+  "source_elapsed_ms": 457,
+  "configuration_diagnostic": false,
+  "source": "smallgames",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:48:26.405037+00:00",
+  "raw_report": "raw\\00-smallgames-python.json",
+  "diagnostics": "raw\\00-smallgames-python.stderr.log"
+}

@@ -1,0 +1,26 @@
+{
+  "wall_ms": 730.5224000010639,
+  "cpu_ms": 500.0,
+  "peak_private_mib": 26.71875,
+  "sampled_peak_working_set_mib": 69.9140625,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: Forbidden",
+  "source_elapsed_ms": 630,
+  "configuration_diagnostic": false,
+  "source": "calidadtorrent",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:54:22.716112+00:00",
+  "raw_report": "raw\\01-calidadtorrent-python.json",
+  "diagnostics": "raw\\01-calidadtorrent-python.stderr.log"
+}

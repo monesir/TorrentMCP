@@ -1,0 +1,2 @@
+# Store every file byte-for-byte: plugins and evidence are pinned by SHA256.
+* -text

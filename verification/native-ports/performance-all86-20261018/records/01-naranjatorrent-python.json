@@ -1,0 +1,26 @@
+{
+  "wall_ms": 12676.249799998914,
+  "cpu_ms": 609.375,
+  "peak_private_mib": 27.91796875,
+  "sampled_peak_working_set_mib": 70.35546875,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "TimeoutError: The read operation timed out",
+  "source_elapsed_ms": 12555,
+  "configuration_diagnostic": false,
+  "source": "naranjatorrent",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:55:54.133695+00:00",
+  "raw_report": "raw\\01-naranjatorrent-python.json",
+  "diagnostics": "raw\\01-naranjatorrent-python.stderr.log"
+}

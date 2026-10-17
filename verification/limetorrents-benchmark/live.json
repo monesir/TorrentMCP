@@ -1,0 +1,244 @@
+{
+  "mode": "live",
+  "trials_per_backend_per_query": 5,
+  "binary_sha256": "58c443e4e7703548d5d20b1cba8606accaeaff7cf4aae7a0fa8f7fab5db2981f",
+  "python_version": "3.14.8",
+  "records": [
+    {
+      "wall_ms": 2090.852300010738,
+      "cpu_ms": 328.125,
+      "peak_private_mib": 26.5078125,
+      "sampled_peak_working_set_mib": 70.80078125,
+      "process_count": 4,
+      "observed_process_names": [
+        "conhost.exe",
+        "python.exe",
+        "torrent-search.exe"
+      ],
+      "exit_code": 0,
+      "backend": "python",
+      "query": "nirvana in fire",
+      "trial": 0,
+      "request_count": null,
+      "results": 31
+    },
+    {
+      "wall_ms": 1906.1422000086168,
+      "cpu_ms": 109.375,
+      "peak_private_mib": 7.203125,
+      "sampled_peak_working_set_mib": 30.1484375,
+      "process_count": 2,
+      "observed_process_names": [
+        "conhost.exe",
+        "torrent-search.exe"
+      ],
+      "exit_code": 0,
+      "backend": "rust",
+      "query": "nirvana in fire",
+      "trial": 0,
+      "request_count": null,
+      "results": 31
+    },
+    {
+      "wall_ms": 2005.0804000056814,
+      "cpu_ms": 109.375,
+      "peak_private_mib": 7.12109375,
+      "sampled_peak_working_set_mib": 30.05078125,
+      "process_count": 2,
+      "observed_process_names": [
+        "conhost.exe",
+        "torrent-search.exe"
+      ],
+      "exit_code": 0,
+      "backend": "rust",
+      "query": "nirvana in fire",
+      "trial": 1,
+      "request_count": null,
+      "results": 31
+    },
+    {
+      "wall_ms": 2121.529500000179,
+      "cpu_ms": 296.875,
+      "peak_private_mib": 26.203125,
+      "sampled_peak_working_set_mib": 70.57421875,
+      "process_count": 4,
+      "observed_process_names": [
+        "conhost.exe",
+        "python.exe",
+        "torrent-search.exe"
+      ],
+      "exit_code": 0,
+      "backend": "python",
+      "query": "nirvana in fire",
+      "trial": 1,
+      "request_count": null,
+      "results": 31
+    },
+    {
+      "wall_ms": 2147.966999997152,
+      "cpu_ms": 281.25,
+      "peak_private_mib": 26.30859375,
+      "sampled_peak_working_set_mib": 70.7109375,
+      "process_count": 4,
+      "observed_process_names": [
+        "conhost.exe",
+        "python.exe",
+        "torrent-search.exe"
+      ],
+      "exit_code": 0,
+      "backend": "python",
+      "query": "nirvana in fire",
+      "trial": 2,
+      "request_count": null,
+      "results": 31
+    },
+    {
+      "wall_ms": 1869.2461000027834,
+      "cpu_ms": 93.75,
+      "peak_private_mib": 7.078125,
+      "sampled_peak_working_set_mib": 30.0390625,
+      "process_count": 2,
+      "observed_process_names": [
+        "conhost.exe",
+        "torrent-search.exe"
+      ],
+      "exit_code": 0,
+      "backend": "rust",
+      "query": "nirvana in fire",
+      "trial": 2,
+      "request_count": null,
+      "results": 31
+    },
+    {
+      "wall_ms": 1991.486699989764,
+      "cpu_ms": 156.25,
+      "peak_private_mib": 7.125,
+      "sampled_peak_working_set_mib": 30.1171875,
+      "process_count": 2,
+      "observed_process_names": [
+        "conhost.exe",
+        "torrent-search.exe"
+      ],
+      "exit_code": 0,
+      "backend": "rust",
+      "query": "nirvana in fire",
+      "trial": 3,
+      "request_count": null,
+      "results": 31
+    },
+    {
+      "wall_ms": 2031.0662999982014,
+      "cpu_ms": 328.125,
+      "peak_private_mib": 26.62890625,
+      "sampled_peak_working_set_mib": 70.953125,
+      "process_count": 4,
+      "observed_process_names": [
+        "conhost.exe",
+        "python.exe",
+        "torrent-search.exe"
+      ],
+      "exit_code": 0,
+      "backend": "python",
+      "query": "nirvana in fire",
+      "trial": 3,
+      "request_count": null,
+      "results": 31
+    },
+    {
+      "wall_ms": 1996.4758999994956,
+      "cpu_ms": 265.625,
+      "peak_private_mib": 26.40234375,
+      "sampled_peak_working_set_mib": 70.76953125,
+      "process_count": 4,
+      "observed_process_names": [
+        "conhost.exe",
+        "python.exe",
+        "torrent-search.exe"
+      ],
+      "exit_code": 0,
+      "backend": "python",
+      "query": "nirvana in fire",
+      "trial": 4,
+      "request_count": null,
+      "results": 31
+    },
+    {
+      "wall_ms": 1979.9406999954954,
+      "cpu_ms": 78.125,
+      "peak_private_mib": 7.3671875,
+      "sampled_peak_working_set_mib": 30.1953125,
+      "process_count": 2,
+      "observed_process_names": [
+        "conhost.exe",
+        "torrent-search.exe"
+      ],
+      "exit_code": 0,
+      "backend": "rust",
+      "query": "nirvana in fire",
+      "trial": 4,
+      "request_count": null,
+      "results": 31
+    }
+  ],
+  "summary": {
+    "nirvana in fire": {
+      "python": {
+        "wall_ms": {
+          "median": 2090.852300010738,
+          "min": 1996.4758999994956,
+          "max": 2147.966999997152
+        },
+        "cpu_ms": {
+          "median": 296.875,
+          "min": 265.625,
+          "max": 328.125
+        },
+        "peak_private_mib": {
+          "median": 26.40234375,
+          "min": 26.203125,
+          "max": 26.62890625
+        },
+        "sampled_peak_working_set_mib": {
+          "median": 70.76953125,
+          "min": 70.57421875,
+          "max": 70.953125
+        },
+        "process_count": {
+          "median": 4,
+          "min": 4,
+          "max": 4
+        }
+      },
+      "rust": {
+        "wall_ms": {
+          "median": 1979.9406999954954,
+          "min": 1869.2461000027834,
+          "max": 2005.0804000056814
+        },
+        "cpu_ms": {
+          "median": 109.375,
+          "min": 78.125,
+          "max": 156.25
+        },
+        "peak_private_mib": {
+          "median": 7.125,
+          "min": 7.078125,
+          "max": 7.3671875
+        },
+        "sampled_peak_working_set_mib": {
+          "median": 30.1171875,
+          "min": 30.0390625,
+          "max": 30.1953125
+        },
+        "process_count": {
+          "median": 2,
+          "min": 2,
+          "max": 2
+        }
+      }
+    }
+  },
+  "parity": "equal URI, title, size, seeders and leechers for every pair",
+  "cpu_and_memory_scope": "Windows Job Object includes Rust root and all Python descendants; server/harness excluded",
+  "memory_definition": "PeakJobMemoryUsed is peak private committed memory; working set is sampled every 5 ms"
+}

@@ -1,0 +1,26 @@
+{
+  "wall_ms": 2964.5149999996647,
+  "cpu_ms": 531.25,
+  "peak_private_mib": 27.88671875,
+  "sampled_peak_working_set_mib": 70.37890625,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: <none>",
+  "source_elapsed_ms": 2856,
+  "configuration_diagnostic": false,
+  "source": "tomadivx",
+  "backend": "python",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:53:50.706829+00:00",
+  "raw_report": "raw\\01-tomadivx-python.json",
+  "diagnostics": "raw\\01-tomadivx-python.stderr.log"
+}

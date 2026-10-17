@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": true,
+  "sources": [
+    {
+      "source_id": "yggtracker",
+      "status": "failed",
+      "elapsed_ms": 620,
+      "result_count": 0,
+      "limited": false,
+      "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [WinError 10051] A socket operation was attempted to an unreachable network"
+    }
+  ],
+  "results": []
+}

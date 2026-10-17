@@ -1,0 +1,100 @@
+[
+  {
+    "relative_path": "nova2.py",
+    "source": "C:\\Users\\user\\AppData\\Local\\qBittorrent\\nova3\\nova2.py",
+    "bytes": 8972,
+    "sha256": "8e494ee5e0dff3bc8743d302ad4df86e030b4b9ea817db1fd0c7c0c54f3ad7a3",
+    "header": [
+      "# VERSION: 1.53",
+      "",
+      "# Author:",
+      "#  Fabien Devaux <fab AT gnux DOT info>"
+    ]
+  },
+  {
+    "relative_path": "nova2dl.py",
+    "source": "C:\\Users\\user\\AppData\\Local\\qBittorrent\\nova3\\nova2dl.py",
+    "bytes": 2706,
+    "sha256": "e768b069bec74d82c8ab496fe8143ac76411a82e9953dd2929ae4414bd0fc89d",
+    "header": [
+      "# VERSION: 1.26",
+      "",
+      "# Author:",
+      "#  Christophe DUMEZ (chris@qbittorrent.org)"
+    ]
+  },
+  {
+    "relative_path": "helpers.py",
+    "source": "C:\\Users\\user\\AppData\\Local\\qBittorrent\\nova3\\helpers.py",
+    "bytes": 6173,
+    "sha256": "659d4b5e8d7490c6049f8e89229ba330554936cc748a3df1960e9653ba1e1aa4",
+    "header": [
+      "# VERSION: 1.55",
+      "",
+      "# Author:",
+      "#  Christophe DUMEZ (chris@qbittorrent.org)"
+    ]
+  },
+  {
+    "relative_path": "novaprinter.py",
+    "source": "C:\\Users\\user\\AppData\\Local\\qBittorrent\\nova3\\novaprinter.py",
+    "bytes": 3497,
+    "sha256": "6780ad078487b9e7214e168547e45b786c15d205672aa599fa41e7cd1d6240d8",
+    "header": [
+      "# VERSION: 1.53",
+      "",
+      "# Redistribution and use in source and binary forms, with or without",
+      "# modification, are permitted provided that the following conditions are met:"
+    ]
+  },
+  {
+    "relative_path": "socks.py",
+    "source": "C:\\Users\\user\\AppData\\Local\\qBittorrent\\nova3\\socks.py",
+    "bytes": 32679,
+    "sha256": "80af424d5bf0271e23f27328e34909a28d2fbdc01f1575da6c02ade64bbd3002",
+    "header": [
+      "# VERSION: 1.00",
+      "",
+      "\"\"\"PySocks - A SOCKS proxy client and wrapper for Python.",
+      "Version 1.7.1"
+    ]
+  },
+  {
+    "relative_path": "__init__.py",
+    "source": "C:\\Users\\user\\AppData\\Local\\qBittorrent\\nova3\\__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "header": []
+  },
+  {
+    "relative_path": "engines/__init__.py",
+    "source": "C:\\Users\\user\\AppData\\Local\\qBittorrent\\nova3\\engines\\__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "header": []
+  },
+  {
+    "relative_path": "engines/torrentscsv.py",
+    "source": "C:\\Users\\user\\AppData\\Local\\qBittorrent\\nova3\\engines\\torrentscsv.py",
+    "bytes": 3452,
+    "sha256": "7c7c8a54249e5f2ce237df6421a735a5c1bd7acefd1304d736ee8f925fd6031b",
+    "header": [
+      "# VERSION: 1.8",
+      "# AUTHORS: Dessalines",
+      "",
+      "# Redistribution and use in source and binary forms, with or without"
+    ]
+  },
+  {
+    "relative_path": "engines/limetorrents.py",
+    "source": "C:\\Users\\user\\AppData\\Local\\qBittorrent\\nova3\\engines\\limetorrents.py",
+    "bytes": 5646,
+    "sha256": "b620d1db20136fafc6041029feb8493841550ee6afac9990f79ed07b070ce4d4",
+    "header": [
+      "# VERSION: 4.14",
+      "# AUTHORS: Lima66",
+      "# CONTRIBUTORS: Diego de las Heras (ngosang@hotmail.es)",
+      ""
+    ]
+  }
+]

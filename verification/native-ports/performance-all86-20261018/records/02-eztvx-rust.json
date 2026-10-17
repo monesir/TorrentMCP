@@ -1,0 +1,25 @@
+{
+  "wall_ms": 498.73959999968065,
+  "cpu_ms": 93.75,
+  "peak_private_mib": 6.1640625,
+  "sampled_peak_working_set_mib": 23.4453125,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "error sending request",
+  "source_elapsed_ms": 396,
+  "configuration_diagnostic": false,
+  "source": "eztvx",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:01:15.265036+00:00",
+  "raw_report": "raw\\02-eztvx-rust.json",
+  "diagnostics": "raw\\02-eztvx-rust.stderr.log"
+}

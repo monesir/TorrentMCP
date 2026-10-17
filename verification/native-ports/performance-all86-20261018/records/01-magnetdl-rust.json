@@ -1,0 +1,25 @@
+{
+  "wall_ms": 12073.531000000003,
+  "cpu_ms": 156.25,
+  "peak_private_mib": 6.7265625,
+  "sampled_peak_working_set_mib": 28.88671875,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "error sending request",
+  "source_elapsed_ms": 12008,
+  "configuration_diagnostic": false,
+  "source": "magnetdl",
+  "backend": "rust",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:53:25.917951+00:00",
+  "raw_report": "raw\\01-magnetdl-rust.json",
+  "diagnostics": "raw\\01-magnetdl-rust.stderr.log"
+}

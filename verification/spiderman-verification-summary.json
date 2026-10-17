@@ -1,0 +1,10 @@
+{
+  "report": "spiderman-20261017/report.md",
+  "full_suite_log": ".cache/package-0.4.0-final.log",
+  "service_stopped": true,
+  "bitrate_unknown_indices": [
+    1
+  ],
+  "inspected_candidates": 3,
+  "measured_inspection_round_ms": 96445
+}

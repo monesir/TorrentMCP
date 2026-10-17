@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "operation": "torrent_files",
+  "reference": {
+    "kind": "http",
+    "uri": "http://127.0.0.1:9482/fixture.torrent",
+    "source_id": "controlled-fixture",
+    "post_form": {
+      "id": "fixture"
+    }
+  },
+  "limits": {
+    "timeout_seconds": 45
+  }
+}

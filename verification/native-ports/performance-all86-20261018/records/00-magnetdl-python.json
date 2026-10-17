@@ -1,0 +1,26 @@
+{
+  "wall_ms": 12603.114199999254,
+  "cpu_ms": 296.875,
+  "peak_private_mib": 26.9140625,
+  "sampled_peak_working_set_mib": 70.03515625,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "TimeoutError: The read operation timed out; \\\\?\\C:\\Users\\user\\OneDrive\\المستندات\\ChatGPT\\torrent mcp\\verification\\native-ports\\performance-all86-20261018\\work\\00-python\\resources\\qbit\\engines\\magnetdl.py:17: SyntaxWarning: \"\\s\" is an invalid escape sequence. Such sequences will not work in the future. Did you mean \"\\\\s\"? A raw string is also an option.\r\n  '<td\\sclass=\"m\"><a\\shref=\"(magnet.*?)\"\\stitle=\".*?class=\"n\"><a\\shref=\"(.*?)\"\\stitle=\"(.*?)\">.*?<td\\sclass=\"t.\">.*?</td><td>.*?</td><td>(.*?)</td><td\\sclass=\"s\">(.*?)</td><td\\sclass=\"l\">(.*?)</td>')",
+  "source_elapsed_ms": 12529,
+  "configuration_diagnostic": false,
+  "source": "magnetdl",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:48:04.445919+00:00",
+  "raw_report": "raw\\00-magnetdl-python.json",
+  "diagnostics": "raw\\00-magnetdl-python.stderr.log"
+}

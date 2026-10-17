@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "operation": "inspect_torrent_file",
+  "torrent": {
+    "schema_version": 1,
+    "source_reference": {
+      "kind": "http",
+      "uri": "http://127.0.0.1:9482/fixture.torrent",
+      "source_id": "controlled-fixture",
+      "post_form": {
+        "id": "fixture"
+      }
+    },
+    "resolved_reference": {
+      "kind": "http",
+      "uri": "http://127.0.0.1:9482/fixture.torrent",
+      "source_id": "controlled-fixture",
+      "post_form": {
+        "id": "fixture"
+      }
+    },
+    "info_hash_v1": "1a58099b136f8f26e4d52a3fa12a306071413e0c",
+    "name": "Fixture",
+    "files": [
+      {
+        "id": 0,
+        "path": "E01.mkv",
+        "size_bytes": 108517,
+        "media_kind": "video"
+      },
+      {
+        "id": 1,
+        "path": "E02.mkv",
+        "size_bytes": 112613,
+        "media_kind": "video"
+      },
+      {
+        "id": 2,
+        "path": "readme.txt",
+        "size_bytes": 23,
+        "media_kind": "other"
+      }
+    ]
+  },
+  "file_id": 99,
+  "limits": {
+    "timeout_seconds": 60
+  },
+  "inspection_limits": {
+    "timeout_seconds": 45,
+    "max_read_bytes": 16777216
+  },
+  "selection": {
+    "audio_languages": [
+      "ar"
+    ],
+    "subtitle_languages": [
+      "ar",
+      "en"
+    ]
+  }
+}

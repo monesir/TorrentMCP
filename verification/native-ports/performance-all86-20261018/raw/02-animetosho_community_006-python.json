@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "query": "nirvana in fire",
+  "category": "all",
+  "partial": false,
+  "sources": [
+    {
+      "source_id": "animetosho_community_006",
+      "status": "completed",
+      "elapsed_ms": 934,
+      "result_count": 2,
+      "limited": false,
+      "error": null
+    }
+  ],
+  "results": [
+    {
+      "title": "[EMBER] Kaguya-sama: Love is War (2019-2020) (Season 1+2) [BDRip] [1080p Dual Audio HEVC 10 bits] (Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen)",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:VIOPSFFS2E2JSCBT45COE6GH2G52KTGC&tr=http%3A%2F%2Fnyaa.tracker.wf%3A7777%2Fannounce",
+        "info_hash_v1": "aa1cf914b2d134990833e744e278c7d1bba54cc2"
+      },
+      "observations": [
+        {
+          "source_id": "animetosho_community_006",
+          "title": "[EMBER] Kaguya-sama: Love is War (2019-2020) (Season 1+2) [BDRip] [1080p Dual Audio HEVC 10 bits] (Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen)",
+          "raw_title": "[EMBER] Kaguya-sama: Love is War (2019-2020) (Season 1+2) [BDRip] [1080p Dual Audio HEVC 10 bits] (Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen)",
+          "site_url": "https://animetosho.xyz",
+          "description_url": "https://animetosho.net/view/305135",
+          "size_bytes": 14380784391,
+          "seeders": 72,
+          "leechers": 11,
+          "published_unix": 1615388761,
+          "observed_at_unix": 1792278332
+        }
+      ]
+    },
+    {
+      "title": "[Mr.Deadpool] Kaguya-sama - Love is War - (Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen) S1 & S2 BD 720p Dual Audio x265",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:S7TT2B7DNNAOC3DWAIQAH5Y7VBIR3NA5&tr=http%3A%2F%2Fnyaa.tracker.wf%3A7777%2Fannounce",
+        "info_hash_v1": "97e73d07e36b40e16c76022003f71fa8511db41d"
+      },
+      "observations": [
+        {
+          "source_id": "animetosho_community_006",
+          "title": "[Mr.Deadpool] Kaguya-sama - Love is War - (Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen) S1 & S2 BD 720p Dual Audio x265",
+          "raw_title": "[Mr.Deadpool] Kaguya-sama - Love is War - (Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen) S1 & S2 BD 720p Dual Audio x265",
+          "site_url": "https://animetosho.xyz",
+          "description_url": "https://animetosho.net/view/305105",
+          "size_bytes": 6766633691,
+          "seeders": 1,
+          "leechers": 2,
+          "published_unix": 1615383361,
+          "observed_at_unix": 1792278332
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "wall_ms": 537.5931000016863,
+  "cpu_ms": 500.0,
+  "peak_private_mib": 24.61328125,
+  "sampled_peak_working_set_mib": 58.3046875,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "RuntimeError: Source returned an empty HTTP response or the request failed; Connection error: [Errno 11001] getaddrinfo failed",
+  "source_elapsed_ms": 401,
+  "configuration_diagnostic": false,
+  "source": "traht",
+  "backend": "python",
+  "trial": 2,
+  "completed_utc": "2026-10-17T23:01:16.293078+00:00",
+  "raw_report": "raw\\02-traht-python.json",
+  "diagnostics": "raw\\02-traht-python.stderr.log"
+}

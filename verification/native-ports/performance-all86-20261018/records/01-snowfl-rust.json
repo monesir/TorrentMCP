@@ -1,0 +1,32 @@
+{
+  "wall_ms": 5607.687499999884,
+  "cpu_ms": 218.75,
+  "peak_private_mib": 7.59765625,
+  "sampled_peak_working_set_mib": 29.796875,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 6,
+  "unique_results": 6,
+  "identities": [
+    "0a978947a63408fc494eec9565a67ec6acd1dfa8",
+    "229d17570b6b28d211f79f8deba4d5dc5158db92",
+    "b4fa5192963f5d027d9674b5f19d87c912cf1c89",
+    "ceeaeba512923796776233ea6b7d49b26b5d6ec8",
+    "ebcc79737cd85b794a52a4e06a54f3c33895e0d9",
+    "fd9cd3acca4f2f85bece5f15dd9fc854e0275576"
+  ],
+  "error": null,
+  "source_elapsed_ms": 5473,
+  "configuration_diagnostic": false,
+  "source": "snowfl",
+  "backend": "rust",
+  "trial": 1,
+  "completed_utc": "2026-10-17T22:54:21.274307+00:00",
+  "raw_report": "raw\\01-snowfl-rust.json",
+  "diagnostics": "raw\\01-snowfl-rust.stderr.log"
+}

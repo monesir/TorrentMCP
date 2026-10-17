@@ -1,0 +1,25 @@
+{
+  "wall_ms": 235.14609999983804,
+  "cpu_ms": 156.25,
+  "peak_private_mib": 5.1171875,
+  "sampled_peak_working_set_mib": 22.40625,
+  "process_count": 2,
+  "observed_process_names": [
+    "conhost.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 1,
+  "status": "failed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": "error sending request",
+  "source_elapsed_ms": 104,
+  "configuration_diagnostic": false,
+  "source": "therarbg",
+  "backend": "rust",
+  "trial": 2,
+  "completed_utc": "2026-10-17T22:59:02.958984+00:00",
+  "raw_report": "raw\\02-therarbg-rust.json",
+  "diagnostics": "raw\\02-therarbg-rust.stderr.log"
+}

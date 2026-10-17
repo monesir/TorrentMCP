@@ -1,0 +1,3080 @@
+{
+  "fixture_kind": "synthetic protocol fixtures; LimeTorrents uses captured real HTML",
+  "records": [
+    {
+      "source": "eztv",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/fixture-%E4%B8%AD%E6%96%87-~-%2A"
+      ]
+    },
+    {
+      "source": "eztv",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/fixture-%E4%B8%AD%E6%96%87-~-%2A"
+      ]
+    },
+    {
+      "source": "jackett",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v2.0/indexers/all/results/torznab/api?apikey=fixture-not-a-secret&q=fixture+%E4%B8%AD%E6%96%87+~+%2A"
+      ]
+    },
+    {
+      "source": "jackett",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v2.0/indexers/all/results/torznab/api?apikey=fixture-not-a-secret&q=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=5070"
+      ]
+    },
+    {
+      "source": "jackett",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v2.0/indexers/all/results/torznab/api?apikey=fixture-not-a-secret&q=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=8000"
+      ]
+    },
+    {
+      "source": "jackett",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v2.0/indexers/all/results/torznab/api?apikey=fixture-not-a-secret&q=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=1000%2C4000"
+      ]
+    },
+    {
+      "source": "jackett",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v2.0/indexers/all/results/torznab/api?apikey=fixture-not-a-secret&q=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=2000"
+      ]
+    },
+    {
+      "source": "jackett",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v2.0/indexers/all/results/torznab/api?apikey=fixture-not-a-secret&q=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=3000"
+      ]
+    },
+    {
+      "source": "jackett",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v2.0/indexers/all/results/torznab/api?apikey=fixture-not-a-secret&q=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=4000"
+      ]
+    },
+    {
+      "source": "jackett",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v2.0/indexers/all/results/torznab/api?apikey=fixture-not-a-secret&q=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=5000"
+      ]
+    },
+    {
+      "source": "limetorrents",
+      "category": "all",
+      "results": 31,
+      "parity": true,
+      "routes": [
+        "/search/all/fixture-%E4%B8%AD%E6%96%87-~-%2A/seeds/1/",
+        "/search/all/fixture-%E4%B8%AD%E6%96%87-~-%2A/seeds/2/"
+      ]
+    },
+    {
+      "source": "limetorrents",
+      "category": "anime",
+      "results": 31,
+      "parity": true,
+      "routes": [
+        "/search/anime/fixture-%E4%B8%AD%E6%96%87-~-%2A/seeds/1/",
+        "/search/anime/fixture-%E4%B8%AD%E6%96%87-~-%2A/seeds/2/"
+      ]
+    },
+    {
+      "source": "limetorrents",
+      "category": "software",
+      "results": 31,
+      "parity": true,
+      "routes": [
+        "/search/applications/fixture-%E4%B8%AD%E6%96%87-~-%2A/seeds/1/",
+        "/search/applications/fixture-%E4%B8%AD%E6%96%87-~-%2A/seeds/2/"
+      ]
+    },
+    {
+      "source": "limetorrents",
+      "category": "games",
+      "results": 31,
+      "parity": true,
+      "routes": [
+        "/search/games/fixture-%E4%B8%AD%E6%96%87-~-%2A/seeds/1/",
+        "/search/games/fixture-%E4%B8%AD%E6%96%87-~-%2A/seeds/2/"
+      ]
+    },
+    {
+      "source": "limetorrents",
+      "category": "movies",
+      "results": 31,
+      "parity": true,
+      "routes": [
+        "/search/movies/fixture-%E4%B8%AD%E6%96%87-~-%2A/seeds/1/",
+        "/search/movies/fixture-%E4%B8%AD%E6%96%87-~-%2A/seeds/2/"
+      ]
+    },
+    {
+      "source": "limetorrents",
+      "category": "music",
+      "results": 31,
+      "parity": true,
+      "routes": [
+        "/search/music/fixture-%E4%B8%AD%E6%96%87-~-%2A/seeds/1/",
+        "/search/music/fixture-%E4%B8%AD%E6%96%87-~-%2A/seeds/2/"
+      ]
+    },
+    {
+      "source": "limetorrents",
+      "category": "tv",
+      "results": 31,
+      "parity": true,
+      "routes": [
+        "/search/tv/fixture-%E4%B8%AD%E6%96%87-~-%2A/seeds/1/",
+        "/search/tv/fixture-%E4%B8%AD%E6%96%87-~-%2A/seeds/2/"
+      ]
+    },
+    {
+      "source": "piratebay",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/q.php?q=fixture+%E4%B8%AD%E6%96%87+~+%2A"
+      ]
+    },
+    {
+      "source": "piratebay",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/q.php?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=100"
+      ]
+    },
+    {
+      "source": "piratebay",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/q.php?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=200"
+      ]
+    },
+    {
+      "source": "piratebay",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/q.php?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=400"
+      ]
+    },
+    {
+      "source": "piratebay",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/q.php?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=300"
+      ]
+    },
+    {
+      "source": "solidtorrents",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&category=all&sort=seeders&sort=desc&page=1"
+      ]
+    },
+    {
+      "source": "solidtorrents",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&category=Audio&sort=seeders&sort=desc&page=1"
+      ]
+    },
+    {
+      "source": "solidtorrents",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&category=eBook&sort=seeders&sort=desc&page=1"
+      ]
+    },
+    {
+      "source": "torlock",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/all/torrents/fixture-%E4%B8%AD%E6%96%87-~-%2A.html?sort=seeds&page=1"
+      ]
+    },
+    {
+      "source": "torlock",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/anime/torrents/fixture-%E4%B8%AD%E6%96%87-~-%2A.html?sort=seeds&page=1"
+      ]
+    },
+    {
+      "source": "torlock",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/software/torrents/fixture-%E4%B8%AD%E6%96%87-~-%2A.html?sort=seeds&page=1"
+      ]
+    },
+    {
+      "source": "torlock",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/game/torrents/fixture-%E4%B8%AD%E6%96%87-~-%2A.html?sort=seeds&page=1"
+      ]
+    },
+    {
+      "source": "torlock",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/movie/torrents/fixture-%E4%B8%AD%E6%96%87-~-%2A.html?sort=seeds&page=1"
+      ]
+    },
+    {
+      "source": "torlock",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/music/torrents/fixture-%E4%B8%AD%E6%96%87-~-%2A.html?sort=seeds&page=1"
+      ]
+    },
+    {
+      "source": "torlock",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/television/torrents/fixture-%E4%B8%AD%E6%96%87-~-%2A.html?sort=seeds&page=1"
+      ]
+    },
+    {
+      "source": "torlock",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/ebooks/torrents/fixture-%E4%B8%AD%E6%96%87-~-%2A.html?sort=seeds&page=1"
+      ]
+    },
+    {
+      "source": "torrentproject",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/browse?t=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=0"
+      ]
+    },
+    {
+      "source": "torrentscsv",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/service/search?size=100&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "acgrip",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?term=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "animetosho",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/json?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "animetosho",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/json?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "animetosho_community_006",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/json?q=fixture+%E4%B8%AD%E6%96%87+~+%2A"
+      ]
+    },
+    {
+      "source": "animetosho_community_006",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/json?q=fixture+%E4%B8%AD%E6%96%87+~+%2A"
+      ]
+    },
+    {
+      "source": "cloudtorrents",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/?offset=0&limit=50&query=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "cloudtorrents",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/?offset=0&limit=50&query=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&torrent_type=1"
+      ]
+    },
+    {
+      "source": "cloudtorrents",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/?offset=0&limit=50&query=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&torrent_type=2"
+      ]
+    },
+    {
+      "source": "cloudtorrents",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/?offset=0&limit=50&query=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&torrent_type=3"
+      ]
+    },
+    {
+      "source": "cloudtorrents",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/?offset=0&limit=50&query=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&torrent_type=4"
+      ]
+    },
+    {
+      "source": "cloudtorrents",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/?offset=0&limit=50&query=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&torrent_type=5"
+      ]
+    },
+    {
+      "source": "cloudtorrents",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/?offset=0&limit=50&query=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&torrent_type=6"
+      ]
+    },
+    {
+      "source": "cloudtorrents",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/?offset=0&limit=50&query=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&torrent_type=8"
+      ]
+    },
+    {
+      "source": "mikan",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/RSS/Search?searchstr=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "mikan",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/RSS/Search?searchstr=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "nyaasi",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?f=0&s=seeders&o=desc&c=0_0&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&p=1"
+      ]
+    },
+    {
+      "source": "nyaasi",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?f=0&s=seeders&o=desc&c=1_0&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&p=1"
+      ]
+    },
+    {
+      "source": "nyaasi",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?f=0&s=seeders&o=desc&c=3_0&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&p=1"
+      ]
+    },
+    {
+      "source": "nyaasi",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?f=0&s=seeders&o=desc&c=2_0&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&p=1"
+      ]
+    },
+    {
+      "source": "nyaasi",
+      "category": "pictures",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?f=0&s=seeders&o=desc&c=5_0&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&p=1"
+      ]
+    },
+    {
+      "source": "nyaasi",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?f=0&s=seeders&o=desc&c=6_0&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&p=1"
+      ]
+    },
+    {
+      "source": "nyaasi",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?f=0&s=seeders&o=desc&c=4_0&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&p=1"
+      ]
+    },
+    {
+      "source": "nyaasi",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?f=0&s=seeders&o=desc&c=4_0&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&p=1"
+      ]
+    },
+    {
+      "source": "subsplease",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/?f=search&tz=$&s=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&p=0",
+        "/api/?f=search&tz=$&s=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&p=1"
+      ]
+    },
+    {
+      "source": "sukebeisi",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?f=0&s=seeders&o=desc&c=0_0&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&p=1"
+      ]
+    },
+    {
+      "source": "sukebeisi",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?f=0&s=seeders&o=desc&c=1_1&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&p=1"
+      ]
+    },
+    {
+      "source": "sukebeisi",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?f=0&s=seeders&o=desc&c=1_2&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&p=1"
+      ]
+    },
+    {
+      "source": "sukebeisi",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?f=0&s=seeders&o=desc&c=1_3&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&p=1"
+      ]
+    },
+    {
+      "source": "sukebeisi",
+      "category": "pictures",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?f=0&s=seeders&o=desc&c=2_1&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&p=1"
+      ]
+    },
+    {
+      "source": "sukebeisi",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?f=0&s=seeders&o=desc&c=2_2&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&p=1"
+      ]
+    },
+    {
+      "source": "thepiratebay",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=0"
+      ]
+    },
+    {
+      "source": "torrentclaw",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v1/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&limit=50"
+      ]
+    },
+    {
+      "source": "torrentclaw",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v1/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&limit=50&type=movie"
+      ]
+    },
+    {
+      "source": "torrentclaw",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v1/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&limit=50&type=show"
+      ]
+    },
+    {
+      "source": "divxtotal",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/buscar/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "dontorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/buscar",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "esmeraldatorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/buscar/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "naranjatorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/buscar/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "tomadivx",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/buscar/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "calidadtorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/buscar/page/1?q=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/detail/fixture",
+        "/buscar/page/2?q=fixture+%E4%B8%AD%E6%96%87+~+%2A"
+      ]
+    },
+    {
+      "source": "pediatorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/peliculas?query=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "pediatorrent",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/peliculas?query=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "pediatorrent",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/series?query=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "pediatorrent",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/documentales?query=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/detail/fixture"
+      ]
+    },
+    {
+      "source": "glotorrents",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=0&page=0&incldead=0&inclexternal=0",
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=0&page=1&incldead=0&inclexternal=0"
+      ]
+    },
+    {
+      "source": "glotorrents",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=1&page=0&incldead=0&inclexternal=0",
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=1&page=1&incldead=0&inclexternal=0"
+      ]
+    },
+    {
+      "source": "glotorrents",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=41&page=0&incldead=0&inclexternal=0",
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=41&page=1&incldead=0&inclexternal=0"
+      ]
+    },
+    {
+      "source": "glotorrents",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=22&page=0&incldead=0&inclexternal=0",
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=22&page=1&incldead=0&inclexternal=0"
+      ]
+    },
+    {
+      "source": "glotorrents",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=10&page=0&incldead=0&inclexternal=0",
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=10&page=1&incldead=0&inclexternal=0"
+      ]
+    },
+    {
+      "source": "glotorrents",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=28&page=0&incldead=0&inclexternal=0",
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=28&page=1&incldead=0&inclexternal=0"
+      ]
+    },
+    {
+      "source": "glotorrents",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=18&page=0&incldead=0&inclexternal=0",
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=18&page=1&incldead=0&inclexternal=0"
+      ]
+    },
+    {
+      "source": "glotorrents",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=51&page=0&incldead=0&inclexternal=0",
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=51&page=1&incldead=0&inclexternal=0"
+      ]
+    },
+    {
+      "source": "glotorrents",
+      "category": "pictures",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=70&page=0&incldead=0&inclexternal=0",
+        "/search_results.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&cat=70&page=1&incldead=0&inclexternal=0"
+      ]
+    },
+    {
+      "source": "kickasstorrents",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/0/",
+        "/detail/fixture",
+        "/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/1/"
+      ]
+    },
+    {
+      "source": "kickasstorrents",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/category/movies/0/",
+        "/detail/fixture",
+        "/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/category/movies/1/"
+      ]
+    },
+    {
+      "source": "kickasstorrents",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/category/tv/0/",
+        "/detail/fixture",
+        "/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/category/tv/1/"
+      ]
+    },
+    {
+      "source": "kickasstorrents",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/category/music/0/",
+        "/detail/fixture",
+        "/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/category/music/1/"
+      ]
+    },
+    {
+      "source": "kickasstorrents",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/category/games/0/",
+        "/detail/fixture",
+        "/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/category/games/1/"
+      ]
+    },
+    {
+      "source": "kickasstorrents",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/category/anime/0/",
+        "/detail/fixture",
+        "/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/category/anime/1/"
+      ]
+    },
+    {
+      "source": "kickasstorrents",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/category/apps/0/",
+        "/detail/fixture",
+        "/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/category/apps/1/"
+      ]
+    },
+    {
+      "source": "pirateiro",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1",
+        "/search?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=2"
+      ]
+    },
+    {
+      "source": "pirateiro",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1&category=2",
+        "/search?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=2&category=2"
+      ]
+    },
+    {
+      "source": "pirateiro",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1&category=3",
+        "/search?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=2&category=3"
+      ]
+    },
+    {
+      "source": "pirateiro",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1&category=1",
+        "/search?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=2&category=1"
+      ]
+    },
+    {
+      "source": "pirateiro",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1&category=4",
+        "/search?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=2&category=4"
+      ]
+    },
+    {
+      "source": "pirateiro",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1&category=6",
+        "/search?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=2&category=6"
+      ]
+    },
+    {
+      "source": "pirateiro",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1&category=5",
+        "/search?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=2&category=5"
+      ]
+    },
+    {
+      "source": "rockbox",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?active=0&search=fixture+%E4%B8%AD%E6%96%87+~+%2A&options=0&order=data&page=0",
+        "/torrents.php?active=0&search=fixture+%E4%B8%AD%E6%96%87+~+%2A&options=0&order=data&page=1"
+      ]
+    },
+    {
+      "source": "torrentdownload",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1"
+      ]
+    },
+    {
+      "source": "torrentdownload",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1"
+      ]
+    },
+    {
+      "source": "torrentdownload",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1"
+      ]
+    },
+    {
+      "source": "torrentdownload",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1"
+      ]
+    },
+    {
+      "source": "torrentdownload",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1"
+      ]
+    },
+    {
+      "source": "torrentdownload",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1"
+      ]
+    },
+    {
+      "source": "torrentdownload",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1"
+      ]
+    },
+    {
+      "source": "torrentdownload",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1"
+      ]
+    },
+    {
+      "source": "yourbittorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture-%E4%B8%AD%E6%96%87-~-%2A"
+      ]
+    },
+    {
+      "source": "yourbittorrent",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture-%E4%B8%AD%E6%96%87-~-%2A&c=1"
+      ]
+    },
+    {
+      "source": "yourbittorrent",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture-%E4%B8%AD%E6%96%87-~-%2A&c=3"
+      ]
+    },
+    {
+      "source": "yourbittorrent",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture-%E4%B8%AD%E6%96%87-~-%2A&c=2"
+      ]
+    },
+    {
+      "source": "yourbittorrent",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture-%E4%B8%AD%E6%96%87-~-%2A&c=4"
+      ]
+    },
+    {
+      "source": "yourbittorrent",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture-%E4%B8%AD%E6%96%87-~-%2A&c=6"
+      ]
+    },
+    {
+      "source": "yourbittorrent",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture-%E4%B8%AD%E6%96%87-~-%2A&c=5"
+      ]
+    },
+    {
+      "source": "magnetdl",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/f/fixture-%e4%b8%ad%e6%96%87-~-%2a/1"
+      ]
+    },
+    {
+      "source": "magnetdl_community_031",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/f/fixture-%e4%b8%ad%e6%96%87-~-%2a/se/desc/1/"
+      ]
+    },
+    {
+      "source": "magnetdl_community_031",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/f/fixture-%e4%b8%ad%e6%96%87-~-%2a/se/desc/1/"
+      ]
+    },
+    {
+      "source": "magnetdl_community_031",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/f/fixture-%e4%b8%ad%e6%96%87-~-%2a/se/desc/1/"
+      ]
+    },
+    {
+      "source": "magnetdl_community_031",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/f/fixture-%e4%b8%ad%e6%96%87-~-%2a/se/desc/1/"
+      ]
+    },
+    {
+      "source": "magnetdl_community_031",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/f/fixture-%e4%b8%ad%e6%96%87-~-%2a/se/desc/1/"
+      ]
+    },
+    {
+      "source": "magnetdl_community_031",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/f/fixture-%e4%b8%ad%e6%96%87-~-%2a/se/desc/1/"
+      ]
+    },
+    {
+      "source": "magnetdl_community_031",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/f/fixture-%e4%b8%ad%e6%96%87-~-%2a/se/desc/1/"
+      ]
+    },
+    {
+      "source": "solidtorrents_community_053",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1"
+      ]
+    },
+    {
+      "source": "nekobt",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v1/torrents/search?query=fixture+%E4%B8%AD%E6%96%87+~+%2A"
+      ]
+    },
+    {
+      "source": "tsukihime",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/v1/search/torrents?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/v1/torrents/42"
+      ]
+    },
+    {
+      "source": "tsukihime",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/v1/search/torrents?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/v1/torrents/42"
+      ]
+    },
+    {
+      "source": "yts",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v2/list_movies.json?query_term=fixture+%E4%B8%AD%E6%96%87+~+%2A"
+      ]
+    },
+    {
+      "source": "yts",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/v2/list_movies.json?query_term=fixture+%E4%B8%AD%E6%96%87+~+%2A"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "pictures",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "yggtracker",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/nodes.json",
+        "/tracker?query=fixture+%E4%B8%AD%E6%96%87+~+%2A&filter=true"
+      ]
+    },
+    {
+      "source": "goggames",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?page=1&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&sort_by=lastUpdateDescending"
+      ]
+    },
+    {
+      "source": "snowfl",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.html",
+        "/b.min.js?fixture=1",
+        "/fixturekey/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/4aa8dd55/0/SEED/NONE/1?_=1792253943125"
+      ]
+    },
+    {
+      "source": "snowfl_community_052",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/",
+        "/b.min.js?fixture=1",
+        "/fixturekey/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/DH5kKsJw/0/SEED/NONE/0"
+      ]
+    },
+    {
+      "source": "btdig",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&order=0"
+      ]
+    },
+    {
+      "source": "anidex",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?s=seeders&o=desc&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "anidex",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?s=seeders&o=desc&id=9,10,11&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "anidex",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?s=seeders&o=desc&id=12&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "anidex",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?s=seeders&o=desc&id=1,2,3&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "anidex",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?s=seeders&o=desc&id=13&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "anidex",
+      "category": "pictures",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?s=seeders&o=desc&id=14&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "anidex",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?s=seeders&o=desc&id=6,7,8&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "dmhy",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/topics/list/page/1?keyword=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "dmhy_community_018",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/topics/list?keyword=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "mikanani",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/Home/Search?page=1&searchstr=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&subgroupid=all"
+      ]
+    },
+    {
+      "source": "nyaapantsu",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/1?s=0&sort=5&order=false&max=300&c=_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "nyaapantsu",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/1?s=0&sort=5&order=false&max=300&c=3_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "nyaapantsu",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/1?s=0&sort=5&order=false&max=300&c=4_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "nyaapantsu",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/1?s=0&sort=5&order=false&max=300&c=2_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "nyaapantsu",
+      "category": "pictures",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/1?s=0&sort=5&order=false&max=300&c=6_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "nyaapantsu",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/1?s=0&sort=5&order=false&max=300&c=1_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "nyaapantsu",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/1?s=0&sort=5&order=false&max=300&c=5_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "nyaapantsu",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/1?s=0&sort=5&order=false&max=300&c=5_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "nyaa",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0",
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0&p=1"
+      ]
+    },
+    {
+      "source": "nyaa",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0",
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0&p=1"
+      ]
+    },
+    {
+      "source": "nyaa",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0",
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0&p=1"
+      ]
+    },
+    {
+      "source": "nyaa",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0",
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0&p=1"
+      ]
+    },
+    {
+      "source": "nyaa",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0",
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0&p=1"
+      ]
+    },
+    {
+      "source": "nyaa",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0",
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0&p=1"
+      ]
+    },
+    {
+      "source": "nyaa",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0",
+        "/?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&f=0&c=0_0&p=1"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?c3=1&c46=1&c45=1&c42=1&c4=1&c1=1&sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?c41=1&c5=1&c6=1&c7=1&sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?c23=1&c24=1&c25=1&c26=1&c17=1&sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?c43=1&c10=1&sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?c28=1&sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?c20=1&c21=1&c18=1&sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "pictures",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?c37=1&sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrentgalaxy",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents.php?c13=1&c19=1&c12=1&c14=1&c15=1&sort=seeders&order=desc&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "pantsu",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "pantsu",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=3_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=3_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "pantsu",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=4_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=4_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "pantsu",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=2_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=2_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "pantsu",
+      "category": "pictures",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=6_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=6_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "pantsu",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=1_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=1_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "pantsu",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=1_2&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=1_2&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "sukebei",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "sukebei",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=1_1&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=1_1&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "sukebei",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=4_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=4_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "sukebei",
+      "category": "pictures",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=1_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=1_&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "sukebei",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/api/search/?c=1_3&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=1&page=1",
+        "/api/search/?c=1_3&q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&limit=100&page=1"
+      ]
+    },
+    {
+      "source": "uindex",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?search=fixture&c=0"
+      ]
+    },
+    {
+      "source": "uindex",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?search=fixture&c=1"
+      ]
+    },
+    {
+      "source": "uindex",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?search=fixture&c=2"
+      ]
+    },
+    {
+      "source": "uindex",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?search=fixture&c=3"
+      ]
+    },
+    {
+      "source": "uindex",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?search=fixture&c=4"
+      ]
+    },
+    {
+      "source": "uindex",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?search=fixture&c=5"
+      ]
+    },
+    {
+      "source": "uindex",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?search=fixture&c=7"
+      ]
+    },
+    {
+      "source": "uniondht",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/tracker.php?nm=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&start=0"
+      ]
+    },
+    {
+      "source": "dodi_repacks",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/sources/dodi.json"
+      ]
+    },
+    {
+      "source": "onlinefix",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/sources/onlinefix.json"
+      ]
+    },
+    {
+      "source": "apachetorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?s=fixture+%25E4%25B8%25AD%25E6%2596%2587+~+%252A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "apachetorrent",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?s=fixture+%25E4%25B8%25AD%25E6%2596%2587+~+%252A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "apachetorrent",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?s=fixture+%25E4%25B8%25AD%25E6%2596%2587+~+%252A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "apachetorrent",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?s=fixture+%25E4%25B8%25AD%25E6%2596%2587+~+%252A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "redetorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?s=fixture+%25E4%25B8%25AD%25E6%2596%2587+~+%252A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "redetorrent",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?s=fixture+%25E4%25B8%25AD%25E6%2596%2587+~+%252A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "redetorrent",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?s=fixture+%25E4%25B8%25AD%25E6%2596%2587+~+%252A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "redetorrent",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?s=fixture+%25E4%25B8%25AD%25E6%2596%2587+~+%252A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "smallgames",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?go=search&go=search&search_text=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "smallgames",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?go=search&go=search&search_text=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "torrenflix",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?s=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/baixar-torrent/42"
+      ]
+    },
+    {
+      "source": "bitsearch",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1"
+      ]
+    },
+    {
+      "source": "therarbg",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/get-posts/order:-se:keywords:fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/?page=1",
+        "/detail/42"
+      ]
+    },
+    {
+      "source": "therarbg",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/get-posts/order:-se:category:Movies:keywords:fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/?page=1",
+        "/detail/42"
+      ]
+    },
+    {
+      "source": "therarbg",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/get-posts/order:-se:category:TV:keywords:fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/?page=1",
+        "/detail/42"
+      ]
+    },
+    {
+      "source": "therarbg",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/get-posts/order:-se:category:Music:keywords:fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/?page=1",
+        "/detail/42"
+      ]
+    },
+    {
+      "source": "therarbg",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/get-posts/order:-se:category:Games:keywords:fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/?page=1",
+        "/detail/42"
+      ]
+    },
+    {
+      "source": "therarbg",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/get-posts/order:-se:category:Anime:keywords:fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/?page=1",
+        "/detail/42"
+      ]
+    },
+    {
+      "source": "therarbg",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/get-posts/order:-se:category:Apps:keywords:fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/?page=1",
+        "/detail/42"
+      ]
+    },
+    {
+      "source": "torrentdownloads",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/?new=1&s_cat=0&search=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1",
+        "/torrent/42"
+      ]
+    },
+    {
+      "source": "torrentdownloads",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/?new=1&s_cat=1&search=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1",
+        "/torrent/42"
+      ]
+    },
+    {
+      "source": "torrentdownloads",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/?new=1&s_cat=2&search=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1",
+        "/torrent/42"
+      ]
+    },
+    {
+      "source": "torrentdownloads",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/?new=1&s_cat=3&search=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1",
+        "/torrent/42"
+      ]
+    },
+    {
+      "source": "torrentdownloads",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/?new=1&s_cat=4&search=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1",
+        "/torrent/42"
+      ]
+    },
+    {
+      "source": "torrentdownloads",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/?new=1&s_cat=5&search=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1",
+        "/torrent/42"
+      ]
+    },
+    {
+      "source": "torrentdownloads",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/?new=1&s_cat=7&search=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1",
+        "/torrent/42"
+      ]
+    },
+    {
+      "source": "torrentdownloads",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/?new=1&s_cat=8&search=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1",
+        "/torrent/42"
+      ]
+    },
+    {
+      "source": "traht",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/browse.php?search=fixture+%E4%B8%AD%E6%96%87+~+%2A&page=1"
+      ]
+    },
+    {
+      "source": "xxxclubto",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents/search/All/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A?page=1&sort=seeders&order=asc",
+        "/detail/42"
+      ]
+    },
+    {
+      "source": "xxxclubto",
+      "category": "pictures",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrents/search/5/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A?page=1&sort=seeders&order=asc",
+        "/detail/42"
+      ]
+    },
+    {
+      "source": "bt4gprx",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/byseeders/1",
+        "/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/byseeders/2",
+        "/bt-detail/42",
+        "/trackerlist"
+      ]
+    },
+    {
+      "source": "bt4gprx",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/movie/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/byseeders/1",
+        "/movie/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/byseeders/2",
+        "/bt-detail/42",
+        "/trackerlist"
+      ]
+    },
+    {
+      "source": "bt4gprx",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/movie/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/byseeders/1",
+        "/movie/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/byseeders/2",
+        "/bt-detail/42",
+        "/trackerlist"
+      ]
+    },
+    {
+      "source": "bt4gprx",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/audio/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/byseeders/1",
+        "/audio/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/byseeders/2",
+        "/bt-detail/42",
+        "/trackerlist"
+      ]
+    },
+    {
+      "source": "bt4gprx",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/doc/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/byseeders/1",
+        "/doc/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/byseeders/2",
+        "/bt-detail/42",
+        "/trackerlist"
+      ]
+    },
+    {
+      "source": "bt4gprx",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/app/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/byseeders/1",
+        "/app/search/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/byseeders/2",
+        "/bt-detail/42",
+        "/trackerlist"
+      ]
+    },
+    {
+      "source": "linuxtracker",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?page=torrents&active=1&order=5&by=2&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&pages=1"
+      ]
+    },
+    {
+      "source": "linuxtracker",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/index.php?page=torrents&active=1&order=5&by=2&search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&pages=1"
+      ]
+    },
+    {
+      "source": "sktorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/torrent/torrents_v2.php?search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&category=0&zaner=&jazyk=&active=0&page=0",
+        "/torrent/torrents_v2.php?search=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&category=0&zaner=&jazyk=&active=0&page=1"
+      ]
+    },
+    {
+      "source": "tokyotoshokan",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?terms=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&type=0&size_min=&size_max=&username=",
+        "/search.php?terms=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&type=0&size_min=&size_max=&username="
+      ]
+    },
+    {
+      "source": "tokyotoshokan",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?terms=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&type=1&size_min=&size_max=&username=",
+        "/search.php?terms=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&type=1&size_min=&size_max=&username="
+      ]
+    },
+    {
+      "source": "tokyotoshokan",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search.php?terms=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&type=14&size_min=&size_max=&username=",
+        "/search.php?terms=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&type=14&size_min=&size_max=&username="
+      ]
+    },
+    {
+      "source": "academictorrents",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/database.xml",
+        "/details/42/tech"
+      ]
+    },
+    {
+      "source": "audiobookbay",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/",
+        "/page/1/?s=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=all",
+        "/detail/42"
+      ]
+    },
+    {
+      "source": "cpasbien",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/recherche/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/1",
+        "/recherche/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/51"
+      ]
+    },
+    {
+      "source": "darklibria",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?page=1&find=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/serial/42"
+      ]
+    },
+    {
+      "source": "dontorrent_community_020",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/buscar/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/buscar/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/pelicula/fixture-release"
+      ]
+    },
+    {
+      "source": "elitetorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?s=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/page/1/?s=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/peliculas/fixture/"
+      ]
+    },
+    {
+      "source": "elitetorrent",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?s=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/page/1/?s=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/peliculas/fixture/"
+      ]
+    },
+    {
+      "source": "elitetorrent",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?s=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/page/1/?s=fixture+%E4%B8%AD%E6%96%87+~+%2A",
+        "/series/fixture/"
+      ]
+    },
+    {
+      "source": "eztvx",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?apikey=YOUR_OMDB_API_KEY&t=fixture&type=series",
+        "/api/get-torrents?limit=100&page=1&Keywords=fixture"
+      ]
+    },
+    {
+      "source": "eztvx",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?apikey=YOUR_OMDB_API_KEY&t=fixture&type=series",
+        "/api/get-torrents?limit=100&page=1&Keywords=fixture"
+      ]
+    },
+    {
+      "source": "maxitorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/get/result/",
+        "/detail/42",
+        "/get/result/"
+      ]
+    },
+    {
+      "source": "mejortorrent",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/busqueda?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/pelicula/42/fixture"
+      ]
+    },
+    {
+      "source": "mejortorrent",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/busqueda?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/pelicula/42/fixture"
+      ]
+    },
+    {
+      "source": "mejortorrent",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/busqueda?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/serie/42/fixture"
+      ]
+    },
+    {
+      "source": "pediatorrent_community_043",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/buscar?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/buscar/page/1?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A",
+        "/peliculas/42-fixture-release"
+      ]
+    },
+    {
+      "source": "thepiratebay_community_059",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=0"
+      ]
+    },
+    {
+      "source": "thepiratebay_community_059",
+      "category": "anime",
+      "results": 13,
+      "parity": true,
+      "routes": [
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=207",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=208",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=201",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=202",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=205",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=206",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=209",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=299",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=501",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=502",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=505",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=599",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=699"
+      ]
+    },
+    {
+      "source": "thepiratebay_community_059",
+      "category": "books",
+      "results": 2,
+      "parity": true,
+      "routes": [
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=601",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=602"
+      ]
+    },
+    {
+      "source": "thepiratebay_community_059",
+      "category": "games",
+      "results": 2,
+      "parity": true,
+      "routes": [
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=400",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=504"
+      ]
+    },
+    {
+      "source": "thepiratebay_community_059",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=207"
+      ]
+    },
+    {
+      "source": "thepiratebay_community_059",
+      "category": "music",
+      "results": 2,
+      "parity": true,
+      "routes": [
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=101",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=104"
+      ]
+    },
+    {
+      "source": "thepiratebay_community_059",
+      "category": "pictures",
+      "results": 3,
+      "parity": true,
+      "routes": [
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=603",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=604",
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=503"
+      ]
+    },
+    {
+      "source": "thepiratebay_community_059",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=300"
+      ]
+    },
+    {
+      "source": "thepiratebay_community_059",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/q.php?q=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&cat=208"
+      ]
+    },
+    {
+      "source": "torrent9",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search_torrent/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page-1",
+        "/search_torrent/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page-2"
+      ]
+    },
+    {
+      "source": "torrentdownload_community_066",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=2",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=3",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=4",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=5",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=6",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=7",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=8",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=9"
+      ]
+    },
+    {
+      "source": "torrentdownload_community_066",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=2",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=3",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=4",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=5",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=6",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=7",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=8",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=9"
+      ]
+    },
+    {
+      "source": "torrentdownload_community_066",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=2",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=3",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=4",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=5",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=6",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=7",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=8",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=9"
+      ]
+    },
+    {
+      "source": "torrentdownload_community_066",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=2",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=3",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=4",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=5",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=6",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=7",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=8",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=9"
+      ]
+    },
+    {
+      "source": "torrentdownload_community_066",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=2",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=3",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=4",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=5",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=6",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=7",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=8",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=9"
+      ]
+    },
+    {
+      "source": "torrentdownload_community_066",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=2",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=3",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=4",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=5",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=6",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=7",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=8",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=9"
+      ]
+    },
+    {
+      "source": "torrentdownload_community_066",
+      "category": "pictures",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=2",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=3",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=4",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=5",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=6",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=7",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=8",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=9"
+      ]
+    },
+    {
+      "source": "torrentdownload_community_066",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=2",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=3",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=4",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=5",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=6",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=7",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=8",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=9"
+      ]
+    },
+    {
+      "source": "torrentdownload_community_066",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=1",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=2",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=3",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=4",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=5",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=6",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=7",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=8",
+        "/search?q=fixture+%E4%B8%AD%E6%96%87+~+%2A&p=9"
+      ]
+    },
+    {
+      "source": "zooqle",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/query/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/torrent-page/"
+      ]
+    },
+    {
+      "source": "zooqle",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/query/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/torrent-page/"
+      ]
+    },
+    {
+      "source": "zooqle",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/query/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/torrent-page/"
+      ]
+    },
+    {
+      "source": "zooqle",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/query/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/torrent-page/"
+      ]
+    },
+    {
+      "source": "zooqle",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/query/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/torrent-page/"
+      ]
+    },
+    {
+      "source": "zooqle",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/query/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/torrent-page/"
+      ]
+    },
+    {
+      "source": "zooqle",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/query/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/torrent-page/"
+      ]
+    },
+    {
+      "source": "zooqle",
+      "category": "books",
+      "results": 0,
+      "parity": true,
+      "routes": [
+        "/query/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A/page/1",
+        "/torrent-page/"
+      ]
+    },
+    {
+      "source": "ali213",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?kw=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&submit=",
+        "/pcgame/42.html",
+        "/soft50/42",
+        "/soft5566/42"
+      ]
+    },
+    {
+      "source": "ali213",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?kw=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&submit=",
+        "/pcgame/42.html",
+        "/soft50/42",
+        "/soft5566/42"
+      ]
+    },
+    {
+      "source": "ali213",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search?kw=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A&submit=",
+        "/pcgame/42.html",
+        "/soft50/42",
+        "/soft5566/42"
+      ]
+    },
+    {
+      "source": "fitgirl_repacks",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?s=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "fitgirl_repacks",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/?s=fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "mypornclub",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/s/fixture-%E4%B8%AD%E6%96%87-~-%2A/seeders/1",
+        "/detail/42"
+      ]
+    },
+    {
+      "source": "rutor",
+      "category": "all",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/0/0/000/0/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "rutor",
+      "category": "movies",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/0/1/000/0/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "rutor",
+      "category": "tv",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/0/6/000/0/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "rutor",
+      "category": "music",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/0/2/000/0/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "rutor",
+      "category": "games",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/0/8/000/0/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "rutor",
+      "category": "anime",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/0/10/000/0/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "rutor",
+      "category": "software",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/0/9/000/0/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "rutor",
+      "category": "pictures",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/0/3/000/0/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    },
+    {
+      "source": "rutor",
+      "category": "books",
+      "results": 1,
+      "parity": true,
+      "routes": [
+        "/search/0/11/000/0/fixture%20%E4%B8%AD%E6%96%87%20~%20%2A"
+      ]
+    }
+  ],
+  "no_python_native": true,
+  "result_limits_passed": true,
+  "http_errors_passed": true,
+  "resolver_records": [
+    {
+      "source": "torrentproject",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:1234567890abcdef1234567890abcdef12345678",
+        "info_hash_v1": "1234567890abcdef1234567890abcdef12345678"
+      },
+      "parity": true
+    },
+    {
+      "source": "pirateiro",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:1234567890abcdef1234567890abcdef12345678",
+        "info_hash_v1": "1234567890abcdef1234567890abcdef12345678"
+      },
+      "parity": true
+    },
+    {
+      "source": "thepiratebay_community_059",
+      "reference": {
+        "kind": "magnet",
+        "uri": "magnet:?xt=urn:btih:1234567890abcdef1234567890abcdef12345678&dn=Fixture%20%E4%B8%AD%E6%96%87%20~%20%2A%20%7C%20release&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2780%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2730%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=http%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce",
+        "info_hash_v1": "1234567890abcdef1234567890abcdef12345678"
+      },
+      "parity": true
+    },
+    {
+      "source": "cpasbien",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:10443/get_torrent/42",
+        "source_id": "cpasbien"
+      },
+      "parity": true
+    },
+    {
+      "source": "torrent9",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:10443/get/42",
+        "source_id": "torrent9"
+      },
+      "parity": true
+    },
+    {
+      "source": "rockbox",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:10443/download.php?id=42",
+        "source_id": "rockbox"
+      },
+      "parity": true
+    },
+    {
+      "source": "traht",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:10443/download.php?id=42&ok=",
+        "source_id": "traht"
+      },
+      "parity": true
+    },
+    {
+      "source": "smallgames",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:10443/getTorrent.php?direct=1&gid=42",
+        "source_id": "smallgames"
+      },
+      "parity": true
+    },
+    {
+      "source": "rutor",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:10443/download/42",
+        "source_id": "rutor"
+      },
+      "parity": true
+    },
+    {
+      "source": "zooqle",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:10443/torfile/#hid=fixture-hid",
+        "source_id": "zooqle",
+        "post_form": {
+          "hid": "fixture-hid"
+        }
+      },
+      "parity": true
+    },
+    {
+      "source": "animetosho",
+      "reference": {
+        "kind": "http",
+        "uri": "http://127.0.0.1:10443/direct.torrent",
+        "source_id": "animetosho"
+      },
+      "parity": true
+    }
+  ],
+  "partial_results_passed": true,
+  "malformed_json_passed": true,
+  "empty_success_passed": true,
+  "challenge_detection_passed": true,
+  "deadline_passed": true,
+  "executable_sha256": "6682cf437a9b58e465e9d46f7ec28784426e96500203a17abeb42a649d170bd9"
+}

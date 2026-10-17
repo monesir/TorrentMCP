@@ -1,0 +1,26 @@
+{
+  "wall_ms": 552.3743000003378,
+  "cpu_ms": 281.25,
+  "peak_private_mib": 26.9921875,
+  "sampled_peak_working_set_mib": 70.01171875,
+  "process_count": 4,
+  "observed_process_names": [
+    "conhost.exe",
+    "python.exe",
+    "torrent-search.exe"
+  ],
+  "exit_code": 0,
+  "status": "completed",
+  "result_count": 0,
+  "unique_results": 0,
+  "identities": [],
+  "error": null,
+  "source_elapsed_ms": 489,
+  "configuration_diagnostic": false,
+  "source": "nyaasi",
+  "backend": "python",
+  "trial": 0,
+  "completed_utc": "2026-10-17T22:45:00.518828+00:00",
+  "raw_report": "raw\\00-nyaasi-python.json",
+  "diagnostics": "raw\\00-nyaasi-python.stderr.log"
+}
