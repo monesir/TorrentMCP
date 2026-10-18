@@ -358,13 +358,24 @@ fn failed_and_partial_inspections_cannot_become_eligible_and_definite_violations
         1
     );
     let mut c = candidate("shutdown");
-    c.inspection.result.as_mut().unwrap().service.stopped = false;
+    c.inspection.result.as_mut().unwrap().service.shutdown_error = Some("locked".into());
     assert_eq!(
         compare_media(vec![c], analysis())
             .unwrap()
             .summary
             .uncertain,
         1
+    );
+    // A daemon's shared session keeps running after the request; that alone
+    // does not make the inspection incomplete.
+    let mut c = candidate("shared");
+    c.inspection.result.as_mut().unwrap().service.stopped = false;
+    assert_eq!(
+        compare_media(vec![c], analysis())
+            .unwrap()
+            .summary
+            .uncertain,
+        0
     );
 }
 

@@ -9,6 +9,7 @@ pub use sources::{SearchSource, SourceOutcome};
 pub mod agent;
 pub mod analysis;
 pub mod comparison;
+pub mod daemon;
 pub mod markdown;
 pub mod media;
 pub mod torrent;

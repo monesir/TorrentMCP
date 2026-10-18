@@ -84,6 +84,26 @@ enum Action {
             help = "Write report to a new file; existing files are preserved"
         )]
         output: Option<PathBuf>,
+        #[arg(
+            long,
+            help = "Run in this process even when a daemon with the same configuration is running"
+        )]
+        no_daemon: bool,
+    },
+    /// Keep sources loaded and the torrent session warm; `agent` forwards to it.
+    Serve {
+        #[arg(
+            long,
+            default_value_t = 10,
+            value_parser = clap::value_parser!(u64).range(1..=1440),
+            help = "Stop rqbit after this many minutes without torrent work; it restarts on demand"
+        )]
+        idle_minutes: u64,
+    },
+    /// Inspect or stop the running daemon.
+    Daemon {
+        #[command(subcommand)]
+        command: DaemonCommand,
     },
     /// Export a saved agent response or raw search report as human-readable tables.
     ExportMarkdown {
@@ -109,6 +129,14 @@ enum Action {
         #[command(flatten)]
         limits: Limits,
     },
+}
+
+#[derive(Subcommand, Clone, Copy)]
+enum DaemonCommand {
+    /// Print the running daemon's health as JSON.
+    Status,
+    /// Ask the running daemon to stop and wait until it has.
+    Stop,
 }
 
 #[derive(Args)]
@@ -152,6 +180,9 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
         write_report(&rendered, output.as_deref())?;
         return Ok(0);
     }
+    if let Action::Daemon { command } = &cli.command {
+        return daemon_command(*command).await;
+    }
     let executable = std::env::current_exe()?;
     let directory = executable.parent().expect("Executable has a directory");
     let assets = cli.assets.unwrap_or_else(|| directory.join("resources"));
@@ -162,26 +193,35 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
             "runtime/bin/python3"
         })
     });
+    let ffprobe = cli.ffprobe.unwrap_or_else(|| {
+        directory.join(if cfg!(windows) {
+            "runtime/media/ffprobe.exe"
+        } else {
+            "runtime/media/ffprobe"
+        })
+    });
+    let mut torrent_runtime = torrent_search::torrent::TorrentRuntime::bundled();
+    if let Some(path) = cli.rqbit {
+        torrent_runtime.rqbit = path;
+    }
+    if let Some(path) = cli.torrent_cache {
+        torrent_runtime.cache_directory = path;
+    }
+    let configuration = daemon_configuration(
+        &assets,
+        &python,
+        &ffprobe,
+        &torrent_runtime,
+        cli.source_backend,
+        cli.limetorrents_backend,
+    );
     if let Action::Agent {
         request,
         format,
         output,
+        no_daemon,
     } = &cli.command
     {
-        let ffprobe = cli.ffprobe.unwrap_or_else(|| {
-            directory.join(if cfg!(windows) {
-                "runtime/media/ffprobe.exe"
-            } else {
-                "runtime/media/ffprobe"
-            })
-        });
-        let mut torrent_runtime = torrent_search::torrent::TorrentRuntime::bundled();
-        if let Some(path) = cli.rqbit {
-            torrent_runtime.rqbit = path;
-        }
-        if let Some(path) = cli.torrent_cache {
-            torrent_runtime.cache_directory = path;
-        }
         return Ok(execute_agent(
             request.as_deref(),
             &assets,
@@ -190,10 +230,46 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
             cli.limetorrents_backend,
             &ffprobe,
             &torrent_runtime,
+            (!no_daemon).then_some(&configuration),
             *format,
             output.as_deref(),
         )
         .await);
+    }
+    if let Action::Serve { idle_minutes } = &cli.command {
+        let sources = configured_sources(
+            &assets,
+            &python,
+            cli.source_backend,
+            cli.limetorrents_backend,
+        )?;
+        let shutdown = CancellationToken::new();
+        let signal = shutdown.clone();
+        tokio::spawn(async move {
+            if tokio::signal::ctrl_c().await.is_ok() {
+                signal.cancel();
+            }
+        });
+        let discovery = torrent_search::daemon::discovery_path();
+        let config = torrent_search::daemon::DaemonConfig {
+            sources,
+            ffprobe,
+            runtime: torrent_runtime,
+            idle: Duration::from_secs(idle_minutes * 60),
+            configuration,
+            discovery: discovery.clone(),
+        };
+        torrent_search::daemon::serve(config, shutdown, |info| {
+            eprintln!(
+                "Daemon listening on 127.0.0.1:{} (pid {}); discovery file {}",
+                info.port,
+                info.pid,
+                discovery.display()
+            );
+        })
+        .await?;
+        eprintln!("Daemon stopped");
+        return Ok(0);
     }
     let sources = configured_sources(
         &assets,
@@ -209,8 +285,11 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
         }
     });
     let result = match cli.command {
-        Action::Agent { .. } | Action::ExportMarkdown { .. } => {
-            unreachable!("Reports are handled before loading sources")
+        Action::Agent { .. }
+        | Action::ExportMarkdown { .. }
+        | Action::Serve { .. }
+        | Action::Daemon { .. } => {
+            unreachable!("Handled before loading sources")
         }
         Action::Sources => {
             let descriptors: Vec<_> = sources.iter().map(|source| source.descriptor()).collect();
@@ -293,11 +372,7 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
             }
             Ok(if cancellation.is_cancelled() {
                 130
-            } else if !report
-                .sources
-                .iter()
-                .any(|source| source.status.answered())
-            {
+            } else if !report.sources.iter().any(|source| source.status.answered()) {
                 1
             } else if report.partial {
                 3
@@ -324,6 +399,106 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
     result
 }
 
+/// Everything that decides how a request runs. `agent` forwards to a daemon
+/// only when the daemon was started with exactly the same values.
+fn daemon_configuration(
+    assets: &Path,
+    python: &Path,
+    ffprobe: &Path,
+    runtime: &torrent_search::torrent::TorrentRuntime,
+    backend: SourceBackend,
+    lime_override: Option<LimeTorrentsBackend>,
+) -> serde_json::Value {
+    serde_json::json!({
+        "assets": assets,
+        "python": python,
+        "ffprobe": ffprobe,
+        "rqbit": runtime.rqbit,
+        "torrent_cache": runtime.cache_directory,
+        "download_limit_bytes_per_second": runtime.download_limit_bytes_per_second,
+        "source_backend": format!("{backend:?}"),
+        "limetorrents_backend": lime_override.map(|value| match value {
+            LimeTorrentsBackend::Python => "python",
+            LimeTorrentsBackend::Rust => "rust",
+        }),
+    })
+}
+
+async fn daemon_command(command: DaemonCommand) -> Result<u8, SearchError> {
+    use torrent_search::daemon::{DaemonClient, discovery_path, read_discovery};
+    let path = discovery_path();
+    let Some(client) = DaemonClient::discover(&path).await else {
+        eprintln!("No daemon is running");
+        return Ok(1);
+    };
+    match command {
+        DaemonCommand::Status => {
+            println!("{}", serde_json::to_string_pretty(&client.health().await?)?);
+            Ok(0)
+        }
+        DaemonCommand::Stop => {
+            client.shutdown().await?;
+            // The daemon removes its discovery file as the last step of stopping.
+            let deadline = std::time::Instant::now() + Duration::from_secs(60);
+            while read_discovery(&path).is_some_and(|info| info.token == client.info().token) {
+                if std::time::Instant::now() >= deadline {
+                    eprintln!("The daemon did not stop within 60 s");
+                    return Ok(1);
+                }
+                tokio::time::sleep(Duration::from_millis(200)).await;
+            }
+            eprintln!("Daemon stopped");
+            Ok(0)
+        }
+    }
+}
+
+/// Run the request in a daemon started with `configuration`. None when no
+/// such daemon answers; the caller then runs it in this process.
+async fn forward_agent(
+    request: Vec<u8>,
+    configuration: &serde_json::Value,
+    format: ReportFormat,
+    output: Option<&Path>,
+    cancellation: &CancellationToken,
+) -> Option<u8> {
+    use torrent_search::daemon::{DaemonClient, discovery_path};
+    let client = DaemonClient::discover(&discovery_path()).await?;
+    if client.info().configuration != *configuration
+        || client.info().version != env!("CARGO_PKG_VERSION")
+    {
+        return None;
+    }
+    // Dropping the forwarded request closes the connection; the daemon cancels it.
+    let reply = tokio::select! {
+        reply = client.agent(request) => reply,
+        _ = cancellation.cancelled() => {
+            eprintln!("Cancelled");
+            return Some(130);
+        }
+    };
+    let parsed = reply.and_then(|body| {
+        let value: serde_json::Value = serde_json::from_slice(&body)?;
+        Ok((body, value))
+    });
+    let (body, value) = match parsed {
+        Ok(parsed) => parsed,
+        Err(error) => {
+            eprintln!("{error}; running in this process");
+            return None;
+        }
+    };
+    let rendered = match format {
+        ReportFormat::Json => Ok(String::from_utf8_lossy(&body).into_owned()),
+        ReportFormat::Markdown => torrent_search::markdown::render(&value),
+    };
+    if let Err(error) = rendered.and_then(|rendered| write_report(&rendered, output)) {
+        eprintln!("Cannot write report: {error}");
+        return Some(1);
+    }
+    Some(torrent_search::daemon::exit_code(&value))
+}
+
 fn configured_sources(
     assets: &Path,
     python: &Path,
@@ -347,16 +522,17 @@ async fn execute_agent(
     lime_override: Option<LimeTorrentsBackend>,
     ffprobe: &Path,
     torrent_runtime: &torrent_search::torrent::TorrentRuntime,
+    daemon: Option<&serde_json::Value>,
     format: ReportFormat,
     output: Option<&Path>,
 ) -> u8 {
     use torrent_search::agent::{AgentRequest, AgentResponse};
     let started = std::time::Instant::now();
-    let read_request = || -> Result<AgentRequest, SearchError> {
+    let read_request = || -> Result<(Vec<u8>, AgentRequest), SearchError> {
         let bytes = read_report(path)?;
         let request: AgentRequest = serde_json::from_slice(&bytes)?;
         request.validate()?;
-        Ok(request)
+        Ok((bytes, request))
     };
     let cancellation = CancellationToken::new();
     let signal = cancellation.clone();
@@ -365,7 +541,15 @@ async fn execute_agent(
             signal.cancel();
         }
     });
-    let mut response = match read_request() {
+    let parsed = read_request();
+    if let (Ok((bytes, _)), Some(configuration)) = (&parsed, daemon)
+        && let Some(code) =
+            forward_agent(bytes.clone(), configuration, format, output, &cancellation).await
+    {
+        interrupt.abort();
+        return code;
+    }
+    let mut response = match parsed.map(|(_, request)| request) {
         Err(error) => AgentResponse::failure(error),
         Ok(request) => {
             let sources = if request.requires_sources() {

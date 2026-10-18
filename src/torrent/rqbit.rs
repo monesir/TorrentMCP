@@ -489,8 +489,9 @@ impl RqbitService {
                 .send()
                 .await
                 .map_err(http_error)?;
-            let stats: Stats = serde_json::from_slice(&Self::response_bytes(response, 1 << 20).await?)
-                .map_err(|e| TorrentFailure::new("torrent_service_failed", e.to_string()))?;
+            let stats: Stats =
+                serde_json::from_slice(&Self::response_bytes(response, 1 << 20).await?)
+                    .map_err(|e| TorrentFailure::new("torrent_service_failed", e.to_string()))?;
             match stats.state.as_str() {
                 "live" => return Ok(id),
                 "error" => {
@@ -536,7 +537,10 @@ impl TorrentService for RqbitService {
         }
     }
 
-    async fn metadata(&self, reference: &TorrentReference) -> Result<TorrentMetadata, TorrentFailure> {
+    async fn metadata(
+        &self,
+        reference: &TorrentReference,
+    ) -> Result<TorrentMetadata, TorrentFailure> {
         validate_reference(reference)?;
         let bytes = self.torrent_bytes(reference).await?;
         let added = self.add(&[("list_only", "true".into())], &bytes).await?;
@@ -602,8 +606,13 @@ impl TorrentService for RqbitService {
             }
         };
         let url = format!("{}/torrents/{id}/stream/{}", self.base, file.id);
-        let entry = managed.get_mut(&torrent.info_hash_v1).expect("just inserted");
-        entry.warmers.entry(file.id).or_insert_with(|| self.warm(&url, file.size_bytes));
+        let entry = managed
+            .get_mut(&torrent.info_hash_v1)
+            .expect("just inserted");
+        entry
+            .warmers
+            .entry(file.id)
+            .or_insert_with(|| self.warm(&url, file.size_bytes));
         Ok(MediaInput::DownloadService {
             url,
             size_bytes: file.size_bytes,
@@ -658,6 +667,14 @@ impl TorrentService for RqbitService {
 }
 
 impl RqbitService {
+    /// Whether the rqbit process is still running.
+    pub async fn alive(&self) -> bool {
+        match self.child.lock().await.as_mut() {
+            Some(child) => matches!(child.try_wait(), Ok(None)),
+            None => false,
+        }
+    }
+
     fn release(entry: &mut Managed, file_id: usize) {
         if let Some(count) = entry.open.get_mut(&file_id) {
             *count -= 1;
@@ -675,7 +692,10 @@ impl RqbitService {
     fn warm(&self, url: &str, size: u64) -> Vec<tokio::task::AbortHandle> {
         let mut ranges = vec![(0, WARM_HEAD_BYTES.min(size) - 1)];
         if size > WARM_HEAD_BYTES {
-            ranges.push((size.saturating_sub(WARM_TAIL_BYTES).max(WARM_HEAD_BYTES), size - 1));
+            ranges.push((
+                size.saturating_sub(WARM_TAIL_BYTES).max(WARM_HEAD_BYTES),
+                size - 1,
+            ));
         }
         ranges
             .into_iter()

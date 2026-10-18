@@ -19,6 +19,10 @@ fn run(request: &[u8], file: bool) -> (i32, Value) {
             "agent",
         ])
         .current_dir(directory.path())
+        .env(
+            "TORRENT_SEARCH_DAEMON_FILE",
+            directory.path().join("daemon.json"),
+        )
         .stdout(Stdio::piped())
         .stderr(Stdio::piped());
     let output = if file {

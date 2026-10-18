@@ -5,8 +5,8 @@ use crate::{
     comparison::{InspectedMediaCandidate, MediaAnalysisRequest, MediaComparisonReport},
     media::{MediaInspectionReport, MediaInspectionRequest, inspect_media},
     torrent::{
-        FileChoice, TorrentCatalog, TorrentOperation, TorrentOperationReport, TorrentRuntime,
-        TorrentServiceLimits, TorrentSource,
+        FileChoice, TorrentCatalog, TorrentFailure, TorrentOperation, TorrentOperationReport,
+        TorrentPool, TorrentRuntime, TorrentServiceLimits, TorrentSource,
     },
 };
 use serde::{Deserialize, Serialize};
@@ -287,6 +287,17 @@ pub enum AgentStatus {
     Error,
 }
 
+impl AgentStatus {
+    pub fn exit_code(self) -> u8 {
+        match self {
+            Self::Completed => 0,
+            Self::Partial => 3,
+            Self::Cancelled => 130,
+            Self::Failed | Self::Error => 1,
+        }
+    }
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct AgentFailure {
     pub code: String,
@@ -334,12 +345,7 @@ impl AgentResponse {
     }
 
     pub fn exit_code(&self) -> u8 {
-        match self.status {
-            AgentStatus::Completed => 0,
-            AgentStatus::Partial => 3,
-            AgentStatus::Cancelled => 130,
-            AgentStatus::Failed | AgentStatus::Error => 1,
-        }
+        self.status.exit_code()
     }
 }
 
@@ -386,8 +392,22 @@ pub async fn execute_with_runtime(
     ffprobe: &Path,
     runtime: &TorrentRuntime,
 ) -> AgentResponse {
+    execute_with_pool(request, sources, cancellation, ffprobe, runtime, None).await
+}
+
+/// With a pool, torrent operations share its long-lived rqbit session instead
+/// of starting and stopping one per request.
+pub async fn execute_with_pool(
+    request: AgentRequest,
+    sources: Vec<Arc<dyn SearchSource>>,
+    cancellation: CancellationToken,
+    ffprobe: &Path,
+    runtime: &TorrentRuntime,
+    pool: Option<&TorrentPool>,
+) -> AgentResponse {
     let started = std::time::Instant::now();
-    let mut response = execute_request(request, sources, cancellation, ffprobe, runtime).await;
+    let mut response =
+        execute_request(request, sources, cancellation, ffprobe, runtime, pool).await;
     response.elapsed_ms = started.elapsed().as_millis().try_into().unwrap_or(u64::MAX);
     response
 }
@@ -398,6 +418,7 @@ async fn execute_request(
     cancellation: CancellationToken,
     ffprobe: &Path,
     runtime: &TorrentRuntime,
+    pool: Option<&TorrentPool>,
 ) -> AgentResponse {
     if let Err(error) = request.validate() {
         return AgentResponse::failure(error);
@@ -449,6 +470,7 @@ async fn execute_request(
                 sources,
                 limits,
                 runtime,
+                pool,
                 ffprobe,
                 cancellation,
                 None,
@@ -474,6 +496,7 @@ async fn execute_request(
                 sources,
                 limits,
                 runtime,
+                pool,
                 ffprobe,
                 cancellation,
                 analysis,
@@ -517,6 +540,7 @@ async fn execute_request(
                 sources,
                 limits,
                 runtime,
+                pool,
                 ffprobe,
                 cancellation,
                 analysis,
@@ -580,10 +604,7 @@ async fn execute_request(
         Err(error) => AgentResponse::failure(error),
         Ok(result) => {
             let no_sources_completed = !result.sources.is_empty()
-                && !result
-                    .sources
-                    .iter()
-                    .any(|source| source.status.answered());
+                && !result.sources.iter().any(|source| source.status.answered());
             let status = if cancellation.is_cancelled() {
                 AgentStatus::Cancelled
             } else if no_sources_completed {
@@ -612,17 +633,59 @@ async fn execute_request(
     }
 }
 
+#[allow(clippy::too_many_arguments)]
+async fn run_torrent(
+    operation: TorrentOperation,
+    sources: Vec<Arc<dyn SearchSource>>,
+    limits: TorrentServiceLimits,
+    runtime: &TorrentRuntime,
+    pool: Option<&TorrentPool>,
+    ffprobe: &Path,
+    cancellation: CancellationToken,
+) -> (Option<TorrentOperationReport>, Option<TorrentFailure>) {
+    let Some(pool) = pool else {
+        return crate::torrent::run(operation, sources, limits, runtime, ffprobe, cancellation)
+            .await;
+    };
+    let service = match pool.acquire(&cancellation).await {
+        Ok(service) => service,
+        Err(error) => return (None, Some(error)),
+    };
+    let (report, failure) = crate::torrent::perform(
+        operation,
+        sources,
+        limits,
+        service.as_ref(),
+        ffprobe,
+        cancellation,
+    )
+    .await;
+    drop(service);
+    pool.touch().await;
+    (Some(report), failure)
+}
+
+#[allow(clippy::too_many_arguments)]
 async fn execute_torrent(
     operation: TorrentOperation,
     sources: Vec<Arc<dyn SearchSource>>,
     limits: TorrentServiceLimits,
     runtime: &TorrentRuntime,
+    pool: Option<&TorrentPool>,
     ffprobe: &Path,
     cancellation: CancellationToken,
     analysis: Option<MediaAnalysisRequest>,
 ) -> AgentResponse {
-    let (mut report, error) =
-        crate::torrent::run(operation, sources, limits, runtime, ffprobe, cancellation).await;
+    let (mut report, error) = run_torrent(
+        operation,
+        sources,
+        limits,
+        runtime,
+        pool,
+        ffprobe,
+        cancellation,
+    )
+    .await;
     let status = match &error {
         None => AgentStatus::Completed,
         Some(e) if e.code == "cancelled" => AgentStatus::Cancelled,
@@ -653,17 +716,27 @@ async fn execute_torrent(
 
 /// Each inspected file is assessed as if it were its own single-file inspection,
 /// so compare_media and assess_inspection keep one meaning of "complete".
+#[allow(clippy::too_many_arguments)]
 async fn execute_inspect_torrent(
     operation: TorrentOperation,
     sources: Vec<Arc<dyn SearchSource>>,
     limits: TorrentServiceLimits,
     runtime: &TorrentRuntime,
+    pool: Option<&TorrentPool>,
     ffprobe: &Path,
     cancellation: CancellationToken,
     analysis: Option<MediaAnalysisRequest>,
 ) -> AgentResponse {
-    let (mut report, error) =
-        crate::torrent::run(operation, sources, limits, runtime, ffprobe, cancellation).await;
+    let (mut report, error) = run_torrent(
+        operation,
+        sources,
+        limits,
+        runtime,
+        pool,
+        ffprobe,
+        cancellation,
+    )
+    .await;
     let inspections = report.as_ref().map_or(&[][..], |r| &r.inspections[..]);
     let inspected = inspections.iter().filter(|i| i.media.is_some()).count();
     let status = match &error {

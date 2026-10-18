@@ -1,4 +1,5 @@
 //! Torrent metadata and file inspection, independent of search adapters and the P2P implementation.
+mod pool;
 mod rqbit;
 mod workflow;
 
@@ -7,13 +8,15 @@ use crate::{
     media::{MediaInput, MediaInspectionReport},
 };
 use async_trait::async_trait;
+pub use pool::TorrentPool;
 pub use rqbit::RqbitService;
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 use tokio_util::sync::CancellationToken;
 pub use workflow::{
     FileChoice, FileInspection, InspectionFailure, InspectionTarget, MAX_FILES_PER_REQUEST,
-    MAX_PARALLEL_INSPECTIONS, TorrentOperation, TorrentSource, inspect_files, sample_files, perform, run, run_with_service, verify_catalog,
+    MAX_PARALLEL_INSPECTIONS, TorrentOperation, TorrentSource, inspect_files, perform, run,
+    run_with_service, sample_files, verify_catalog,
 };
 
 #[derive(Debug, Clone)]
@@ -151,11 +154,12 @@ impl TorrentCatalog {
                 info_hash_v1: Some(hash),
                 ..
             } = reference
-                && hash != &self.info_hash_v1 {
-                    return Err(SearchError::InvalidRequest(
-                        "Catalog and magnet identities differ".into(),
-                    ));
-                }
+                && hash != &self.info_hash_v1
+            {
+                return Err(SearchError::InvalidRequest(
+                    "Catalog and magnet identities differ".into(),
+                ));
+            }
         }
         Ok(())
     }
@@ -191,11 +195,12 @@ pub fn validate_reference(reference: &TorrentReference) -> Result<(), SearchErro
             ..
         },
     ) = (reference, parsed)
-        && (supplied != &actual || actual.is_none()) {
-            return Err(SearchError::InvalidRequest(
-                "rqbit requires a consistent v1 magnet identity".into(),
-            ));
-        }
+        && (supplied != &actual || actual.is_none())
+    {
+        return Err(SearchError::InvalidRequest(
+            "rqbit requires a consistent v1 magnet identity".into(),
+        ));
+    }
     if let TorrentReference::Http {
         post_form: Some(form),
         ..
@@ -203,11 +208,11 @@ pub fn validate_reference(reference: &TorrentReference) -> Result<(), SearchErro
         && (form.is_empty()
             || form.len() > 64
             || form.iter().any(|(k, v)| k.len() > 1024 || v.len() > 32768))
-        {
-            return Err(SearchError::InvalidRequest(
-                "Invalid torrent POST form".into(),
-            ));
-        }
+    {
+        return Err(SearchError::InvalidRequest(
+            "Invalid torrent POST form".into(),
+        ));
+    }
     Ok(())
 }
 
@@ -272,8 +277,10 @@ impl From<std::io::Error> for TorrentFailure {
 #[async_trait]
 pub trait TorrentService: Send + Sync {
     fn description(&self) -> TorrentServiceRun;
-    async fn metadata(&self, reference: &TorrentReference)
-    -> Result<TorrentMetadata, TorrentFailure>;
+    async fn metadata(
+        &self,
+        reference: &TorrentReference,
+    ) -> Result<TorrentMetadata, TorrentFailure>;
     /// Make one file readable. Each successful call is paired with `close_file`.
     async fn open_file(
         &self,

@@ -179,9 +179,7 @@ pub fn assess_inspection(
     let complete = status == AgentStatus::Completed
         && error.is_none()
         && report.is_some_and(|r| {
-            r.operation == "inspect_torrent_file"
-                && r.service.stopped
-                && r.service.shutdown_error.is_none()
+            r.operation == "inspect_torrent_file" && r.service.shutdown_error.is_none()
         })
         && media.is_some_and(|m| {
             !m.streams.is_empty()
