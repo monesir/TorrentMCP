@@ -260,10 +260,11 @@ impl NativeSource {
                     // The search row already names the torrent; the detail only adds
                     // trackers and swarm counts, so a missing or failed detail keeps
                     // the result with unknown counts instead of failing the source.
-                    let info: Value = match self.fetch(&format!("{api}/v1/torrents/{id}"), None).await {
-                        Ok(response) => serde_json::from_str(&response).unwrap_or(Value::Null),
-                        Err(_) => Value::Null,
-                    };
+                    let info: Value =
+                        match self.fetch(&format!("{api}/v1/torrents/{id}"), None).await {
+                            Ok(response) => serde_json::from_str(&response).unwrap_or(Value::Null),
+                            Err(_) => Value::Null,
+                        };
                     let trackers = info["trackers"].as_array();
                     let mut seeds = 0u64;
                     let mut leeches = 0u64;
@@ -484,9 +485,10 @@ impl NativeSource {
                     quote(text(row, "url"))
                 );
                 if let Ok(response) = self.fetch(&resolution, None).await
-                    && let Ok(response) = serde_json::from_str::<Value>(&response) {
-                        uri = text(&response, "url").into();
-                    }
+                    && let Ok(response) = serde_json::from_str::<Value>(&response)
+                {
+                    uri = text(&response, "url").into();
+                }
             }
             if uri.is_empty() {
                 uri = text(row, "url").into();

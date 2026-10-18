@@ -99,7 +99,10 @@ impl NativeSource {
                 .to_string()
                 .replace("%20", "+");
             let feed = self
-                .fetch(&format!("{base}/search?q={q}&page=rss&orderby=seeders"), None)
+                .fetch(
+                    &format!("{base}/search?q={q}&page=rss&orderby=seeders"),
+                    None,
+                )
                 .await?;
             for row in parse_bt4g_rss(&feed)? {
                 results.push(candidate(
@@ -277,12 +280,9 @@ impl NativeSource {
             } else if count == 0
                 || page >= last
                 || id == "linuxtracker" && count < 15
-                || id == "therarbg"
-                    && !super::static_regex(r"<a[^>]*>»</a>")
-                        .is_match(&response)
+                || id == "therarbg" && !super::static_regex(r"<a[^>]*>»</a>").is_match(&response)
                 || id == "torrentdownloads"
-                    && !super::static_regex(r"<a[^>]*>>></a>")
-                        .is_match(&response)
+                    && !super::static_regex(r"<a[^>]*>>></a>").is_match(&response)
                 || id == "xxxclubto" && !response.contains("title=\"Next Page\"")
             {
                 break;
@@ -449,7 +449,9 @@ fn parse(id: &str, base: &str, response: &str) -> Result<Vec<Row>, SearchError> 
             }
         }
         "sktorrent" => {
-            let re=super::static_regex(r#"(?s)id=([a-f0-9]+)".*?<br>(.*?)</A>\s*<br>Velkost ([^|]+)\| Pridany (\d{2}/\d{2}/\d{4})<br>\s*Odosielaju : (\d+)<br>\s*Stahuju : (\d+)"#);
+            let re = super::static_regex(
+                r#"(?s)id=([a-f0-9]+)".*?<br>(.*?)</A>\s*<br>Velkost ([^|]+)\| Pridany (\d{2}/\d{2}/\d{4})<br>\s*Odosielaju : (\d+)<br>\s*Stahuju : (\d+)"#,
+            );
             let trackers = "https%3A%2F%2Fannounce1.sktorrent.eu%2Ftorrent%2Fannounce.php%3Fpid%3D1968a215113a4d87936336557ba8e800&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=udp%3A%2F%2Fipv4announce.sktorrent.eu%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce";
             for m in re.captures_iter(response) {
                 let mut r = Row::new(
@@ -551,8 +553,10 @@ mod tests {
 
     #[test]
     fn bt4g_rss_yields_magnets_sizes_and_dates() {
-        let rows = parse_bt4g_rss(include_str!("../../../tests/fixtures/bt4gprx-ubuntu-rss.xml"))
-            .unwrap();
+        let rows = parse_bt4g_rss(include_str!(
+            "../../../tests/fixtures/bt4gprx-ubuntu-rss.xml"
+        ))
+        .unwrap();
         assert_eq!(rows.len(), 15);
         let first = &rows[0];
         assert_eq!(first.title, "ubuntu-unity-26.04-desktop-amd64.iso");
@@ -563,7 +567,13 @@ mod tests {
         );
         assert!(first.bytes.is_some_and(|b| b > 4_000_000_000));
         assert!(first.date.is_some());
-        assert!(first.desc.as_deref().unwrap().starts_with("https://bt4gprx.com/magnet/"));
+        assert!(
+            first
+                .desc
+                .as_deref()
+                .unwrap()
+                .starts_with("https://bt4gprx.com/magnet/")
+        );
     }
     use crate::{SearchLimits, SourceDescriptor, SourceStatus, sources::SearchSource};
     use tokio::{

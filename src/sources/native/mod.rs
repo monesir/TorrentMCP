@@ -173,9 +173,10 @@ pub struct NativeSource {
 impl NativeSource {
     pub fn new(mut descriptor: SourceDescriptor, assets: &Path) -> Result<Self, SearchError> {
         if descriptor.id == "jackett"
-            && let Ok(config) = jackett::configuration(assets) {
-                descriptor.site_url = config.url.trim_end_matches('/').to_owned();
-            }
+            && let Ok(config) = jackett::configuration(assets)
+        {
+            descriptor.site_url = config.url.trim_end_matches('/').to_owned();
+        }
         let base = chrono::NaiveDate::from_ymd_opt(2024, 4, 16).unwrap();
         let version = 125 + (chrono::Utc::now().date_naive() - base).num_days() / 30;
         let mut builder = reqwest::Client::builder()
@@ -193,54 +194,55 @@ impl NativeSource {
             builder = builder.cookie_store(true);
         }
         if descriptor.id == "rutor"
-            && let Ok(text) = std::fs::read_to_string(assets.join("qbit/engines/rutor.json")) {
-                let config: serde_json::Value = serde_json::from_str(&text)?;
-                if let Some(ua) = config["ua"].as_str() {
-                    builder = builder.user_agent(ua);
-                }
-                if config["proxy"].as_bool() == Some(true) {
-                    let proxies = config["proxies"]
-                        .as_object()
-                        .ok_or_else(|| runtime("Rutor proxy is enabled but missing"))?;
-                    let mut configured = false;
-                    for scheme in ["http", "https"] {
-                        if let Some(value) = proxies
-                            .get(scheme)
-                            .and_then(|s| s.as_str())
-                            .filter(|s| !s.is_empty())
-                        {
-                            let proxy = if scheme == "http" {
-                                reqwest::Proxy::http(value)
-                            } else {
-                                reqwest::Proxy::https(value)
-                            }
-                            .map_err(|_| runtime("Invalid Rutor proxy"))?;
-                            builder = builder.proxy(proxy);
-                            configured = true;
+            && let Ok(text) = std::fs::read_to_string(assets.join("qbit/engines/rutor.json"))
+        {
+            let config: serde_json::Value = serde_json::from_str(&text)?;
+            if let Some(ua) = config["ua"].as_str() {
+                builder = builder.user_agent(ua);
+            }
+            if config["proxy"].as_bool() == Some(true) {
+                let proxies = config["proxies"]
+                    .as_object()
+                    .ok_or_else(|| runtime("Rutor proxy is enabled but missing"))?;
+                let mut configured = false;
+                for scheme in ["http", "https"] {
+                    if let Some(value) = proxies
+                        .get(scheme)
+                        .and_then(|s| s.as_str())
+                        .filter(|s| !s.is_empty())
+                    {
+                        let proxy = if scheme == "http" {
+                            reqwest::Proxy::http(value)
+                        } else {
+                            reqwest::Proxy::https(value)
                         }
+                        .map_err(|_| runtime("Invalid Rutor proxy"))?;
+                        builder = builder.proxy(proxy);
+                        configured = true;
                     }
-                    if !configured {
-                        return Err(runtime("Rutor proxy is enabled but not configured"));
-                    }
+                }
+                if !configured {
+                    return Err(runtime("Rutor proxy is enabled but not configured"));
                 }
             }
+        }
         if descriptor.id == "torrentclaw"
             && let Ok(key) = std::env::var("TORRENTCLAW_API_KEY")
-                && !key.is_empty() {
-                    let mut value =
-                        reqwest::header::HeaderValue::from_str(&format!("Bearer {key}"))
-                            .map_err(|_| runtime("Invalid TorrentClaw API key header"))?;
-                    value.set_sensitive(true);
-                    let mut headers = reqwest::header::HeaderMap::new();
-                    headers.insert(reqwest::header::AUTHORIZATION, value);
-                    headers.insert(
-                        reqwest::header::ACCEPT,
-                        reqwest::header::HeaderValue::from_static("application/json"),
-                    );
-                    builder = builder
-                        .default_headers(headers)
-                        .user_agent("qBittorrent (TorrentClaw plugin)");
-                }
+            && !key.is_empty()
+        {
+            let mut value = reqwest::header::HeaderValue::from_str(&format!("Bearer {key}"))
+                .map_err(|_| runtime("Invalid TorrentClaw API key header"))?;
+            value.set_sensitive(true);
+            let mut headers = reqwest::header::HeaderMap::new();
+            headers.insert(reqwest::header::AUTHORIZATION, value);
+            headers.insert(
+                reqwest::header::ACCEPT,
+                reqwest::header::HeaderValue::from_static("application/json"),
+            );
+            builder = builder
+                .default_headers(headers)
+                .user_agent("qBittorrent (TorrentClaw plugin)");
+        }
         let client = builder.build().map_err(http_error)?;
         Ok(Self {
             descriptor,
@@ -312,9 +314,9 @@ impl NativeSource {
                 .get(reqwest::header::LOCATION)
                 .and_then(|h| h.to_str().ok())
                 .filter(|h| h.starts_with("magnet:"))
-            {
-                return Ok((magnet.to_owned(), response.url().to_string()));
-            }
+        {
+            return Ok((magnet.to_owned(), response.url().to_string()));
+        }
         response = response.error_for_status().map_err(http_error)?;
         let charset = response
             .headers()
@@ -683,7 +685,9 @@ pub(super) fn static_regex(pattern: &'static str) -> &'static regex::Regex {
     static CACHE: std::sync::LazyLock<
         std::sync::Mutex<std::collections::HashMap<&'static str, &'static regex::Regex>>,
     > = std::sync::LazyLock::new(Default::default);
-    let mut cache = CACHE.lock().unwrap_or_else(|poisoned| poisoned.into_inner());
+    let mut cache = CACHE
+        .lock()
+        .unwrap_or_else(|poisoned| poisoned.into_inner());
     cache.entry(pattern).or_insert_with(|| {
         Box::leak(Box::new(
             regex::Regex::new(pattern).expect("Static source pattern"),

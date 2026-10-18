@@ -263,14 +263,14 @@ mod reference_tests {
             post_form: None,
         });
         let magnet = result(
-            crate::reference::parse_reference(
-                &crate::reference::magnet_from_hash(hash, "T"),
-                "b",
-            )
-            .unwrap(),
+            crate::reference::parse_reference(&crate::reference::magnet_from_hash(hash, "T"), "b")
+                .unwrap(),
         );
         let merged = merge_results(vec![file, magnet]);
         assert_eq!(merged.len(), 1);
-        assert!(matches!(merged[0].reference, TorrentReference::Magnet { .. }));
+        assert!(matches!(
+            merged[0].reference,
+            TorrentReference::Magnet { .. }
+        ));
     }
 }

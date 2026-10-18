@@ -171,7 +171,9 @@ impl NativeSource {
                     format!("{base}/download")
                 };
                 let mut last = 1;
-                let re=super::static_regex(r#"(?s)(?:gai|tum)"><td>(.+?)</td.+?href="(magnet:.+?)".+?href="/(torrent/(\d+).+?)">(.+?)</a.+?right">([.\d]+?&nbsp;\w+?)</td.+?<span.+?(\d+?)</span>.+?<span.+?(\d+?)</span>"#);
+                let re = super::static_regex(
+                    r#"(?s)(?:gai|tum)"><td>(.+?)</td.+?href="(magnet:.+?)".+?href="/(torrent/(\d+).+?)">(.+?)</a.+?right">([.\d]+?&nbsp;\w+?)</td.+?<span.+?(\d+?)</span>.+?<span.+?(\d+?)</span>"#,
+                );
                 for page in 0.. {
                     let response = self
                         .fetch(&format!("{base}/search/{page}/{c}/000/0/{q}"), None)

@@ -271,9 +271,10 @@ pub fn parse_page(
         }
         let text = |index: usize| cells[index].text().collect::<String>().trim().to_owned();
         // The row's .torrent mirror link (itorrents) is named by the infohash.
-        let reference = match cells[0].select(links).find_map(|anchor| {
-            crate::reference::info_hash_in_url(anchor.value().attr("href")?)
-        }) {
+        let reference = match cells[0]
+            .select(links)
+            .find_map(|anchor| crate::reference::info_hash_in_url(anchor.value().attr("href")?))
+        {
             Some(hash) => parse_reference(
                 &crate::reference::magnet_from_hash(&hash, &title),
                 &descriptor.id,

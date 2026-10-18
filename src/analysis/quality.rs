@@ -33,8 +33,9 @@ static CHANNELS: LazyLock<Regex> =
 static MULTI_AUDIO: LazyLock<Regex> =
     LazyLock::new(|| Regex::new(r"(?i)\b(multi|dual(?:[ ._-]?audio)?)\b").unwrap());
 // Upscaled video claims a resolution its source never had.
-static UPSCALE: LazyLock<Regex> =
-    LazyLock::new(|| Regex::new(r"(?i)\b(upscaled?|upscl|ai[ ._-]?upscaled?)\b|\bA[Ii]\b").unwrap());
+static UPSCALE: LazyLock<Regex> = LazyLock::new(|| {
+    Regex::new(r"(?i)\b(upscaled?|upscl|ai[ ._-]?upscaled?)\b|\bA[Ii]\b").unwrap()
+});
 static REPACK: LazyLock<Regex> =
     LazyLock::new(|| Regex::new(r"(?i)\b(repack|proper|rerip)\b").unwrap());
 static RELEASE_GROUP: LazyLock<Regex> = LazyLock::new(|| {
@@ -187,7 +188,11 @@ pub(super) fn scan(metadata: &str, full_title: &str, signals: &mut QualitySignal
     }
     for found in BIT_DEPTH.captures_iter(metadata) {
         let depth: u8 = found[1].parse().unwrap();
-        signals.bit_depth = Some(signals.bit_depth.map_or(depth, |current| current.max(depth)));
+        signals.bit_depth = Some(
+            signals
+                .bit_depth
+                .map_or(depth, |current| current.max(depth)),
+        );
     }
     for found in AUDIO_CODEC.find_iter(metadata) {
         if next_is_letter(metadata, found.end()) {
@@ -237,19 +242,20 @@ pub(super) fn scan(metadata: &str, full_title: &str, signals: &mut QualitySignal
     signals.repack |= REPACK.is_match(metadata);
     signals.upscaled |= UPSCALE.is_match(metadata);
     if signals.release_group.is_none()
-        && let Some(found) = RELEASE_GROUP.captures(full_title) {
-            let group = found[1].trim_end_matches('.');
-            let lower = group.to_ascii_lowercase();
-            if !group.bytes().all(|b| b.is_ascii_digit())
-                && ![
-                    "x264", "x265", "h264", "h265", "hevc", "avc", "web", "dl", "rip", "hd",
-                    "sdr", "hdr", "mkv", "mp4",
-                ]
-                .contains(&lower.as_str())
-            {
-                signals.release_group = Some(group.to_owned());
-            }
+        && let Some(found) = RELEASE_GROUP.captures(full_title)
+    {
+        let group = found[1].trim_end_matches('.');
+        let lower = group.to_ascii_lowercase();
+        if !group.bytes().all(|b| b.is_ascii_digit())
+            && ![
+                "x264", "x265", "h264", "h265", "hevc", "avc", "web", "dl", "rip", "hd", "sdr",
+                "hdr", "mkv", "mp4",
+            ]
+            .contains(&lower.as_str())
+        {
+            signals.release_group = Some(group.to_owned());
         }
+    }
 }
 
 fn single<T: Copy>(fact: &Fact<T>, worst: impl Fn(T, T) -> T) -> Option<T> {
@@ -281,8 +287,13 @@ pub fn quality_score(analysis: &ReleaseAnalysis) -> u32 {
         .unwrap_or(25);
     let quality = &analysis.quality;
     // An upscale has at most the detail of a 1080p source.
-    let height = single(&analysis.resolution, u16::min)
-        .map(|height| if quality.upscaled { height.min(1080) } else { height });
+    let height = single(&analysis.resolution, u16::min).map(|height| {
+        if quality.upscaled {
+            height.min(1080)
+        } else {
+            height
+        }
+    });
     let resolution = match height {
         Some(4320) => 45,
         Some(2160) => 40,

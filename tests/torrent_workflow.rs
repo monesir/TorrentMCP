@@ -456,9 +456,16 @@ async fn a_shared_service_survives_operations_and_releases_files_after_failures(
         .await;
         assert_eq!(error.unwrap().code, "all_inspections_failed");
         assert!(report.inspections.iter().all(|i| i.failure.is_some()));
-        assert!(!report.service.stopped, "perform leaves a shared service running");
+        assert!(
+            !report.service.stopped,
+            "perform leaves a shared service running"
+        );
     }
-    assert_eq!(service.peak_open.load(Ordering::SeqCst), 1, "parallel 1 is sequential");
+    assert_eq!(
+        service.peak_open.load(Ordering::SeqCst),
+        1,
+        "parallel 1 is sequential"
+    );
     assert_eq!(service.closed.load(Ordering::SeqCst), 4);
     assert_eq!(service.open_now.load(Ordering::SeqCst), 0);
     let (_, error) = perform(
@@ -476,7 +483,10 @@ async fn a_shared_service_survives_operations_and_releases_files_after_failures(
         CancellationToken::new(),
     )
     .await;
-    assert!(error.is_some(), "a non-media file is rejected before any read");
+    assert!(
+        error.is_some(),
+        "a non-media file is rejected before any read"
+    );
     let slow = Service::new("missing".into(), "ok");
     let (report, _) = perform(
         TorrentOperation::InspectFiles {
@@ -538,8 +548,16 @@ fn sampling_picks_the_largest_video_or_spreads_over_episodes_skipping_extras() {
         file(7, "Show/S01E05.mkv", 990),
     ];
     assert_eq!(sample_files(&c, 1), [1], "largest video");
-    assert_eq!(sample_files(&c, 3), [1, 0, 7], "first, middle, last episode");
-    assert_eq!(sample_files(&c, 20).len(), 5, "never more than the main videos");
+    assert_eq!(
+        sample_files(&c, 3),
+        [1, 0, 7],
+        "first, middle, last episode"
+    );
+    assert_eq!(
+        sample_files(&c, 20).len(),
+        5,
+        "never more than the main videos"
+    );
     c.files = vec![file(0, "readme.txt", 10)];
     assert!(sample_files(&c, 3).is_empty());
 }

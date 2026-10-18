@@ -205,7 +205,13 @@ fn evaluate(
     if !request.constraints.reject_formats.is_empty() {
         let allowed: Vec<String> = super::SOURCE_FORMATS
             .iter()
-            .filter(|format| !request.constraints.reject_formats.iter().any(|r| r == *format))
+            .filter(|format| {
+                !request
+                    .constraints
+                    .reject_formats
+                    .iter()
+                    .any(|r| r == *format)
+            })
             .map(|format| (*format).into())
             .collect();
         let matches: Vec<_> = analysis

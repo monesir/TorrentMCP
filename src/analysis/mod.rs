@@ -64,12 +64,15 @@ pub const LOW_QUALITY_FORMATS: &[&str] = &["cam", "telesync", "telecine", "scree
 
 /// Canonical audio language codes (ISO 639-1) recognised in release names.
 pub const AUDIO_LANGUAGES: &[&str] = &[
-    "zh", "en", "ar", "ja", "ko", "fr", "de", "es", "ru", "hi", "th", "it", "pt", "tr", "pl",
-    "nl", "uk", "ta", "te", "fa", "he", "id", "vi",
+    "zh", "en", "ar", "ja", "ko", "fr", "de", "es", "ru", "hi", "th", "it", "pt", "tr", "pl", "nl",
+    "uk", "ta", "te", "fa", "he", "id", "vi",
 ];
 
 fn default_reject_formats() -> Vec<String> {
-    LOW_QUALITY_FORMATS.iter().map(|&value| value.into()).collect()
+    LOW_QUALITY_FORMATS
+        .iter()
+        .map(|&value| value.into())
+        .collect()
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

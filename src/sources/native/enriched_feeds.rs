@@ -49,7 +49,9 @@ fn iso(s: &str) -> Option<u64> {
         .or_else(|| local(s, "%Y-%m-%dT%H:%M:%S"))
 }
 fn episodes(s: &str) -> (Option<u32>, Option<u32>) {
-    let re=super::static_regex(r"(?i)\b(?:s(\d{1,2})e(\d{1,2})|s(\d{1,2})|e(\d{1,2})|(\d{1,2})x(\d{1,2})|season\s*(\d{1,2})\s*episode\s*(\d{1,2})|season\s*(\d{1,2}))\b");
+    let re = super::static_regex(
+        r"(?i)\b(?:s(\d{1,2})e(\d{1,2})|s(\d{1,2})|e(\d{1,2})|(\d{1,2})x(\d{1,2})|season\s*(\d{1,2})\s*episode\s*(\d{1,2})|season\s*(\d{1,2}))\b",
+    );
     let Some(c) = re.captures(s) else {
         return (None, None);
     };
@@ -188,7 +190,9 @@ impl NativeSource {
                 };
                 for (title, hash, bytes, desc) in rows {
                     let details = self.fetch(&format!("{desc}/tech"), None).await?;
-                    let peers = super::static_regex(r"<tr><td>Mirrors</td><td>(\d+)\s*complete,\s*(\d+)\s*downloading");
+                    let peers = super::static_regex(
+                        r"<tr><td>Mirrors</td><td>(\d+)\s*complete,\s*(\d+)\s*downloading",
+                    );
                     let peers = peers.captures(&details);
                     let date = cap(r"<tr><td>Added</td><td>([^<]+)</td></tr>", &details)
                         .as_deref()
@@ -419,8 +423,12 @@ impl NativeSource {
                 // Preserve the original's encoded query handling and title cleanup.
                 let keywords = q.replace("%20", " ").replace(['.', '-'], " ");
                 let wanted = episodes(&keywords);
-                let ep=super::static_regex(r"(?i)\b(?:s\d{1,2}e\d{1,2}|s\d{1,2}|e\d{1,2}|\d{1,2}x\d{1,2}|season\s*\d{1,2}\s*episode\s*\d{1,2}|season\s*\d{1,2})\b");
-                let junk=super::static_regex(r"(?i)\b(1080p|720p|480p|2160p|4k|x264|x265|hevc|avc|bluray|webrip|web-dl|hdtv|dvdrip|proper|repack|extended|theatrical|directors\.cut|remux)\b");
+                let ep = super::static_regex(
+                    r"(?i)\b(?:s\d{1,2}e\d{1,2}|s\d{1,2}|e\d{1,2}|\d{1,2}x\d{1,2}|season\s*\d{1,2}\s*episode\s*\d{1,2}|season\s*\d{1,2})\b",
+                );
+                let junk = super::static_regex(
+                    r"(?i)\b(1080p|720p|480p|2160p|4k|x264|x265|hevc|avc|bluray|webrip|web-dl|hdtv|dvdrip|proper|repack|extended|theatrical|directors\.cut|remux)\b",
+                );
                 let cleaned = junk.replace_all(&keywords, "");
                 let cleaned = ep
                     .replace_all(&cleaned, "")

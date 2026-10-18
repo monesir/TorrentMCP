@@ -612,7 +612,10 @@ impl RqbitService {
     /// How many torrents are parked now.
     pub async fn parked(&self) -> usize {
         let managed = self.managed.lock().await;
-        managed.values().filter(|entry| entry.parked.is_some()).count()
+        managed
+            .values()
+            .filter(|entry| entry.parked.is_some())
+            .count()
     }
 
     /// Delete the torrent from rqbit together with its partial data.
@@ -998,7 +1001,11 @@ mod tests {
         };
         assert!(evictions(&[parked("a", 5, 10), parked("b", 1, 10)], &limits, now).is_empty());
         assert_eq!(
-            evictions(&[parked("young", 1, 10), parked("old", 61, 10)], &limits, now),
+            evictions(
+                &[parked("young", 1, 10), parked("old", 61, 10)],
+                &limits,
+                now
+            ),
             ["old"]
         );
         assert_eq!(

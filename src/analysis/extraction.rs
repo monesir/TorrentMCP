@@ -26,17 +26,13 @@ static RESOLUTION: LazyLock<Regex> = LazyLock::new(|| {
     Regex::new(r"(?i)\b(?:(480|576|720|1080|1440|2160|4320)[piрі]|([48][kк]))\b").unwrap()
 });
 static CODEC: LazyLock<Regex> = LazyLock::new(|| {
-    Regex::new(
-        r"(?i)\b(?:x264|h[ ._-]?264|avc|x265|h[ ._-]?265|hevc|av1|vp9|mpeg[ ._-]?2|xvid)\b",
-    )
-    .unwrap()
+    Regex::new(r"(?i)\b(?:x264|h[ ._-]?264|avc|x265|h[ ._-]?265|hevc|av1|vp9|mpeg[ ._-]?2|xvid)\b")
+        .unwrap()
 });
-static AUDIO: LazyLock<Regex> = LazyLock::new(|| {
-    Regex::new(r"(?i)\b(\p{L}+)[ ._-]+(?:audio|dub|dubbed|dublado)\b").unwrap()
-});
-static SUBTITLE: LazyLock<Regex> = LazyLock::new(|| {
-    Regex::new(r"(?i)\b(\p{L}+?)[ ._-]*(?:sub|subs|subtitles|subbed)\b").unwrap()
-});
+static AUDIO: LazyLock<Regex> =
+    LazyLock::new(|| Regex::new(r"(?i)\b(\p{L}+)[ ._-]+(?:audio|dub|dubbed|dublado)\b").unwrap());
+static SUBTITLE: LazyLock<Regex> =
+    LazyLock::new(|| Regex::new(r"(?i)\b(\p{L}+?)[ ._-]*(?:sub|subs|subtitles|subbed)\b").unwrap());
 static COMPLETE: LazyLock<Regex> = LazyLock::new(|| {
     Regex::new(r"(?i)\b(?:complete|full[ ._-]+season|integrale|completa)\b").unwrap()
 });
@@ -134,7 +130,9 @@ pub fn analyze_release(result: &SearchResult, request: &AnalysisRequest) -> Rele
                 };
                 if first < last && last - first <= 50 {
                     for value in first..=last {
-                        analysis.season.push(value, evidence(&found[0], rule), false);
+                        analysis
+                            .season
+                            .push(value, evidence(&found[0], rule), false);
                     }
                 }
             }
@@ -213,13 +211,14 @@ pub fn analyze_release(result: &SearchResult, request: &AnalysisRequest) -> Rele
         }
         if end.is_some()
             && let Some(token) = canonical_words(metadata).first()
-                && let Some(value) = part_number(token) {
-                    analysis.part.push(
-                        value,
-                        evidence(token, "part_suffix_after_requested_title"),
-                        true,
-                    );
-                }
+            && let Some(value) = part_number(token)
+        {
+            analysis.part.push(
+                value,
+                evidence(token, "part_suffix_after_requested_title"),
+                true,
+            );
+        }
         for found in RESOLUTION.captures_iter(metadata) {
             let height = found
                 .get(1)
@@ -274,9 +273,11 @@ pub fn analyze_release(result: &SearchResult, request: &AnalysisRequest) -> Rele
             }
         }
         for (value, token) in super::quality::source_formats(metadata) {
-            analysis
-                .source_format
-                .push(value.into(), evidence(&token, "source_format_label"), false);
+            analysis.source_format.push(
+                value.into(),
+                evidence(&token, "source_format_label"),
+                false,
+            );
         }
         super::quality::scan(metadata, &title.normalized, &mut analysis.quality);
         if !title_ranges.is_empty() {

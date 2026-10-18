@@ -254,9 +254,10 @@ async fn scrape(
                 && let (Some(seeds), Some(leech)) = (
                     int(value, &[b"complete", b"seeds", b"seeders"]),
                     int(value, &[b"incomplete", b"peers", b"leechers"]),
-                ) {
-                    stats.insert(hash.clone(), (seeds, leech));
-                }
+                )
+            {
+                stats.insert(hash.clone(), (seeds, leech));
+            }
         }
     }
     Ok(stats)

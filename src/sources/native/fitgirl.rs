@@ -58,7 +58,9 @@ struct Cached {
     post: Post,
 }
 fn bytes(s: &str) -> Option<u64> {
-    let re = super::static_regex(r"(?i)Repack\s+Size[^\d]*?(\d[\d.,]*)\s*(?:/\s*\d[\d.,]*\s*)?([KMGT]?)i?B\b");
+    let re = super::static_regex(
+        r"(?i)Repack\s+Size[^\d]*?(\d[\d.,]*)\s*(?:/\s*\d[\d.,]*\s*)?([KMGT]?)i?B\b",
+    );
     let c = re.captures(s)?;
     let mut n = c[1].trim_end_matches(['.', ',']).to_owned();
     if n.contains(',') && n.contains('.') {
@@ -68,9 +70,7 @@ fn bytes(s: &str) -> Option<u64> {
             n = n.replace(',', "")
         }
     } else if n.contains(',') {
-        if super::static_regex(r"^\d{1,3}(?:,\d{3})+$")
-            .is_match(&n)
-        {
+        if super::static_regex(r"^\d{1,3}(?:,\d{3})+$").is_match(&n) {
             n = n.replace(',', "")
         } else {
             n = n.replace(',', ".")
@@ -114,7 +114,9 @@ fn hash(magnet: &str) -> Option<String> {
     }
 }
 fn extract_hash(s: &str) -> Option<String> {
-    let re=super::static_regex(r"(?i)(?:torrage\.info/torrent\.php\?h=|itorrents\.org/torrent/|btcache\.me/torrent/|infohash=|\bbtih:)([a-f0-9]{40}|[a-z2-7]{32})");
+    let re = super::static_regex(
+        r"(?i)(?:torrage\.info/torrent\.php\?h=|itorrents\.org/torrent/|btcache\.me/torrent/|infohash=|\bbtih:)([a-f0-9]{40}|[a-z2-7]{32})",
+    );
     for c in re.captures_iter(s) {
         if let Some(h) = hash(&format!("magnet:?xt=urn:btih:{}", &c[1])) {
             return Some(h);
@@ -201,10 +203,7 @@ fn parse(response: &str, base: &str, query: &str, standalone: bool) -> Vec<Post>
             .map(|s| s.to_string());
         let torrent = links
             .iter()
-            .find(|h| {
-                super::static_regex(r"(?i)\.torrent(?:\?|$)")
-                    .is_match(h)
-            })
+            .find(|h| super::static_regex(r"(?i)\.torrent(?:\?|$)").is_match(h))
             .and_then(|s| join(&page, s));
         // The Python parser inspects link targets and visible text, never image
         // URLs or CSS attributes (an avatar checksum is not a torrent hash).
@@ -421,12 +420,14 @@ impl NativeSource {
             let last = if standalone {
                 1
             } else {
-                super::static_regex(r#"class=["'][^"']*page-numbers[^"']*["'][^>]*>\s*(\d+)\s*</a>"#)
-                    .captures_iter(&response)
-                    .filter_map(|c| c[1].parse::<usize>().ok())
-                    .max()
-                    .unwrap_or(1)
-                    .min(3)
+                super::static_regex(
+                    r#"class=["'][^"']*page-numbers[^"']*["'][^>]*>\s*(\d+)\s*</a>"#,
+                )
+                .captures_iter(&response)
+                .filter_map(|c| c[1].parse::<usize>().ok())
+                .max()
+                .unwrap_or(1)
+                .min(3)
             };
             let candidates = parse(&response, &final_url, &request.query, standalone);
             if candidates.is_empty() {
@@ -456,17 +457,18 @@ impl NativeSource {
                     };
                     let query = request.query.clone();
                     tasks.spawn(async move {
-                        if post.magnet.is_none() && post.hash.is_none()
+                        if post.magnet.is_none()
+                            && post.hash.is_none()
                             && let Ok(Ok((details, final_url))) = tokio::time::timeout(
                                 Duration::from_secs(6),
                                 source.fetch_document(&post.page, None, None, 4 * 1024 * 1024),
                             )
                             .await
-                                && let Some(parsed) =
-                                    parse(&details, &final_url, &query, true).into_iter().next()
-                                {
-                                    merge(&mut post, parsed);
-                                }
+                            && let Some(parsed) =
+                                parse(&details, &final_url, &query, true).into_iter().next()
+                        {
+                            merge(&mut post, parsed);
+                        }
                         enrich(&mut post);
                         (index, post)
                     });
@@ -506,10 +508,10 @@ impl NativeSource {
                             results,
                         )
                         .await?
-                    {
-                        tasks.abort_all();
-                        return Ok(true);
-                    }
+                {
+                    tasks.abort_all();
+                    return Ok(true);
+                }
             }
             if !flag("FITGIRL_STREAMING") {
                 resolved.sort_by_key(|(i, _)| *i);

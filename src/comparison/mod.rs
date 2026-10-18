@@ -259,9 +259,10 @@ pub fn validate_candidates(candidates: &[InspectedMediaCandidate]) -> Result<(),
         validate_inspection(&candidate.inspection)?;
         if let Some(report) = &candidate.inspection.result
             && let (Some(torrent), Some(file)) = (&report.torrent, &report.file)
-                && !files.insert((torrent.info_hash_v1.clone(), file.id)) {
-                    return invalid("The same torrent file cannot appear twice in a comparison");
-                }
+            && !files.insert((torrent.info_hash_v1.clone(), file.id))
+        {
+            return invalid("The same torrent file cannot appear twice in a comparison");
+        }
         if let Some(index) = candidate.video_stream_index {
             let valid = candidate
                 .inspection

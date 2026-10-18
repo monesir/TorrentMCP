@@ -119,7 +119,11 @@ pub(super) fn title_prefix_end(text: &str, target: &SearchTarget) -> Option<usiz
             .take_while(|(start, _, _)| *start < end)
             .count()
     };
-    let starts = [Some(0), group_end.map(token_index), site_end.map(token_index)];
+    let starts = [
+        Some(0),
+        group_end.map(token_index),
+        site_end.map(token_index),
+    ];
     let mut best = None;
     for alias in std::iter::once(&target.title).chain(target.aliases.iter()) {
         let alias = canonical_words(alias);

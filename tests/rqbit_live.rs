@@ -29,7 +29,9 @@ async fn one_session_lists_once_and_inspects_several_files_in_parallel() {
 
     for round in ["cold", "warm"] {
         let started = Instant::now();
-        let service = RqbitService::start(&runtime, &limits, &cancel).await.unwrap();
+        let service = RqbitService::start(&runtime, &limits, &cancel)
+            .await
+            .unwrap();
         let session = service.description().working_directory;
         let (report, error) = perform(
             TorrentOperation::Files {

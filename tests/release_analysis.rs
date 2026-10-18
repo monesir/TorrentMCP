@@ -293,7 +293,10 @@ fn multi_season_packs_contain_the_requested_season_and_its_episodes() {
         };
         assert_eq!(item.eligibility, expected, "{}", item.result.title);
     }
-    let pack = analyze_release(&release("Breaking Bad S01-S05 1080p"), &target("Breaking Bad"));
+    let pack = analyze_release(
+        &release("Breaking Bad S01-S05 1080p"),
+        &target("Breaking Bad"),
+    );
     assert_eq!(pack.coverage.claims[0].value, CoverageKind::MultiSeasonPack);
     assert_eq!(pack.season.claims.len(), 5);
 }
@@ -361,13 +364,19 @@ fn audio_tags_list_several_tracks_and_any_requested_one_matches() {
 fn best_named_quality_ranks_first_among_healthy_releases() {
     let analyzed = analyze_report(
         report(vec![
-            seeded("Dune Part Two 2024 2160p WEB-DL DDP5 1 Atmos DV HDR H 265-FLUX", 2544),
+            seeded(
+                "Dune Part Two 2024 2160p WEB-DL DDP5 1 Atmos DV HDR H 265-FLUX",
+                2544,
+            ),
             seeded(
                 "Dune Part Two 2024 UHD BluRay 2160p TrueHD Atmos 7 1 DV HEVC REMUX-FraMeSToR",
                 380,
             ),
             seeded("Dune Part Two 2024 REMUX 2160p TrueHD 7 1 DV", 2),
-            seeded("Dune Part Two 2024 REPACK 2160p UPSCALE WEB HEVC 10Bit AAC 2 0", 900),
+            seeded(
+                "Dune Part Two 2024 REPACK 2160p UPSCALE WEB HEVC 10Bit AAC 2 0",
+                900,
+            ),
             seeded("Dune Part Two 2024 2160p BluRay REMUX", 0),
         ]),
         target("Dune Part Two"),

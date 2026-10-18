@@ -205,8 +205,8 @@ impl NativeSource {
                                 values.get(7).cloned().unwrap_or_default(),
                             )
                         };
-                        let bytes = super::static_regex(r"(?i)([KMGTP])o")
-                            .replace_all(&bytes, "${1}B");
+                        let bytes =
+                            super::static_regex(r"(?i)([KMGTP])o").replace_all(&bytes, "${1}B");
                         r.size = size(&bytes);
                         r.seeds = num(&seeds);
                         r.leech = num(&leech);
