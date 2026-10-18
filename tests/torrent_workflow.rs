@@ -401,7 +401,7 @@ async fn inspects_several_files_concurrently_in_order_and_releases_each() {
     let (report, error) = run_with_service(
         TorrentOperation::InspectFiles {
             source: TorrentSource::Catalog(catalog()),
-            files: FileChoice::Ids(vec![1, 0]),
+            files: FileChoice::Ids(vec![1, 0, 1]),
             inspection_limits: MediaInspectionLimits::default(),
             selection: StreamSelection::default(),
             parallel: 4,
@@ -417,10 +417,14 @@ async fn inspects_several_files_concurrently_in_order_and_releases_each() {
     let report = report.unwrap();
     assert!(report.service.stopped);
     let ids: Vec<_> = report.inspections.iter().map(|i| i.file_id).collect();
-    assert_eq!(ids, [1, 0], "results keep the requested order");
+    assert_eq!(ids, [1, 0, 1], "results keep the requested order");
     assert!(report.inspections.iter().all(|i| i.media.is_some()));
-    assert_eq!(service.peak_open.load(Ordering::SeqCst), 2, "files open together");
-    assert_eq!(service.closed.load(Ordering::SeqCst), 2);
+    assert_eq!(
+        service.peak_open.load(Ordering::SeqCst),
+        2,
+        "after a fast first file the rest open together"
+    );
+    assert_eq!(service.closed.load(Ordering::SeqCst), 3);
     assert_eq!(service.open_now.load(Ordering::SeqCst), 0);
     assert_eq!(service.metadata_calls.load(Ordering::SeqCst), 1);
 }
@@ -467,6 +471,28 @@ async fn a_shared_service_survives_operations_and_releases_files_after_failures(
     )
     .await;
     assert!(error.is_some(), "a non-media file is rejected before any read");
+    let slow = Service::new("missing".into(), "ok");
+    let (report, _) = perform(
+        TorrentOperation::InspectFiles {
+            source: TorrentSource::Catalog(catalog()),
+            files: FileChoice::Ids(vec![0, 1, 0]),
+            inspection_limits: MediaInspectionLimits::default(),
+            selection: StreamSelection::default(),
+            parallel: 4,
+        },
+        vec![],
+        TorrentServiceLimits::default(),
+        &slow,
+        &probe(),
+        CancellationToken::new(),
+    )
+    .await;
+    assert_eq!(report.inspections.len(), 3);
+    assert_eq!(
+        slow.peak_open.load(Ordering::SeqCst),
+        1,
+        "a failed first file keeps the rest sequential"
+    );
     assert_eq!(service.closed.load(Ordering::SeqCst), 4);
 }
 

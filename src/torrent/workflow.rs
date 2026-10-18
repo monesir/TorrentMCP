@@ -337,6 +337,15 @@ pub async fn perform(
 /// Inspect files concurrently through one shared service, keeping the input order.
 /// Catalogs must come from this service's metadata (see `verify_catalog`).
 #[allow(clippy::too_many_arguments)]
+/// A first file inspected within this time shows a swarm fast enough to feed
+/// several readers at once.
+pub const FAST_FIRST_INSPECTION_MS: u64 = 15_000;
+
+/// Inspect `targets`, keeping their order. The first file runs alone: if it
+/// succeeds within `FAST_FIRST_INSPECTION_MS` the rest run `parallel` at a
+/// time; otherwise one at a time, because readers splitting a slow swarm's
+/// bandwidth all reach their timeout instead of some finishing.
+#[allow(clippy::too_many_arguments)]
 pub async fn inspect_files(
     service: &dyn TorrentService,
     targets: Vec<InspectionTarget>,
@@ -347,21 +356,37 @@ pub async fn inspect_files(
     parallel: usize,
     cancellation: &CancellationToken,
 ) -> Vec<FileInspection> {
-    stream::iter(targets)
-        .map(|target| {
-            inspect_target(
-                service,
-                target,
-                limits,
-                inspection_limits,
-                selection,
-                ffprobe,
-                cancellation,
-            )
-        })
-        .buffered(parallel.clamp(1, MAX_PARALLEL_INSPECTIONS))
-        .collect()
-        .await
+    let inspect = |target| {
+        inspect_target(
+            service,
+            target,
+            limits,
+            inspection_limits,
+            selection,
+            ffprobe,
+            cancellation,
+        )
+    };
+    let mut targets = targets.into_iter();
+    let Some(first) = targets.next() else {
+        return Vec::new();
+    };
+    let first = inspect(first).await;
+    let fast = first.failure.is_none() && first.elapsed_ms <= FAST_FIRST_INSPECTION_MS;
+    let parallel = if fast {
+        parallel.clamp(1, MAX_PARALLEL_INSPECTIONS)
+    } else {
+        1
+    };
+    let mut inspections = vec![first];
+    inspections.extend(
+        stream::iter(targets)
+            .map(inspect)
+            .buffered(parallel)
+            .collect::<Vec<_>>()
+            .await,
+    );
+    inspections
 }
 
 /// Check a caller's catalog against the service's metadata for that infohash.
