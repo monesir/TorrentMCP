@@ -76,11 +76,26 @@ fn words(text: &str) -> Vec<(usize, usize, String)> {
         if character.is_alphanumeric() {
             start.get_or_insert(index);
         } else if let Some(begin) = start.take() {
-            words.push((begin, index, text[begin..index].to_lowercase()));
+            words.push((begin, index, fold(&text[begin..index])));
         }
     }
     words
 }
+
+/// Lowercase without diacritics, so "Shōgun" and "Shogun" compare equal.
+fn fold(word: &str) -> String {
+    word.nfd()
+        .filter(|character| !unicode_normalization::char::is_combining_mark(*character))
+        .collect::<String>()
+        .to_lowercase()
+}
+
+static SITE_PREFIX: std::sync::LazyLock<regex::Regex> = std::sync::LazyLock::new(|| {
+    regex::Regex::new(
+        r"(?i)^\s*[\[(]?\s*(?:www\.)?[a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?:com|org|net|to|io|me|info|cc|xyz|ru|lol|club|site|ws|se|pro|gg|mx|in|li|is|nz|eu)\b\s*[\])]?\s*[-–:|]?",
+    )
+    .unwrap()
+});
 
 pub(super) fn canonical_words(text: &str) -> Vec<String> {
     words(&text.nfkc().collect::<String>())
@@ -96,15 +111,15 @@ pub(super) fn title_prefix_end(text: &str, target: &SearchTarget) -> Option<usiz
     let group_end = text
         .strip_prefix('[')
         .and_then(|rest| rest.find(']').map(|end| end + 2));
-    let starts = [
-        Some(0),
-        group_end.map(|end| {
-            tokens
-                .iter()
-                .take_while(|(start, _, _)| *start < end)
-                .count()
-        }),
-    ];
+    // Uploader sites prefix names: "www.UIndex.org - The Bear S03 ...".
+    let site_end = SITE_PREFIX.find(text).map(|found| found.end());
+    let token_index = |end: usize| {
+        tokens
+            .iter()
+            .take_while(|(start, _, _)| *start < end)
+            .count()
+    };
+    let starts = [Some(0), group_end.map(token_index), site_end.map(token_index)];
     let mut best = None;
     for alias in std::iter::once(&target.title).chain(target.aliases.iter()) {
         let alias = canonical_words(alias);

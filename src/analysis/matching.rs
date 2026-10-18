@@ -104,11 +104,34 @@ fn evaluate(
                 .collect::<Vec<_>>()
         ),
     )];
-    if let Some(year) = request.target.year {
+    // Most release names omit the year; only a named, different year excludes.
+    if let Some(year) = request.target.year
+        && !analysis.year.claims.is_empty()
+    {
         criteria.push(require_fact("year", &analysis.year, &[year]));
     }
+    let mut season_matched = false;
     if let Some(season) = request.target.season {
-        criteria.push(require_fact("season", &analysis.season, &[season]));
+        // Several season claims describe a multi-season pack, not a conflict.
+        let state = if analysis.season.claims.is_empty() {
+            CriterionState::Unknown
+        } else if analysis
+            .season
+            .claims
+            .iter()
+            .any(|claim| claim.value == season)
+        {
+            CriterionState::Match
+        } else {
+            CriterionState::Mismatch
+        };
+        season_matched = state == CriterionState::Match;
+        criteria.push(evaluation(
+            "season",
+            state,
+            json!([season]),
+            json!(analysis.season),
+        ));
     }
     if let Some(part) = request.target.part {
         criteria.push(require_fact("part", &analysis.part, &[part]));
@@ -120,12 +143,31 @@ fn evaluate(
             .iter()
             .map(|claim| covers(&claim.value, episodes))
             .collect();
-        criteria.push(evaluation(
-            "episodes",
-            state_from_matches(&matches),
-            json!(episodes),
-            json!(analysis.episodes),
-        ));
+        let pack = analysis.coverage.claims.iter().any(|claim| {
+            matches!(
+                claim.value,
+                CoverageKind::SeasonPack
+                    | CoverageKind::MultiSeasonPack
+                    | CoverageKind::CompleteClaim
+            )
+        });
+        if matches.is_empty() && pack && season_matched {
+            // A pack of the requested season contains its episodes.
+            criteria.push(CriterionEvaluation {
+                field: "episodes".into(),
+                state: CriterionState::Match,
+                reason_code: "episodes_in_season_pack".into(),
+                expected: json!(episodes),
+                observed: json!(analysis.coverage),
+            });
+        } else {
+            criteria.push(evaluation(
+                "episodes",
+                state_from_matches(&matches),
+                json!(episodes),
+                json!(analysis.episodes),
+            ));
+        }
     }
     if !request.constraints.resolutions.is_empty() {
         criteria.push(require_fact(
@@ -142,11 +184,54 @@ fn evaluate(
         ));
     }
     if !request.constraints.audio_languages.is_empty() {
-        criteria.push(require_fact(
+        // A release may carry several audio tracks: any requested language
+        // matches. Only explicit labels without it ("Chinese Audio") exclude.
+        let allowed = &request.constraints.audio_languages;
+        let claims = &analysis.audio_language.claims;
+        let state = if claims.iter().any(|claim| allowed.contains(&claim.value)) {
+            CriterionState::Match
+        } else if !claims.is_empty() && claims.iter().all(|claim| !claim.inferred) {
+            CriterionState::Mismatch
+        } else {
+            CriterionState::Unknown
+        };
+        criteria.push(evaluation(
             "audio_language",
-            &analysis.audio_language,
-            &request.constraints.audio_languages,
+            state,
+            json!(allowed),
+            json!(analysis.audio_language),
         ));
+    }
+    if !request.constraints.reject_formats.is_empty() {
+        let allowed: Vec<String> = super::SOURCE_FORMATS
+            .iter()
+            .filter(|format| !request.constraints.reject_formats.iter().any(|r| r == *format))
+            .map(|format| (*format).into())
+            .collect();
+        let matches: Vec<_> = analysis
+            .source_format
+            .claims
+            .iter()
+            .map(|claim| allowed.contains(&claim.value))
+            .collect();
+        // An unnamed format is not evidence of a capture: only a named
+        // rejected format excludes, and a mixed claim is uncertain. Allowed
+        // formats add no criterion, keeping the response short.
+        let state = state_from_matches(&matches);
+        if !matches.is_empty() && state != CriterionState::Match {
+            criteria.push(CriterionEvaluation {
+                field: "source_format".into(),
+                state,
+                reason_code: if state == CriterionState::Mismatch {
+                    "source_format_rejected"
+                } else {
+                    "source_format_mixed"
+                }
+                .into(),
+                expected: json!({"reject": request.constraints.reject_formats}),
+                observed: json!(analysis.source_format),
+            });
+        }
     }
     if let Some(coverage) = request.constraints.coverage {
         criteria.push(require_fact("coverage", &analysis.coverage, &[coverage]));
@@ -225,6 +310,29 @@ fn add_preference<T: PartialEq>(
     }
 }
 
+/// For facts that hold several values at once (audio tracks): score the most
+/// preferred value present.
+fn add_set_preference(
+    field: &str,
+    fact: &Fact<String>,
+    preferred: &[String],
+    weight: u32,
+    ranking: &mut Ranking,
+) {
+    if let Some(index) = preferred
+        .iter()
+        .position(|value| fact.claims.iter().any(|claim| &claim.value == value))
+    {
+        let points = weight * (preferred.len() - index) as u32 / preferred.len() as u32;
+        ranking.preference_score += points;
+        ranking.factors.push(PreferenceFactor {
+            field: field.into(),
+            points,
+            matched_preference_index: index,
+        });
+    }
+}
+
 pub fn analyze_report(
     report: SearchReport,
     request: AnalysisRequest,
@@ -254,14 +362,17 @@ pub fn analyze_report(
             Eligibility::Uncertain => summary.uncertain += 1,
             Eligibility::Excluded => summary.excluded += 1,
         }
+        let seeders = result
+            .observations
+            .iter()
+            .filter_map(|origin| origin.seeders)
+            .max();
         let mut ranking = Ranking {
             preference_score: 0,
             factors: vec![],
-            highest_reported_seeders: result
-                .observations
-                .iter()
-                .filter_map(|origin| origin.seeders)
-                .max(),
+            quality_score: super::quality_score(&analysis),
+            availability: Availability::from_seeders(seeders),
+            highest_reported_seeders: seeders,
         };
         add_preference(
             "resolution",
@@ -277,7 +388,7 @@ pub fn analyze_report(
             60,
             &mut ranking,
         );
-        add_preference(
+        add_set_preference(
             "audio_language",
             &analysis.audio_language,
             &request.preferences.audio_languages,
@@ -309,6 +420,13 @@ pub fn analyze_report(
             .cmp(&eligibility_order(b.eligibility))
             .then_with(|| b.ranking.preference_score.cmp(&a.ranking.preference_score))
             .then_with(|| {
+                a.ranking
+                    .availability
+                    .order()
+                    .cmp(&b.ranking.availability.order())
+            })
+            .then_with(|| b.ranking.quality_score.cmp(&a.ranking.quality_score))
+            .then_with(|| {
                 b.ranking
                     .highest_reported_seeders
                     .cmp(&a.ranking.highest_reported_seeders)
@@ -319,7 +437,7 @@ pub fn analyze_report(
     summary.total = results.len();
     Ok(AnalyzedReport {
         schema_version: 1,
-        policy_version: "release-analysis-v1".into(),
+        policy_version: "release-analysis-v2".into(),
         query: report.query,
         category: report.category,
         partial: report.partial,

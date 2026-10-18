@@ -25,21 +25,33 @@ static RESOLUTION: LazyLock<Regex> = LazyLock::new(|| {
     Regex::new(r"(?i)\b(?:(480|576|720|1080|1440|2160|4320)[pi]|(4k|8k))\b").unwrap()
 });
 static CODEC: LazyLock<Regex> = LazyLock::new(|| {
-    Regex::new(r"(?i)\b(?:x264|h[ ._-]?264|avc|x265|h[ ._-]?265|hevc|av1|mpeg[ ._-]?2|xvid)\b")
-        .unwrap()
+    Regex::new(
+        r"(?i)\b(?:x264|h[ ._-]?264|avc|x265|h[ ._-]?265|hevc|av1|vp9|mpeg[ ._-]?2|xvid)\b",
+    )
+    .unwrap()
 });
 static AUDIO: LazyLock<Regex> = LazyLock::new(|| {
-    Regex::new(r"(?i)\b(chinese|mandarin|english|arabic|japanese|korean|french|german|spanish|russian|hindi|thai)[ ._-]+(?:audio|dub|dubbed)\b").unwrap()
+    Regex::new(r"(?i)\b(\p{L}+)[ ._-]+(?:audio|dub|dubbed|dublado)\b").unwrap()
 });
 static SUBTITLE: LazyLock<Regex> = LazyLock::new(|| {
-    Regex::new(r"(?i)\b(chinese|mandarin|english|eng|arabic|japanese|korean|french|german|spanish|russian|hindi|thai)[ ._-]*(?:sub|subs|subtitles)\b").unwrap()
+    Regex::new(r"(?i)\b(\p{L}+?)[ ._-]*(?:sub|subs|subtitles|subbed)\b").unwrap()
 });
-static FORMAT: LazyLock<Regex> = LazyLock::new(|| {
-    Regex::new(r"(?i)\b(?:web[ ._-]?dl|web[ ._-]?rip|blu[ ._-]?ray|bdrip|hdtv|dvdrip|remux)\b")
+static COMPLETE: LazyLock<Regex> = LazyLock::new(|| {
+    Regex::new(r"(?i)\b(?:complete|full[ ._-]+season|integrale|completa)\b").unwrap()
+});
+// S01-S05, S01-05
+static SEASON_SPAN: LazyLock<Regex> =
+    LazyLock::new(|| Regex::new(r"(?i)\bs(\d{1,2})[ ._]*-[ ._]*s?(\d{1,2})\b").unwrap());
+// Season 1-5, Seasons 1 to 5
+static SEASON_RANGE: LazyLock<Regex> = LazyLock::new(|| {
+    Regex::new(r"(?i)\bseasons?[ ._-]*(\d{1,2})[ ._]*(?:-|–|to|thru|through)[ ._]*(\d{1,2})\b")
         .unwrap()
 });
-static COMPLETE: LazyLock<Regex> =
-    LazyLock::new(|| Regex::new(r"(?i)\b(?:complete|full[ ._-]+season)\b").unwrap());
+// Season 1, 2, 3 / Seasons 1 & 2
+static SEASON_LIST: LazyLock<Regex> = LazyLock::new(|| {
+    Regex::new(r"(?i)\bseasons?[ ._-]*(\d{1,2}(?:[ ._]*(?:,|&|and|\+)[ ._]*\d{1,2})+)\b").unwrap()
+});
+static NUMBER: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"\d+").unwrap());
 
 fn part_number(token: &str) -> Option<u16> {
     token
@@ -60,22 +72,12 @@ fn part_number(token: &str) -> Option<u16> {
         .filter(|number| (1..=99).contains(number))
 }
 
-fn language(token: &str) -> String {
-    match token.to_ascii_lowercase().as_str() {
-        "chinese" | "mandarin" => "zh",
-        "english" | "eng" => "en",
-        "arabic" => "ar",
-        "japanese" => "ja",
-        "korean" => "ko",
-        "french" => "fr",
-        "german" => "de",
-        "spanish" => "es",
-        "russian" => "ru",
-        "hindi" => "hi",
-        "thai" => "th",
-        _ => unreachable!(),
+fn subtitle_language(token: &str) -> Option<&'static str> {
+    // "ESub" is the usual tag for English subtitles.
+    if token.eq_ignore_ascii_case("e") {
+        return Some("en");
     }
-    .into()
+    super::quality::language_code(token)
 }
 
 pub fn analyze_release(result: &SearchResult, request: &AnalysisRequest) -> ReleaseAnalysis {
@@ -117,6 +119,32 @@ pub fn analyze_release(result: &SearchResult, request: &AnalysisRequest) -> Rele
                 analysis
                     .season
                     .push(value, evidence(&found[0], "season_label"), false);
+            }
+        }
+        // Multi-season packs name each season they contain.
+        for (pattern, rule) in [
+            (&*SEASON_SPAN, "season_span_label"),
+            (&*SEASON_RANGE, "season_range_label"),
+        ] {
+            for found in pattern.captures_iter(metadata) {
+                let (Ok(first), Ok(last)) = (found[1].parse::<u16>(), found[2].parse::<u16>())
+                else {
+                    continue;
+                };
+                if first < last && last - first <= 50 {
+                    for value in first..=last {
+                        analysis.season.push(value, evidence(&found[0], rule), false);
+                    }
+                }
+            }
+        }
+        for found in SEASON_LIST.captures_iter(metadata) {
+            for number in NUMBER.find_iter(&found[1]) {
+                if let Ok(value) = number.as_str().parse() {
+                    analysis
+                        .season
+                        .push(value, evidence(&found[0], "season_list_label"), false);
+                }
             }
         }
         let mut title_ranges = Vec::new();
@@ -224,26 +252,34 @@ pub fn analyze_release(result: &SearchResult, request: &AnalysisRequest) -> Rele
             );
         }
         for found in AUDIO.captures_iter(metadata) {
-            analysis.audio_language.push(
-                language(&found[1]),
-                evidence(&found[0], "explicit_audio_language_label"),
-                false,
-            );
+            if let Some(code) = super::quality::language_code(&found[1]) {
+                analysis.audio_language.push(
+                    code.into(),
+                    evidence(&found[0], "explicit_audio_language_label"),
+                    false,
+                );
+            }
+        }
+        for (code, token) in super::quality::audio_language_tags(metadata) {
+            analysis
+                .audio_language
+                .push(code.into(), evidence(&token, "audio_language_tag"), true);
         }
         for found in SUBTITLE.captures_iter(metadata) {
-            analysis.subtitle_language.push(
-                language(&found[1]),
-                evidence(&found[0], "explicit_subtitle_language_label"),
-                false,
-            );
+            if let Some(code) = subtitle_language(&found[1]) {
+                analysis.subtitle_language.push(
+                    code.into(),
+                    evidence(&found[0], "explicit_subtitle_language_label"),
+                    false,
+                );
+            }
         }
-        for found in FORMAT.find_iter(metadata) {
-            analysis.source_format.push(
-                canonical_words(found.as_str()).join(""),
-                evidence(found.as_str(), "source_format_label"),
-                false,
-            );
+        for (value, token) in super::quality::source_formats(metadata) {
+            analysis
+                .source_format
+                .push(value.into(), evidence(&token, "source_format_label"), false);
         }
+        super::quality::scan(metadata, &title.normalized, &mut analysis.quality);
         if !title_ranges.is_empty() {
             title_ranges.sort_by_key(|range| (range.start, range.end));
             let mut merged: Vec<EpisodeRange> = Vec::new();
@@ -269,6 +305,25 @@ pub fn analyze_release(result: &SearchResult, request: &AnalysisRequest) -> Rele
             analysis.coverage.push(
                 coverage,
                 evidence(metadata, "coverage_from_episode_labels"),
+                true,
+            );
+        } else if let Some(token) = (analysis
+            .season
+            .claims
+            .iter()
+            .filter(|claim| {
+                claim
+                    .evidence
+                    .iter()
+                    .any(|found| found.title_index == title_index)
+            })
+            .count()
+            > 1)
+        .then(|| SEASON.find(metadata).map_or("", |found| found.as_str()))
+        {
+            analysis.coverage.push(
+                CoverageKind::MultiSeasonPack,
+                evidence(token, "several_seasons_in_one_title"),
                 true,
             );
         } else if let Some(found) = COMPLETE.find(metadata) {

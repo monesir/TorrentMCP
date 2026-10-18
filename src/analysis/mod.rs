@@ -1,10 +1,12 @@
 mod extraction;
 mod matching;
+mod quality;
 mod title;
 
 use crate::{SearchError, SearchReport, SearchResult, SourceReport};
 pub use extraction::analyze_release;
 pub use matching::analyze_report;
+pub use quality::quality_score;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
@@ -46,10 +48,31 @@ pub enum CoverageKind {
     SingleEpisode,
     EpisodeBatch,
     SeasonPack,
+    /// Several seasons in one torrent, e.g. S01-S05 or "Season 1, 2, 3".
+    MultiSeasonPack,
     CompleteClaim,
 }
 
-#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+/// Canonical release source formats, best first. Theatre captures come last.
+pub const SOURCE_FORMATS: &[&str] = &[
+    "remux", "bluray", "webdl", "webrip", "hdtv", "hdrip", "dvdrip", "screener", "telecine",
+    "telesync", "cam",
+];
+
+/// Theatre captures and screeners are rejected unless the request allows them.
+pub const LOW_QUALITY_FORMATS: &[&str] = &["cam", "telesync", "telecine", "screener"];
+
+/// Canonical audio language codes (ISO 639-1) recognised in release names.
+pub const AUDIO_LANGUAGES: &[&str] = &[
+    "zh", "en", "ar", "ja", "ko", "fr", "de", "es", "ru", "hi", "th", "it", "pt", "tr", "pl",
+    "nl", "uk", "ta", "te", "fa", "he", "id", "vi",
+];
+
+fn default_reject_formats() -> Vec<String> {
+    LOW_QUALITY_FORMATS.iter().map(|&value| value.into()).collect()
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct ReleaseConstraints {
     #[serde(default)]
@@ -66,6 +89,25 @@ pub struct ReleaseConstraints {
     pub max_size_bytes: Option<u64>,
     #[serde(default)]
     pub min_seeders: Option<u64>,
+    /// Source formats that exclude a release. Defaults to theatre captures and
+    /// screeners; pass [] to allow every format.
+    #[serde(default = "default_reject_formats")]
+    pub reject_formats: Vec<String>,
+}
+
+impl Default for ReleaseConstraints {
+    fn default() -> Self {
+        Self {
+            resolutions: vec![],
+            codecs: vec![],
+            audio_languages: vec![],
+            coverage: None,
+            min_size_bytes: None,
+            max_size_bytes: None,
+            min_seeders: None,
+            reject_formats: default_reject_formats(),
+        }
+    }
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
@@ -137,11 +179,11 @@ impl AnalysisRequest {
         for codecs in [&self.constraints.codecs, &self.preferences.codecs] {
             if codecs.len() > 8
                 || codecs.iter().any(|codec| {
-                    !["h264", "hevc", "av1", "mpeg2", "xvid"].contains(&codec.as_str())
+                    !["h264", "hevc", "av1", "vp9", "mpeg2", "xvid"].contains(&codec.as_str())
                 })
             {
                 return Err(invalid(
-                    "Use canonical codecs: h264, hevc, av1, mpeg2, xvid",
+                    "Use canonical codecs: h264, hevc, av1, vp9, mpeg2, xvid",
                 ));
             }
         }
@@ -150,15 +192,27 @@ impl AnalysisRequest {
             &self.preferences.audio_languages,
         ] {
             if languages.len() > 16
-                || languages.iter().any(|language| {
-                    ![
-                        "zh", "en", "ar", "ja", "ko", "fr", "de", "es", "ru", "hi", "th",
-                    ]
-                    .contains(&language.as_str())
-                })
+                || languages
+                    .iter()
+                    .any(|language| !AUDIO_LANGUAGES.contains(&language.as_str()))
             {
-                return Err(invalid("Unsupported canonical audio language code"));
+                return Err(invalid(&format!(
+                    "Unsupported audio language code; use one of: {}",
+                    AUDIO_LANGUAGES.join(", ")
+                )));
             }
+        }
+        if self.constraints.reject_formats.len() > SOURCE_FORMATS.len()
+            || self
+                .constraints
+                .reject_formats
+                .iter()
+                .any(|format| !SOURCE_FORMATS.contains(&format.as_str()))
+        {
+            return Err(invalid(&format!(
+                "reject_formats accepts: {}",
+                SOURCE_FORMATS.join(", ")
+            )));
         }
         Ok(())
     }
@@ -254,7 +308,37 @@ pub struct ReleaseAnalysis {
     pub subtitle_language: Fact<String>,
     pub source_format: Fact<String>,
     pub coverage: Fact<CoverageKind>,
+    pub quality: QualitySignals,
     pub issues: Vec<String>,
+}
+
+/// Quality markers named in release titles, merged across all observed titles.
+/// These are claims from names; inspect the file to measure the real streams.
+#[derive(Debug, Clone, Default, PartialEq, Serialize)]
+pub struct QualitySignals {
+    /// dolby_vision, hdr10_plus, hdr10, hdr, hlg
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub hdr: Vec<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub bit_depth: Option<u8>,
+    /// truehd, dts_hd_ma, dts_x, dts, flac, eac3, ac3, opus, aac
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub audio_codecs: Vec<String>,
+    /// Highest channel layout named, e.g. "7.1", "5.1", "2.0".
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub audio_channels: Option<String>,
+    #[serde(skip_serializing_if = "std::ops::Not::not")]
+    pub atmos: bool,
+    /// MULTi, Dual Audio or several audio language tags.
+    #[serde(skip_serializing_if = "std::ops::Not::not")]
+    pub multi_audio: bool,
+    #[serde(skip_serializing_if = "std::ops::Not::not")]
+    pub repack: bool,
+    /// UPSCALE or AI tags: the named resolution is not native.
+    #[serde(skip_serializing_if = "std::ops::Not::not")]
+    pub upscaled: bool,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub release_group: Option<String>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
@@ -289,10 +373,50 @@ pub struct PreferenceFactor {
     pub matched_preference_index: usize,
 }
 
+/// Download health from the highest seeder count any source reported.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
+#[serde(rename_all = "snake_case")]
+pub enum Availability {
+    /// At least HEALTHY_SEEDERS seeders.
+    Healthy,
+    /// 1 to HEALTHY_SEEDERS - 1 seeders; may be slow.
+    Weak,
+    /// No source reported a seeder count.
+    Unknown,
+    /// Every report says 0 seeders.
+    Dead,
+}
+
+pub const HEALTHY_SEEDERS: u64 = 5;
+
+impl Availability {
+    pub fn from_seeders(seeders: Option<u64>) -> Self {
+        match seeders {
+            None => Self::Unknown,
+            Some(0) => Self::Dead,
+            Some(count) if count < HEALTHY_SEEDERS => Self::Weak,
+            Some(_) => Self::Healthy,
+        }
+    }
+    pub(crate) fn order(self) -> u8 {
+        match self {
+            Self::Healthy => 0,
+            Self::Weak => 1,
+            Self::Unknown => 2,
+            Self::Dead => 3,
+        }
+    }
+}
+
+/// Results sort by eligibility, preference_score, availability, quality_score,
+/// then seeders: the best named quality among releases that can be downloaded.
 #[derive(Debug, Clone, Serialize)]
 pub struct Ranking {
     pub preference_score: u32,
     pub factors: Vec<PreferenceFactor>,
+    /// Estimate from title claims: source format, resolution, HDR, audio.
+    pub quality_score: u32,
+    pub availability: Availability,
     pub highest_reported_seeders: Option<u64>,
 }
 

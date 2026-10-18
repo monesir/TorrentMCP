@@ -232,3 +232,159 @@ fn real_nirvana_report_separates_original_and_sequel_and_keeps_all_references() 
     assert!(analyzed.summary.excluded > 0);
     assert!(analyzed.summary.eligible > 0);
 }
+
+fn seeded(title: &str, seeders: u64) -> SearchResult {
+    let mut result = release(title);
+    result.observations[0].seeders = Some(seeders);
+    result
+}
+
+fn target(title: &str) -> AnalysisRequest {
+    AnalysisRequest {
+        target: SearchTarget {
+            title: title.into(),
+            ..Default::default()
+        },
+        ..Default::default()
+    }
+}
+
+#[test]
+fn theatre_captures_are_rejected_by_default_and_allowed_on_request() {
+    let titles = [
+        "The Batman (2022) 1080p HDTS x264",
+        "The Batman 2022 HDCAM x264 AAC",
+        "Oppenheimer (2023) NEW ENG 1080p HQ-CAM x264",
+        "The Batman 2022 1080p WEBRip x264",
+    ];
+    let releases = || titles.iter().map(|title| release(title)).collect();
+    let mut req = target("The Batman");
+    req.target.aliases = vec!["Oppenheimer".into()];
+    let analyzed = analyze_report(report(releases()), req.clone()).unwrap();
+    assert_eq!(analyzed.summary.excluded, 3);
+    assert_eq!(analyzed.results[0].result.title, titles[3]);
+    req.constraints.reject_formats = vec![];
+    let analyzed = analyze_report(report(releases()), req).unwrap();
+    assert_eq!(analyzed.summary.excluded, 0);
+}
+
+#[test]
+fn multi_season_packs_contain_the_requested_season_and_its_episodes() {
+    let mut req = target("Breaking Bad");
+    req.target.season = Some(3);
+    req.target.episodes = Some(EpisodeRange { start: 4, end: 4 });
+    let analyzed = analyze_report(
+        report(vec![
+            release("Breaking Bad S01-S05 Complete 1080p BluRay x265"),
+            release("Breaking Bad - Complete Season 1,2,3,4,5 + Extras - BluRay 1080p"),
+            release("Breaking Bad Seasons 1 to 5 1080p"),
+            release("Breaking Bad S03 1080p BluRay"),
+            release("Breaking Bad S01 S02 1080p"),
+            release("Breaking Bad S03E04 1080p"),
+        ]),
+        req,
+    )
+    .unwrap();
+    for item in &analyzed.results {
+        let expected = if item.result.title.contains("S01 S02") {
+            Eligibility::Excluded
+        } else {
+            Eligibility::Eligible
+        };
+        assert_eq!(item.eligibility, expected, "{}", item.result.title);
+    }
+    let pack = analyze_release(&release("Breaking Bad S01-S05 1080p"), &target("Breaking Bad"));
+    assert_eq!(pack.coverage.claims[0].value, CoverageKind::MultiSeasonPack);
+    assert_eq!(pack.season.claims.len(), 5);
+}
+
+#[test]
+fn a_missing_year_is_not_uncertainty_but_a_different_year_excludes() {
+    let mut req = target("Shogun");
+    req.target.year = Some(2024);
+    let analyzed = analyze_report(
+        report(vec![
+            release("Shogun S01 1080p WEB-DL"),
+            release("Shogun 1980 S01 1080p BluRay"),
+        ]),
+        req,
+    )
+    .unwrap();
+    assert_eq!(analyzed.results[0].eligibility, Eligibility::Eligible);
+    assert_eq!(analyzed.results[1].eligibility, Eligibility::Excluded);
+}
+
+#[test]
+fn titles_match_through_site_prefixes_and_diacritics() {
+    let mut req = target("Shogun");
+    req.target.season = Some(1);
+    let analyzed = analyze_report(
+        report(vec![
+            release("Shōgun 2024 S01 1080p WEBRip"),
+            release("www.UIndex.org    -    Shogun S01 1080p WEB-DL"),
+            release("[ www.TorrentDay.com ] - Shogun S01 1080p"),
+        ]),
+        req,
+    )
+    .unwrap();
+    assert_eq!(analyzed.summary.eligible, 3);
+}
+
+#[test]
+fn audio_tags_list_several_tracks_and_any_requested_one_matches() {
+    let mut req = request();
+    req.constraints.audio_languages = vec!["en".into()];
+    let analyzed = analyze_report(
+        report(vec![
+            release("Nirvana in Fire S01 ITA ENG 1080p"),
+            release("Nirvana in Fire S01 Chinese Audio 1080p"),
+            release("Nirvana in Fire S01 ITA 1080p"),
+        ]),
+        req,
+    )
+    .unwrap();
+    let by_title = |needle: &str| {
+        analyzed
+            .results
+            .iter()
+            .find(|item| item.result.title.contains(needle))
+            .unwrap()
+            .eligibility
+    };
+    assert_eq!(by_title("ITA ENG"), Eligibility::Eligible);
+    assert_eq!(by_title("Chinese Audio"), Eligibility::Excluded);
+    // A bare tag does not prove the other tracks are absent.
+    assert_eq!(by_title("S01 ITA 1080p"), Eligibility::Uncertain);
+}
+
+#[test]
+fn best_named_quality_ranks_first_among_healthy_releases() {
+    let analyzed = analyze_report(
+        report(vec![
+            seeded("Dune Part Two 2024 2160p WEB-DL DDP5 1 Atmos DV HDR H 265-FLUX", 2544),
+            seeded(
+                "Dune Part Two 2024 UHD BluRay 2160p TrueHD Atmos 7 1 DV HEVC REMUX-FraMeSToR",
+                380,
+            ),
+            seeded("Dune Part Two 2024 REMUX 2160p TrueHD 7 1 DV", 2),
+            seeded("Dune Part Two 2024 REPACK 2160p UPSCALE WEB HEVC 10Bit AAC 2 0", 900),
+            seeded("Dune Part Two 2024 2160p BluRay REMUX", 0),
+        ]),
+        target("Dune Part Two"),
+    )
+    .unwrap();
+    let order: Vec<_> = analyzed
+        .results
+        .iter()
+        .map(|item| item.ranking.highest_reported_seeders.unwrap())
+        .collect();
+    // Healthy by quality (remux, WEB-DL, upscale), then weak, then dead.
+    assert_eq!(order, [380, 2544, 900, 2, 0]);
+    let top = &analyzed.results[0];
+    assert_eq!(top.analysis.quality.audio_codecs, ["truehd"]);
+    assert!(top.analysis.quality.atmos);
+    assert_eq!(
+        top.analysis.quality.release_group.as_deref(),
+        Some("FraMeSToR")
+    );
+}
