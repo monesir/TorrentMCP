@@ -212,7 +212,10 @@ pub fn render(report: &Value) -> Result<String, SearchError> {
     if data.is_null() && envelope {
         return Ok(out);
     }
-    if data["results"].is_array() && data["sources"].is_array() {
+    if data["search"].is_object() && data["candidates"].is_array() {
+        search(&mut out, &data["search"])?;
+        find(&mut out, data);
+    } else if data["results"].is_array() && data["sources"].is_array() {
         search(&mut out, data)?;
     } else if data["streams"].is_array() && data["format"].is_object() {
         media(&mut out, data)?;
@@ -222,6 +225,41 @@ pub fn render(report: &Value) -> Result<String, SearchError> {
         ));
     }
     Ok(out)
+}
+
+fn find(out: &mut String, report: &Value) {
+    let _ = writeln!(
+        out,
+        "\n## المرشحون المفحوصون\n\nملف واحد من كل مرشح، مرتب بتفضيلات الوسائط في الطلب. الأدلة الكاملة في `comparison` داخل JSON.\n"
+    );
+    table(
+        out,
+        &[
+            "الترتيب",
+            "العنوان",
+            "الملف",
+            "الفحص",
+            "الأهلية",
+            "الزمن (ثانية)",
+            "التشخيص",
+        ],
+    );
+    for candidate in report["candidates"].as_array().into_iter().flatten() {
+        row(
+            out,
+            &[
+                s(&candidate["position"]),
+                s(&candidate["title"]),
+                s(&candidate["file"]),
+                translated(&candidate["inspection_status"]),
+                translated(&candidate["eligibility"]),
+                candidate["elapsed_ms"]
+                    .as_u64()
+                    .map_or(String::new(), |ms| format!("{:.1}", ms as f64 / 1000.0)),
+                s(&candidate["inspection_error"]["code"]),
+            ],
+        );
+    }
 }
 
 fn search(out: &mut String, report: &Value) -> Result<(), SearchError> {

@@ -415,3 +415,49 @@ fn cyrillic_resolution_suffixes_are_read() {
     assert_eq!(analyzed.summary.eligible, 2, "2160р and 4К are 2160");
     assert_eq!(analyzed.summary.excluded, 1, "1080р is read, not unknown");
 }
+
+#[test]
+fn agent_chooses_source_formats_to_require_or_prefer() {
+    let mut req = target("Shogun");
+    req.preferences.formats = vec!["remux".into(), "webdl".into()];
+    let analyzed = analyze_report(
+        report(vec![
+            release("Shogun S01 1080p WEB-DL"),
+            release("Shogun S01 1080p BluRay REMUX"),
+            release("Shogun S01 1080p HDTV"),
+        ]),
+        req,
+    )
+    .unwrap();
+    let titles: Vec<_> = analyzed
+        .results
+        .iter()
+        .map(|r| r.result.title.as_str())
+        .collect();
+    assert_eq!(
+        titles[..2],
+        ["Shogun S01 1080p BluRay REMUX", "Shogun S01 1080p WEB-DL"],
+        "preferred formats lead in the agent's order"
+    );
+
+    let mut req = target("Shogun");
+    req.constraints.formats = vec!["remux".into()];
+    let analyzed = analyze_report(
+        report(vec![
+            release("Shogun S01 1080p BluRay REMUX"),
+            release("Shogun S01 1080p WEB-DL"),
+            release("Shogun S01 1080p"),
+        ]),
+        req,
+    )
+    .unwrap();
+    assert_eq!(
+        (
+            analyzed.summary.eligible,
+            analyzed.summary.excluded,
+            analyzed.summary.uncertain
+        ),
+        (1, 1, 1),
+        "remux only: a named other format is excluded, an unnamed one uncertain"
+    );
+}

@@ -92,6 +92,10 @@ pub struct ReleaseConstraints {
     pub max_size_bytes: Option<u64>,
     #[serde(default)]
     pub min_seeders: Option<u64>,
+    /// Only these source formats are eligible, e.g. ["remux"]. A title that
+    /// names no format is uncertain, not excluded.
+    #[serde(default)]
+    pub formats: Vec<String>,
     /// Source formats that exclude a release. Defaults to theatre captures and
     /// screeners; pass [] to allow every format.
     #[serde(default = "default_reject_formats")]
@@ -108,6 +112,7 @@ impl Default for ReleaseConstraints {
             min_size_bytes: None,
             max_size_bytes: None,
             min_seeders: None,
+            formats: vec![],
             reject_formats: default_reject_formats(),
         }
     }
@@ -124,6 +129,9 @@ pub struct ReleasePreferences {
     pub audio_languages: Vec<String>,
     #[serde(default)]
     pub coverage: Vec<CoverageKind>,
+    /// Source formats in preference order, e.g. ["remux", "bluray", "webdl"].
+    #[serde(default)]
+    pub formats: Vec<String>,
 }
 
 impl AnalysisRequest {
@@ -205,17 +213,21 @@ impl AnalysisRequest {
                 )));
             }
         }
-        if self.constraints.reject_formats.len() > SOURCE_FORMATS.len()
-            || self
-                .constraints
-                .reject_formats
-                .iter()
-                .any(|format| !SOURCE_FORMATS.contains(&format.as_str()))
-        {
-            return Err(invalid(&format!(
-                "reject_formats accepts: {}",
-                SOURCE_FORMATS.join(", ")
-            )));
+        for list in [
+            &self.constraints.reject_formats,
+            &self.constraints.formats,
+            &self.preferences.formats,
+        ] {
+            if list.len() > SOURCE_FORMATS.len()
+                || list
+                    .iter()
+                    .any(|format| !SOURCE_FORMATS.contains(&format.as_str()))
+            {
+                return Err(invalid(&format!(
+                    "formats and reject_formats accept: {}",
+                    SOURCE_FORMATS.join(", ")
+                )));
+            }
         }
         Ok(())
     }

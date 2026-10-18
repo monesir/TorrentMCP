@@ -1,8 +1,11 @@
 use crate::{
     SearchEngine, SearchError, SearchLimits, SearchReport, SearchRequest, SearchSource,
     TorrentReference,
-    analysis::{AnalysisRequest, AnalyzedReport, analyze_report, validate_report},
-    comparison::{InspectedMediaCandidate, MediaAnalysisRequest, MediaComparisonReport},
+    analysis::{AnalysisRequest, AnalyzedReport, Eligibility, analyze_report, validate_report},
+    comparison::{
+        InspectedMediaCandidate, MediaAnalysisRequest, MediaComparisonReport,
+        SavedTorrentInspection,
+    },
     media::{MediaInspectionReport, MediaInspectionRequest, inspect_media},
     torrent::{
         FileChoice, TorrentCatalog, TorrentFailure, TorrentOperation, TorrentOperationReport,
@@ -88,7 +91,52 @@ pub enum AgentRequest {
         #[serde(default)]
         analysis: Option<MediaAnalysisRequest>,
     },
+    /// Search, inspect one representative file of each leading candidate, and
+    /// compare their actual streams. "Best" is whatever the agent's own
+    /// constraints and preferences say; nothing is assumed beyond them.
+    Find {
+        schema_version: u32,
+        search: SearchRequest,
+        /// Criteria read from release names: target, constraints, preferences.
+        analysis: AnalysisRequest,
+        /// Criteria checked on the inspected streams.
+        #[serde(default)]
+        media: MediaAnalysisRequest,
+        #[serde(default)]
+        inspect: FindInspection,
+        #[serde(default)]
+        limits: AgentLimits,
+        #[serde(default)]
+        torrent_limits: TorrentServiceLimits,
+        #[serde(default)]
+        inspection_limits: crate::media::MediaInspectionLimits,
+        #[serde(default)]
+        selection: crate::media::StreamSelection,
+    },
 }
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(default, deny_unknown_fields)]
+pub struct FindInspection {
+    /// Leading search results to inspect, 0..8; 0 only searches.
+    pub candidates: usize,
+    /// Also inspect results whose names leave a constraint undecided.
+    pub include_uncertain: bool,
+    /// Candidates inspected at once, 1..4.
+    pub parallel: usize,
+}
+
+impl Default for FindInspection {
+    fn default() -> Self {
+        Self {
+            candidates: 3,
+            include_uncertain: false,
+            parallel: 2,
+        }
+    }
+}
+
+pub const MAX_FIND_CANDIDATES: usize = 8;
 
 fn default_parallel() -> usize {
     3
@@ -132,6 +180,7 @@ impl AgentRequest {
         matches!(
             self,
             Self::Search { .. }
+                | Self::Find { .. }
                 | Self::TorrentFiles {
                     resolve_http: true,
                     reference: TorrentReference::Http {
@@ -159,6 +208,7 @@ impl AgentRequest {
             | Self::TorrentFiles { schema_version, .. }
             | Self::InspectTorrentFile { schema_version, .. }
             | Self::InspectTorrent { schema_version, .. }
+            | Self::Find { schema_version, .. }
             | Self::CompareMedia { schema_version, .. } => *schema_version,
         };
         if version != 1 {
@@ -276,6 +326,43 @@ impl AgentRequest {
                 validate_report(report)?;
                 analysis.validate()
             }
+            Self::Find {
+                search,
+                analysis,
+                media,
+                inspect,
+                limits,
+                torrent_limits,
+                inspection_limits,
+                selection,
+                ..
+            } => {
+                search.validate()?;
+                analysis.validate()?;
+                media.validate()?;
+                if !(1..=120).contains(&limits.timeout_seconds) {
+                    return Err(SearchError::InvalidRequest(
+                        "timeout_seconds must be within 1..120".into(),
+                    ));
+                }
+                limits.search_limits().validate()?;
+                if inspect.candidates > MAX_FIND_CANDIDATES || !(1..=4).contains(&inspect.parallel)
+                {
+                    return Err(SearchError::InvalidRequest(
+                        "inspect.candidates must be within 0..8 and inspect.parallel within 1..4"
+                            .into(),
+                    ));
+                }
+                torrent_limits.validate()?;
+                MediaInspectionRequest {
+                    input: crate::media::MediaInput::LocalFile {
+                        path: "validation".into(),
+                    },
+                    limits: inspection_limits.clone(),
+                    selection: selection.clone(),
+                }
+                .validate()
+            }
         }
     }
 }
@@ -316,6 +403,36 @@ pub enum AgentResult {
     Media(MediaInspectionReport),
     Torrent(TorrentOperationReport),
     Comparison(MediaComparisonReport),
+    Find(FindReport),
+}
+
+#[derive(Debug, Serialize)]
+pub struct FindReport {
+    pub schema_version: u32,
+    /// The full analyzed search, for alternatives beyond the inspected few.
+    pub search: AnalyzedReport,
+    /// Inspected candidates, best first by the media comparison; candidates
+    /// the comparison could not place follow in search order.
+    pub candidates: Vec<FindCandidate>,
+    /// Evidence for each placement: streams, criteria and preference factors.
+    pub comparison: Option<MediaComparisonReport>,
+}
+
+#[derive(Debug, Serialize)]
+pub struct FindCandidate {
+    /// The candidate's id in `comparison.results`.
+    pub id: String,
+    /// Index in `search.results`.
+    pub search_index: usize,
+    pub title: String,
+    pub reference: TorrentReference,
+    /// 1 is best by the media preferences; None when not compared.
+    pub position: Option<usize>,
+    pub eligibility: Option<Eligibility>,
+    pub inspection_status: AgentStatus,
+    pub inspection_error: Option<AgentFailure>,
+    pub file: Option<String>,
+    pub elapsed_ms: u64,
 }
 
 #[derive(Debug, Serialize)]
@@ -459,6 +576,36 @@ async fn execute_request(
                 },
             };
         }
+        AgentRequest::Find {
+            search,
+            analysis,
+            media,
+            inspect,
+            limits,
+            torrent_limits,
+            inspection_limits,
+            selection,
+            ..
+        } => {
+            return execute_find(
+                FindPlan {
+                    search,
+                    analysis,
+                    media,
+                    inspect,
+                    limits,
+                    torrent_limits,
+                    inspection_limits,
+                    selection,
+                },
+                sources,
+                cancellation,
+                ffprobe,
+                runtime,
+                pool,
+            )
+            .await;
+        }
         AgentRequest::TorrentFiles {
             reference,
             resolve_http,
@@ -581,6 +728,7 @@ async fn execute_request(
     let operation = async {
         match request {
             AgentRequest::InspectMedia { .. }
+            | AgentRequest::Find { .. }
             | AgentRequest::InspectTorrent { .. }
             | AgentRequest::TorrentFiles { .. }
             | AgentRequest::InspectTorrentFile { .. }
@@ -633,6 +781,225 @@ async fn execute_request(
                 error,
             }
         }
+    }
+}
+
+struct FindPlan {
+    search: SearchRequest,
+    analysis: AnalysisRequest,
+    media: MediaAnalysisRequest,
+    inspect: FindInspection,
+    limits: AgentLimits,
+    torrent_limits: TorrentServiceLimits,
+    inspection_limits: crate::media::MediaInspectionLimits,
+    selection: crate::media::StreamSelection,
+}
+
+async fn execute_find(
+    plan: FindPlan,
+    sources: Vec<Arc<dyn SearchSource>>,
+    cancellation: CancellationToken,
+    ffprobe: &Path,
+    runtime: &TorrentRuntime,
+    pool: Option<&TorrentPool>,
+) -> AgentResponse {
+    use futures_util::StreamExt;
+    let engine = match SearchEngine::new(sources.clone(), plan.limits.search_limits()) {
+        Ok(engine) => engine,
+        Err(error) => return AgentResponse::failure(error),
+    };
+    let analyzed = match engine
+        .search(plan.search, cancellation.clone())
+        .await
+        .and_then(|report| analyze_report(report, plan.analysis))
+    {
+        Ok(analyzed) => analyzed,
+        Err(error) => return AgentResponse::failure(error),
+    };
+    let no_sources_completed = !analyzed.sources.is_empty()
+        && !analyzed
+            .sources
+            .iter()
+            .any(|source| source.status.answered());
+    let picks: Vec<usize> = if cancellation.is_cancelled() {
+        vec![]
+    } else {
+        analyzed
+            .results
+            .iter()
+            .enumerate()
+            .filter(|(_, result)| {
+                result.eligibility == Eligibility::Eligible
+                    || (plan.inspect.include_uncertain
+                        && result.eligibility == Eligibility::Uncertain)
+            })
+            .map(|(index, _)| index)
+            .take(plan.inspect.candidates)
+            .collect()
+    };
+
+    // Without a daemon, one session serves every candidate of this request.
+    let local = pool
+        .is_none()
+        .then(|| TorrentPool::new(runtime.clone(), Duration::from_secs(600)));
+    let session = pool.or(local.as_ref()).expect("a pool");
+    let inspections: Vec<(usize, SavedTorrentInspection)> =
+        futures_util::stream::iter(picks.iter().copied())
+            .map(|index| {
+                let operation = TorrentOperation::InspectFiles {
+                    source: TorrentSource::Reference {
+                        reference: analyzed.results[index].result.reference.clone(),
+                        resolve_http: true,
+                    },
+                    files: FileChoice::Sample(1),
+                    inspection_limits: plan.inspection_limits.clone(),
+                    selection: plan.selection.clone(),
+                    parallel: 1,
+                };
+                let sources = sources.clone();
+                let limits = plan.torrent_limits.clone();
+                let cancellation = cancellation.clone();
+                async move {
+                    let started = std::time::Instant::now();
+                    let (report, error) = run_torrent(
+                        operation,
+                        sources,
+                        limits,
+                        runtime,
+                        Some(session),
+                        ffprobe,
+                        cancellation,
+                    )
+                    .await;
+                    (index, single_inspection(report, error, started.elapsed()))
+                }
+            })
+            .buffered(plan.inspect.parallel)
+            .collect()
+            .await;
+    if let Some(local) = &local {
+        let _ = local.shutdown().await;
+    }
+
+    let id = |index: usize| format!("result-{}", index + 1);
+    let comparison = if inspections.is_empty() {
+        None
+    } else {
+        crate::comparison::compare_media(
+            inspections
+                .iter()
+                .map(|(index, inspection)| InspectedMediaCandidate {
+                    id: id(*index),
+                    inspection: inspection.clone(),
+                    video_stream_index: None,
+                })
+                .collect(),
+            plan.media,
+        )
+        .ok()
+    };
+    let mut candidates: Vec<FindCandidate> = inspections
+        .into_iter()
+        .map(|(index, inspection)| {
+            let placed = comparison
+                .as_ref()
+                .and_then(|report| report.results.iter().find(|r| r.candidate.id == id(index)));
+            let report = inspection.result.as_ref();
+            FindCandidate {
+                id: id(index),
+                search_index: index,
+                title: analyzed.results[index].result.title.clone(),
+                reference: analyzed.results[index].result.reference.clone(),
+                position: placed.map(|r| r.position),
+                eligibility: placed.map(|r| r.assessment.eligibility),
+                inspection_status: inspection.status,
+                inspection_error: inspection.error.clone(),
+                file: report.and_then(|r| r.file.as_ref()).map(|f| f.path.clone()),
+                elapsed_ms: inspection.elapsed_ms,
+            }
+        })
+        .collect();
+    candidates.sort_by_key(|c| (c.position.unwrap_or(usize::MAX), c.search_index));
+
+    let inspections_short = candidates
+        .iter()
+        .any(|c| c.inspection_status != AgentStatus::Completed);
+    let status = if cancellation.is_cancelled() {
+        AgentStatus::Cancelled
+    } else if no_sources_completed {
+        AgentStatus::Failed
+    } else if analyzed.partial
+        || inspections_short
+        || comparison.as_ref().is_some_and(|c| c.partial)
+    {
+        AgentStatus::Partial
+    } else {
+        AgentStatus::Completed
+    };
+    let error = (no_sources_completed && status != AgentStatus::Cancelled).then(|| AgentFailure {
+        code: "no_sources_completed".into(),
+        message: "Inspect per-source reports before retrying".into(),
+    });
+    AgentResponse {
+        schema_version: 1,
+        elapsed_ms: 0,
+        status,
+        result: Some(AgentResult::Find(FindReport {
+            schema_version: 1,
+            search: analyzed,
+            candidates,
+            comparison,
+        })),
+        error,
+    }
+}
+
+/// A one-file inspect_torrent result in the saved single-file shape that
+/// compare_media accepts.
+fn single_inspection(
+    report: Option<TorrentOperationReport>,
+    error: Option<TorrentFailure>,
+    elapsed: Duration,
+) -> SavedTorrentInspection {
+    let mut error = error.map(|e| AgentFailure {
+        code: e.code.into(),
+        message: e.message,
+    });
+    let result = report.map(|report| {
+        let first = report.inspections.into_iter().next();
+        if error.is_none() {
+            error = first
+                .as_ref()
+                .and_then(|i| i.failure.as_ref())
+                .map(|f| AgentFailure {
+                    code: f.code.clone(),
+                    message: f.message.clone(),
+                });
+        }
+        TorrentOperationReport {
+            schema_version: 1,
+            operation: "inspect_torrent_file".into(),
+            torrent: report.torrent,
+            file: first.as_ref().and_then(|i| i.file.clone()),
+            media: first.and_then(|i| i.media),
+            inspections: vec![],
+            service: report.service,
+            assessment: None,
+        }
+    });
+    let has_media = result.as_ref().is_some_and(|r| r.media.is_some());
+    let status = match &error {
+        Some(e) if e.code == "cancelled" => AgentStatus::Cancelled,
+        None if has_media => AgentStatus::Completed,
+        Some(_) if has_media => AgentStatus::Partial,
+        _ => AgentStatus::Failed,
+    };
+    SavedTorrentInspection {
+        schema_version: 1,
+        elapsed_ms: elapsed.as_millis().try_into().unwrap_or(u64::MAX),
+        status,
+        result,
+        error,
     }
 }
 

@@ -239,6 +239,13 @@ fn evaluate(
             });
         }
     }
+    if !request.constraints.formats.is_empty() {
+        criteria.push(require_fact(
+            "source_format",
+            &analysis.source_format,
+            &request.constraints.formats,
+        ));
+    }
     if let Some(coverage) = request.constraints.coverage {
         criteria.push(require_fact("coverage", &analysis.coverage, &[coverage]));
     }
@@ -385,6 +392,13 @@ pub fn analyze_report(
             &analysis.resolution,
             &request.preferences.resolutions,
             100,
+            &mut ranking,
+        );
+        add_preference(
+            "source_format",
+            &analysis.source_format,
+            &request.preferences.formats,
+            80,
             &mut ranking,
         );
         add_preference(

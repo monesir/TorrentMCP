@@ -14,6 +14,7 @@ use torrent_search::{
 
 #[derive(Parser)]
 #[command(
+    name = "torrentx",
     version,
     about = "Local torrent search; no qBittorrent installation required"
 )]

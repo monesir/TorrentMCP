@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "operation": "find",
+  "search": { "query": "The Bear S03", "category": "tv", "sources": [] },
+  "analysis": {
+    "target": { "title": "The Bear", "season": 3 },
+    "constraints": { "resolutions": [1080] },
+    "preferences": { "formats": ["remux", "webdl", "webrip"], "codecs": ["hevc"] }
+  },
+  "media": {
+    "constraints": { "min_video_height": 800 },
+    "preferences": { "video_codecs": ["hevc"], "audio_languages": ["en"] }
+  },
+  "inspect": { "candidates": 3, "parallel": 2 },
+  "limits": { "timeout_seconds": 25 }
+}
