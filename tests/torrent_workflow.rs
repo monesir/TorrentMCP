@@ -349,6 +349,9 @@ async fn preserves_original_search_reference_when_resolving_details() {
         site_url: "https://example.org".into(),
         categories: vec!["all".into()],
         resolves_http: true,
+        scope: Default::default(),
+        language: None,
+        alternate_of: None,
     }));
     let original = TorrentReference::Http {
         uri: "https://example.org/details/1".into(),

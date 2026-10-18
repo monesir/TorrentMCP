@@ -171,7 +171,7 @@ impl NativeSource {
                     format!("{base}/download")
                 };
                 let mut last = 1;
-                let re=regex::Regex::new(r#"(?s)(?:gai|tum)"><td>(.+?)</td.+?href="(magnet:.+?)".+?href="/(torrent/(\d+).+?)">(.+?)</a.+?right">([.\d]+?&nbsp;\w+?)</td.+?<span.+?(\d+?)</span>.+?<span.+?(\d+?)</span>"#).unwrap();
+                let re=super::static_regex(r#"(?s)(?:gai|tum)"><td>(.+?)</td.+?href="(magnet:.+?)".+?href="/(torrent/(\d+).+?)">(.+?)</a.+?right">([.\d]+?&nbsp;\w+?)</td.+?<span.+?(\d+?)</span>.+?<span.+?(\d+?)</span>"#);
                 for page in 0.. {
                     let response = self
                         .fetch(&format!("{base}/search/{page}/{c}/000/0/{q}"), None)
@@ -247,7 +247,7 @@ impl NativeSource {
                             .await?;
                         let doc = Html::parse_document(&details);
                         let get = |label: &str| {
-                            cap(&format!(r"(?s)<strong>{label}</strong>.*?</li>\s*<li>:</li>\s*<li[^>]*>(.*?)</li>"),&details).map(|s|html_escape::decode_html_entities(&regex::Regex::new("<[^>]*>").unwrap().replace_all(&s,"")).trim().to_owned())
+                            cap(&format!(r"(?s)<strong>{label}</strong>.*?</li>\s*<li>:</li>\s*<li[^>]*>(.*?)</li>"),&details).map(|s|html_escape::decode_html_entities(&super::static_regex("<[^>]*>").replace_all(&s,"")).trim().to_owned())
                         };
                         if c != "0"
                             && get("Category").as_deref().map(str::to_lowercase).as_deref()

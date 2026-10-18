@@ -18,8 +18,67 @@ pub struct SourceDescriptor {
     pub id: String,
     pub name: String,
     pub site_url: String,
+    /// Categories the site's own search accepts; others are searched as "all".
     pub categories: Vec<String>,
     pub resolves_http: bool,
+    /// What the site actually carries; decides default source selection.
+    #[serde(default)]
+    pub scope: SourceScope,
+    /// Set for sites whose releases are mainly in one language (ISO 639-1).
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    /// Another plugin for the same site that default searches use instead.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub alternate_of: Option<String>,
+}
+
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum SourceScope {
+    #[default]
+    General,
+    Video,
+    Movies,
+    Tv,
+    Anime,
+    Games,
+    Software,
+    Music,
+    Books,
+    Academic,
+    Adult,
+}
+
+impl SourceDescriptor {
+    /// Whether a search with no explicit sources should query this one.
+    /// Adult, single-language and duplicate-site plugins run only when named.
+    pub fn selected_by_default(&self, category: &str) -> bool {
+        use SourceScope::*;
+        if self.scope == Adult || self.language.is_some() || self.alternate_of.is_some() {
+            return false;
+        }
+        match category {
+            "all" => true,
+            "movies" => matches!(self.scope, General | Video | Movies),
+            "tv" => matches!(self.scope, General | Video | Tv),
+            "anime" => matches!(self.scope, General | Anime),
+            "games" => matches!(self.scope, General | Games),
+            "software" => matches!(self.scope, General | Software),
+            "music" => matches!(self.scope, General | Music),
+            "books" => matches!(self.scope, General | Books | Academic),
+            _ => self.scope == General,
+        }
+    }
+
+    /// The category to send to the site: the requested one when its search
+    /// supports it, otherwise "all" (results are then filtered by analysis).
+    pub fn query_category<'a>(&self, category: &'a str) -> &'a str {
+        if self.categories.iter().any(|value| value == category) {
+            category
+        } else {
+            "all"
+        }
+    }
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -104,6 +163,9 @@ pub struct SourceReport {
     pub result_count: usize,
     pub limited: bool,
     pub error: Option<String>,
+    /// Present when the site was searched with "all" instead of the requested category.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub queried_category: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

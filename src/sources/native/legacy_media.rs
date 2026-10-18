@@ -205,8 +205,7 @@ impl NativeSource {
                                 values.get(7).cloned().unwrap_or_default(),
                             )
                         };
-                        let bytes = regex::Regex::new(r"(?i)([KMGTP])o")
-                            .unwrap()
+                        let bytes = super::static_regex(r"(?i)([KMGTP])o")
                             .replace_all(&bytes, "${1}B");
                         r.size = size(&bytes);
                         r.seeds = num(&seeds);
@@ -295,8 +294,7 @@ impl NativeSource {
                         .next()
                         .map(raw)
                         .unwrap_or_default();
-                    regex::Regex::new(r"\d+")
-                        .unwrap()
+                    super::static_regex(r"\d+")
                         .find_iter(&value)
                         .nth(2)
                         .and_then(|m| m.as_str().parse::<usize>().ok())
@@ -355,8 +353,7 @@ impl NativeSource {
                     };
                     let response = self.fetch(&route, None).await?;
                     if page == 1 {
-                        last = regex::Regex::new(r#""go to page (\d+)""#)
-                            .unwrap()
+                        last = super::static_regex(r#""go to page (\d+)""#)
                             .captures_iter(&response)
                             .filter_map(|c| c[1].parse::<usize>().ok())
                             .max()
@@ -464,8 +461,7 @@ impl NativeSource {
                     let Some(title) = cap(r"(<h1>Descargar .+ por torrent</h1>)", &response) else {
                         continue;
                     };
-                    let encoded: Vec<_> = regex::Regex::new(r#"i=([-A-Za-z0-9+/]+={0,3})""#)
-                        .unwrap()
+                    let encoded: Vec<_> = super::static_regex(r#"i=([-A-Za-z0-9+/]+={0,3})""#)
                         .captures_iter(&response)
                         .map(|c| c[1].to_owned())
                         .collect();

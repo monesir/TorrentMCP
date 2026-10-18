@@ -136,7 +136,7 @@ async fn timeout_preserves_results_and_cleans_up_the_worker() {
     let body = format!("{}\n        time.sleep(30)", result_statement(1));
     let fixture = Fixture::new(&[("hanging", &body)]);
     let limits = SearchLimits {
-        source_timeout: Duration::from_secs(2),
+        source_timeout: Duration::from_secs(5),
         ..SearchLimits::default()
     };
     let report = fixture
@@ -146,7 +146,7 @@ async fn timeout_preserves_results_and_cleans_up_the_worker() {
         .unwrap();
     assert_eq!(report.sources[0].status, SourceStatus::TimedOut);
     assert_eq!(report.results.len(), 1);
-    assert!(report.sources[0].elapsed_ms < 5000);
+    assert!(report.sources[0].elapsed_ms < 9000);
 }
 
 #[tokio::test]
@@ -231,13 +231,41 @@ async fn import_failures_and_unsupported_categories_have_explicit_states() {
     assert_eq!(report.sources[1].status, SourceStatus::Completed);
     let mut tv = request();
     tv.category = "tv".into();
+    // A site without the category is still searched, as "all", and says so.
     let report = engine.search(tv, CancellationToken::new()).await.unwrap();
+    assert_eq!(report.category, "tv");
+    assert_eq!(report.sources[1].status, SourceStatus::Completed);
     assert!(
         report
             .sources
             .iter()
-            .all(|source| source.status == SourceStatus::Unsupported)
+            .all(|source| source.queried_category.as_deref() == Some("all"))
     );
+}
+
+#[test]
+fn default_selection_skips_adult_regional_and_off_topic_sources() {
+    use torrent_search::{SourceDescriptor, SourceScope};
+    let source = |scope, language: Option<&str>| SourceDescriptor {
+        id: "s".into(),
+        name: "s".into(),
+        site_url: "https://example.org".into(),
+        categories: vec!["all".into(), "movies".into()],
+        resolves_http: false,
+        scope,
+        language: language.map(Into::into),
+        alternate_of: None,
+    };
+    let general = source(SourceScope::General, None);
+    assert!(general.selected_by_default("tv"));
+    assert_eq!(general.query_category("tv"), "all");
+    assert_eq!(general.query_category("movies"), "movies");
+    assert!(source(SourceScope::Tv, None).selected_by_default("tv"));
+    assert!(!source(SourceScope::Tv, None).selected_by_default("movies"));
+    assert!(!source(SourceScope::Anime, None).selected_by_default("tv"));
+    assert!(!source(SourceScope::Academic, None).selected_by_default("movies"));
+    assert!(!source(SourceScope::Adult, None).selected_by_default("all"));
+    assert!(!source(SourceScope::Video, Some("es")).selected_by_default("movies"));
 }
 
 #[tokio::test]

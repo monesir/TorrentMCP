@@ -120,9 +120,9 @@ impl NativeSource {
         for page in start..start.saturating_add(cap) {
             let url = route(id, base, &query, &request.category, page)?;
             let response = self.fetch(&url, None).await?;
-            let normalized = regex::Regex::new(r"\s+")
-                .unwrap()
-                .replace_all(&response, " ");
+            static WHITESPACE: std::sync::LazyLock<regex::Regex> =
+                std::sync::LazyLock::new(|| regex::Regex::new(r"\s+").unwrap());
+            let normalized = WHITESPACE.replace_all(&response, " ");
             let parsed = parse(id, base, &normalized, &request.category, &mut seen)?;
             let count = parsed.len();
             if total.is_none() {
@@ -317,15 +317,17 @@ fn parse(
                     "tv" => "TV|Television",
                     _ => return Err(runtime("Unknown TorrentDownload category")),
                 };
-                if !regex::Regex::new(&format!("(?i){pattern}"))
-                    .unwrap()
-                    .is_match(&tags)
+                if !pattern.is_empty()
+                    && !pattern
+                        .split('|')
+                        .any(|word| tags.to_lowercase().contains(&word.to_lowercase()))
                 {
                     continue;
                 }
                 let uri = format!("{base}{}", title.value().attr("href").unwrap_or(""));
                 Row {
-                    title: format!("{}{tags}", text(title)),
+                    // The category label (" » TV shows") is not part of the release name.
+                    title: text(title),
                     uri: uri.clone(),
                     description: uri,
                     size: row_size(row),
@@ -442,7 +444,8 @@ fn parse(
                 if row.value().attr("bgcolor").is_some() {
                     continue;
                 }
-                let Some(title) = first(row, "td.tt-name a[href]") else {
+                // The live markup nests the name in div.tt-name inside td.tdleft.
+                let Some(title) = first(row, ".tt-name a[href]") else {
                     continue;
                 };
                 let href = title.value().attr("href").unwrap_or("");
@@ -593,4 +596,42 @@ pub(super) fn detail_download(
     Err(runtime(
         "Source detail has no magnet or torrent download URL",
     ))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    // Captured from www.torrentdownload.info on 2026-10-18 (search "the bear s03").
+    const PAGE: &str = include_str!("../../../tests/fixtures/torrentdownload-the-bear-s03.html");
+
+    fn rows(id: &str, category: &str) -> Vec<Row> {
+        let normalized = regex::Regex::new(r"\s+").unwrap().replace_all(PAGE, " ");
+        parse(
+            id,
+            "https://www.torrentdownload.info",
+            &normalized,
+            category,
+            &mut HashSet::new(),
+        )
+        .unwrap()
+    }
+
+    #[test]
+    fn both_torrentdownload_parsers_read_the_live_markup_without_ads_or_labels() {
+        for id in ["torrentdownload", "torrentdownload_community_066"] {
+            let rows = rows(id, "tv");
+            assert!(rows.len() >= 10, "{id}: {}", rows.len());
+            let kontrast = rows
+                .iter()
+                .find(|row| row.title.contains("KONTRAST"))
+                .unwrap_or_else(|| panic!("{id}: missing release"));
+            assert_eq!(kontrast.title, "The Bear S03 1080p WEBRip x265 KONTRAST");
+            assert_eq!(kontrast.seeds, Some(346));
+            assert!(
+                rows.iter()
+                    .all(|row| !row.title.contains('»') && !row.title.contains("Download"))
+            );
+        }
+    }
 }

@@ -472,6 +472,7 @@ impl SearchSource for QbitSource {
                 result_count: run.output.results.len(),
                 limited: run.output.limited,
                 error: run.error,
+                queried_category: None,
             },
             results: run.output.results,
         }

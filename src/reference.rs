@@ -44,12 +44,12 @@ pub fn magnet_from_hash(hash: &str, title: &str) -> String {
 }
 
 // Only URL shapes known to carry the torrent's own infohash: a hash as the first
-// path segment (torrentdownload.info) or a hash-named .torrent file (itorrents,
+// path segment (torrentdownload.info) or a hash-named download (itorrents, YTS,
 // academictorrents). Other 40-hex strings, such as image checksums, are ignored.
 static HASH_SEGMENT: LazyLock<Regex> =
     LazyLock::new(|| Regex::new(r"^/([0-9A-Fa-f]{40})(?:/|$)").unwrap());
 static HASH_FILE: LazyLock<Regex> = LazyLock::new(|| {
-    Regex::new(r"/(?:torrent|download)/([0-9A-Fa-f]{40})\.torrent$").unwrap()
+    Regex::new(r"/(?:torrent|download)/([0-9A-Fa-f]{40})(?:\.torrent)?$").unwrap()
 });
 
 /// The v1 infohash embedded in an HTTP reference, in lowercase hex.
@@ -164,6 +164,7 @@ mod tests {
             "https://www.torrentdownload.info/0ED31CCD8167F56A39D6471EB0140439D1B32B5D/The-Bear",
             "http://itorrents.net/torrent/0ED31CCD8167F56A39D6471EB0140439D1B32B5D.torrent?title=x",
             "https://academictorrents.com/download/0ed31ccd8167f56a39d6471eb0140439d1b32b5d.torrent",
+            "https://yts.gg/torrent/download/0ED31CCD8167F56A39D6471EB0140439D1B32B5D",
         ] {
             assert_eq!(info_hash_in_url(uri).as_deref(), Some(hash), "{uri}");
         }
@@ -171,6 +172,7 @@ mod tests {
             "https://example.org/img/0ed31ccd8167f56a39d6471eb0140439d1b32b5d.png",
             "https://example.org/a/0ed31ccd8167f56a39d6471eb0140439d1b32b5d/",
             "https://example.org/torrent/0ed31ccd8167f56a39d6471eb0140439d1b32b5.torrent",
+            "https://example.org/torrent/0ed31ccd8167f56a39d6471eb0140439d1b32b5dxtorrent",
             "magnet:?xt=urn:btih:0ed31ccd8167f56a39d6471eb0140439d1b32b5d",
         ] {
             assert_eq!(info_hash_in_url(uri), None, "{uri}");

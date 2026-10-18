@@ -464,6 +464,7 @@ impl SearchSource for NativeSource {
                 result_count: results.len(),
                 limited,
                 error,
+                queried_category: None,
             },
             results,
         }
@@ -654,6 +655,7 @@ impl SearchSource for UnavailableNative {
                 error: Some(
                     "Native Rust implementation is not available; choose Python or auto".into(),
                 ),
+                queried_category: None,
             },
         }
     }
@@ -678,6 +680,9 @@ mod tests {
             site_url: "http://127.0.0.1:1".into(),
             categories: vec!["all".into()],
             resolves_http: false,
+            scope: Default::default(),
+            language: None,
+            alternate_of: None,
         }
     }
 
@@ -734,4 +739,17 @@ mod tests {
         .unwrap();
         assert!(Arc::ptr_eq(&sources[0], &original));
     }
+}
+
+/// Compile a literal pattern once per process; parsers call this inside row loops.
+pub(super) fn static_regex(pattern: &'static str) -> &'static regex::Regex {
+    static CACHE: std::sync::LazyLock<
+        std::sync::Mutex<std::collections::HashMap<&'static str, &'static regex::Regex>>,
+    > = std::sync::LazyLock::new(Default::default);
+    let mut cache = CACHE.lock().unwrap_or_else(|poisoned| poisoned.into_inner());
+    cache.entry(pattern).or_insert_with(|| {
+        Box::leak(Box::new(
+            regex::Regex::new(pattern).expect("Static source pattern"),
+        ))
+    })
 }

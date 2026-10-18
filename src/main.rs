@@ -218,11 +218,20 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
                 println!("{}", serde_json::to_string_pretty(&descriptors)?);
             } else {
                 for descriptor in descriptors {
+                    let mut notes = Vec::new();
+                    if let Some(language) = &descriptor.language {
+                        notes.push(format!("language={language}"));
+                    }
+                    if let Some(primary) = &descriptor.alternate_of {
+                        notes.push(format!("alternate_of={primary}"));
+                    }
                     println!(
-                        "{}\t{}\t{}",
+                        "{}\t{}\t{:?}\t{}\t{}",
                         descriptor.id,
                         descriptor.name,
-                        descriptor.categories.join(",")
+                        descriptor.scope,
+                        descriptor.categories.join(","),
+                        notes.join(" ")
                     );
                 }
             }

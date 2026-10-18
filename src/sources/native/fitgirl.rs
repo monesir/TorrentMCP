@@ -58,10 +58,7 @@ struct Cached {
     post: Post,
 }
 fn bytes(s: &str) -> Option<u64> {
-    let re = regex::Regex::new(
-        r"(?i)Repack\s+Size[^\d]*?(\d[\d.,]*)\s*(?:/\s*\d[\d.,]*\s*)?([KMGT]?)i?B\b",
-    )
-    .unwrap();
+    let re = super::static_regex(r"(?i)Repack\s+Size[^\d]*?(\d[\d.,]*)\s*(?:/\s*\d[\d.,]*\s*)?([KMGT]?)i?B\b");
     let c = re.captures(s)?;
     let mut n = c[1].trim_end_matches(['.', ',']).to_owned();
     if n.contains(',') && n.contains('.') {
@@ -71,8 +68,7 @@ fn bytes(s: &str) -> Option<u64> {
             n = n.replace(',', "")
         }
     } else if n.contains(',') {
-        if regex::Regex::new(r"^\d{1,3}(?:,\d{3})+$")
-            .unwrap()
+        if super::static_regex(r"^\d{1,3}(?:,\d{3})+$")
             .is_match(&n)
         {
             n = n.replace(',', "")
@@ -118,13 +114,13 @@ fn hash(magnet: &str) -> Option<String> {
     }
 }
 fn extract_hash(s: &str) -> Option<String> {
-    let re=regex::Regex::new(r"(?i)(?:torrage\.info/torrent\.php\?h=|itorrents\.org/torrent/|btcache\.me/torrent/|infohash=|\bbtih:)([a-f0-9]{40}|[a-z2-7]{32})").unwrap();
+    let re=super::static_regex(r"(?i)(?:torrage\.info/torrent\.php\?h=|itorrents\.org/torrent/|btcache\.me/torrent/|infohash=|\bbtih:)([a-f0-9]{40}|[a-z2-7]{32})");
     for c in re.captures_iter(s) {
         if let Some(h) = hash(&format!("magnet:?xt=urn:btih:{}", &c[1])) {
             return Some(h);
         }
     }
-    let re = regex::Regex::new(r"[a-fA-F0-9]{40}").unwrap();
+    let re = super::static_regex(r"[a-fA-F0-9]{40}");
     for m in re.find_iter(s) {
         let before = s[..m.start()].chars().next_back();
         let after = s[m.end()..].chars().next();
@@ -206,8 +202,7 @@ fn parse(response: &str, base: &str, query: &str, standalone: bool) -> Vec<Post>
         let torrent = links
             .iter()
             .find(|h| {
-                regex::Regex::new(r"(?i)\.torrent(?:\?|$)")
-                    .unwrap()
+                super::static_regex(r"(?i)\.torrent(?:\?|$)")
                     .is_match(h)
             })
             .and_then(|s| join(&page, s));
@@ -426,8 +421,7 @@ impl NativeSource {
             let last = if standalone {
                 1
             } else {
-                regex::Regex::new(r#"class=["'][^"']*page-numbers[^"']*["'][^>]*>\s*(\d+)\s*</a>"#)
-                    .unwrap()
+                super::static_regex(r#"class=["'][^"']*page-numbers[^"']*["'][^>]*>\s*(\d+)\s*</a>"#)
                     .captures_iter(&response)
                     .filter_map(|c| c[1].parse::<usize>().ok())
                     .max()

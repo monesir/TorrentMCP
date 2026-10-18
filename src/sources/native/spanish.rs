@@ -88,8 +88,7 @@ impl NativeSource {
             }
             if page == 1 && card {
                 let pattern =
-                    regex::Regex::new(r"(?s)Se han encontrado.*?<b>(\d+)</b>.*?resultados")
-                        .unwrap();
+                    super::static_regex(r"(?s)Se han encontrado.*?<b>(\d+)</b>.*?resultados");
                 let Some(count) = pattern
                     .captures(&response)
                     .and_then(|m| m[1].parse::<usize>().ok())

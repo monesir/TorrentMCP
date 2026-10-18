@@ -176,6 +176,7 @@ impl SearchSource for LimeTorrentsSource {
                 result_count: results.len(),
                 limited,
                 error,
+                queried_category: None,
             },
             results,
         }
@@ -370,6 +371,9 @@ mod tests {
             site_url: "https://www.limetorrents.lol".into(),
             categories: vec!["all".into()],
             resolves_http: true,
+            scope: Default::default(),
+            language: None,
+            alternate_of: None,
         };
         let results = parse_page(html, &descriptor, 1792196186).unwrap();
         assert_eq!(results.len(), 31);
@@ -408,6 +412,9 @@ mod tests {
             site_url: "https://example.org".into(),
             categories: vec!["all".into()],
             resolves_http: true,
+            scope: Default::default(),
+            language: None,
+            alternate_of: None,
         };
         let html = "<table class='table2'><tr bgcolor='#FFFFFF'><td><a href='/item.html'>中文 | A\u{008d}B</a></td><td>unknown</td><td>unknown</td><td>1,234</td><td>0</td></tr></table>";
         let rows = parse_page(html, &descriptor, 100).unwrap();

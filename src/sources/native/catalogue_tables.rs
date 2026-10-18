@@ -128,6 +128,9 @@ mod tests {
                 site_url: base,
                 categories: vec!["all".into()],
                 resolves_http: true,
+                scope: Default::default(),
+                language: None,
+                alternate_of: None,
             },
             std::path::Path::new("."),
         )
@@ -378,12 +381,10 @@ impl NativeSource {
                 || page >= last
                 || id == "linuxtracker" && count < 15
                 || id == "therarbg"
-                    && !regex::Regex::new(r"<a[^>]*>»</a>")
-                        .unwrap()
+                    && !super::static_regex(r"<a[^>]*>»</a>")
                         .is_match(&response)
                 || id == "torrentdownloads"
-                    && !regex::Regex::new(r"<a[^>]*>>></a>")
-                        .unwrap()
+                    && !super::static_regex(r"<a[^>]*>>></a>")
                         .is_match(&response)
                 || id == "xxxclubto" && !response.contains("title=\"Next Page\"")
             {
@@ -583,7 +584,7 @@ fn parse(id: &str, base: &str, response: &str) -> Result<Vec<Row>, SearchError> 
             }
         }
         "sktorrent" => {
-            let re=regex::Regex::new(r#"(?s)id=([a-f0-9]+)".*?<br>(.*?)</A>\s*<br>Velkost ([^|]+)\| Pridany (\d{2}/\d{2}/\d{4})<br>\s*Odosielaju : (\d+)<br>\s*Stahuju : (\d+)"#).unwrap();
+            let re=super::static_regex(r#"(?s)id=([a-f0-9]+)".*?<br>(.*?)</A>\s*<br>Velkost ([^|]+)\| Pridany (\d{2}/\d{2}/\d{4})<br>\s*Odosielaju : (\d+)<br>\s*Stahuju : (\d+)"#);
             let trackers = "https%3A%2F%2Fannounce1.sktorrent.eu%2Ftorrent%2Fannounce.php%3Fpid%3D1968a215113a4d87936336557ba8e800&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=udp%3A%2F%2Fipv4announce.sktorrent.eu%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce";
             for m in re.captures_iter(response) {
                 let mut r = Row::new(
@@ -600,7 +601,7 @@ fn parse(id: &str, base: &str, response: &str) -> Result<Vec<Row>, SearchError> 
         }
         "linuxtracker" => {
             // Follow the original stream parser's six <strong> boundaries.
-            let tokens = regex::Regex::new(r"(?s)<[^>]*>|[^<]+").unwrap();
+            let tokens = super::static_regex(r"(?s)<[^>]*>|[^<]+");
             let mut current: Option<Row> = None;
             let mut strong = 0;
             let mut waiting = true;

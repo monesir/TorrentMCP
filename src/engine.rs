@@ -54,13 +54,26 @@ impl SearchEngine {
         let mut tasks = JoinSet::new();
         let mut task_sources = HashMap::new();
         for source in &self.sources {
-            let id = source.descriptor().id.clone();
-            if !request.sources.is_empty() && !request.sources.contains(&id) {
+            let descriptor = source.descriptor();
+            let id = descriptor.id.clone();
+            let selected = if request.sources.is_empty() {
+                descriptor.selected_by_default(&request.category)
+            } else {
+                request.sources.contains(&id)
+            };
+            if !selected {
                 continue;
             }
+            // A site without the requested category is searched with "all"
+            // rather than skipped; release analysis filters the results.
+            let query_category = descriptor.query_category(&request.category).to_owned();
+            let fallback = (query_category != request.category).then(|| query_category.clone());
             let source = source.clone();
             let semaphore = semaphore.clone();
-            let request = request.clone();
+            let request = SearchRequest {
+                category: query_category,
+                ..request.clone()
+            };
             let limits = self.limits.clone();
             let cancellation = cancellation.clone();
             let task_source_id = id.clone();
@@ -70,15 +83,18 @@ impl SearchEngine {
                     _ = cancellation.cancelled() => return empty_outcome(&id, SourceStatus::Cancelled, None),
                     permit = semaphore.acquire_owned() => permit.expect("Semaphore is owned by the search"),
                 };
-                let outcome = if !source.descriptor().categories.contains(&request.category) {
-                    empty_outcome(&id, SourceStatus::Unsupported, Some(format!("Category '{}' is not supported", request.category)))
-                } else {
-                    source.search(&request, &limits, cancellation).await
-                };
+                let mut outcome = source.search(&request, &limits, cancellation).await;
+                outcome.report.queried_category = fallback;
                 drop(permit);
                 outcome
             });
             task_sources.insert(task.id(), task_source_id);
+        }
+        if tasks.is_empty() {
+            return Err(SearchError::InvalidRequest(format!(
+                "No default source covers category '{}'; name sources explicitly",
+                request.category
+            )));
         }
         let mut outcomes = Vec::new();
         while let Some(joined) = tasks.join_next().await {
@@ -141,6 +157,7 @@ pub fn empty_outcome(id: &str, status: SourceStatus, error: Option<String>) -> S
             result_count: 0,
             limited: false,
             error,
+            queried_category: None,
         },
         results: Vec::new(),
     }
