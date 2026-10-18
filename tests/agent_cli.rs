@@ -6,7 +6,7 @@ use std::{
 
 fn run(request: &[u8], file: bool) -> (i32, Value) {
     let directory = tempfile::tempdir().unwrap();
-    let mut command = Command::new(env!("CARGO_BIN_EXE_torrent-search"));
+    let mut command = Command::new(env!("CARGO_BIN_EXE_torrentx"));
     // Offline analysis must work without any runtime or source assets.
     command
         .args([

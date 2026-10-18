@@ -7,7 +7,7 @@
 المستهلك الأساسي إيجنت. يشغل عملية محلية، يرسل طلب JSON واحدا، ويقرأ استجابة JSON واحدة من stdout وحالة خروج العملية. لا توجد أسئلة أو قوائم تفاعلية. هذه واجهة CLI؛ MCP لم يضف بعد. يمكن أن يغلف الواجهة نفسها لاحقا. إذا كانت الخدمة الدائمة (`serve`) تعمل بالإعدادات نفسها، يمرر `agent` الطلب إليها ويعيد الاستجابة وحالة الخروج نفسيهما؛ راجع [الخدمة الدائمة](daemon.md).
 
 ```powershell
-.\torrent-search.exe agent --request .\examples\nirvana-agent-search.json
+.\torrentx.exe agent --request .\examples\nirvana-agent-search.json
 ```
 
 عند حذف `--request` يقرأ الطلب من stdin حتى EOF. الحد 16 MiB، والترميز UTF-8 مع قبول BOM. خيارات CLI غير الصحيحة تظل أخطاء clap وحالة خروج 2؛ الأخطاء داخل طلب الإيجنت واستدعاء المصادر تعاد بصيغة JSON. لا تعيد المحاولة لمجرد أن رمز الخروج غير صفري: اقرأ `status` و`error` و`sources` أولا.
@@ -35,7 +35,7 @@ $request = @{
     }
 }
 $request | ConvertTo-Json -Depth 30 | Set-Content -Encoding utf8 .\analysis-request.json
-.\torrent-search.exe agent --request .\analysis-request.json
+.\torrentx.exe agent --request .\analysis-request.json
 ```
 
 الحقول المجهولة في الطلب وإعدادات التحليل ترفض لكشف الأخطاء الإملائية. تقرير البحث المضمّن يقبل حقولا إضافية للتوافق مع الإصدارات اللاحقة؛ عناصره الحالية مطلوبة، و`raw_title` اختياري للتقارير القديمة.

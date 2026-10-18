@@ -41,7 +41,7 @@ def main():
     bundle = args.bundle.resolve(strict=True)
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=False)
-    executable = bundle / "torrent-search.exe"
+    executable = bundle / "torrentx.exe"
     manifest = json.loads((bundle / "resources/sources.json").read_text(encoding="utf-8"))
     sources = manifest["sources"]
     expected = {row["id"] for row in sources}

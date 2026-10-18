@@ -1,6 +1,6 @@
 """Compare CLI inspection of a real local file with the downloader range contract.
 
-python scripts/verify-media-inspection.py --program dist/.../torrent-search.exe \
+python scripts/verify-media-inspection.py --program dist/.../torrentx.exe \
     --media path/to/existing.mkv --output verification/media-smoke.json
 Use --ffprobe path/to/ffprobe.exe only for development builds.
 """

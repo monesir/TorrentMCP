@@ -8,7 +8,7 @@ fn exports_saved_search_and_preserves_existing_output() {
     let output = directory.path().join("report.md");
     std::fs::write(&input,serde_json::to_vec(&json!({"schema_version":1,"query":"Human | test","category":"all","sources":[],"results":[]})).unwrap()).unwrap();
     let run = || {
-        Command::new(env!("CARGO_BIN_EXE_torrent-search"))
+        Command::new(env!("CARGO_BIN_EXE_torrentx"))
             .arg("export-markdown")
             .arg("--input")
             .arg(&input)
@@ -36,7 +36,7 @@ fn agent_markdown_and_json_file_output_work_without_search_assets() {
     let input = directory.path().join("request.json");
     std::fs::write(&input,serde_json::to_vec(&json!({"schema_version":1,"operation":"analyze",
         "analysis":{"target":{"title":"Test"}},"report":{"schema_version":1,"query":"Test","category":"all","partial":false,"sources":[],"results":[]}})).unwrap()).unwrap();
-    let result = Command::new(env!("CARGO_BIN_EXE_torrent-search"))
+    let result = Command::new(env!("CARGO_BIN_EXE_torrentx"))
         .args(["agent", "--format", "markdown", "--request"])
         .arg(&input)
         .output()
@@ -47,7 +47,7 @@ fn agent_markdown_and_json_file_output_work_without_search_assets() {
     assert!(markdown.contains("حالة التشغيل: **مكتمل**"));
     assert!(markdown.contains("| النتائج |"));
     let output = directory.path().join("response.json");
-    let result = Command::new(env!("CARGO_BIN_EXE_torrent-search"))
+    let result = Command::new(env!("CARGO_BIN_EXE_torrentx"))
         .args(["agent", "--request"])
         .arg(&input)
         .arg("--output")

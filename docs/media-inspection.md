@@ -3,7 +3,7 @@
 `inspect_media` يقرأ خصائص الحاوية والمسارات بواسطة ffprobe ويعيدها منفصلة عن ادعاءات أسماء الإصدارات. لا يعدل الملف أو يقيس الجودة الإدراكية.
 
 ```powershell
-.\torrent-search.exe agent --request .\examples\inspect-media.json
+.\torrentx.exe agent --request .\examples\inspect-media.json
 ```
 
 استبدل مسار المثال بمسار فعلي. للتطوير يوجد الخيار `--ffprobe C:\Tools\ffprobe.exe`؛ الحزمة المحمولة تحتوي runtime مستقلا. لا تحتاج هذه العملية Python أو أصول مصادر البحث.

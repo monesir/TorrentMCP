@@ -7,16 +7,16 @@
 فك ZIP وافتح PowerShell داخل مجلد الحزمة، ثم نفذ:
 
 ```powershell
-.\torrent-search.exe sources
-.\torrent-search.exe agent --request .\examples\nirvana-agent-search.json
-.\torrent-search.exe agent --request .\examples\nirvana-agent-search.json --format markdown --output search-report.md
-.\torrent-search.exe export-markdown --input response.json --output report.md
-.\torrent-search.exe search "ubuntu" --limit 20
-.\torrent-search.exe --json search "ubuntu" --source torrentscsv,limetorrents --timeout 20
-.\torrent-search.exe --source-backend rust --json search "ubuntu" --source torrentscsv,piratebay
-.\torrent-search.exe --source-backend python --json search "ubuntu" --source torrentscsv,piratebay
-.\torrent-search.exe search "اسم العمل" --category tv --source limetorrents
-.\torrent-search.exe resolve --source limetorrents "رابط صفحة التفاصيل من نتيجة البحث"
+.\torrentx.exe sources
+.\torrentx.exe agent --request .\examples\nirvana-agent-search.json
+.\torrentx.exe agent --request .\examples\nirvana-agent-search.json --format markdown --output search-report.md
+.\torrentx.exe export-markdown --input response.json --output report.md
+.\torrentx.exe search "ubuntu" --limit 20
+.\torrentx.exe --json search "ubuntu" --source torrentscsv,limetorrents --timeout 20
+.\torrentx.exe --source-backend rust --json search "ubuntu" --source torrentscsv,piratebay
+.\torrentx.exe --source-backend python --json search "ubuntu" --source torrentscsv,piratebay
+.\torrentx.exe search "اسم العمل" --category tv --source limetorrents
+.\torrentx.exe resolve --source limetorrents "رابط صفحة التفاصيل من نتيجة البحث"
 ```
 
 الملف التنفيذي و`resources` و`runtime` أجزاء حزمة واحدة. لا تنقل الملف التنفيذي وحده. البحث يتصل بالمواقع مباشرة. فحص الوسائط يفتح بوابة قراءة مؤقتة على loopback ويغلقها عند انتهائه؛ لا ينشر خادما عاما.

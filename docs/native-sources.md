@@ -10,9 +10,9 @@
 ## التشغيل
 
 ```powershell
-.\torrent-search.exe --json sources
-.\torrent-search.exe --source-backend rust --json search "nirvana in fire" --source limetorrents --source nyaasi --timeout 20 --limit 30
-.\torrent-search.exe --source-backend python --json search "nirvana in fire" --source limetorrents --timeout 20 --limit 30
+.\torrentx.exe --json sources
+.\torrentx.exe --source-backend rust --json search "nirvana in fire" --source limetorrents --source nyaasi --timeout 20 --limit 30
+.\torrentx.exe --source-backend python --json search "nirvana in fire" --source limetorrents --timeout 20 --limit 30
 ```
 
 `auto` يفضل التنفيذ الأصلي ويحتفظ بموصل Python للإضافات الجديدة غير المنقولة. لا يعيد طلبًا فاشلًا في Python تلقائيًا. `--limetorrents-backend` يبقى تجاوزًا خاصًا للمقارنة السابقة. البحث دون `--source` يختار جميع الإضافات المسجلة، بما فيها المواقع المتوقفة وJackett إن لم يضبط؛ للحصول على بحث عملي اختر المصادر التي تعمل في شبكتك.

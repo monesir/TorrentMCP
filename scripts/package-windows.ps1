@@ -9,7 +9,7 @@ $projectMetadataText = cargo metadata --manifest-path (Join-Path $workspaceRoot 
 if ($LASTEXITCODE -ne 0) { throw 'Cannot determine project version.' }
 $projectVersion = (($projectMetadataText | ConvertFrom-Json).packages | Where-Object name -eq 'torrent-search').version
 if (-not $projectVersion) { throw 'Project version is missing.' }
-if (-not $Destination) { $Destination = Join-Path $workspaceRoot "dist\torrent-search-$projectVersion-windows-x64" }
+if (-not $Destination) { $Destination = Join-Path $workspaceRoot "dist\torrentx-$projectVersion-windows-x64" }
 $bundlePath = [IO.Path]::GetFullPath($Destination)
 $distRoot = [IO.Path]::GetFullPath((Join-Path $workspaceRoot 'dist'))
 if (-not $bundlePath.StartsWith($distRoot + [IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase)) {
@@ -68,7 +68,7 @@ try {
     cargo build --release --locked --target-dir $TargetDirectory
     if ($LASTEXITCODE -ne 0) { throw 'Release build failed; no bundle created.' }
     New-Item -ItemType Directory -Path $bundlePath -Force | Out-Null
-    Copy-Item -LiteralPath (Join-Path $TargetDirectory 'release\torrent-search.exe') -Destination $bundlePath
+    Copy-Item -LiteralPath (Join-Path $TargetDirectory 'release\torrentx.exe') -Destination $bundlePath
     # Package the pinned allowlist, never local Jackett/Rutor configuration,
     # cookies, logs, or unreviewed plugin files in the same directory.
     $bundleResources = New-Item -ItemType Directory -Path (Join-Path $bundlePath 'resources\qbit\engines')
@@ -142,7 +142,7 @@ try {
         New-Item -ItemType Directory -Path $noticePath -Force | Out-Null
         foreach ($notice in $notices) { Copy-Item -LiteralPath $notice.FullName -Destination $noticePath }
     }
-    $sourceList = & (Join-Path $bundlePath 'torrent-search.exe') --json sources
+    $sourceList = & (Join-Path $bundlePath 'torrentx.exe') --json sources
     if ($LASTEXITCODE -ne 0) { throw 'Bundled source discovery failed.' }
     $sourceList | ConvertFrom-Json | Out-Null
     $packageReport = [ordered]@{
@@ -161,7 +161,7 @@ try {
         media_runtime_files = @(Get-ChildItem -LiteralPath $mediaRuntime.FullName -File | ForEach-Object {
             [ordered]@{ name = $_.Name; sha256 = (Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant() }
         })
-        executable_sha256 = (Get-FileHash -LiteralPath (Join-Path $bundlePath 'torrent-search.exe') -Algorithm SHA256).Hash.ToLowerInvariant()
+        executable_sha256 = (Get-FileHash -LiteralPath (Join-Path $bundlePath 'torrentx.exe') -Algorithm SHA256).Hash.ToLowerInvariant()
         tests_passed = $true
         build_passed = $true
         source_discovery_passed = $true

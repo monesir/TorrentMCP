@@ -178,7 +178,7 @@ impl Drop for Daemon {
 }
 
 fn cli(directory: &Path, discovery: &Path, arguments: &[&str]) -> Command {
-    let mut command = Command::new(env!("CARGO_BIN_EXE_torrent-search"));
+    let mut command = Command::new(env!("CARGO_BIN_EXE_torrentx"));
     let assets = Path::new(env!("CARGO_MANIFEST_DIR")).join("resources");
     command
         .arg("--assets")

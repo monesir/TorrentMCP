@@ -347,7 +347,7 @@ def canonical(report):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--executable", type=Path, default=ROOT / ".cache/native-ports-target/debug/torrent-search.exe")
+    parser.add_argument("--executable", type=Path, default=ROOT / ".cache/native-ports-target/debug/torrentx.exe")
     parser.add_argument("--python", type=Path, default=ROOT / ".cache/python-3.14.8-embed-amd64/python.exe")
     parser.add_argument("--source", nargs="+")
     parser.add_argument("--report-name", default=None)

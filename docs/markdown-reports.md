@@ -3,9 +3,9 @@
 تستمر واجهة الإيجنت بإرجاع JSON افتراضيا. يمكن اختيار Markdown مباشرة، أو تصدير تقرير محفوظ دون تكرار البحث أو الفحص.
 
 ```powershell
-.\torrent-search.exe agent --request .\request.json --format markdown --output .\report.md
-.\torrent-search.exe agent --request .\request.json --output .\response.json
-.\torrent-search.exe export-markdown --input .\response.json --output .\report.md
+.\torrentx.exe agent --request .\request.json --format markdown --output .\report.md
+.\torrentx.exe agent --request .\request.json --output .\response.json
+.\torrentx.exe export-markdown --input .\response.json --output .\report.md
 ```
 
 بدون output يطبع البرنامج إلى stdout. ملفات output جديدة فقط؛ يرفض استبدال ملف موجود، بما فيه ملف الطلب نفسه. يدعم التصدير غلاف استجابة الإيجنت ونتيجة بحث خام بإصدار schema_version 1، مع قبول UTF-8 BOM. الحد 16 MiB للتقرير المدخل. لا حاجة إلى Python أو ffprobe أو أصول المصادر لتحويل تقرير محفوظ.
@@ -21,7 +21,7 @@
 يستخدم السكربت `scripts/inspect-rqbit-candidates.py` خدمة rqbit 9.0.1 مستقلة. يقرأ مرشحين محفوظين بالشكل `{title, reference: {uri}, resolve_ms}`، ويقيس metadata والتهيئة والفحص. يستخدم loopback، ويوقف الخدمة في finally، ويوقف/ينسى كل تورنت بعد الفحص دون حذف ملفاته. لا يضيف خدمة عامة أو يتصل بـqBittorrent.
 
 ```powershell
-python scripts/inspect-rqbit-candidates.py --rqbit .cache/rqbit-9.0.1/rqbit.exe --program .\torrent-search.exe --candidates .\candidates.json --work .cache/new-inspection-run --output .\inspections.json
+python scripts/inspect-rqbit-candidates.py --rqbit .cache/rqbit-9.0.1/rqbit.exe --program .\torrentx.exe --candidates .\candidates.json --work .cache/new-inspection-run --output .\inspections.json
 ```
 
 work يجب أن يكون جديدا. عند استخدام نسخة تطوير، أضف --ffprobe بمساره. الفاحص يحدد ميزانية 16 MiB و60 ثانية لكل ملف. rqbit ينزل قطعًا أكبر وقد يقرأ مسبقًا؛ تحفظ إحصاءاته منفصلة عن بايتات HTTP التي قرأها الفاحص. على Windows ينشئ السكربت ملفات sparse قبل إعطائها إلى rqbit حتى لا يحجز حجم الفيلم كاملًا. لا يعتبر اسم ملف sparse دليل اكتمال؛ الفحص يجري عبر endpoint ينتظر القطع المتحقق منها.

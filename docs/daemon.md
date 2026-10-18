@@ -3,10 +3,10 @@
 `serve` يبقي المصادر محملة وجلسة rqbit جاهزة بين الطلبات. أمر `agent` يكتشف الخدمة ويرسل الطلب إليها، ويعيد الاستجابة نفسها وحالة الخروج نفسها كما لو نفذ داخل العملية. إذا لم تكن الخدمة تعمل ينفذ الطلب محليا كما كان.
 
 ```powershell
-.\torrent-search.exe serve                # يعمل حتى Ctrl+C أو daemon stop
-.\torrent-search.exe daemon status        # صحة الخدمة بصيغة JSON، وحالة 1 إذا لم تكن تعمل
-.\torrent-search.exe daemon stop          # يطلب الإيقاف وينتظر حتى تحذف ملف الاكتشاف
-.\torrent-search.exe agent --no-daemon    # تنفيذ داخل العملية حتى لو كانت الخدمة تعمل
+.\torrentx.exe serve                # يعمل حتى Ctrl+C أو daemon stop
+.\torrentx.exe daemon status        # صحة الخدمة بصيغة JSON، وحالة 1 إذا لم تكن تعمل
+.\torrentx.exe daemon stop          # يطلب الإيقاف وينتظر حتى تحذف ملف الاكتشاف
+.\torrentx.exe agent --no-daemon    # تنفيذ داخل العملية حتى لو كانت الخدمة تعمل
 ```
 
 `--idle-minutes` (افتراضيا 10) يوقف rqbit بعد هذه المدة دون عمل تورنت؛ يعاد تشغيله تلقائيا عند الطلب التالي. الخدمة نفسها تبقى تعمل.

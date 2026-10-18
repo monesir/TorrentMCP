@@ -400,7 +400,7 @@ fn validates_bounds_languages_and_explicit_preference_configuration() {
 
 fn cli(input: &Value) -> (i32, Value) {
     let dir = tempfile::tempdir().unwrap();
-    let mut child = Command::new(env!("CARGO_BIN_EXE_torrent-search"))
+    let mut child = Command::new(env!("CARGO_BIN_EXE_torrentx"))
         .args([
             "--assets",
             "missing",

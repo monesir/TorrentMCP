@@ -139,7 +139,7 @@ def main():
         parser.error('Requires Windows, trials >= 1, timeout 1..120, limit 1..1000')
     bundle = args.bundle.resolve(strict=True)
     output = args.output.resolve()
-    executable, python = bundle / 'torrent-search.exe', bundle / 'runtime/python.exe'
+    executable, python = bundle / 'torrentx.exe', bundle / 'runtime/python.exe'
     manifest = read(bundle / 'resources/sources.json')
     assert len(manifest['sources']) == 86 and len({s['id'] for s in manifest['sources']}) == 86
     for entry in manifest['sources']:

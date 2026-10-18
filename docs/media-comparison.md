@@ -31,7 +31,7 @@ $second = Get-Content -LiteralPath inspection-b.json -Raw | ConvertFrom-Json
 $analysis = Get-Content -LiteralPath examples/media-analysis.json -Raw | ConvertFrom-Json
 @{schema_version=1; operation='compare_media'; analysis=$analysis;
   candidates=@(@{id='a'; inspection=$first}, @{id='b'; inspection=$second})} |
-    ConvertTo-Json -Depth 60 | .\torrent-search.exe agent --output comparison.json
+    ConvertTo-Json -Depth 60 | .\torrentx.exe agent --output comparison.json
 ```
 
 `inspection` هو غلاف استجابة الإيجنت كاملا، لا `result.media` وحده. يقبل 1..100 مرشح، ومعرفات فريدة لا تزيد عن 256 بايت. لا يسمح بتكرار التورنت والملف نفسيهما تحت معرفين. يمكن تحديد `video_stream_index` في المرشح إذا احتوى الفحص على أكثر من فيديو. تقارير 0.5 تقرأ كما هي؛ لا تشترط assessment محفوظا، وأي تقييم قديم لا يستخدم في القرار الجديد.

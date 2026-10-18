@@ -14,14 +14,14 @@
 ```powershell
 $reference = (Get-Content -LiteralPath search.json -Raw | ConvertFrom-Json).result.results[0].reference
 @{schema_version=1; operation='torrent_files'; reference=$reference} |
-    ConvertTo-Json -Depth 30 | .\torrent-search.exe agent --output files.json
+    ConvertTo-Json -Depth 30 | .\torrentx.exe agent --output files.json
 $catalog = (Get-Content -LiteralPath files.json -Raw | ConvertFrom-Json).result.torrent
 $catalog.files | Format-Table id,path,size_bytes,media_kind
 # يختار الإيجنت الفهرس المناسب من القائمة؛ 0 مثال فقط.
 @{schema_version=1; operation='inspect_torrent_file'; torrent=$catalog; file_id=0;
   limits=@{timeout_seconds=60}; inspection_limits=@{timeout_seconds=45; max_read_bytes=16777216};
   selection=@{audio_languages=@('en'); subtitle_languages=@('ar','en')}} |
-    ConvertTo-Json -Depth 30 | .\torrent-search.exe agent --output inspection.json
+    ConvertTo-Json -Depth 30 | .\torrentx.exe agent --output inspection.json
 ```
 
 التصدير لهذه العمليات هو JSON. مرجع `examples/torrent-files.json` توضيحي؛ استبدله بنتيجة فعلية. للتطوير يمكن تمرير `--rqbit C:\Tools\rqbit.exe --ffprobe C:\Tools\ffprobe.exe --torrent-cache C:\Temp\torrent-inspections`. المسارات الافتراضية بجانب التنفيذي في `runtime/torrent` و`runtime/media`، ومجلد العمل الافتراضي `%LOCALAPPDATA%/torrent-search/inspections` على Windows.

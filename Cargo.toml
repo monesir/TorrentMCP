@@ -5,6 +5,10 @@ edition = "2024"
 publish = false
 description = "Local torrent search with independent source adapters"
 
+[[bin]]
+name = "torrentx"
+path = "src/main.rs"
+
 [dependencies]
 async-trait = "0.1"
 clap = { version = "4", features = ["derive"] }
