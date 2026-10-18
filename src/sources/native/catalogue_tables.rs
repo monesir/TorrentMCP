@@ -58,12 +58,6 @@ fn local_date(s: &str, fmt: &str) -> Option<u64> {
         .try_into()
         .ok()
 }
-fn join(base: &str, h: &str) -> Result<String, SearchError> {
-    url::Url::parse(base)
-        .and_then(|u| u.join(h))
-        .map(String::from)
-        .map_err(|e| runtime(e.to_string()))
-}
 struct Row {
     title: String,
     uri: String,
@@ -73,112 +67,6 @@ struct Row {
     leech: Option<u64>,
     date: Option<u64>,
     detail: bool,
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use crate::{SearchLimits, SourceDescriptor, SourceStatus, sources::SearchSource};
-    use tokio::{
-        io::{AsyncReadExt, AsyncWriteExt},
-        net::TcpListener,
-    };
-    use tokio_util::sync::CancellationToken;
-
-    async fn search_with_one_bad_detail(limit: usize) {
-        let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
-        let base = format!("http://{}", listener.local_addr().unwrap());
-        let server = tokio::spawn(async move {
-            loop {
-                let (mut stream, _) = listener.accept().await.unwrap();
-                let mut request = vec![];
-                while !request.windows(4).any(|w| w == b"\r\n\r\n") {
-                    let mut buffer = [0; 4096];
-                    let n = stream.read(&mut buffer).await.unwrap();
-                    if n == 0 {
-                        break;
-                    }
-                    request.extend_from_slice(&buffer[..n]);
-                }
-                let request = String::from_utf8(request).unwrap();
-                let path = request.split_whitespace().nth(1).unwrap();
-                let body = if path.starts_with("/search/") && path.contains("page=1") {
-                    format!("<div class='inner_container'>{}</div>", (1..=3).map(|i|
-                        format!("<div class='grey_bar3'><p><a href='/torrent/{i}'>Result {i}</a></p></div>")
-                    ).collect::<String>())
-                } else if path.starts_with("/search/") {
-                    "<p>End</p>".into()
-                } else if path.ends_with("/2") {
-                    "<a href='magnet:?xt=urn:btih:invalid'>Bad</a>".into()
-                } else {
-                    let hash = if path.ends_with("/1") { "0" } else { "1" }.repeat(40);
-                    format!("<a href='magnet:?xt=urn:btih:{hash}&amp;dn=A%26B%C2%8D'>Good</a>")
-                };
-                let response = format!(
-                    "HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=utf-8\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{body}",
-                    body.len()
-                );
-                stream.write_all(response.as_bytes()).await.unwrap();
-            }
-        });
-        let source = NativeSource::new(
-            SourceDescriptor {
-                id: "torrentdownloads".into(),
-                name: "TorrentDownloads".into(),
-                site_url: base,
-                categories: vec!["all".into()],
-                resolves_http: true,
-                scope: Default::default(),
-                language: None,
-                alternate_of: None,
-            },
-            std::path::Path::new("."),
-        )
-        .unwrap();
-        let outcome = source
-            .search(
-                &SearchRequest {
-                    query: "nirvana in fire".into(),
-                    category: "all".into(),
-                    sources: vec![],
-                },
-                &SearchLimits {
-                    results_per_source: limit,
-                    ..SearchLimits::default()
-                },
-                CancellationToken::new(),
-            )
-            .await;
-        server.abort();
-        assert_eq!(outcome.results.len(), 2);
-        assert_eq!(outcome.results[1].title, "Result 3");
-        assert!(
-            outcome
-                .results
-                .iter()
-                .all(|r| r.reference.uri().ends_with("&dn=A%26B%C2%8D"))
-        );
-        // Retain the per-source error so skipped results cannot become a false
-        // success, while returning valid results from both sides of the bad row.
-        assert_eq!(outcome.report.status, SourceStatus::Failed);
-        assert!(
-            outcome
-                .report
-                .error
-                .unwrap()
-                .contains("Skipped TorrentDownloads result")
-        );
-    }
-
-    #[tokio::test]
-    async fn torrentdownloads_continues_after_a_bad_detail_until_end_of_search() {
-        search_with_one_bad_detail(3).await;
-    }
-
-    #[tokio::test]
-    async fn torrentdownloads_keeps_row_errors_when_the_result_limit_is_reached() {
-        search_with_one_bad_detail(2).await;
-    }
 }
 impl Row {
     fn new(title: String, uri: String) -> Self {
@@ -204,16 +92,40 @@ impl NativeSource {
     ) -> Result<bool, SearchError> {
         let id = self.descriptor.id.as_str();
         let base = self.descriptor.site_url.trim_end_matches('/');
+        if id == "bt4gprx" {
+            // The HTML search sits behind a browser challenge; the RSS feed
+            // does not, and already carries magnets: one request, no detail pages.
+            let q = percent_encoding::utf8_percent_encode(&request.query, html::QUERY_SAFE)
+                .to_string()
+                .replace("%20", "+");
+            let feed = self
+                .fetch(&format!("{base}/search?q={q}&page=rss&orderby=seeders"), None)
+                .await?;
+            for row in parse_bt4g_rss(&feed)? {
+                results.push(candidate(
+                    &self.descriptor,
+                    row.title,
+                    row.uri,
+                    row.desc,
+                    row.bytes,
+                    None,
+                    None,
+                    row.date,
+                    now(),
+                )?);
+                if results.len() >= limit {
+                    return Ok(true);
+                }
+            }
+            return Ok(false);
+        }
         let q = percent_encoding::utf8_percent_encode(&request.query, html::QUERY_SAFE).to_string();
         let plus = q.replace("%20", "+");
         let start = if id == "sktorrent" { 0 } else { 1 };
         let mut page = start;
         let mut last = usize::MAX;
         let mut seen = HashSet::new();
-        let mut trackerlist: Option<Vec<String>> = None;
         let mut first_row_error = None;
-        // BT4G orders the complete search by seeds before printing results.
-        let mut pending = Vec::new();
         let mut tokyo_url = None;
         loop {
             let category = request.category.as_str();
@@ -258,16 +170,6 @@ impl NativeSource {
                     "{base}/torrents/search/{}/{q}?page={page}&sort=seeders&order=asc",
                     if category == "pictures" { "5" } else { "All" }
                 ),
-                "bt4gprx" => format!(
-                    "{base}/{}search/{q}/byseeders/{page}",
-                    match category {
-                        "movies" | "tv" => "movie/",
-                        "music" => "audio/",
-                        "books" => "doc/",
-                        "software" => "app/",
-                        _ => "",
-                    }
-                ),
                 "linuxtracker" => format!(
                     "{base}/index.php?page=torrents&active=1&order=5&by=2&search={q}&pages={page}"
                 ),
@@ -309,12 +211,7 @@ impl NativeSource {
             }
             let rows = parse(id, base, &response)?;
             let count = rows.len();
-            if id == "bt4gprx" {
-                pending.extend(rows);
-                if pending.len() > 10000 {
-                    return Err(runtime("BT4G search buffer exceeded 10000 records"));
-                }
-            } else {
+            {
                 for mut row in rows {
                     let description = row.desc.clone().unwrap_or_else(|| row.uri.clone());
                     let result = async {
@@ -400,47 +297,43 @@ impl NativeSource {
             }
             page += 1;
         }
-        if id == "bt4gprx" {
-            pending.sort_by_key(|r| std::cmp::Reverse(r.seeds.unwrap_or(0)));
-            for mut row in pending {
-                let detail = self.fetch(&row.uri, None).await?;
-                let h = cap(r#"href="//downloadtorrentfile.com/hash/([^\"]+)"#, &detail)
-                    .ok_or_else(|| runtime("BT4G download hash missing"))?;
-                let (hash, name) = h
-                    .split_once("?name=")
-                    .ok_or_else(|| runtime("BT4G download name missing"))?;
-                if trackerlist.is_none() {
-                    let endpoint = if base == "https://bt4gprx.com" {
-                        "https://downloadtorrentfile.com"
-                    } else {
-                        base
-                    };
-                    trackerlist = Some(serde_json::from_str(
-                        &self.fetch(&format!("{endpoint}/trackerlist"), None).await?,
-                    )?);
-                }
-                row.uri = format!(
-                    "magnet:?xt=urn:btih:{hash}&dn={name}&tr={}",
-                    trackerlist.as_ref().unwrap().join("&tr=")
-                );
-                results.push(candidate(
-                    &self.descriptor,
-                    row.title,
-                    row.uri,
-                    None,
-                    row.bytes,
-                    row.seeds,
-                    row.leech,
-                    None,
-                    now(),
-                )?);
-                if results.len() >= limit {
-                    return Ok(true);
-                }
-            }
-        }
         first_row_error.map_or(Ok(false), Err)
     }
+}
+
+/// BT4G RSS items: title, magnet link, and a description
+/// "name<br>size<br>kind<br>infohash"; no seeder counts.
+fn parse_bt4g_rss(feed: &str) -> Result<Vec<Row>, SearchError> {
+    let document =
+        roxmltree::Document::parse(feed).map_err(|e| runtime(format!("BT4G RSS: {e}")))?;
+    let mut rows = Vec::new();
+    for item in document.descendants().filter(|n| n.has_tag_name("item")) {
+        let text = |tag: &str| {
+            item.children()
+                .find(|n| n.has_tag_name(tag))
+                .and_then(|n| n.text())
+                .map(str::trim)
+                .unwrap_or("")
+                .to_owned()
+        };
+        let (title, link) = (text("title"), text("link"));
+        if title.is_empty() || !link.starts_with("magnet:") {
+            continue;
+        }
+        let mut row = Row::new(title, link);
+        let description = text("description");
+        row.bytes = description.split("<br>").nth(1).and_then(size);
+        row.date = chrono::DateTime::parse_from_str(&text("pubDate"), "%a,%d %b %Y %H:%M:%S %z")
+            .ok()
+            .and_then(|d| u64::try_from(d.timestamp()).ok());
+        row.desc = item
+            .children()
+            .find(|n| n.has_tag_name("guid"))
+            .and_then(|n| n.text())
+            .map(str::to_owned);
+        rows.push(row);
+    }
+    Ok(rows)
 }
 
 fn parse(id: &str, base: &str, response: &str) -> Result<Vec<Row>, SearchError> {
@@ -528,34 +421,6 @@ fn parse(id: &str, base: &str, response: &str) -> Result<Vec<Row>, SearchError> 
                 r.bytes = size(&raw(cells[2]).replace(',', ""));
                 r.seeds = num(&raw(cells[3]));
                 r.leech = num(&raw(cells[4]));
-                out.push(r);
-            }
-        }
-        "bt4gprx" => {
-            for row in doc.select(&sel("div.container div")) {
-                let Some(a) = first(row, "a[title][href]") else {
-                    continue;
-                };
-                if first(row, "b#leechers").is_none() {
-                    continue;
-                }
-                // Only the innermost entry, not wrapping container divs.
-                if row.select(&sel("div b#leechers")).count() > 0
-                    && row.children().any(|n| {
-                        ElementRef::wrap(n).is_some_and(|e| {
-                            e.value().name() == "div" && first(e, "b#leechers").is_some()
-                        })
-                    })
-                {
-                    continue;
-                }
-                let mut r = Row::new(
-                    a.value().attr("title").unwrap().into(),
-                    join(&format!("{base}/"), &href(a))?,
-                );
-                r.bytes = size(&field(row, "b.cpill"));
-                r.seeds = num(&field(row, "b#seeders"));
-                r.leech = num(&field(row, "b#leechers"));
                 out.push(r);
             }
         }
@@ -678,4 +543,127 @@ fn parse(id: &str, base: &str, response: &str) -> Result<Vec<Row>, SearchError> 
         _ => return Err(runtime("Unknown catalogue parser")),
     }
     Ok(out)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn bt4g_rss_yields_magnets_sizes_and_dates() {
+        let rows = parse_bt4g_rss(include_str!("../../../tests/fixtures/bt4gprx-ubuntu-rss.xml"))
+            .unwrap();
+        assert_eq!(rows.len(), 15);
+        let first = &rows[0];
+        assert_eq!(first.title, "ubuntu-unity-26.04-desktop-amd64.iso");
+        assert!(
+            first
+                .uri
+                .starts_with("magnet:?xt=urn:btih:a5283cf4e0f3aa287ed45e4945e67d28eac07de8")
+        );
+        assert!(first.bytes.is_some_and(|b| b > 4_000_000_000));
+        assert!(first.date.is_some());
+        assert!(first.desc.as_deref().unwrap().starts_with("https://bt4gprx.com/magnet/"));
+    }
+    use crate::{SearchLimits, SourceDescriptor, SourceStatus, sources::SearchSource};
+    use tokio::{
+        io::{AsyncReadExt, AsyncWriteExt},
+        net::TcpListener,
+    };
+    use tokio_util::sync::CancellationToken;
+
+    async fn search_with_one_bad_detail(limit: usize) {
+        let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
+        let base = format!("http://{}", listener.local_addr().unwrap());
+        let server = tokio::spawn(async move {
+            loop {
+                let (mut stream, _) = listener.accept().await.unwrap();
+                let mut request = vec![];
+                while !request.windows(4).any(|w| w == b"\r\n\r\n") {
+                    let mut buffer = [0; 4096];
+                    let n = stream.read(&mut buffer).await.unwrap();
+                    if n == 0 {
+                        break;
+                    }
+                    request.extend_from_slice(&buffer[..n]);
+                }
+                let request = String::from_utf8(request).unwrap();
+                let path = request.split_whitespace().nth(1).unwrap();
+                let body = if path.starts_with("/search/") && path.contains("page=1") {
+                    format!("<div class='inner_container'>{}</div>", (1..=3).map(|i|
+                        format!("<div class='grey_bar3'><p><a href='/torrent/{i}'>Result {i}</a></p></div>")
+                    ).collect::<String>())
+                } else if path.starts_with("/search/") {
+                    "<p>End</p>".into()
+                } else if path.ends_with("/2") {
+                    "<a href='magnet:?xt=urn:btih:invalid'>Bad</a>".into()
+                } else {
+                    let hash = if path.ends_with("/1") { "0" } else { "1" }.repeat(40);
+                    format!("<a href='magnet:?xt=urn:btih:{hash}&amp;dn=A%26B%C2%8D'>Good</a>")
+                };
+                let response = format!(
+                    "HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=utf-8\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{body}",
+                    body.len()
+                );
+                stream.write_all(response.as_bytes()).await.unwrap();
+            }
+        });
+        let source = NativeSource::new(
+            SourceDescriptor {
+                id: "torrentdownloads".into(),
+                name: "TorrentDownloads".into(),
+                site_url: base,
+                categories: vec!["all".into()],
+                resolves_http: true,
+                scope: Default::default(),
+                language: None,
+                alternate_of: None,
+            },
+            std::path::Path::new("."),
+        )
+        .unwrap();
+        let outcome = source
+            .search(
+                &SearchRequest {
+                    query: "nirvana in fire".into(),
+                    category: "all".into(),
+                    sources: vec![],
+                },
+                &SearchLimits {
+                    results_per_source: limit,
+                    ..SearchLimits::default()
+                },
+                CancellationToken::new(),
+            )
+            .await;
+        server.abort();
+        assert_eq!(outcome.results.len(), 2);
+        assert_eq!(outcome.results[1].title, "Result 3");
+        assert!(
+            outcome
+                .results
+                .iter()
+                .all(|r| r.reference.uri().ends_with("&dn=A%26B%C2%8D"))
+        );
+        // Retain the per-source error so skipped results cannot become a false
+        // success, while returning valid results from both sides of the bad row.
+        assert_eq!(outcome.report.status, SourceStatus::Failed);
+        assert!(
+            outcome
+                .report
+                .error
+                .unwrap()
+                .contains("Skipped TorrentDownloads result")
+        );
+    }
+
+    #[tokio::test]
+    async fn torrentdownloads_continues_after_a_bad_detail_until_end_of_search() {
+        search_with_one_bad_detail(3).await;
+    }
+
+    #[tokio::test]
+    async fn torrentdownloads_keeps_row_errors_when_the_result_limit_is_reached() {
+        search_with_one_bad_detail(2).await;
+    }
 }

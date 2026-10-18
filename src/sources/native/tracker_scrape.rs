@@ -250,14 +250,13 @@ async fn scrape(
             return Ok(stats);
         };
         for (hash, key) in hashes.iter().zip(decoded) {
-            if let Some(Value::Dict(value)) = files.get(&key) {
-                if let (Some(seeds), Some(leech)) = (
+            if let Some(Value::Dict(value)) = files.get(&key)
+                && let (Some(seeds), Some(leech)) = (
                     int(value, &[b"complete", b"seeds", b"seeders"]),
                     int(value, &[b"incomplete", b"peers", b"leechers"]),
                 ) {
                     stats.insert(hash.clone(), (seeds, leech));
                 }
-            }
         }
     }
     Ok(stats)

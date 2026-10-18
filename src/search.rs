@@ -149,10 +149,21 @@ impl SearchLimits {
 #[serde(rename_all = "snake_case")]
 pub enum SourceStatus {
     Completed,
+    /// Returned results, then stopped on an error or the deadline (a later
+    /// page failed, a rate limit). The results are real; `error` says why
+    /// there may be more.
+    Partial,
     Failed,
     TimedOut,
     Cancelled,
     Unsupported,
+}
+
+impl SourceStatus {
+    /// Whether the source delivered usable results.
+    pub fn answered(self) -> bool {
+        matches!(self, Self::Completed | Self::Partial)
+    }
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

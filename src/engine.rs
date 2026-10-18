@@ -85,6 +85,12 @@ impl SearchEngine {
                 };
                 let mut outcome = source.search(&request, &limits, cancellation).await;
                 outcome.report.queried_category = fallback;
+                // Results gathered before a failure are kept and reported as such.
+                if matches!(outcome.report.status, SourceStatus::Failed | SourceStatus::TimedOut)
+                    && !outcome.results.is_empty()
+                {
+                    outcome.report.status = SourceStatus::Partial;
+                }
                 drop(permit);
                 outcome
             });

@@ -30,6 +30,7 @@ pub(crate) fn selected_video(
     }
 }
 
+#[allow(clippy::too_many_arguments)] // One argument per evaluation field.
 fn criterion(
     field: &str,
     state: CriterionState,

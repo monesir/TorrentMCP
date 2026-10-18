@@ -151,13 +151,11 @@ impl TorrentCatalog {
                 info_hash_v1: Some(hash),
                 ..
             } = reference
-            {
-                if hash != &self.info_hash_v1 {
+                && hash != &self.info_hash_v1 {
                     return Err(SearchError::InvalidRequest(
                         "Catalog and magnet identities differ".into(),
                     ));
                 }
-            }
         }
         Ok(())
     }
@@ -193,27 +191,23 @@ pub fn validate_reference(reference: &TorrentReference) -> Result<(), SearchErro
             ..
         },
     ) = (reference, parsed)
-    {
-        if supplied != &actual || actual.is_none() {
+        && (supplied != &actual || actual.is_none()) {
             return Err(SearchError::InvalidRequest(
                 "rqbit requires a consistent v1 magnet identity".into(),
             ));
         }
-    }
     if let TorrentReference::Http {
         post_form: Some(form),
         ..
     } = reference
-    {
-        if form.is_empty()
+        && (form.is_empty()
             || form.len() > 64
-            || form.iter().any(|(k, v)| k.len() > 1024 || v.len() > 32768)
+            || form.iter().any(|(k, v)| k.len() > 1024 || v.len() > 32768))
         {
             return Err(SearchError::InvalidRequest(
                 "Invalid torrent POST form".into(),
             ));
         }
-    }
     Ok(())
 }
 

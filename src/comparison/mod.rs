@@ -257,13 +257,11 @@ pub fn validate_candidates(candidates: &[InspectedMediaCandidate]) -> Result<(),
             return invalid("Candidate ids must be unique, nonempty and at most 256 bytes");
         }
         validate_inspection(&candidate.inspection)?;
-        if let Some(report) = &candidate.inspection.result {
-            if let (Some(torrent), Some(file)) = (&report.torrent, &report.file) {
-                if !files.insert((torrent.info_hash_v1.clone(), file.id)) {
+        if let Some(report) = &candidate.inspection.result
+            && let (Some(torrent), Some(file)) = (&report.torrent, &report.file)
+                && !files.insert((torrent.info_hash_v1.clone(), file.id)) {
                     return invalid("The same torrent file cannot appear twice in a comparison");
                 }
-            }
-        }
         if let Some(index) = candidate.video_stream_index {
             let valid = candidate
                 .inspection

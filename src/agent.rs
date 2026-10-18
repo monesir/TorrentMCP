@@ -1,6 +1,6 @@
 use crate::{
     SearchEngine, SearchError, SearchLimits, SearchReport, SearchRequest, SearchSource,
-    SourceStatus, TorrentReference,
+    TorrentReference,
     analysis::{AnalysisRequest, AnalyzedReport, analyze_report, validate_report},
     comparison::{InspectedMediaCandidate, MediaAnalysisRequest, MediaComparisonReport},
     media::{MediaInspectionReport, MediaInspectionRequest, inspect_media},
@@ -293,6 +293,8 @@ pub struct AgentFailure {
     pub message: String,
 }
 
+/// Built once per request and serialized; boxing the larger reports buys nothing.
+#[allow(clippy::large_enum_variant)]
 #[derive(Debug, Serialize)]
 #[serde(untagged)]
 pub enum AgentResult {
@@ -581,7 +583,7 @@ async fn execute_request(
                 && !result
                     .sources
                     .iter()
-                    .any(|source| source.status == SourceStatus::Completed);
+                    .any(|source| source.status.answered());
             let status = if cancellation.is_cancelled() {
                 AgentStatus::Cancelled
             } else if no_sources_completed {

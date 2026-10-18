@@ -120,7 +120,8 @@ async fn merges_known_identities_preserves_observations_and_keeps_partial_result
         .iter()
         .find(|source| source.source_id == "failing")
         .unwrap();
-    assert_eq!(failed.status, SourceStatus::Failed);
+    // Results gathered before the failure are kept: partial, not failed.
+    assert_eq!(failed.status, SourceStatus::Partial);
     assert_eq!(failed.result_count, 1);
     assert!(
         failed
@@ -144,7 +145,11 @@ async fn timeout_preserves_results_and_cleans_up_the_worker() {
         .search(request(), CancellationToken::new())
         .await
         .unwrap();
-    assert_eq!(report.sources[0].status, SourceStatus::TimedOut);
+    assert_eq!(report.sources[0].status, SourceStatus::Partial);
+    assert_eq!(
+        report.sources[0].error.as_deref(),
+        Some("Source deadline exceeded")
+    );
     assert_eq!(report.results.len(), 1);
     assert!(report.sources[0].elapsed_ms < 9000);
 }
@@ -343,7 +348,7 @@ async fn same_title_is_not_enough_to_merge_different_torrents_and_output_is_boun
         .search(request(), CancellationToken::new())
         .await
         .unwrap();
-    assert_eq!(report.sources[0].status, SourceStatus::Failed);
+    assert_eq!(report.sources[0].status, SourceStatus::Partial);
     assert!(
         report.sources[0]
             .error

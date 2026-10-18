@@ -603,11 +603,7 @@ impl TorrentService for RqbitService {
         };
         let url = format!("{}/torrents/{id}/stream/{}", self.base, file.id);
         let entry = managed.get_mut(&torrent.info_hash_v1).expect("just inserted");
-        if !entry.warmers.contains_key(&file.id) {
-            entry
-                .warmers
-                .insert(file.id, self.warm(&url, file.size_bytes));
-        }
+        entry.warmers.entry(file.id).or_insert_with(|| self.warm(&url, file.size_bytes));
         Ok(MediaInput::DownloadService {
             url,
             size_bytes: file.size_bytes,

@@ -22,7 +22,8 @@ static PART: LazyLock<Regex> = LazyLock::new(|| {
     Regex::new(r"(?i)\b(?:part|pt)[ ._-]*(\d{1,2}|iii|ii|iv|vi|vii|viii|ix|x|v)\b").unwrap()
 });
 static RESOLUTION: LazyLock<Regex> = LazyLock::new(|| {
-    Regex::new(r"(?i)\b(?:(480|576|720|1080|1440|2160|4320)[pi]|(4k|8k))\b").unwrap()
+    // Russian trackers often type the suffix in Cyrillic: "1080р" (U+0440), "4К".
+    Regex::new(r"(?i)\b(?:(480|576|720|1080|1440|2160|4320)[piрі]|([48][kк]))\b").unwrap()
 });
 static CODEC: LazyLock<Regex> = LazyLock::new(|| {
     Regex::new(
@@ -210,23 +211,21 @@ pub fn analyze_release(result: &SearchResult, request: &AnalysisRequest) -> Rele
                     .push(value, evidence(&found[0], "explicit_part_label"), false);
             }
         }
-        if end.is_some() {
-            if let Some(token) = canonical_words(metadata).first() {
-                if let Some(value) = part_number(token) {
+        if end.is_some()
+            && let Some(token) = canonical_words(metadata).first()
+                && let Some(value) = part_number(token) {
                     analysis.part.push(
                         value,
                         evidence(token, "part_suffix_after_requested_title"),
                         true,
                     );
                 }
-            }
-        }
         for found in RESOLUTION.captures_iter(metadata) {
             let height = found
                 .get(1)
                 .map(|value| value.as_str().parse().unwrap())
                 .unwrap_or_else(|| {
-                    if found[2].eq_ignore_ascii_case("4k") {
+                    if found[2].starts_with('4') {
                         2160
                     } else {
                         4320

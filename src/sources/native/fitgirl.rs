@@ -456,20 +456,17 @@ impl NativeSource {
                     };
                     let query = request.query.clone();
                     tasks.spawn(async move {
-                        if post.magnet.is_none() && post.hash.is_none() {
-                            if let Ok(Ok((details, final_url))) = tokio::time::timeout(
+                        if post.magnet.is_none() && post.hash.is_none()
+                            && let Ok(Ok((details, final_url))) = tokio::time::timeout(
                                 Duration::from_secs(6),
                                 source.fetch_document(&post.page, None, None, 4 * 1024 * 1024),
                             )
                             .await
-                            {
-                                if let Some(parsed) =
+                                && let Some(parsed) =
                                     parse(&details, &final_url, &query, true).into_iter().next()
                                 {
                                     merge(&mut post, parsed);
                                 }
-                            }
-                        }
                         enrich(&mut post);
                         (index, post)
                     });
@@ -499,8 +496,7 @@ impl NativeSource {
                     && (!scrape
                         || resolved.len() >= 6
                         || batch_started.elapsed() >= Duration::from_millis(1500))
-                {
-                    if self
+                    && self
                         .flush_fitgirl(
                             &mut resolved,
                             &mut seen,
@@ -514,7 +510,6 @@ impl NativeSource {
                         tasks.abort_all();
                         return Ok(true);
                     }
-                }
             }
             if !flag("FITGIRL_STREAMING") {
                 resolved.sort_by_key(|(i, _)| *i);

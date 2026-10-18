@@ -8,7 +8,7 @@ use std::{
 };
 use tokio_util::sync::CancellationToken;
 use torrent_search::{
-    SearchEngine, SearchError, SearchLimits, SearchRequest, SourceStatus,
+    SearchEngine, SearchError, SearchLimits, SearchRequest,
     sources::{native::SourceBackend, qbit::load_sources},
 };
 
@@ -296,7 +296,7 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
             } else if !report
                 .sources
                 .iter()
-                .any(|source| source.status == SourceStatus::Completed)
+                .any(|source| source.status.answered())
             {
                 1
             } else if report.partial {
@@ -338,6 +338,7 @@ fn configured_sources(
     torrent_search::sources::native::configure(sources, assets, backend, lime_override)
 }
 
+#[allow(clippy::too_many_arguments)] // CLI options passed through unchanged.
 async fn execute_agent(
     path: Option<&Path>,
     assets: &Path,

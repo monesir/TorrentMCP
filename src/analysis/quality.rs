@@ -236,8 +236,8 @@ pub(super) fn scan(metadata: &str, full_title: &str, signals: &mut QualitySignal
     signals.multi_audio |= MULTI_AUDIO.is_match(metadata);
     signals.repack |= REPACK.is_match(metadata);
     signals.upscaled |= UPSCALE.is_match(metadata);
-    if signals.release_group.is_none() {
-        if let Some(found) = RELEASE_GROUP.captures(full_title) {
+    if signals.release_group.is_none()
+        && let Some(found) = RELEASE_GROUP.captures(full_title) {
             let group = found[1].trim_end_matches('.');
             let lower = group.to_ascii_lowercase();
             if !group.bytes().all(|b| b.is_ascii_digit())
@@ -250,7 +250,6 @@ pub(super) fn scan(metadata: &str, full_title: &str, signals: &mut QualitySignal
                 signals.release_group = Some(group.to_owned());
             }
         }
-    }
 }
 
 fn single<T: Copy>(fact: &Fact<T>, worst: impl Fn(T, T) -> T) -> Option<T> {

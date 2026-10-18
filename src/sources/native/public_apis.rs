@@ -257,8 +257,14 @@ impl NativeSource {
                 {
                     let id = scalar(&row["id"]);
                     let name = text(row, "name");
-                    let response = self.fetch(&format!("{api}/v1/torrents/{id}"), None).await?;
-                    let info: Value = serde_json::from_str(&response)?;
+                    // The search row already names the torrent; the detail only adds
+                    // trackers and swarm counts, so a missing or failed detail keeps
+                    // the result with unknown counts instead of failing the source.
+                    let info: Value = match self.fetch(&format!("{api}/v1/torrents/{id}"), None).await {
+                        Ok(response) => serde_json::from_str(&response).unwrap_or(Value::Null),
+                        Err(_) => Value::Null,
+                    };
+                    let trackers = info["trackers"].as_array();
                     let mut seeds = 0u64;
                     let mut leeches = 0u64;
                     let mut uri = format!(
@@ -266,10 +272,7 @@ impl NativeSource {
                         text(row, "btih"),
                         quote(name).replace('/', "%2F")
                     );
-                    for tracker in info["trackers"]
-                        .as_array()
-                        .ok_or_else(|| runtime("TsukiHime result has no trackers"))?
-                    {
+                    for tracker in trackers.into_iter().flatten() {
                         seeds =
                             seeds.saturating_add(json::number(&tracker["seeders"]).unwrap_or(0));
                         leeches =
@@ -285,8 +288,8 @@ impl NativeSource {
                         uri,
                         Some(format!("https://tsukihime.org/view/{id}")),
                         json::number(&row["totalsize"]),
-                        Some(seeds),
-                        Some(leeches),
+                        trackers.map(|_| seeds),
+                        trackers.map(|_| leeches),
                         json::number(&row["source_date"]),
                         now(),
                     )?);
@@ -480,11 +483,10 @@ impl NativeSource {
                     text(row, "site"),
                     quote(text(row, "url"))
                 );
-                if let Ok(response) = self.fetch(&resolution, None).await {
-                    if let Ok(response) = serde_json::from_str::<Value>(&response) {
+                if let Ok(response) = self.fetch(&resolution, None).await
+                    && let Ok(response) = serde_json::from_str::<Value>(&response) {
                         uri = text(&response, "url").into();
                     }
-                }
             }
             if uri.is_empty() {
                 uri = text(row, "url").into();

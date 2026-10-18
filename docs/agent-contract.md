@@ -84,4 +84,6 @@ $request | ConvertTo-Json -Depth 30 | Set-Content -Encoding utf8 .\analysis-requ
 | cancelled | 130 | إلغاء؛ النتائج التي وصلت محفوظة |
 | error | 1 | قراءة رمز الخطأ: invalid_request أو runtime_error أو io_error |
 
+حالة كل مصدر في `sources[].status`: completed، أو partial (أعاد نتائج ثم توقف بخطأ أو انتهاء مهلة، كصفحة لاحقة فشلت أو حد معدل؛ النتائج حقيقية و`error` يذكر السبب)، أو failed، أو timed_out، أو cancelled، أو unsupported. يذكر `error` سلسلة السبب كاملة، مثل "dns error: No such host is known" (النطاق محجوب أو ميت) أو "forcibly closed" (قطع الاتصال، وغالبا حجب على مستوى الشبكة). لا يعد مصدر partial فاشلا عند حساب failed.
+
 `limited: true` يعني بلوغ حد المصدر، وليس فشل التشغيل. `eligible` حكم على مطابقة بيانات الأسماء للشروط، وليس إثبات صحة الإصدار أو تصريحا تلقائيا بالتنزيل.

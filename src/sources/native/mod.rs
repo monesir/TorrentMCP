@@ -172,11 +172,10 @@ pub struct NativeSource {
 
 impl NativeSource {
     pub fn new(mut descriptor: SourceDescriptor, assets: &Path) -> Result<Self, SearchError> {
-        if descriptor.id == "jackett" {
-            if let Ok(config) = jackett::configuration(assets) {
+        if descriptor.id == "jackett"
+            && let Ok(config) = jackett::configuration(assets) {
                 descriptor.site_url = config.url.trim_end_matches('/').to_owned();
             }
-        }
         let base = chrono::NaiveDate::from_ymd_opt(2024, 4, 16).unwrap();
         let version = 125 + (chrono::Utc::now().date_naive() - base).num_days() / 30;
         let mut builder = reqwest::Client::builder()
@@ -193,8 +192,8 @@ impl NativeSource {
         if descriptor.id == "zooqle" {
             builder = builder.cookie_store(true);
         }
-        if descriptor.id == "rutor" {
-            if let Ok(text) = std::fs::read_to_string(assets.join("qbit/engines/rutor.json")) {
+        if descriptor.id == "rutor"
+            && let Ok(text) = std::fs::read_to_string(assets.join("qbit/engines/rutor.json")) {
                 let config: serde_json::Value = serde_json::from_str(&text)?;
                 if let Some(ua) = config["ua"].as_str() {
                     builder = builder.user_agent(ua);
@@ -225,10 +224,9 @@ impl NativeSource {
                     }
                 }
             }
-        }
-        if descriptor.id == "torrentclaw" {
-            if let Ok(key) = std::env::var("TORRENTCLAW_API_KEY") {
-                if !key.is_empty() {
+        if descriptor.id == "torrentclaw"
+            && let Ok(key) = std::env::var("TORRENTCLAW_API_KEY")
+                && !key.is_empty() {
                     let mut value =
                         reqwest::header::HeaderValue::from_str(&format!("Bearer {key}"))
                             .map_err(|_| runtime("Invalid TorrentClaw API key header"))?;
@@ -243,8 +241,6 @@ impl NativeSource {
                         .default_headers(headers)
                         .user_agent("qBittorrent (TorrentClaw plugin)");
                 }
-            }
-        }
         let client = builder.build().map_err(http_error)?;
         Ok(Self {
             descriptor,
@@ -310,8 +306,8 @@ impl NativeSource {
             request
         };
         let mut response = request.send().await.map_err(http_error)?;
-        if response.status().is_redirection() {
-            if let Some(magnet) = response
+        if response.status().is_redirection()
+            && let Some(magnet) = response
                 .headers()
                 .get(reqwest::header::LOCATION)
                 .and_then(|h| h.to_str().ok())
@@ -319,7 +315,6 @@ impl NativeSource {
             {
                 return Ok((magnet.to_owned(), response.url().to_string()));
             }
-        }
         response = response.error_for_status().map_err(http_error)?;
         let charset = response
             .headers()
@@ -566,8 +561,21 @@ fn append(results: &mut Vec<SearchResult>, parsed: Vec<SearchResult>, limit: usi
 fn runtime(message: impl Into<String>) -> SearchError {
     SearchError::Runtime(message.into())
 }
+/// The whole cause chain: reqwest's own message ("error sending request")
+/// hides whether DNS, TCP, TLS or the server failed.
 fn http_error(error: reqwest::Error) -> SearchError {
-    runtime(error.without_url().to_string())
+    let error = error.without_url();
+    let mut message = error.to_string();
+    let mut cause = std::error::Error::source(&error);
+    while let Some(inner) = cause {
+        let text = inner.to_string();
+        if !message.contains(&text) {
+            message.push_str(": ");
+            message.push_str(&text);
+        }
+        cause = inner.source();
+    }
+    runtime(message)
 }
 fn now() -> u64 {
     SystemTime::now()
@@ -576,6 +584,7 @@ fn now() -> u64 {
         .as_secs()
 }
 
+#[allow(clippy::too_many_arguments)] // One argument per result field.
 fn candidate(
     descriptor: &SourceDescriptor,
     raw_title: String,
@@ -669,6 +678,19 @@ impl SearchSource for UnavailableNative {
     }
 }
 
+/// Compile a literal pattern once per process; parsers call this inside row loops.
+pub(super) fn static_regex(pattern: &'static str) -> &'static regex::Regex {
+    static CACHE: std::sync::LazyLock<
+        std::sync::Mutex<std::collections::HashMap<&'static str, &'static regex::Regex>>,
+    > = std::sync::LazyLock::new(Default::default);
+    let mut cache = CACHE.lock().unwrap_or_else(|poisoned| poisoned.into_inner());
+    cache.entry(pattern).or_insert_with(|| {
+        Box::leak(Box::new(
+            regex::Regex::new(pattern).expect("Static source pattern"),
+        ))
+    })
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -739,17 +761,4 @@ mod tests {
         .unwrap();
         assert!(Arc::ptr_eq(&sources[0], &original));
     }
-}
-
-/// Compile a literal pattern once per process; parsers call this inside row loops.
-pub(super) fn static_regex(pattern: &'static str) -> &'static regex::Regex {
-    static CACHE: std::sync::LazyLock<
-        std::sync::Mutex<std::collections::HashMap<&'static str, &'static regex::Regex>>,
-    > = std::sync::LazyLock::new(Default::default);
-    let mut cache = CACHE.lock().unwrap_or_else(|poisoned| poisoned.into_inner());
-    cache.entry(pattern).or_insert_with(|| {
-        Box::leak(Box::new(
-            regex::Regex::new(pattern).expect("Static source pattern"),
-        ))
-    })
 }

@@ -388,3 +388,21 @@ fn best_named_quality_ranks_first_among_healthy_releases() {
         Some("FraMeSToR")
     );
 }
+
+#[test]
+fn cyrillic_resolution_suffixes_are_read() {
+    let mut req = target("Shogun");
+    req.target.season = Some(1);
+    req.constraints.resolutions = vec![2160];
+    let analyzed = analyze_report(
+        report(vec![
+            release("Shogun S01 2160\u{440} WEB-DL"),
+            release("Shogun S01 4\u{41a} HDR"),
+            release("Shogun S01 1080\u{440} WEB-DL"),
+        ]),
+        req,
+    )
+    .unwrap();
+    assert_eq!(analyzed.summary.eligible, 2, "2160р and 4К are 2160");
+    assert_eq!(analyzed.summary.excluded, 1, "1080р is read, not unknown");
+}
