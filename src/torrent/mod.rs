@@ -11,12 +11,17 @@ pub use rqbit::RqbitService;
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 use tokio_util::sync::CancellationToken;
-pub use workflow::{TorrentOperation, run, run_with_service};
+pub use workflow::{
+    FileInspection, InspectionFailure, InspectionTarget, MAX_PARALLEL_INSPECTIONS, TorrentOperation,
+    inspect_files, perform, run, run_with_service, verify_catalog,
+};
 
 #[derive(Debug, Clone)]
 pub struct TorrentRuntime {
     pub rqbit: PathBuf,
     pub cache_directory: PathBuf,
+    /// None leaves downloads unthrottled: inspection reads only what ffprobe asks for.
+    pub download_limit_bytes_per_second: Option<u64>,
 }
 
 impl TorrentRuntime {
@@ -36,6 +41,7 @@ impl TorrentRuntime {
                 "runtime/torrent/rqbit"
             }),
             cache_directory: cache.join("torrent-search/inspections"),
+            download_limit_bytes_per_second: None,
         }
     }
 }
@@ -234,6 +240,8 @@ pub struct TorrentOperationReport {
     pub torrent: Option<TorrentCatalog>,
     pub file: Option<TorrentFile>,
     pub media: Option<MediaInspectionReport>,
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub inspections: Vec<FileInspection>,
     pub service: TorrentServiceRun,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub assessment: Option<crate::comparison::MediaAssessment>,
@@ -264,19 +272,29 @@ impl From<std::io::Error> for TorrentFailure {
 }
 
 /// Implementations supply verified file bytes; the search engine never handles P2P itself.
+///
+/// A service is shared: several operations may call it concurrently, and it
+/// outlives any one of them until `shutdown`.
 #[async_trait]
-pub trait TorrentService: Send {
+pub trait TorrentService: Send + Sync {
     fn description(&self) -> TorrentServiceRun;
-    async fn metadata(
-        &mut self,
-        reference: &TorrentReference,
-    ) -> Result<TorrentMetadata, TorrentFailure>;
+    async fn metadata(&self, reference: &TorrentReference)
+    -> Result<TorrentMetadata, TorrentFailure>;
+    /// Make one file readable. Each successful call is paired with `close_file`.
     async fn open_file(
-        &mut self,
+        &self,
         torrent: &TorrentCatalog,
         file: &TorrentFile,
     ) -> Result<MediaInput, TorrentFailure>;
-    async fn shutdown(&mut self) -> Result<(), TorrentFailure>;
+    /// Release a file opened by `open_file`; the service may discard its data.
+    async fn close_file(
+        &self,
+        _torrent: &TorrentCatalog,
+        _file: &TorrentFile,
+    ) -> Result<(), TorrentFailure> {
+        Ok(())
+    }
+    async fn shutdown(&self) -> Result<(), TorrentFailure>;
 }
 
 pub(crate) fn cancelled() -> TorrentFailure {

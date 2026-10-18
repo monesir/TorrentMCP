@@ -2,10 +2,15 @@ use super::*;
 use reqwest::{Client, Response};
 use serde::Deserialize;
 use std::{
+    collections::{BTreeSet, HashMap},
     fs::{File, OpenOptions},
     net::TcpListener,
     path::{Path, PathBuf},
     process::Stdio,
+    sync::{
+        Arc, Mutex,
+        atomic::{AtomicBool, Ordering},
+    },
     time::{Duration, SystemTime, UNIX_EPOCH},
 };
 use tokio::process::{Child, Command};
@@ -18,15 +23,31 @@ fn http_error(error: reqwest::Error) -> TorrentFailure {
     }
 }
 
-/// An owned rqbit process with a private output directory and loopback API.
-/// Dropping it kills the process even when a caller drops the workflow future.
+/// One rqbit process shared by every operation of a session.
+///
+/// - Metadata is resolved once per infohash and kept as .torrent bytes on disk,
+///   so later sessions add the torrent instantly instead of asking the swarm again.
+/// - A torrent is added once and stays managed while any of its files is open;
+///   the last close deletes it and its partial data.
+/// - The session directory is removed on shutdown; a crashed session's directory
+///   is swept by the next one (its lock file is no longer held).
 pub struct RqbitService {
-    child: Child,
+    child: tokio::sync::Mutex<Option<Child>>,
+    stopped: AtomicBool,
     client: Client,
     base: String,
     directory: PathBuf,
-    payload: Option<(TorrentReference, bool, Vec<u8>)>,
-    stopped: bool,
+    metadata_directory: PathBuf,
+    lock: Mutex<Option<File>>,
+    known: Mutex<HashMap<String, Arc<Vec<u8>>>>,
+    managed: tokio::sync::Mutex<HashMap<String, Managed>>,
+    timeout: Duration,
+}
+
+/// A torrent added to rqbit, with the files currently being read.
+struct Managed {
+    id: u64,
+    open: HashMap<usize, usize>,
 }
 
 #[derive(Deserialize)]
@@ -48,6 +69,14 @@ struct ServiceFile {
     #[serde(default)]
     attributes: serde_json::Value,
 }
+#[derive(Deserialize)]
+struct Stats {
+    state: String,
+    error: Option<String>,
+}
+
+const METADATA_CACHE_ENTRIES: usize = 2000;
+const MAX_TORRENT_BYTES: usize = 16 * 1024 * 1024;
 
 impl RqbitService {
     pub async fn start(
@@ -64,12 +93,18 @@ impl RqbitService {
         })?;
         std::fs::create_dir_all(&runtime.cache_directory)?;
         let cache = std::fs::canonicalize(&runtime.cache_directory)?;
+        sweep_cache(&cache);
+        let metadata_directory = cache.join("metadata");
+        std::fs::create_dir_all(&metadata_directory)?;
         let stamp = SystemTime::now()
             .duration_since(UNIX_EPOCH)
             .unwrap_or_default()
             .as_nanos();
-        let directory = cache.join(format!("request-{}-{stamp}", std::process::id()));
-        std::fs::create_dir(&directory)?;
+        let directory = cache
+            .join("sessions")
+            .join(format!("{}-{stamp}", std::process::id()));
+        std::fs::create_dir_all(directory.join("torrents"))?;
+        let lock = hold_lock(&directory.join("session.lock"))?;
         let listener = TcpListener::bind("127.0.0.1:0")?;
         let address = listener.local_addr()?;
         drop(listener);
@@ -77,10 +112,11 @@ impl RqbitService {
             .write(true)
             .create_new(true)
             .open(directory.join("rqbit.log"))?;
+        let timeout = Duration::from_secs(limits.timeout_seconds);
         let client = Client::builder()
             .no_proxy()
             .redirect(reqwest::redirect::Policy::none())
-            .timeout(Duration::from_secs(limits.timeout_seconds))
+            .timeout(timeout)
             .build()
             .map_err(|e| TorrentFailure::new("torrent_service_failed", e.to_string()))?;
         let mut command = Command::new(executable);
@@ -95,43 +131,48 @@ impl RqbitService {
         {
             command.env_remove(key);
         }
+        command.args([
+            "-v",
+            "error",
+            "--http-api-listen-addr",
+            &address.to_string(),
+            "--disable-dht-persistence",
+            "--disable-upnp-port-forward",
+            "--disable-lsd",
+            "--disable-tcp-listen",
+            "--ratelimit-upload",
+            "1024",
+            "--peer-limit",
+            "30",
+        ]);
+        if let Some(limit) = runtime.download_limit_bytes_per_second {
+            command.args(["--ratelimit-download", &limit.to_string()]);
+        }
         command
-            .args([
-                "-v",
-                "error",
-                "--http-api-listen-addr",
-                &address.to_string(),
-                "--disable-dht-persistence",
-                "--disable-upnp-port-forward",
-                "--disable-lsd",
-                "--disable-tcp-listen",
-                "--ratelimit-download",
-                "4194304",
-                "--ratelimit-upload",
-                "1024",
-                "--peer-limit",
-                "30",
-                "server",
-                "start",
-                "--disable-persistence",
-            ])
-            .arg(&directory);
+            .args(["server", "start", "--disable-persistence"])
+            .arg(directory.join("torrents"));
         #[cfg(windows)]
         command.creation_flags(0x08000000);
         let child = command
             .spawn()
             .map_err(|e| TorrentFailure::new("torrent_service_unavailable", e.to_string()))?;
-        let mut service = Self {
-            child,
+        let service = Self {
+            child: tokio::sync::Mutex::new(Some(child)),
+            stopped: AtomicBool::new(false),
             client,
             base: format!("http://{address}"),
             directory,
-            payload: None,
-            stopped: false,
+            metadata_directory,
+            lock: Mutex::new(Some(lock)),
+            known: Mutex::new(HashMap::new()),
+            managed: tokio::sync::Mutex::new(HashMap::new()),
+            timeout,
         };
         let ready = bounded(limits.timeout_seconds.min(10), cancel, async {
             loop {
-                if let Some(status) = service.child.try_wait()? {
+                if let Some(child) = service.child.lock().await.as_mut()
+                    && let Some(status) = child.try_wait()?
+                {
                     return Err(TorrentFailure::new(
                         "torrent_service_failed",
                         format!("rqbit exited during startup: {status}; see rqbit.log"),
@@ -191,28 +232,31 @@ impl RqbitService {
     async fn add(
         &self,
         query: &[(&str, String)],
-        is_url: bool,
-        body: Vec<u8>,
+        torrent: &[u8],
     ) -> Result<AddResponse, TorrentFailure> {
         let response = self
             .client
             .post(format!("{}/torrents", self.base))
             .query(query)
-            .query(&[("is_url", is_url)])
-            .header(
-                "Content-Type",
-                if is_url {
-                    "text/plain"
-                } else {
-                    "application/x-bittorrent"
-                },
-            )
-            .body(body)
+            .header("Content-Type", "application/x-bittorrent")
+            .body(torrent.to_vec())
             .send()
             .await
             .map_err(http_error)?;
         serde_json::from_slice(&Self::response_bytes(response, 8 * 1024 * 1024).await?)
             .map_err(|e| TorrentFailure::new("torrent_metadata_invalid", e.to_string()))
+    }
+
+    async fn post_json(&self, path: &str, body: String) -> Result<(), TorrentFailure> {
+        let response = self
+            .client
+            .post(format!("{}{path}", self.base))
+            .header("Content-Type", "application/json")
+            .body(body)
+            .send()
+            .await
+            .map_err(http_error)?;
+        Self::response_bytes(response, 64 * 1024).await.map(|_| ())
     }
 
     fn metadata_from(details: Details) -> Result<TorrentMetadata, TorrentFailure> {
@@ -258,9 +302,99 @@ impl RqbitService {
         })
     }
 
+    fn cached_torrent(&self, hash: &str) -> Option<Arc<Vec<u8>>> {
+        if let Some(bytes) = self.known.lock().unwrap().get(hash) {
+            return Some(bytes.clone());
+        }
+        let bytes = std::fs::read(self.metadata_directory.join(format!("{hash}.torrent"))).ok()?;
+        (bytes.len() <= MAX_TORRENT_BYTES).then(|| Arc::new(bytes))
+    }
+
+    fn remember_torrent(&self, hash: &str, bytes: Arc<Vec<u8>>) {
+        let path = self.metadata_directory.join(format!("{hash}.torrent"));
+        if !path.exists() {
+            // Write then rename, so a concurrent reader never sees a partial file.
+            let partial = self
+                .metadata_directory
+                .join(format!("{hash}.{}.partial", std::process::id()));
+            if std::fs::write(&partial, bytes.as_slice()).is_ok()
+                && std::fs::rename(&partial, &path).is_err()
+            {
+                let _ = std::fs::remove_file(&partial);
+            }
+        }
+        self.known.lock().unwrap().insert(hash.into(), bytes);
+    }
+
+    async fn torrent_bytes(
+        &self,
+        reference: &TorrentReference,
+    ) -> Result<Arc<Vec<u8>>, TorrentFailure> {
+        match reference {
+            TorrentReference::Magnet {
+                uri,
+                info_hash_v1: Some(hash),
+            } => {
+                if let Some(bytes) = self.cached_torrent(hash) {
+                    return Ok(bytes);
+                }
+                let response = self
+                    .client
+                    .post(format!("{}/torrents/resolve_magnet", self.base))
+                    .header("Content-Type", "text/plain")
+                    .body(uri.clone())
+                    .send()
+                    .await
+                    .map_err(http_error)?;
+                Ok(Arc::new(
+                    Self::response_bytes(response, MAX_TORRENT_BYTES).await?,
+                ))
+            }
+            TorrentReference::Magnet { .. } => Err(TorrentFailure::new(
+                "torrent_service_failed",
+                "rqbit requires a v1 infohash",
+            )),
+            TorrentReference::Http { uri, post_form, .. } => {
+                // Fetch .torrent files ourselves: rqbit's URL API does not carry form fields.
+                let client = Client::builder()
+                    .redirect(reqwest::redirect::Policy::limited(5))
+                    .timeout(self.timeout.min(Duration::from_secs(30)))
+                    .build()
+                    .map_err(|e| TorrentFailure::new("torrent_service_failed", e.to_string()))?;
+                let request = match post_form {
+                    Some(form) => client.post(uri).form(form),
+                    None => client.get(uri),
+                };
+                let response = request.send().await.map_err(http_error)?;
+                Ok(Arc::new(
+                    Self::response_bytes(response, MAX_TORRENT_BYTES).await?,
+                ))
+            }
+        }
+    }
+
+    /// Bytes of a torrent whose metadata this session or an earlier one has read.
+    fn known_torrent(&self, torrent: &TorrentCatalog) -> Result<Arc<Vec<u8>>, TorrentFailure> {
+        self.cached_torrent(&torrent.info_hash_v1).ok_or_else(|| {
+            TorrentFailure::new(
+                "torrent_service_failed",
+                "Read metadata before opening a file",
+            )
+        })
+    }
+
+    fn torrent_directory(&self, hash: &str) -> PathBuf {
+        self.directory.join("torrents").join(hash)
+    }
+
     fn create_placeholders(&self, torrent: &TorrentCatalog) -> Result<PathBuf, TorrentFailure> {
-        let output = self.directory.join("files");
-        std::fs::create_dir(&output)?;
+        let output = self.torrent_directory(&torrent.info_hash_v1);
+        if output.exists() {
+            std::fs::remove_dir_all(&output)?;
+        }
+        std::fs::create_dir_all(&output)?;
+        // Sparse files: a read far into a large file must not make the
+        // filesystem zero-fill everything before it.
         for file in &torrent.files {
             let path = file
                 .path
@@ -274,90 +408,21 @@ impl RqbitService {
         }
         Ok(output)
     }
-}
 
-#[async_trait]
-impl TorrentService for RqbitService {
-    fn description(&self) -> TorrentServiceRun {
-        TorrentServiceRun {
-            backend: "rqbit".into(),
-            working_directory: self.directory.clone(),
-            started: true,
-            stopped: self.stopped,
-            shutdown_error: None,
-        }
-    }
-
-    async fn metadata(
-        &mut self,
-        reference: &TorrentReference,
-    ) -> Result<TorrentMetadata, TorrentFailure> {
-        validate_reference(reference)?;
-        let (is_url, body) = match reference {
-            TorrentReference::Magnet { uri, .. } => (true, uri.as_bytes().to_vec()),
-            TorrentReference::Http { uri, post_form, .. } => {
-                // Fetch POST references ourselves: rqbit's URL API does not carry form fields.
-                let client = Client::builder()
-                    .redirect(reqwest::redirect::Policy::limited(5))
-                    .timeout(Duration::from_secs(30))
-                    .build()
-                    .map_err(|e| TorrentFailure::new("torrent_service_failed", e.to_string()))?;
-                let request = match post_form {
-                    Some(form) => client.post(uri).form(form),
-                    None => client.get(uri),
-                };
-                let response = request.send().await.map_err(http_error)?;
-                (
-                    false,
-                    Self::response_bytes(response, 10 * 1024 * 1024).await?,
-                )
-            }
-        };
-        let added = self
-            .add(
-                &[
-                    ("list_only", "true".into()),
-                    ("timeout_ms", "120000".into()),
-                ],
-                is_url,
-                body.clone(),
-            )
-            .await?;
-        if added.id.is_some() {
-            return Err(TorrentFailure::new(
-                "torrent_service_failed",
-                "Metadata-only request unexpectedly created a download",
-            ));
-        }
-        let metadata = Self::metadata_from(added.details)?;
-        self.payload = Some((reference.clone(), is_url, body));
-        Ok(metadata)
-    }
-
-    async fn open_file(
-        &mut self,
+    /// Add the torrent with one selected file and wait until rqbit serves reads.
+    async fn manage(
+        &self,
         torrent: &TorrentCatalog,
         file: &TorrentFile,
-    ) -> Result<MediaInput, TorrentFailure> {
-        torrent.validate()?;
-        if torrent.selected_file(file.id)? != file {
-            return Err(TorrentFailure::new(
-                "torrent_catalog_changed",
-                "Selected file differs from catalog",
-            ));
-        }
-        let (reference, is_url, body) = self.payload.as_ref().ok_or_else(|| {
-            TorrentFailure::new(
-                "torrent_service_failed",
-                "Read metadata before opening a file",
+    ) -> Result<u64, TorrentFailure> {
+        let bytes = self.known_torrent(torrent)?;
+        // An add interrupted by a dropped caller may have left the torrent in rqbit.
+        let _ = self
+            .post_json(
+                &format!("/torrents/{}/delete", torrent.info_hash_v1),
+                String::new(),
             )
-        })?;
-        if reference != &torrent.resolved_reference {
-            return Err(TorrentFailure::new(
-                "torrent_identity_mismatch",
-                "Reference differs from inspected metadata",
-            ));
-        }
+            .await;
         let output = self.create_placeholders(torrent)?;
         let added = self
             .add(
@@ -365,10 +430,8 @@ impl TorrentService for RqbitService {
                     ("only_files", file.id.to_string()),
                     ("output_folder", output.to_string_lossy().into_owned()),
                     ("overwrite", "true".into()),
-                    ("timeout_ms", "120000".into()),
                 ],
-                *is_url,
-                body.clone(),
+                &bytes,
             )
             .await?;
         let id = added.id.ok_or_else(|| {
@@ -382,43 +445,265 @@ impl TorrentService for RqbitService {
             || actual.files != torrent.files
             || Path::new(&added.output_folder) != output
         {
+            let _ = self.forget(id, &torrent.info_hash_v1).await;
             return Err(TorrentFailure::new(
                 "torrent_catalog_changed",
                 "Torrent identity, files or output directory changed while opening the file",
             ));
         }
-        // Keep only range-driven reads after initialization; stop the ordinary file downloader.
         loop {
             let response = self
                 .client
-                .post(format!("{}/torrents/{id}/update_only_files", self.base))
-                .header("Content-Type", "application/json")
-                .body("{\"only_files\":[]}")
+                .get(format!("{}/torrents/{id}/stats/v1", self.base))
                 .send()
                 .await
                 .map_err(http_error)?;
-            if response.status().is_success() {
-                Self::response_bytes(response, 4096).await?;
-                break;
+            let stats: Stats = serde_json::from_slice(&Self::response_bytes(response, 1 << 20).await?)
+                .map_err(|e| TorrentFailure::new("torrent_service_failed", e.to_string()))?;
+            match stats.state.as_str() {
+                "live" => return Ok(id),
+                "error" => {
+                    let _ = self.forget(id, &torrent.info_hash_v1).await;
+                    return Err(TorrentFailure::new(
+                        "torrent_service_failed",
+                        stats.error.unwrap_or_else(|| "rqbit torrent error".into()),
+                    ));
+                }
+                _ => tokio::time::sleep(Duration::from_millis(100)).await,
             }
-            tokio::time::sleep(Duration::from_millis(100)).await;
         }
+    }
+
+    /// Delete the torrent from rqbit together with its partial data.
+    async fn forget(&self, id: u64, hash: &str) -> Result<(), TorrentFailure> {
+        let result = self
+            .post_json(&format!("/torrents/{id}/delete"), String::new())
+            .await;
+        let _ = std::fs::remove_dir_all(self.torrent_directory(hash));
+        result
+    }
+
+    async fn select(&self, id: u64, open: &HashMap<usize, usize>) -> Result<(), TorrentFailure> {
+        let files: BTreeSet<_> = open.keys().collect();
+        self.post_json(
+            &format!("/torrents/{id}/update_only_files"),
+            serde_json::json!({ "only_files": files }).to_string(),
+        )
+        .await
+    }
+}
+
+#[async_trait]
+impl TorrentService for RqbitService {
+    fn description(&self) -> TorrentServiceRun {
+        TorrentServiceRun {
+            backend: "rqbit".into(),
+            working_directory: self.directory.clone(),
+            started: true,
+            stopped: self.stopped.load(Ordering::SeqCst),
+            shutdown_error: None,
+        }
+    }
+
+    async fn metadata(&self, reference: &TorrentReference) -> Result<TorrentMetadata, TorrentFailure> {
+        validate_reference(reference)?;
+        let bytes = self.torrent_bytes(reference).await?;
+        let added = self.add(&[("list_only", "true".into())], &bytes).await?;
+        if added.id.is_some() {
+            return Err(TorrentFailure::new(
+                "torrent_service_failed",
+                "Metadata-only request unexpectedly created a download",
+            ));
+        }
+        let metadata = Self::metadata_from(added.details)?;
+        if let TorrentReference::Magnet {
+            info_hash_v1: Some(hash),
+            ..
+        } = reference
+            && hash != &metadata.info_hash_v1
+        {
+            return Err(TorrentFailure::new(
+                "torrent_identity_mismatch",
+                "Torrent service returned metadata for another infohash",
+            ));
+        }
+        self.remember_torrent(&metadata.info_hash_v1, bytes);
+        Ok(metadata)
+    }
+
+    async fn open_file(
+        &self,
+        torrent: &TorrentCatalog,
+        file: &TorrentFile,
+    ) -> Result<MediaInput, TorrentFailure> {
+        torrent.validate()?;
+        if torrent.selected_file(file.id)? != file {
+            return Err(TorrentFailure::new(
+                "torrent_catalog_changed",
+                "Selected file differs from catalog",
+            ));
+        }
+        // Keep the file selected while it is read: a torrent with nothing left
+        // to download marks every peer "not needed", and reads of pieces not
+        // yet on disk then wait forever.
+        let mut managed = self.managed.lock().await;
+        let id = match managed.get_mut(&torrent.info_hash_v1) {
+            Some(entry) => {
+                // Count the file only once rqbit accepted it, so an open
+                // dropped midway (timeout, cancellation) holds nothing.
+                let mut open = entry.open.clone();
+                *open.entry(file.id).or_default() += 1;
+                self.select(entry.id, &open).await?;
+                entry.open = open;
+                entry.id
+            }
+            None => {
+                let id = self.manage(torrent, file).await?;
+                managed.insert(
+                    torrent.info_hash_v1.clone(),
+                    Managed {
+                        id,
+                        open: HashMap::from([(file.id, 1)]),
+                    },
+                );
+                id
+            }
+        };
         Ok(MediaInput::DownloadService {
             url: format!("{}/torrents/{id}/stream/{}", self.base, file.id),
             size_bytes: file.size_bytes,
         })
     }
 
-    async fn shutdown(&mut self) -> Result<(), TorrentFailure> {
-        if !self.stopped {
-            if self.child.try_wait()?.is_none() {
-                self.child.kill().await?;
-            }
-            self.child.wait().await?;
-            self.stopped = true;
+    async fn close_file(
+        &self,
+        torrent: &TorrentCatalog,
+        file: &TorrentFile,
+    ) -> Result<(), TorrentFailure> {
+        let mut managed = self.managed.lock().await;
+        let Some(entry) = managed.get_mut(&torrent.info_hash_v1) else {
+            return Ok(());
+        };
+        Self::release(entry, file.id);
+        if entry.open.is_empty() {
+            let id = entry.id;
+            managed.remove(&torrent.info_hash_v1);
+            self.forget(id, &torrent.info_hash_v1).await
+        } else {
+            self.select(entry.id, &entry.open).await
         }
-        Ok(())
     }
+
+    async fn shutdown(&self) -> Result<(), TorrentFailure> {
+        if let Some(mut child) = self.child.lock().await.take() {
+            if child.try_wait()?.is_none() {
+                child.kill().await?;
+            }
+            child.wait().await?;
+            self.stopped.store(true, Ordering::SeqCst);
+        }
+        self.managed.lock().await.clear();
+        drop(self.lock.lock().unwrap().take());
+        // rqbit's file handles close with the process; Windows may release them a moment later.
+        let mut last = Ok(());
+        for _ in 0..20 {
+            last = match std::fs::remove_dir_all(&self.directory) {
+                Err(error) if error.kind() != std::io::ErrorKind::NotFound => Err(error),
+                _ => return Ok(()),
+            };
+            tokio::time::sleep(Duration::from_millis(100)).await;
+        }
+        last.map_err(|e| {
+            TorrentFailure::new(
+                "torrent_cleanup_failed",
+                format!("Cannot remove session directory: {e}"),
+            )
+        })
+    }
+}
+
+impl RqbitService {
+    fn release(entry: &mut Managed, file_id: usize) {
+        if let Some(count) = entry.open.get_mut(&file_id) {
+            *count -= 1;
+            if *count == 0 {
+                entry.open.remove(&file_id);
+            }
+        }
+    }
+}
+
+/// Remove what earlier sessions left behind and bound the metadata cache.
+fn sweep_cache(cache: &Path) {
+    // Directories of the previous layout, one per request, never removed.
+    if let Ok(entries) = std::fs::read_dir(cache) {
+        for entry in entries.flatten() {
+            if entry.file_name().to_string_lossy().starts_with("request-") {
+                let _ = std::fs::remove_dir_all(entry.path());
+            }
+        }
+    }
+    if let Ok(entries) = std::fs::read_dir(cache.join("sessions")) {
+        for entry in entries.flatten() {
+            let path = entry.path();
+            if !lock_is_held(&path.join("session.lock")) {
+                let _ = std::fs::remove_dir_all(&path);
+            }
+        }
+    }
+    if let Ok(entries) = std::fs::read_dir(cache.join("metadata")) {
+        let mut files: Vec<_> = entries
+            .flatten()
+            .filter_map(|entry| {
+                let modified = entry.metadata().ok()?.modified().ok()?;
+                Some((modified, entry.path()))
+            })
+            .collect();
+        for (_, path) in &files {
+            if path.extension().is_some_and(|e| e == "partial") {
+                let _ = std::fs::remove_file(path);
+            }
+        }
+        if files.len() > METADATA_CACHE_ENTRIES {
+            files.sort();
+            for (_, path) in &files[..files.len() - METADATA_CACHE_ENTRIES] {
+                let _ = std::fs::remove_file(path);
+            }
+        }
+    }
+}
+
+/// A live session holds its lock file open without delete sharing.
+#[cfg(windows)]
+fn hold_lock(path: &Path) -> Result<File, std::io::Error> {
+    use std::os::windows::fs::OpenOptionsExt;
+    OpenOptions::new()
+        .write(true)
+        .create(true)
+        .truncate(true)
+        .share_mode(0)
+        .open(path)
+}
+#[cfg(windows)]
+fn lock_is_held(path: &Path) -> bool {
+    match std::fs::remove_file(path) {
+        Ok(()) => false,
+        Err(error) => error.kind() != std::io::ErrorKind::NotFound,
+    }
+}
+#[cfg(not(windows))]
+fn hold_lock(path: &Path) -> Result<File, std::io::Error> {
+    let file = File::create(path)?;
+    std::fs::write(path, std::process::id().to_string())?;
+    Ok(file)
+}
+/// Without a portable advisory lock, treat a session as live while its process exists.
+#[cfg(not(windows))]
+fn lock_is_held(path: &Path) -> bool {
+    std::fs::read_to_string(path)
+        .ok()
+        .and_then(|pid| pid.trim().parse::<u32>().ok())
+        .is_some_and(|pid| Path::new(&format!("/proc/{pid}")).exists())
 }
 
 #[cfg(windows)]
@@ -459,4 +744,32 @@ fn set_sparse(file: &File) -> Result<(), std::io::Error> {
 #[cfg(not(windows))]
 fn set_sparse(_file: &File) -> Result<(), std::io::Error> {
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn sweep_removes_dead_sessions_and_old_layout_but_keeps_live_ones() {
+        let cache = tempfile::tempdir().unwrap();
+        let root = cache.path();
+        let legacy = root.join("request-1-2/files");
+        std::fs::create_dir_all(&legacy).unwrap();
+        std::fs::write(legacy.join("movie.mkv"), b"partial").unwrap();
+        let dead = root.join("sessions/1-1");
+        std::fs::create_dir_all(&dead).unwrap();
+        std::fs::write(dead.join("session.lock"), b"").unwrap();
+        let live = root.join("sessions/2-2");
+        std::fs::create_dir_all(&live).unwrap();
+        let _held = hold_lock(&live.join("session.lock")).unwrap();
+        std::fs::create_dir_all(root.join("metadata")).unwrap();
+        std::fs::write(root.join("metadata/abc.1.partial"), b"x").unwrap();
+        sweep_cache(root);
+        assert!(!root.join("request-1-2").exists());
+        assert!(!dead.exists());
+        #[cfg(windows)]
+        assert!(live.join("session.lock").exists());
+        assert!(!root.join("metadata/abc.1.partial").exists());
+    }
 }

@@ -78,9 +78,12 @@ fn probe() -> PathBuf {
 }
 
 struct Service {
-    stopped: bool,
+    stopped: AtomicBool,
     opened: Arc<AtomicUsize>,
-    metadata_calls: usize,
+    open_now: AtomicUsize,
+    peak_open: AtomicUsize,
+    closed: AtomicUsize,
+    metadata_calls: AtomicUsize,
     path: PathBuf,
     mode: &'static str,
     shutdown_flag: Arc<AtomicBool>,
@@ -88,9 +91,12 @@ struct Service {
 impl Service {
     fn new(path: PathBuf, mode: &'static str) -> Self {
         Self {
-            stopped: false,
+            stopped: AtomicBool::new(false),
             opened: Arc::new(AtomicUsize::new(usize::MAX)),
-            metadata_calls: 0,
+            open_now: AtomicUsize::new(0),
+            peak_open: AtomicUsize::new(0),
+            closed: AtomicUsize::new(0),
+            metadata_calls: AtomicUsize::new(0),
             path,
             mode,
             shutdown_flag: Arc::new(AtomicBool::new(false)),
@@ -104,12 +110,12 @@ impl TorrentService for Service {
             backend: "independent-test-service".into(),
             working_directory: PathBuf::new(),
             started: true,
-            stopped: self.stopped,
+            stopped: self.stopped.load(Ordering::SeqCst),
             shutdown_error: None,
         }
     }
-    async fn metadata(&mut self, _: &TorrentReference) -> Result<TorrentMetadata, TorrentFailure> {
-        self.metadata_calls += 1;
+    async fn metadata(&self, _: &TorrentReference) -> Result<TorrentMetadata, TorrentFailure> {
+        self.metadata_calls.fetch_add(1, Ordering::SeqCst);
         if self.mode == "stall" {
             std::future::pending::<()>().await;
         }
@@ -134,17 +140,26 @@ impl TorrentService for Service {
         })
     }
     async fn open_file(
-        &mut self,
+        &self,
         _: &TorrentCatalog,
         file: &TorrentFile,
     ) -> Result<MediaInput, TorrentFailure> {
         self.opened.store(file.id, Ordering::SeqCst);
+        let now = self.open_now.fetch_add(1, Ordering::SeqCst) + 1;
+        self.peak_open.fetch_max(now, Ordering::SeqCst);
+        // Hold the file long enough for concurrent opens to overlap.
+        tokio::time::sleep(std::time::Duration::from_millis(200)).await;
         Ok(MediaInput::LocalFile {
             path: self.path.clone(),
         })
     }
-    async fn shutdown(&mut self) -> Result<(), TorrentFailure> {
-        self.stopped = true;
+    async fn close_file(&self, _: &TorrentCatalog, _: &TorrentFile) -> Result<(), TorrentFailure> {
+        self.open_now.fetch_sub(1, Ordering::SeqCst);
+        self.closed.fetch_add(1, Ordering::SeqCst);
+        Ok(())
+    }
+    async fn shutdown(&self) -> Result<(), TorrentFailure> {
+        self.stopped.store(true, Ordering::SeqCst);
         self.shutdown_flag.store(true, Ordering::SeqCst);
         Ok(())
     }
@@ -155,7 +170,7 @@ async fn lists_then_inspects_explicit_file_and_keeps_identity_and_streams() {
     let dir = tempfile::tempdir().unwrap();
     let path = dir.path().join("episode.wav");
     std::fs::write(&path, wav()).unwrap();
-    let mut service = Service::new(path.clone(), "ok");
+    let service = Service::new(path.clone(), "ok");
     let (report, error) = run_with_service(
         TorrentOperation::Files {
             reference: reference(),
@@ -163,7 +178,7 @@ async fn lists_then_inspects_explicit_file_and_keeps_identity_and_streams() {
         },
         vec![],
         TorrentServiceLimits::default(),
-        &mut service,
+        &service,
         &probe(),
         CancellationToken::new(),
     )
@@ -178,7 +193,7 @@ async fn lists_then_inspects_explicit_file_and_keeps_identity_and_streams() {
     );
     let torrent = report.torrent.unwrap();
     assert_eq!(torrent.files.len(), 3);
-    let mut service = Service::new(path, "ok");
+    let service = Service::new(path, "ok");
     let (report, error) = run_with_service(
         TorrentOperation::Inspect {
             torrent,
@@ -188,7 +203,7 @@ async fn lists_then_inspects_explicit_file_and_keeps_identity_and_streams() {
         },
         vec![],
         TorrentServiceLimits::default(),
-        &mut service,
+        &service,
         &probe(),
         CancellationToken::new(),
     )
@@ -211,7 +226,7 @@ async fn lists_then_inspects_explicit_file_and_keeps_identity_and_streams() {
 #[tokio::test]
 async fn rejects_replaced_metadata_and_always_stops_before_returning() {
     for mode in ["wrong_hash", "changed", "malformed"] {
-        let mut service = Service::new("missing".into(), mode);
+        let service = Service::new("missing".into(), mode);
         let (report, error) = run_with_service(
             TorrentOperation::Inspect {
                 torrent: catalog(),
@@ -221,7 +236,7 @@ async fn rejects_replaced_metadata_and_always_stops_before_returning() {
             },
             vec![],
             TorrentServiceLimits::default(),
-            &mut service,
+            &service,
             &probe(),
             CancellationToken::new(),
         )
@@ -236,7 +251,7 @@ async fn rejects_replaced_metadata_and_always_stops_before_returning() {
 #[tokio::test]
 async fn timeout_cancellation_and_probe_failure_keep_cleanup_and_binding() {
     for cancel in [false, true] {
-        let mut service = Service::new("missing".into(), "stall");
+        let service = Service::new("missing".into(), "stall");
         let token = CancellationToken::new();
         if cancel {
             token.cancel();
@@ -248,7 +263,7 @@ async fn timeout_cancellation_and_probe_failure_keep_cleanup_and_binding() {
             },
             vec![],
             TorrentServiceLimits { timeout_seconds: 1 },
-            &mut service,
+            &service,
             &probe(),
             token,
         )
@@ -263,7 +278,7 @@ async fn timeout_cancellation_and_probe_failure_keep_cleanup_and_binding() {
         );
         assert!(report.unwrap().service.stopped);
     }
-    let mut service = Service::new("missing".into(), "ok");
+    let service = Service::new("missing".into(), "ok");
     let (report, error) = run_with_service(
         TorrentOperation::Inspect {
             torrent: catalog(),
@@ -273,7 +288,7 @@ async fn timeout_cancellation_and_probe_failure_keep_cleanup_and_binding() {
         },
         vec![],
         TorrentServiceLimits::default(),
-        &mut service,
+        &service,
         &probe(),
         CancellationToken::new(),
     )
@@ -358,7 +373,7 @@ async fn preserves_original_search_reference_when_resolving_details() {
         source_id: "fixture".into(),
         post_form: None,
     };
-    let mut service = Service::new("missing".into(), "ok");
+    let service = Service::new("missing".into(), "ok");
     let (report, error) = run_with_service(
         TorrentOperation::Files {
             reference: original.clone(),
@@ -366,7 +381,7 @@ async fn preserves_original_search_reference_when_resolving_details() {
         },
         vec![source],
         TorrentServiceLimits::default(),
-        &mut service,
+        &service,
         &probe(),
         CancellationToken::new(),
     )
@@ -375,4 +390,82 @@ async fn preserves_original_search_reference_when_resolving_details() {
     let c = report.unwrap().torrent.unwrap();
     assert_eq!(c.source_reference, original);
     assert_eq!(c.resolved_reference, reference());
+}
+
+#[tokio::test]
+async fn inspects_several_files_concurrently_in_order_and_releases_each() {
+    let dir = tempfile::tempdir().unwrap();
+    let path = dir.path().join("episode.wav");
+    std::fs::write(&path, wav()).unwrap();
+    let service = Service::new(path, "ok");
+    let (report, error) = run_with_service(
+        TorrentOperation::InspectFiles {
+            torrent: catalog(),
+            file_ids: vec![1, 0],
+            inspection_limits: MediaInspectionLimits::default(),
+            selection: StreamSelection::default(),
+            parallel: 4,
+        },
+        vec![],
+        TorrentServiceLimits::default(),
+        &service,
+        &probe(),
+        CancellationToken::new(),
+    )
+    .await;
+    assert!(error.is_none(), "{error:?}");
+    let report = report.unwrap();
+    assert!(report.service.stopped);
+    let ids: Vec<_> = report.inspections.iter().map(|i| i.file_id).collect();
+    assert_eq!(ids, [1, 0], "results keep the requested order");
+    assert!(report.inspections.iter().all(|i| i.media.is_some()));
+    assert_eq!(service.peak_open.load(Ordering::SeqCst), 2, "files open together");
+    assert_eq!(service.closed.load(Ordering::SeqCst), 2);
+    assert_eq!(service.open_now.load(Ordering::SeqCst), 0);
+    assert_eq!(service.metadata_calls.load(Ordering::SeqCst), 1);
+}
+
+#[tokio::test]
+async fn a_shared_service_survives_operations_and_releases_files_after_failures() {
+    let service = Service::new("missing".into(), "ok");
+    for _ in 0..2 {
+        let (report, error) = perform(
+            TorrentOperation::InspectFiles {
+                torrent: catalog(),
+                file_ids: vec![0, 1],
+                inspection_limits: MediaInspectionLimits::default(),
+                selection: StreamSelection::default(),
+                parallel: 1,
+            },
+            vec![],
+            TorrentServiceLimits::default(),
+            &service,
+            &probe(),
+            CancellationToken::new(),
+        )
+        .await;
+        assert_eq!(error.unwrap().code, "all_inspections_failed");
+        assert!(report.inspections.iter().all(|i| i.failure.is_some()));
+        assert!(!report.service.stopped, "perform leaves a shared service running");
+    }
+    assert_eq!(service.peak_open.load(Ordering::SeqCst), 1, "parallel 1 is sequential");
+    assert_eq!(service.closed.load(Ordering::SeqCst), 4);
+    assert_eq!(service.open_now.load(Ordering::SeqCst), 0);
+    let (_, error) = perform(
+        TorrentOperation::InspectFiles {
+            torrent: catalog(),
+            file_ids: vec![0, 2],
+            inspection_limits: MediaInspectionLimits::default(),
+            selection: StreamSelection::default(),
+            parallel: 2,
+        },
+        vec![],
+        TorrentServiceLimits::default(),
+        &service,
+        &probe(),
+        CancellationToken::new(),
+    )
+    .await;
+    assert!(error.is_some(), "a non-media file is rejected before any read");
+    assert_eq!(service.closed.load(Ordering::SeqCst), 4);
 }
