@@ -200,6 +200,18 @@ impl AgentRequest {
         )
     }
 
+    /// Fill what the request implies but omits, before it runs.
+    pub fn complete(&mut self) {
+        match self {
+            Self::TorrentFiles { reference, .. }
+            | Self::InspectTorrent {
+                reference: Some(reference),
+                ..
+            } => crate::torrent::complete_reference(reference),
+            _ => {}
+        }
+    }
+
     pub fn validate(&self) -> Result<(), SearchError> {
         let version = match self {
             Self::Search { schema_version, .. }
@@ -540,6 +552,8 @@ async fn execute_request(
     runtime: &TorrentRuntime,
     pool: Option<&TorrentPool>,
 ) -> AgentResponse {
+    let mut request = request;
+    request.complete();
     if let Err(error) = request.validate() {
         return AgentResponse::failure(error);
     }

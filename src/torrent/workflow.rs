@@ -54,9 +54,10 @@ impl TorrentOperation {
 
 /// Choose video files to inspect without the caller reading the catalog.
 ///
-/// One file: the largest video (or audio file when there is no video). Several: spread evenly over the main videos
-/// in path order (first, middle, last episode), skipping samples and extras
-/// under a fifth of the largest video's size.
+/// Main videos are those at least a fifth of the largest video's size, which
+/// skips samples and extras (audio files when there is no video). One file:
+/// the median-sized main video. Several: spread evenly over the main videos
+/// in path order (first, middle, last episode).
 pub fn sample_files(torrent: &TorrentCatalog, count: usize) -> Vec<usize> {
     let of_kind = |kind: &str| -> Vec<&TorrentFile> {
         torrent
@@ -73,14 +74,13 @@ pub fn sample_files(torrent: &TorrentCatalog, count: usize) -> Vec<usize> {
     let Some(largest) = videos.iter().map(|f| f.size_bytes).max() else {
         return vec![];
     };
-    if count <= 1 {
-        return videos
-            .iter()
-            .find(|f| f.size_bytes == largest)
-            .map(|f| vec![f.id])
-            .unwrap_or_default();
-    }
     videos.retain(|f| f.size_bytes >= largest / 5);
+    if count <= 1 {
+        // The median size is a typical episode, not a movie bundled with the
+        // series; with a lone main video it is that video.
+        videos.sort_by_key(|f| (f.size_bytes, f.id));
+        return vec![videos[(videos.len() - 1) / 2].id];
+    }
     videos.sort_by(|a, b| a.path.cmp(&b.path));
     let count = count.min(videos.len());
     let mut ids: Vec<_> = (0..count)
@@ -496,8 +496,21 @@ async fn inspect_target(
         Ok(outcome) => {
             inspection.media = outcome.report;
             if let Some(code) = outcome.failure_code {
+                let explained = (code == "probe_timeout").then(|| {
+                    format!(
+                        "ffprobe did not finish within inspection_limits.timeout_seconds ({} s): \
+                         peers delivered the file's header too slowly. The file was not \
+                         inspected, so nothing about its streams is known. Retry with a larger \
+                         timeout; with `torrentx serve` running, the partial download is kept \
+                         and a retry resumes it",
+                        inspection_limits.timeout_seconds
+                    )
+                });
                 inspection.failure = Some(InspectionFailure {
-                    message: outcome.diagnostic.unwrap_or_else(|| code.clone()),
+                    message: outcome
+                        .diagnostic
+                        .or(explained)
+                        .unwrap_or_else(|| code.clone()),
                     code: static_code(&code).into(),
                 });
             }
