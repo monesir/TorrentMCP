@@ -15,7 +15,7 @@ use std::path::PathBuf;
 use tokio_util::sync::CancellationToken;
 pub use workflow::{
     FileChoice, FileInspection, InspectionFailure, InspectionTarget, MAX_FILES_PER_REQUEST,
-    MAX_PARALLEL_INSPECTIONS, TorrentOperation, TorrentSource, inspect_files, perform, run,
+    MAX_PARALLEL_INSPECTIONS, TorrentOperation, TorrentSource, has_duplicates, inspect_files, perform, run,
     run_with_service, sample_files, verify_catalog,
 };
 

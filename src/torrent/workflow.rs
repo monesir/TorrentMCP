@@ -288,6 +288,12 @@ pub async fn perform(
                         "Select 1..32 nonempty video or audio files to inspect",
                     ));
                 }
+                if has_duplicates(&file_ids) {
+                    return Err(TorrentFailure::new(
+                        "invalid_request",
+                        "file_ids must not repeat a file",
+                    ));
+                }
                 for &id in &file_ids {
                     torrent.selected_file(id)?;
                 }
@@ -389,6 +395,11 @@ pub async fn inspect_files(
     inspections
 }
 
+pub fn has_duplicates(ids: &[usize]) -> bool {
+    let mut seen = std::collections::HashSet::new();
+    !ids.iter().all(|id| seen.insert(id))
+}
+
 /// Check a caller's catalog against the service's metadata for that infohash.
 pub async fn verify_catalog(
     service: &dyn TorrentService,
@@ -400,6 +411,12 @@ pub async fn verify_catalog(
         return Err(TorrentFailure::new(
             "invalid_request",
             "Select at most 32 files to inspect",
+        ));
+    }
+    if has_duplicates(file_ids) {
+        return Err(TorrentFailure::new(
+            "invalid_request",
+            "file_ids must not repeat a file",
         ));
     }
     for &id in file_ids {

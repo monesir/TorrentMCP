@@ -232,6 +232,9 @@ impl AgentRequest {
                 if !file_ids.is_empty() && sample_files.is_some() {
                     return invalid("Give file_ids or sample_files, not both");
                 }
+                if crate::torrent::has_duplicates(file_ids) {
+                    return invalid("file_ids must not repeat a file");
+                }
                 let max = crate::torrent::MAX_FILES_PER_REQUEST;
                 if file_ids.len() > max || sample_files.is_some_and(|n| !(1..=max).contains(&n)) {
                     return invalid("Inspect 1..32 files per request");

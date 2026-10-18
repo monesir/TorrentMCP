@@ -147,6 +147,7 @@ fn inspect_torrent_validates_its_choices_before_loading_runtimes() {
         json!({"reference": magnet, "sample_files": 0}),
         json!({"reference": magnet, "sample_files": 33}),
         json!({"reference": magnet, "parallel": 9}),
+        json!({"reference": magnet, "file_ids": [0, 0]}),
     ] {
         let mut request = json!({"schema_version":1,"operation":"inspect_torrent"});
         for (key, value) in extra.as_object().unwrap() {

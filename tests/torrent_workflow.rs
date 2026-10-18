@@ -41,6 +41,12 @@ fn files() -> Vec<TorrentFile> {
             size_bytes: 10,
             media_kind: "other".into(),
         },
+        TorrentFile {
+            id: 3,
+            path: "Season/E03.wav".into(),
+            size_bytes: 44 + 3 * 1024 * 1024,
+            media_kind: "audio".into(),
+        },
     ]
 }
 fn catalog() -> TorrentCatalog {
@@ -192,7 +198,7 @@ async fn lists_then_inspects_explicit_file_and_keeps_identity_and_streams() {
         "Listing must not start a file download"
     );
     let torrent = report.torrent.unwrap();
-    assert_eq!(torrent.files.len(), 3);
+    assert_eq!(torrent.files.len(), 4);
     let service = Service::new(path, "ok");
     let (report, error) = run_with_service(
         TorrentOperation::Inspect {
@@ -401,7 +407,7 @@ async fn inspects_several_files_concurrently_in_order_and_releases_each() {
     let (report, error) = run_with_service(
         TorrentOperation::InspectFiles {
             source: TorrentSource::Catalog(catalog()),
-            files: FileChoice::Ids(vec![1, 0, 1]),
+            files: FileChoice::Ids(vec![1, 0, 3]),
             inspection_limits: MediaInspectionLimits::default(),
             selection: StreamSelection::default(),
             parallel: 4,
@@ -417,7 +423,7 @@ async fn inspects_several_files_concurrently_in_order_and_releases_each() {
     let report = report.unwrap();
     assert!(report.service.stopped);
     let ids: Vec<_> = report.inspections.iter().map(|i| i.file_id).collect();
-    assert_eq!(ids, [1, 0, 1], "results keep the requested order");
+    assert_eq!(ids, [1, 0, 3], "results keep the requested order");
     assert!(report.inspections.iter().all(|i| i.media.is_some()));
     assert_eq!(
         service.peak_open.load(Ordering::SeqCst),
@@ -475,7 +481,7 @@ async fn a_shared_service_survives_operations_and_releases_files_after_failures(
     let (report, _) = perform(
         TorrentOperation::InspectFiles {
             source: TorrentSource::Catalog(catalog()),
-            files: FileChoice::Ids(vec![0, 1, 0]),
+            files: FileChoice::Ids(vec![0, 1, 3]),
             inspection_limits: MediaInspectionLimits::default(),
             selection: StreamSelection::default(),
             parallel: 4,
@@ -488,6 +494,22 @@ async fn a_shared_service_survives_operations_and_releases_files_after_failures(
     )
     .await;
     assert_eq!(report.inspections.len(), 3);
+    let (_, error) = perform(
+        TorrentOperation::InspectFiles {
+            source: TorrentSource::Catalog(catalog()),
+            files: FileChoice::Ids(vec![0, 0]),
+            inspection_limits: MediaInspectionLimits::default(),
+            selection: StreamSelection::default(),
+            parallel: 2,
+        },
+        vec![],
+        TorrentServiceLimits::default(),
+        &slow,
+        &probe(),
+        CancellationToken::new(),
+    )
+    .await;
+    assert_eq!(error.unwrap().code, "invalid_request", "a repeated file id");
     assert_eq!(
         slow.peak_open.load(Ordering::SeqCst),
         1,
