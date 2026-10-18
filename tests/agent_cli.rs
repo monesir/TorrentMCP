@@ -133,3 +133,27 @@ fn failed_source_report_keeps_results_and_returns_nonzero() {
     assert_eq!(response["status"], "partial");
     assert_eq!(response["result"]["summary"]["total"], 1);
 }
+
+#[test]
+fn inspect_torrent_validates_its_choices_before_loading_runtimes() {
+    let magnet = json!({"kind":"magnet","uri":"magnet:?xt=urn:btih:1111111111111111111111111111111111111111","info_hash_v1":"1111111111111111111111111111111111111111"});
+    for extra in [
+        json!({}),
+        json!({"reference": magnet, "file_ids": [0], "sample_files": 2}),
+        json!({"reference": magnet, "sample_files": 0}),
+        json!({"reference": magnet, "sample_files": 33}),
+        json!({"reference": magnet, "parallel": 9}),
+    ] {
+        let mut request = json!({"schema_version":1,"operation":"inspect_torrent"});
+        for (key, value) in extra.as_object().unwrap() {
+            request[key] = value.clone();
+        }
+        let (code, response) = run(&serde_json::to_vec(&request).unwrap(), false);
+        assert_eq!(code, 1, "{request}");
+        assert_eq!(response["error"]["code"], "invalid_request", "{request}");
+    }
+    let request = json!({"schema_version":1,"operation":"inspect_torrent","reference":magnet,"sample_files":3});
+    let (code, response) = run(&serde_json::to_vec(&request).unwrap(), false);
+    assert_eq!(code, 1);
+    assert_eq!(response["error"]["code"], "torrent_service_unavailable");
+}

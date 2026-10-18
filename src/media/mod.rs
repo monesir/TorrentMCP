@@ -42,7 +42,7 @@ pub struct MediaInspectionLimits {
 impl Default for MediaInspectionLimits {
     fn default() -> Self {
         Self {
-            timeout_seconds: 30,
+            timeout_seconds: 60,
             max_read_bytes: 16 * 1024 * 1024,
         }
     }

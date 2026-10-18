@@ -189,7 +189,11 @@ async fn serve(
     state.requests.fetch_add(1, Ordering::Relaxed);
     // Reserve the full range before I/O: even a failed read consumes budget.
     state.bytes_read.fetch_add(count, Ordering::Relaxed);
+    let begun = std::time::Instant::now();
     let read = read_range(source, start, end, size).await;
+    if std::env::var_os("TORRENT_SEARCH_TRACE_READS").is_some() {
+        eprintln!("read {start} +{count} {} ms", begun.elapsed().as_millis());
+    }
     let data = match read {
         Ok(data) => data,
         Err(error) => {

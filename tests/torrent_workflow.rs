@@ -400,8 +400,8 @@ async fn inspects_several_files_concurrently_in_order_and_releases_each() {
     let service = Service::new(path, "ok");
     let (report, error) = run_with_service(
         TorrentOperation::InspectFiles {
-            torrent: catalog(),
-            file_ids: vec![1, 0],
+            source: TorrentSource::Catalog(catalog()),
+            files: FileChoice::Ids(vec![1, 0]),
             inspection_limits: MediaInspectionLimits::default(),
             selection: StreamSelection::default(),
             parallel: 4,
@@ -431,8 +431,8 @@ async fn a_shared_service_survives_operations_and_releases_files_after_failures(
     for _ in 0..2 {
         let (report, error) = perform(
             TorrentOperation::InspectFiles {
-                torrent: catalog(),
-                file_ids: vec![0, 1],
+                source: TorrentSource::Catalog(catalog()),
+                files: FileChoice::Ids(vec![0, 1]),
                 inspection_limits: MediaInspectionLimits::default(),
                 selection: StreamSelection::default(),
                 parallel: 1,
@@ -453,8 +453,8 @@ async fn a_shared_service_survives_operations_and_releases_files_after_failures(
     assert_eq!(service.open_now.load(Ordering::SeqCst), 0);
     let (_, error) = perform(
         TorrentOperation::InspectFiles {
-            torrent: catalog(),
-            file_ids: vec![0, 2],
+            source: TorrentSource::Catalog(catalog()),
+            files: FileChoice::Ids(vec![0, 2]),
             inspection_limits: MediaInspectionLimits::default(),
             selection: StreamSelection::default(),
             parallel: 2,
@@ -468,4 +468,65 @@ async fn a_shared_service_survives_operations_and_releases_files_after_failures(
     .await;
     assert!(error.is_some(), "a non-media file is rejected before any read");
     assert_eq!(service.closed.load(Ordering::SeqCst), 4);
+}
+
+#[test]
+fn sampling_picks_the_largest_video_or_spreads_over_episodes_skipping_extras() {
+    let file = |id: usize, path: &str, size: u64| TorrentFile {
+        id,
+        path: path.into(),
+        size_bytes: size,
+        media_kind: media_kind(path).into(),
+    };
+    let mut c = catalog();
+    c.files = vec![
+        file(0, "Show/S01E03.mkv", 900),
+        file(1, "Show/S01E01.mkv", 1000),
+        file(2, "Show/Sample/sample.mkv", 50),
+        file(3, "Show/S01E02.mkv", 950),
+        file(4, "Show/S01E04.mkv", 980),
+        file(5, "Show/notes.nfo", 10),
+        file(6, "Show/Extras/featurette.mkv", 100),
+        file(7, "Show/S01E05.mkv", 990),
+    ];
+    assert_eq!(sample_files(&c, 1), [1], "largest video");
+    assert_eq!(sample_files(&c, 3), [1, 0, 7], "first, middle, last episode");
+    assert_eq!(sample_files(&c, 20).len(), 5, "never more than the main videos");
+    c.files = vec![file(0, "readme.txt", 10)];
+    assert!(sample_files(&c, 3).is_empty());
+}
+
+#[tokio::test]
+async fn inspect_torrent_reads_a_reference_and_samples_files_in_one_session() {
+    let dir = tempfile::tempdir().unwrap();
+    let path = dir.path().join("episode.wav");
+    std::fs::write(&path, wav()).unwrap();
+    let service = Service::new(path, "ok");
+    let (report, error) = run_with_service(
+        TorrentOperation::InspectFiles {
+            source: TorrentSource::Reference {
+                reference: reference(),
+                resolve_http: true,
+            },
+            files: FileChoice::Sample(1),
+            inspection_limits: MediaInspectionLimits::default(),
+            selection: StreamSelection::default(),
+            parallel: 2,
+        },
+        vec![],
+        TorrentServiceLimits::default(),
+        &service,
+        &probe(),
+        CancellationToken::new(),
+    )
+    .await;
+    assert!(error.is_none(), "{error:?}");
+    let report = report.unwrap();
+    assert_eq!(report.operation, "inspect_torrent");
+    assert!(report.torrent.is_some());
+    assert_eq!(service.metadata_calls.load(Ordering::SeqCst), 1);
+    // An audio-only torrent samples its largest audio file.
+    assert_eq!(report.inspections.len(), 1);
+    assert_eq!(report.inspections[0].file_id, 1);
+    assert!(report.inspections[0].media.is_some());
 }

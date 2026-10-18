@@ -5,8 +5,8 @@ use crate::{
     comparison::{InspectedMediaCandidate, MediaAnalysisRequest, MediaComparisonReport},
     media::{MediaInspectionReport, MediaInspectionRequest, inspect_media},
     torrent::{
-        TorrentCatalog, TorrentOperation, TorrentOperationReport, TorrentRuntime,
-        TorrentServiceLimits,
+        FileChoice, TorrentCatalog, TorrentOperation, TorrentOperationReport, TorrentRuntime,
+        TorrentServiceLimits, TorrentSource,
     },
 };
 use serde::{Deserialize, Serialize};
@@ -60,6 +60,38 @@ pub enum AgentRequest {
         analysis: MediaAnalysisRequest,
         candidates: Vec<InspectedMediaCandidate>,
     },
+    /// Read a torrent and inspect several of its files in one call and one session.
+    InspectTorrent {
+        schema_version: u32,
+        /// A search result reference, read now. Exclusive with `torrent`.
+        #[serde(default)]
+        reference: Option<TorrentReference>,
+        /// A catalog from an earlier torrent_files call. Exclusive with `reference`.
+        #[serde(default)]
+        torrent: Option<TorrentCatalog>,
+        #[serde(default = "default_resolve_http")]
+        resolve_http: bool,
+        /// Files to inspect; when empty, `sample_files` videos are chosen.
+        #[serde(default)]
+        file_ids: Vec<usize>,
+        /// 1 picks the largest video; more spread over the episodes (default 1).
+        #[serde(default)]
+        sample_files: Option<usize>,
+        #[serde(default = "default_parallel")]
+        parallel: usize,
+        #[serde(default)]
+        limits: TorrentServiceLimits,
+        #[serde(default)]
+        inspection_limits: crate::media::MediaInspectionLimits,
+        #[serde(default)]
+        selection: crate::media::StreamSelection,
+        #[serde(default)]
+        analysis: Option<MediaAnalysisRequest>,
+    },
+}
+
+fn default_parallel() -> usize {
+    3
 }
 
 fn default_resolve_http() -> bool {
@@ -108,6 +140,14 @@ impl AgentRequest {
                     },
                     ..
                 }
+                | Self::InspectTorrent {
+                    resolve_http: true,
+                    reference: Some(TorrentReference::Http {
+                        post_form: None,
+                        ..
+                    }),
+                    ..
+                }
         )
     }
 
@@ -118,6 +158,7 @@ impl AgentRequest {
             | Self::InspectMedia { schema_version, .. }
             | Self::TorrentFiles { schema_version, .. }
             | Self::InspectTorrentFile { schema_version, .. }
+            | Self::InspectTorrent { schema_version, .. }
             | Self::CompareMedia { schema_version, .. } => *schema_version,
         };
         if version != 1 {
@@ -156,6 +197,52 @@ impl AgentRequest {
                 limits.validate()?;
                 torrent.validate()?;
                 torrent.selected_file(*file_id)?;
+                MediaInspectionRequest {
+                    input: crate::media::MediaInput::LocalFile {
+                        path: "validation".into(),
+                    },
+                    limits: inspection_limits.clone(),
+                    selection: selection.clone(),
+                }
+                .validate()
+            }
+            Self::InspectTorrent {
+                reference,
+                torrent,
+                file_ids,
+                sample_files,
+                parallel,
+                limits,
+                inspection_limits,
+                selection,
+                analysis,
+                ..
+            } => {
+                let invalid = |text: &str| Err(SearchError::InvalidRequest(text.into()));
+                match (reference, torrent) {
+                    (Some(reference), None) => crate::torrent::validate_reference(reference)?,
+                    (None, Some(torrent)) => {
+                        torrent.validate()?;
+                        for id in file_ids {
+                            torrent.selected_file(*id)?;
+                        }
+                    }
+                    _ => return invalid("Give exactly one of reference or torrent"),
+                }
+                if !file_ids.is_empty() && sample_files.is_some() {
+                    return invalid("Give file_ids or sample_files, not both");
+                }
+                let max = crate::torrent::MAX_FILES_PER_REQUEST;
+                if file_ids.len() > max || sample_files.is_some_and(|n| !(1..=max).contains(&n)) {
+                    return invalid("Inspect 1..32 files per request");
+                }
+                if !(1..=crate::torrent::MAX_PARALLEL_INSPECTIONS).contains(parallel) {
+                    return invalid("parallel must be within 1..8");
+                }
+                if let Some(analysis) = analysis {
+                    analysis.validate()?;
+                }
+                limits.validate()?;
                 MediaInspectionRequest {
                     input: crate::media::MediaInput::LocalFile {
                         path: "validation".into(),
@@ -391,6 +478,49 @@ async fn execute_request(
             )
             .await;
         }
+        AgentRequest::InspectTorrent {
+            reference,
+            torrent,
+            resolve_http,
+            file_ids,
+            sample_files,
+            parallel,
+            limits,
+            inspection_limits,
+            selection,
+            analysis,
+            ..
+        } => {
+            let source = match (reference, torrent) {
+                (Some(reference), _) => TorrentSource::Reference {
+                    reference,
+                    resolve_http,
+                },
+                (None, Some(torrent)) => TorrentSource::Catalog(torrent),
+                (None, None) => unreachable!("validated"),
+            };
+            let files = if file_ids.is_empty() {
+                FileChoice::Sample(sample_files.unwrap_or(1))
+            } else {
+                FileChoice::Ids(file_ids)
+            };
+            return execute_inspect_torrent(
+                TorrentOperation::InspectFiles {
+                    source,
+                    files,
+                    inspection_limits,
+                    selection,
+                    parallel,
+                },
+                sources,
+                limits,
+                runtime,
+                ffprobe,
+                cancellation,
+                analysis,
+            )
+            .await;
+        }
         other => other,
     };
     if let AgentRequest::InspectMedia { media, .. } = request {
@@ -422,6 +552,7 @@ async fn execute_request(
     let operation = async {
         match request {
             AgentRequest::InspectMedia { .. }
+            | AgentRequest::InspectTorrent { .. }
             | AgentRequest::TorrentFiles { .. }
             | AgentRequest::InspectTorrentFile { .. }
             | AgentRequest::CompareMedia { .. } => {
@@ -515,5 +646,73 @@ async fn execute_torrent(
         status,
         result: report.map(AgentResult::Torrent),
         error,
+    }
+}
+
+/// Each inspected file is assessed as if it were its own single-file inspection,
+/// so compare_media and assess_inspection keep one meaning of "complete".
+async fn execute_inspect_torrent(
+    operation: TorrentOperation,
+    sources: Vec<Arc<dyn SearchSource>>,
+    limits: TorrentServiceLimits,
+    runtime: &TorrentRuntime,
+    ffprobe: &Path,
+    cancellation: CancellationToken,
+    analysis: Option<MediaAnalysisRequest>,
+) -> AgentResponse {
+    let (mut report, error) =
+        crate::torrent::run(operation, sources, limits, runtime, ffprobe, cancellation).await;
+    let inspections = report.as_ref().map_or(&[][..], |r| &r.inspections[..]);
+    let inspected = inspections.iter().filter(|i| i.media.is_some()).count();
+    let status = match &error {
+        Some(e) if e.code == "cancelled" => AgentStatus::Cancelled,
+        Some(_) if inspected > 0 => AgentStatus::Partial,
+        Some(_) => AgentStatus::Failed,
+        None if inspections.iter().any(|i| i.failure.is_some()) => AgentStatus::Partial,
+        None => AgentStatus::Completed,
+    };
+    if let (Some(report), Some(analysis)) = (report.as_mut(), analysis.as_ref()) {
+        let service = report.service.clone();
+        let torrent = report.torrent.clone();
+        for inspection in &mut report.inspections {
+            let single = TorrentOperationReport {
+                schema_version: 1,
+                operation: "inspect_torrent_file".into(),
+                torrent: torrent.clone(),
+                file: inspection.file.clone(),
+                media: inspection.media.clone(),
+                inspections: vec![],
+                service: service.clone(),
+                assessment: None,
+            };
+            let failure = inspection.failure.as_ref().map(|f| AgentFailure {
+                code: f.code.clone(),
+                message: f.message.clone(),
+            });
+            let file_status = if failure.is_none() && error.is_none() {
+                AgentStatus::Completed
+            } else if inspection.media.is_some() {
+                AgentStatus::Partial
+            } else {
+                AgentStatus::Failed
+            };
+            inspection.assessment = Some(crate::comparison::assess_inspection(
+                Some(&single),
+                file_status,
+                failure.as_ref(),
+                analysis,
+                None,
+            ));
+        }
+    }
+    AgentResponse {
+        schema_version: 1,
+        elapsed_ms: 0,
+        status,
+        result: report.map(AgentResult::Torrent),
+        error: error.map(|e| AgentFailure {
+            code: e.code.into(),
+            message: e.message,
+        }),
     }
 }

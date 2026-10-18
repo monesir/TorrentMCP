@@ -48,7 +48,34 @@ pub struct RqbitService {
 struct Managed {
     id: u64,
     open: HashMap<usize, usize>,
+    /// Background reads that fetch a file's head and tail while it is open.
+    warmers: HashMap<usize, Vec<tokio::task::AbortHandle>>,
 }
+
+/// Trackers given to every torrent in addition to its own. A torrent resolved
+/// from a magnet carries only that magnet's trackers, often one or two.
+const SESSION_TRACKERS: &[&str] = &[
+    "udp://tracker.opentrackr.org:1337/announce",
+    "udp://open.stealth.si:80/announce",
+    "udp://tracker.torrent.eu.org:451/announce",
+    "udp://exodus.desync.com:6969/announce",
+    "udp://open.demonii.com:1337/announce",
+    "udp://explodie.org:6969/announce",
+    "udp://tracker.dler.org:6969/announce",
+    "udp://tracker.qu.ax:6969/announce",
+    "udp://tracker.theoks.net:6969/announce",
+    "udp://opentracker.io:6969/announce",
+    "udp://tracker.tiny-vps.com:6969/announce",
+    "udp://retracker.lanta-net.ru:2710/announce",
+    "http://tracker.opentrackr.org:1337/announce",
+];
+
+/// Bytes read ahead from each end of an opened file. Containers keep their
+/// headers at the start and often their index at the end (MP4 moov, Matroska
+/// cues and statistics tags); fetching both at once spares ffprobe one
+/// sequential wait for a cold piece per seek.
+const WARM_HEAD_BYTES: u64 = 1024 * 1024;
+const WARM_TAIL_BYTES: u64 = 2 * 1024 * 1024;
 
 #[derive(Deserialize)]
 struct AddResponse {
@@ -143,8 +170,12 @@ impl RqbitService {
             "--ratelimit-upload",
             "1024",
             "--peer-limit",
-            "30",
+            "60",
+            "--trackers-filename",
         ]);
+        let trackers = directory.join("trackers.txt");
+        std::fs::write(&trackers, SESSION_TRACKERS.join("\n"))?;
+        command.arg(&trackers);
         if let Some(limit) = runtime.download_limit_bytes_per_second {
             command.args(["--ratelimit-download", &limit.to_string()]);
         }
@@ -564,13 +595,21 @@ impl TorrentService for RqbitService {
                     Managed {
                         id,
                         open: HashMap::from([(file.id, 1)]),
+                        warmers: HashMap::new(),
                     },
                 );
                 id
             }
         };
+        let url = format!("{}/torrents/{id}/stream/{}", self.base, file.id);
+        let entry = managed.get_mut(&torrent.info_hash_v1).expect("just inserted");
+        if !entry.warmers.contains_key(&file.id) {
+            entry
+                .warmers
+                .insert(file.id, self.warm(&url, file.size_bytes));
+        }
         Ok(MediaInput::DownloadService {
-            url: format!("{}/torrents/{id}/stream/{}", self.base, file.id),
+            url,
             size_bytes: file.size_bytes,
         })
     }
@@ -628,8 +667,35 @@ impl RqbitService {
             *count -= 1;
             if *count == 0 {
                 entry.open.remove(&file_id);
+                for warmer in entry.warmers.remove(&file_id).unwrap_or_default() {
+                    warmer.abort();
+                }
             }
         }
+    }
+
+    /// Start reading both ends of a file in the background; the bytes are
+    /// dropped, only the pieces rqbit verifies on the way matter.
+    fn warm(&self, url: &str, size: u64) -> Vec<tokio::task::AbortHandle> {
+        let mut ranges = vec![(0, WARM_HEAD_BYTES.min(size) - 1)];
+        if size > WARM_HEAD_BYTES {
+            ranges.push((size.saturating_sub(WARM_TAIL_BYTES).max(WARM_HEAD_BYTES), size - 1));
+        }
+        ranges
+            .into_iter()
+            .map(|(start, end)| {
+                let request = self
+                    .client
+                    .get(url)
+                    .header("Range", format!("bytes={start}-{end}"));
+                tokio::spawn(async move {
+                    if let Ok(mut response) = request.send().await {
+                        while let Ok(Some(_)) = response.chunk().await {}
+                    }
+                })
+                .abort_handle()
+            })
+            .collect()
     }
 }
 

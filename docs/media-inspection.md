@@ -14,7 +14,7 @@
 
 - `input: {kind: local_file, path}`: ملف عادي غير فارغ. تمر القراءة عبر بوابة HTTP مؤقتة على 127.0.0.1 ومنفذ عشوائي وتغلق عند النهاية أو الإلغاء.
 - `input: {kind: download_service, url, size_bytes}`: رابط HTTP لملف واحد معلوم الحجم على IP loopback مثل 127.0.0.1 أو [::1]. لا تقبل أسماء DNS أو redirects أو بيانات دخول في authority. يسمح برمز وصول في query؛ لا يعاد الرابط في التقرير.
-- `limits: {timeout_seconds: 30, max_read_bytes: 16777216}` افتراضيا. الحدود 1..120 ثانية و64 KiB..128 MiB.
+- `limits: {timeout_seconds: 60, max_read_bytes: 16777216}` افتراضيا. الحدود 1..120 ثانية و64 KiB..128 MiB.
 - `selection: {audio_languages: [zh], subtitle_languages: [ar, en], video_stream_index?: 0}`: لغات بحروف صغيرة بطول 2 أو 3. تطبع الرموز المعروفة مثل eng/en وchi/zho/zh وara/ar. und/mul/zxx لا تصلح طلب لغة.
 
 عنوان `examples/inspect-download-service.json` توضيحي يحتاج endpoint فعليا. عملية inspect_media نفسها مستهلك نطاقات البايتات؛ لا تحول magnet إلى endpoint تلقائيا. أضيفت عمليتا torrent_files وinspect_torrent_file لتوفير هذا الربط عبر عملية rqbit مستقلة؛ راجع [مسار التورنت](torrent-workflow.md). تتولى خدمة التنزيل تحويل النطاق إلى قطع التورنت والتحقق منها ثم إرجاع البايتات. يمكن استخدام أي خدمة ملفات محلية تطبق العقد دون qBittorrent.

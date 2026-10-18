@@ -19,12 +19,27 @@ pub enum TorrentOperation {
     },
     /// Several files of one torrent, read concurrently through one service.
     InspectFiles {
-        torrent: TorrentCatalog,
-        file_ids: Vec<usize>,
+        source: TorrentSource,
+        files: FileChoice,
         inspection_limits: MediaInspectionLimits,
         selection: StreamSelection,
         parallel: usize,
     },
+}
+
+/// Where the torrent comes from: a search reference read now, or a catalog read earlier.
+pub enum TorrentSource {
+    Reference {
+        reference: TorrentReference,
+        resolve_http: bool,
+    },
+    Catalog(TorrentCatalog),
+}
+
+pub enum FileChoice {
+    Ids(Vec<usize>),
+    /// Up to this many video files chosen by `sample_files`.
+    Sample(usize),
 }
 
 impl TorrentOperation {
@@ -32,13 +47,52 @@ impl TorrentOperation {
         match self {
             Self::Files { .. } => "torrent_files",
             Self::Inspect { .. } => "inspect_torrent_file",
-            Self::InspectFiles { .. } => "inspect_torrent_files",
+            Self::InspectFiles { .. } => "inspect_torrent",
         }
     }
 }
 
+/// Choose video files to inspect without the caller reading the catalog.
+///
+/// One file: the largest video (or audio file when there is no video). Several: spread evenly over the main videos
+/// in path order (first, middle, last episode), skipping samples and extras
+/// under a fifth of the largest video's size.
+pub fn sample_files(torrent: &TorrentCatalog, count: usize) -> Vec<usize> {
+    let of_kind = |kind: &str| -> Vec<&TorrentFile> {
+        torrent
+            .files
+            .iter()
+            .filter(|f| f.media_kind == kind && f.size_bytes > 0)
+            .collect()
+    };
+    // Audio-only torrents (music, audiobooks) sample their audio files.
+    let mut videos = of_kind("video");
+    if videos.is_empty() {
+        videos = of_kind("audio");
+    }
+    let Some(largest) = videos.iter().map(|f| f.size_bytes).max() else {
+        return vec![];
+    };
+    if count <= 1 {
+        return videos
+            .iter()
+            .find(|f| f.size_bytes == largest)
+            .map(|f| vec![f.id])
+            .unwrap_or_default();
+    }
+    videos.retain(|f| f.size_bytes >= largest / 5);
+    videos.sort_by(|a, b| a.path.cmp(&b.path));
+    let count = count.min(videos.len());
+    let mut ids: Vec<_> = (0..count)
+        .map(|i| videos[i * (videos.len() - 1) / (count - 1).max(1)].id)
+        .collect();
+    ids.dedup();
+    ids
+}
+
 /// The most files read at once; each holds an ffprobe process and peer bandwidth.
 pub const MAX_PARALLEL_INSPECTIONS: usize = 8;
+pub const MAX_FILES_PER_REQUEST: usize = 32;
 
 /// One file to inspect: a catalog the caller obtained earlier and a file in it.
 #[derive(Debug, Clone)]
@@ -73,6 +127,9 @@ pub struct FileInspection {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub failure: Option<InspectionFailure>,
     pub elapsed_ms: u64,
+    /// Set by the agent when the request carries a media analysis.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub assessment: Option<crate::comparison::MediaAssessment>,
 }
 
 pub async fn run(
@@ -195,22 +252,51 @@ pub async fn perform(
             }
         }
         TorrentOperation::InspectFiles {
-            torrent,
-            file_ids,
+            source,
+            files,
             inspection_limits,
             selection,
             parallel,
         } => {
-            let torrent = Arc::new(torrent);
-            match bounded(
-                limits.timeout_seconds,
-                &cancellation,
-                verify_catalog(service, &torrent, &file_ids),
-            )
-            .await
-            {
+            let ready = bounded(limits.timeout_seconds, &cancellation, async {
+                let torrent = match source {
+                    TorrentSource::Reference {
+                        reference,
+                        resolve_http,
+                    } => {
+                        let resolved = if resolve_http {
+                            resolve_reference(&reference, sources, &limits, cancellation.clone())
+                                .await?
+                        } else {
+                            reference.clone()
+                        };
+                        let metadata = service.metadata(&resolved).await?;
+                        catalog(reference, resolved, metadata)?
+                    }
+                    TorrentSource::Catalog(torrent) => {
+                        verify_catalog(service, &torrent, &[]).await?;
+                        torrent
+                    }
+                };
+                let file_ids = match files {
+                    FileChoice::Ids(ids) => ids,
+                    FileChoice::Sample(count) => sample_files(&torrent, count),
+                };
+                if file_ids.is_empty() || file_ids.len() > MAX_FILES_PER_REQUEST {
+                    return Err(TorrentFailure::new(
+                        "no_media_files",
+                        "Select 1..32 nonempty video or audio files to inspect",
+                    ));
+                }
+                for &id in &file_ids {
+                    torrent.selected_file(id)?;
+                }
+                Ok((Arc::new(torrent), file_ids))
+            })
+            .await;
+            match ready {
                 Err(error) => Some(error),
-                Ok(()) => {
+                Ok((torrent, file_ids)) => {
                     report.torrent = Some((*torrent).clone());
                     let targets = file_ids
                         .iter()
@@ -285,10 +371,10 @@ pub async fn verify_catalog(
     file_ids: &[usize],
 ) -> Result<(), TorrentFailure> {
     torrent.validate()?;
-    if file_ids.is_empty() || file_ids.len() > 1000 {
+    if file_ids.len() > MAX_FILES_PER_REQUEST {
         return Err(TorrentFailure::new(
             "invalid_request",
-            "Select 1..1000 files to inspect",
+            "Select at most 32 files to inspect",
         ));
     }
     for &id in file_ids {
@@ -327,6 +413,7 @@ async fn inspect_target(
         media: None,
         failure: None,
         elapsed_ms: 0,
+        assessment: None,
     };
     let file = match torrent.selected_file(target.file_id) {
         Ok(file) => file.clone(),

@@ -12,8 +12,8 @@ use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 use tokio_util::sync::CancellationToken;
 pub use workflow::{
-    FileInspection, InspectionFailure, InspectionTarget, MAX_PARALLEL_INSPECTIONS, TorrentOperation,
-    inspect_files, perform, run, run_with_service, verify_catalog,
+    FileChoice, FileInspection, InspectionFailure, InspectionTarget, MAX_FILES_PER_REQUEST,
+    MAX_PARALLEL_INSPECTIONS, TorrentOperation, TorrentSource, inspect_files, sample_files, perform, run, run_with_service, verify_catalog,
 };
 
 #[derive(Debug, Clone)]
@@ -54,7 +54,7 @@ pub struct TorrentServiceLimits {
 impl Default for TorrentServiceLimits {
     fn default() -> Self {
         Self {
-            timeout_seconds: 60,
+            timeout_seconds: 90,
         }
     }
 }
