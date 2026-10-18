@@ -530,7 +530,7 @@ async fn a_shared_service_survives_operations_and_releases_files_after_failures(
 }
 
 #[test]
-fn sampling_picks_the_largest_video_or_spreads_over_episodes_skipping_extras() {
+fn sampling_picks_a_typical_video_or_spreads_over_episodes_skipping_extras() {
     let file = |id: usize, path: &str, size: u64| TorrentFile {
         id,
         path: path.into(),
@@ -548,7 +548,15 @@ fn sampling_picks_the_largest_video_or_spreads_over_episodes_skipping_extras() {
         file(6, "Show/Extras/featurette.mkv", 100),
         file(7, "Show/S01E05.mkv", 990),
     ];
-    assert_eq!(sample_files(&c, 1), [1], "largest video");
+    assert_eq!(sample_files(&c, 1), [4], "median-sized episode");
+    let mut with_movies = c.clone();
+    with_movies.files.push(file(8, "Show/Movie 1.mkv", 4000));
+    with_movies.files.push(file(9, "Show/Movie 2.mkv", 4100));
+    assert_eq!(
+        sample_files(&with_movies, 1),
+        [7],
+        "an episode, not a bundled movie"
+    );
     assert_eq!(
         sample_files(&c, 3),
         [1, 0, 7],
@@ -592,8 +600,30 @@ async fn inspect_torrent_reads_a_reference_and_samples_files_in_one_session() {
     assert_eq!(report.operation, "inspect_torrent");
     assert!(report.torrent.is_some());
     assert_eq!(service.metadata_calls.load(Ordering::SeqCst), 1);
-    // An audio-only torrent samples its largest audio file.
+    // An audio-only torrent samples its median-sized audio file.
     assert_eq!(report.inspections.len(), 1);
-    assert_eq!(report.inspections[0].file_id, 1);
+    assert_eq!(report.inspections[0].file_id, 3);
     assert!(report.inspections[0].media.is_some());
+}
+
+#[test]
+fn a_pasted_magnet_needs_no_separate_info_hash() {
+    let hash = "a".repeat(40);
+    let mut pasted = TorrentReference::Magnet {
+        uri: format!("magnet:?xt=urn:btih:{}&dn=Show", hash.to_uppercase()),
+        info_hash_v1: None,
+    };
+    assert!(validate_reference(&pasted).is_ok());
+    complete_reference(&mut pasted);
+    assert!(
+        matches!(&pasted, TorrentReference::Magnet { info_hash_v1: Some(h), .. } if *h == hash)
+    );
+    let wrong = TorrentReference::Magnet {
+        uri: format!("magnet:?xt=urn:btih:{hash}"),
+        info_hash_v1: Some("b".repeat(40)),
+    };
+    assert!(
+        validate_reference(&wrong).is_err(),
+        "a supplied hash must match"
+    );
 }

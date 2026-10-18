@@ -182,6 +182,20 @@ impl TorrentCatalog {
     }
 }
 
+/// Fill a magnet's omitted `info_hash_v1` from its `btih`, so a pasted magnet
+/// works as is. A supplied hash is left for `validate_reference` to check.
+pub fn complete_reference(reference: &mut TorrentReference) {
+    if let TorrentReference::Magnet { uri, info_hash_v1 } = reference
+        && info_hash_v1.is_none()
+        && let Ok(TorrentReference::Magnet {
+            info_hash_v1: parsed,
+            ..
+        }) = crate::reference::parse_reference(uri, "torrent")
+    {
+        *info_hash_v1 = parsed;
+    }
+}
+
 pub fn validate_reference(reference: &TorrentReference) -> Result<(), SearchError> {
     let parsed = crate::reference::parse_reference(reference.uri(), "torrent")
         .map_err(|e| SearchError::InvalidRequest(e.to_string()))?;
@@ -200,7 +214,10 @@ pub fn validate_reference(reference: &TorrentReference) -> Result<(), SearchErro
             ..
         },
     ) = (reference, parsed)
-        && (supplied != &actual || actual.is_none())
+        && (actual.is_none()
+            || supplied
+                .as_ref()
+                .is_some_and(|s| Some(s) != actual.as_ref()))
     {
         return Err(SearchError::InvalidRequest(
             "rqbit requires a consistent v1 magnet identity".into(),
