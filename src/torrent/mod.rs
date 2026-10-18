@@ -9,7 +9,7 @@ use crate::{
 };
 use async_trait::async_trait;
 pub use pool::TorrentPool;
-pub use rqbit::RqbitService;
+pub use rqbit::{ParkingLimits, RqbitService};
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 use tokio_util::sync::CancellationToken;

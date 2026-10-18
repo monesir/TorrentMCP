@@ -270,6 +270,7 @@ async fn handle(mut stream: TcpStream, shared: &Shared) {
                 "active_requests": shared.active.load(Ordering::Relaxed),
                 "sources": shared.sources.len(),
                 "torrent_session": shared.pool.running().await,
+                "parked_torrents": shared.pool.parked().await,
             });
             respond(
                 &mut stream,

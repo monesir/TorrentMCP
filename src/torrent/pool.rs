@@ -24,6 +24,14 @@ const SHARED_LIMITS: TorrentServiceLimits = TorrentServiceLimits {
     timeout_seconds: 120,
 };
 
+/// Closed torrents stay paused this long, so a repeat inspection reads the
+/// pieces already on disk instead of fetching them again.
+pub const PARKING: ParkingLimits = ParkingLimits {
+    max_torrents: 8,
+    max_bytes: 2 * 1024 * 1024 * 1024,
+    ttl: Duration::from_secs(10 * 60),
+};
+
 impl TorrentPool {
     pub fn new(runtime: TorrentRuntime, idle: Duration) -> Self {
         Self {
@@ -52,7 +60,15 @@ impl TorrentPool {
             let _ = service.shutdown().await;
             state.service = None;
         }
-        let service = Arc::new(RqbitService::start(&self.runtime, &SHARED_LIMITS, cancel).await?);
+        let service = Arc::new(
+            RqbitService::start(&self.runtime, &SHARED_LIMITS, cancel)
+                .await?
+                .with_parking(ParkingLimits {
+                    // Parked data goes when rqbit stops for being idle anyway.
+                    ttl: PARKING.ttl.min(self.idle),
+                    ..PARKING
+                }),
+        );
         state.service = Some(service.clone());
         Ok(service)
     }
@@ -62,8 +78,22 @@ impl TorrentPool {
         self.state.lock().await.service.is_some()
     }
 
-    /// Stop the session when nothing holds it and it has been idle long enough.
+    /// Torrents paused in the running session.
+    pub async fn parked(&self) -> usize {
+        let service = self.state.lock().await.service.clone();
+        match service {
+            Some(service) => service.parked().await,
+            None => 0,
+        }
+    }
+
+    /// Expire parked torrents, then stop the session when nothing holds it
+    /// and it has been idle long enough.
     pub async fn reap_idle(&self) {
+        let service = self.state.lock().await.service.clone();
+        if let Some(service) = service {
+            service.expire_parked().await;
+        }
         let mut state = self.state.lock().await;
         let idle = state.last_used.elapsed() >= self.idle;
         let unused = state

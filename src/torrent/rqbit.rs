@@ -11,7 +11,7 @@ use std::{
         Arc, Mutex,
         atomic::{AtomicBool, Ordering},
     },
-    time::{Duration, SystemTime, UNIX_EPOCH},
+    time::{Duration, Instant, SystemTime, UNIX_EPOCH},
 };
 use tokio::process::{Child, Command};
 
@@ -27,8 +27,10 @@ fn http_error(error: reqwest::Error) -> TorrentFailure {
 ///
 /// - Metadata is resolved once per infohash and kept as .torrent bytes on disk,
 ///   so later sessions add the torrent instantly instead of asking the swarm again.
-/// - A torrent is added once and stays managed while any of its files is open;
-///   the last close deletes it and its partial data.
+/// - A torrent is added once and stays managed while any of its files is open.
+///   The last close deletes it and its partial data, unless parking is enabled
+///   (`with_parking`): then it is paused with its pieces and resumed by the next
+///   open, until a cap or the parking time evicts it.
 /// - The session directory is removed on shutdown; a crashed session's directory
 ///   is swept by the next one (its lock file is no longer held).
 pub struct RqbitService {
@@ -42,6 +44,16 @@ pub struct RqbitService {
     known: Mutex<HashMap<String, Arc<Vec<u8>>>>,
     managed: tokio::sync::Mutex<HashMap<String, Managed>>,
     timeout: Duration,
+    parking: Option<ParkingLimits>,
+}
+
+/// How many closed torrents a long-lived session keeps paused, and for how long.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ParkingLimits {
+    pub max_torrents: usize,
+    /// Bytes rqbit reports as downloaded, summed over parked torrents.
+    pub max_bytes: u64,
+    pub ttl: Duration,
 }
 
 /// A torrent added to rqbit, with the files currently being read.
@@ -50,6 +62,33 @@ struct Managed {
     open: HashMap<usize, usize>,
     /// Background reads that fetch a file's head and tail while it is open.
     warmers: HashMap<usize, Vec<tokio::task::AbortHandle>>,
+    /// Set while paused with no open file.
+    parked: Option<Parked>,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+struct Parked {
+    since: Instant,
+    bytes: u64,
+}
+
+/// Parked torrents to delete, oldest first: those past `ttl`, then the oldest
+/// until both caps hold.
+fn evictions(parked: &[(String, Parked)], limits: &ParkingLimits, now: Instant) -> Vec<String> {
+    let mut ordered: Vec<_> = parked.iter().collect();
+    ordered.sort_by_key(|(_, entry)| entry.since);
+    let mut count = ordered.len();
+    let mut bytes: u64 = ordered.iter().map(|(_, entry)| entry.bytes).sum();
+    let mut evicted = Vec::new();
+    for (hash, entry) in ordered {
+        let expired = now.saturating_duration_since(entry.since) >= limits.ttl;
+        if expired || count > limits.max_torrents || bytes > limits.max_bytes {
+            evicted.push(hash.clone());
+            count -= 1;
+            bytes -= entry.bytes;
+        }
+    }
+    evicted
 }
 
 /// Trackers given to every torrent in addition to its own. A torrent resolved
@@ -100,6 +139,8 @@ struct ServiceFile {
 struct Stats {
     state: String,
     error: Option<String>,
+    #[serde(default)]
+    progress_bytes: u64,
 }
 
 const METADATA_CACHE_ENTRIES: usize = 2000;
@@ -198,6 +239,7 @@ impl RqbitService {
             known: Mutex::new(HashMap::new()),
             managed: tokio::sync::Mutex::new(HashMap::new()),
             timeout,
+            parking: None,
         };
         let ready = bounded(limits.timeout_seconds.min(10), cancel, async {
             loop {
@@ -482,20 +524,30 @@ impl RqbitService {
                 "Torrent identity, files or output directory changed while opening the file",
             ));
         }
+        if let Err(error) = self.wait_live(id).await {
+            let _ = self.forget(id, &torrent.info_hash_v1).await;
+            return Err(error);
+        }
+        Ok(id)
+    }
+
+    async fn stats(&self, id: u64) -> Result<Stats, TorrentFailure> {
+        let response = self
+            .client
+            .get(format!("{}/torrents/{id}/stats/v1", self.base))
+            .send()
+            .await
+            .map_err(http_error)?;
+        serde_json::from_slice(&Self::response_bytes(response, 1 << 20).await?)
+            .map_err(|e| TorrentFailure::new("torrent_service_failed", e.to_string()))
+    }
+
+    async fn wait_live(&self, id: u64) -> Result<(), TorrentFailure> {
         loop {
-            let response = self
-                .client
-                .get(format!("{}/torrents/{id}/stats/v1", self.base))
-                .send()
-                .await
-                .map_err(http_error)?;
-            let stats: Stats =
-                serde_json::from_slice(&Self::response_bytes(response, 1 << 20).await?)
-                    .map_err(|e| TorrentFailure::new("torrent_service_failed", e.to_string()))?;
+            let stats = self.stats(id).await?;
             match stats.state.as_str() {
-                "live" => return Ok(id),
+                "live" => return Ok(()),
                 "error" => {
-                    let _ = self.forget(id, &torrent.info_hash_v1).await;
                     return Err(TorrentFailure::new(
                         "torrent_service_failed",
                         stats.error.unwrap_or_else(|| "rqbit torrent error".into()),
@@ -504,6 +556,63 @@ impl RqbitService {
                 _ => tokio::time::sleep(Duration::from_millis(100)).await,
             }
         }
+    }
+
+    /// Keep closed torrents paused, with their pieces, for repeat reads.
+    /// Meant for a session that outlives requests; a per-request session
+    /// deletes everything at shutdown anyway.
+    pub fn with_parking(mut self, limits: ParkingLimits) -> Self {
+        self.parking = Some(limits);
+        self
+    }
+
+    /// Pause a torrent with no open file; None if rqbit refused, and the
+    /// caller then deletes it.
+    async fn park(&self, id: u64) -> Option<Parked> {
+        self.post_json(&format!("/torrents/{id}/pause"), String::new())
+            .await
+            .ok()?;
+        let bytes = self.stats(id).await.map_or(0, |stats| stats.progress_bytes);
+        Some(Parked {
+            since: Instant::now(),
+            bytes,
+        })
+    }
+
+    /// Select `open` on a parked torrent and start it again.
+    async fn resume(&self, id: u64, open: &HashMap<usize, usize>) -> Result<(), TorrentFailure> {
+        self.select(id, open).await?;
+        self.post_json(&format!("/torrents/{id}/start"), String::new())
+            .await?;
+        self.wait_live(id).await
+    }
+
+    /// Delete parked torrents beyond the caps or the parking time.
+    async fn evict(&self, managed: &mut HashMap<String, Managed>) {
+        let Some(limits) = &self.parking else {
+            return;
+        };
+        let parked: Vec<_> = managed
+            .iter()
+            .filter_map(|(hash, entry)| entry.parked.map(|parked| (hash.clone(), parked)))
+            .collect();
+        for hash in evictions(&parked, limits, Instant::now()) {
+            if let Some(entry) = managed.remove(&hash) {
+                let _ = self.forget(entry.id, &hash).await;
+            }
+        }
+    }
+
+    /// Delete parked torrents whose parking time is over.
+    pub async fn expire_parked(&self) {
+        let mut managed = self.managed.lock().await;
+        self.evict(&mut managed).await;
+    }
+
+    /// How many torrents are parked now.
+    pub async fn parked(&self) -> usize {
+        let managed = self.managed.lock().await;
+        managed.values().filter(|entry| entry.parked.is_some()).count()
     }
 
     /// Delete the torrent from rqbit together with its partial data.
@@ -582,6 +691,25 @@ impl TorrentService for RqbitService {
         // to download marks every peer "not needed", and reads of pieces not
         // yet on disk then wait forever.
         let mut managed = self.managed.lock().await;
+        if let Some(entry) = managed.get_mut(&torrent.info_hash_v1)
+            && entry.parked.is_some()
+        {
+            let open = HashMap::from([(file.id, 1)]);
+            match self.resume(entry.id, &open).await {
+                Ok(()) => {
+                    entry.parked = None;
+                    entry.open = open;
+                    let id = entry.id;
+                    return Ok(self.reader(&mut managed, torrent, file, id));
+                }
+                // Start over with a fresh add.
+                Err(_) => {
+                    let id = entry.id;
+                    managed.remove(&torrent.info_hash_v1);
+                    let _ = self.forget(id, &torrent.info_hash_v1).await;
+                }
+            }
+        }
         let id = match managed.get_mut(&torrent.info_hash_v1) {
             Some(entry) => {
                 // Count the file only once rqbit accepted it, so an open
@@ -600,23 +728,13 @@ impl TorrentService for RqbitService {
                         id,
                         open: HashMap::from([(file.id, 1)]),
                         warmers: HashMap::new(),
+                        parked: None,
                     },
                 );
                 id
             }
         };
-        let url = format!("{}/torrents/{id}/stream/{}", self.base, file.id);
-        let entry = managed
-            .get_mut(&torrent.info_hash_v1)
-            .expect("just inserted");
-        entry
-            .warmers
-            .entry(file.id)
-            .or_insert_with(|| self.warm(&url, file.size_bytes));
-        Ok(MediaInput::DownloadService {
-            url,
-            size_bytes: file.size_bytes,
-        })
+        Ok(self.reader(&mut managed, torrent, file, id))
     }
 
     async fn close_file(
@@ -631,6 +749,13 @@ impl TorrentService for RqbitService {
         Self::release(entry, file.id);
         if entry.open.is_empty() {
             let id = entry.id;
+            if self.parking.is_some()
+                && let Some(parked) = self.park(id).await
+            {
+                entry.parked = Some(parked);
+                self.evict(&mut managed).await;
+                return Ok(());
+            }
             managed.remove(&torrent.info_hash_v1);
             self.forget(id, &torrent.info_hash_v1).await
         } else {
@@ -672,6 +797,28 @@ impl RqbitService {
         match self.child.lock().await.as_mut() {
             Some(child) => matches!(child.try_wait(), Ok(None)),
             None => false,
+        }
+    }
+
+    /// The stream URL of an opened file, with its background warm-up started.
+    fn reader(
+        &self,
+        managed: &mut HashMap<String, Managed>,
+        torrent: &TorrentCatalog,
+        file: &TorrentFile,
+        id: u64,
+    ) -> MediaInput {
+        let url = format!("{}/torrents/{id}/stream/{}", self.base, file.id);
+        let entry = managed
+            .get_mut(&torrent.info_hash_v1)
+            .expect("managed while open");
+        entry
+            .warmers
+            .entry(file.id)
+            .or_insert_with(|| self.warm(&url, file.size_bytes));
+        MediaInput::DownloadService {
+            url,
+            size_bytes: file.size_bytes,
         }
     }
 
@@ -831,6 +978,49 @@ fn set_sparse(_file: &File) -> Result<(), std::io::Error> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn parked_torrents_are_evicted_oldest_first_by_age_count_and_bytes() {
+        let now = Instant::now();
+        let limits = ParkingLimits {
+            max_torrents: 2,
+            max_bytes: 100,
+            ttl: Duration::from_secs(60),
+        };
+        let parked = |name: &str, age: u64, bytes: u64| {
+            (
+                name.to_owned(),
+                Parked {
+                    since: now - Duration::from_secs(age),
+                    bytes,
+                },
+            )
+        };
+        assert!(evictions(&[parked("a", 5, 10), parked("b", 1, 10)], &limits, now).is_empty());
+        assert_eq!(
+            evictions(&[parked("young", 1, 10), parked("old", 61, 10)], &limits, now),
+            ["old"]
+        );
+        assert_eq!(
+            evictions(
+                &[parked("c", 1, 1), parked("a", 3, 1), parked("b", 2, 1)],
+                &limits,
+                now
+            ),
+            ["a"],
+            "count cap removes the oldest"
+        );
+        assert_eq!(
+            evictions(&[parked("new", 1, 60), parked("old", 2, 60)], &limits, now),
+            ["old"],
+            "byte cap removes the oldest until the rest fit"
+        );
+        assert_eq!(
+            evictions(&[parked("huge", 1, 500)], &limits, now),
+            ["huge"],
+            "one torrent over the byte cap is not kept"
+        );
+    }
 
     #[test]
     fn sweep_removes_dead_sessions_and_old_layout_but_keeps_live_ones() {
