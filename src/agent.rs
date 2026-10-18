@@ -1021,15 +1021,19 @@ async fn run_torrent(
         Ok(service) => service,
         Err(error) => return (None, Some(error)),
     };
-    let (report, failure) = crate::torrent::perform(
-        operation,
-        sources,
-        limits,
-        service.as_ref(),
-        ffprobe,
-        cancellation,
-    )
-    .await;
+    let torbox = crate::torrent::torbox_first(runtime, service.as_ref());
+    let session: &dyn crate::torrent::TorrentService = match &torbox {
+        Some(torbox) => torbox,
+        None => service.as_ref(),
+    };
+    let (report, failure) =
+        crate::torrent::perform(operation, sources, limits, session, ffprobe, cancellation).await;
+    // TorBox torrents added for this operation are removed now; the shared
+    // rqbit session stays up.
+    if let Some(torbox) = &torbox {
+        torbox.release_added().await;
+    }
+    drop(torbox);
     drop(service);
     pool.touch().await;
     (Some(report), failure)

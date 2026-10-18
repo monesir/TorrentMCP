@@ -129,6 +129,7 @@ pub async fn inspect_media(
     let kind = match request.input {
         MediaInput::LocalFile { .. } => "local_file",
         MediaInput::DownloadService { .. } => "download_service",
+        MediaInput::RemoteFile { .. } => "remote_file",
     };
     let mut report = build_report(raw, &request.selection, size, kind);
     let failure_code = read_failure

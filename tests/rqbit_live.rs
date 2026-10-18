@@ -19,6 +19,7 @@ async fn one_session_lists_once_and_inspects_several_files_in_parallel() {
         rqbit: runtime_dir.join("torrent/rqbit.exe"),
         cache_directory: cache.path().into(),
         download_limit_bytes_per_second: None,
+        torbox: None,
     };
     let ffprobe = runtime_dir.join("media/ffprobe.exe");
     let reference = torrent_search::reference::parse_reference(&magnet, "live").unwrap();

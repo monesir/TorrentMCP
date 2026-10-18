@@ -1,6 +1,7 @@
 //! Torrent metadata and file inspection, independent of search adapters and the P2P implementation.
 mod pool;
 mod rqbit;
+mod torbox;
 mod workflow;
 
 use crate::{
@@ -13,6 +14,7 @@ pub use rqbit::{ParkingLimits, RqbitService};
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 use tokio_util::sync::CancellationToken;
+pub use torbox::{RemoteFile, TorboxClient, TorboxFirst, TorboxKey, match_file, torbox_first};
 pub use workflow::{
     FileChoice, FileInspection, InspectionFailure, InspectionTarget, MAX_FILES_PER_REQUEST,
     MAX_PARALLEL_INSPECTIONS, TorrentOperation, TorrentSource, has_duplicates, inspect_files,
@@ -25,6 +27,8 @@ pub struct TorrentRuntime {
     pub cache_directory: PathBuf,
     /// None leaves downloads unthrottled: inspection reads only what ffprobe asks for.
     pub download_limit_bytes_per_second: Option<u64>,
+    /// With a key, files of torrents TorBox has cached are read from TorBox.
+    pub torbox: Option<TorboxKey>,
 }
 
 impl TorrentRuntime {
@@ -45,6 +49,7 @@ impl TorrentRuntime {
             }),
             cache_directory: cache.join("torrent-search/inspections"),
             download_limit_bytes_per_second: None,
+            torbox: None,
         }
     }
 }
@@ -230,6 +235,9 @@ pub struct TorrentServiceRun {
     pub started: bool,
     pub stopped: bool,
     pub shutdown_error: Option<String>,
+    /// Why a file was not read the fastest way, e.g. not cached on TorBox.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub notes: Vec<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

@@ -20,6 +20,14 @@ pub enum MediaInput {
         url: String,
         size_bytes: u64,
     },
+    /// An HTTPS file on a remote download service (TorBox). Created only by
+    /// the torrent backends; a request cannot name one, so an agent cannot
+    /// point the reader at arbitrary hosts.
+    #[serde(skip_deserializing)]
+    RemoteFile {
+        url: String,
+        size_bytes: u64,
+    },
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -106,6 +114,16 @@ impl MediaInspectionRequest {
                 {
                     Err(invalid(
                         "Download service requires an HTTP loopback IP URL and a known nonzero size (<=16 TiB)",
+                    ))
+                } else {
+                    Ok(())
+                }
+            }
+            MediaInput::RemoteFile { url, size_bytes } => {
+                let https = url::Url::parse(url).is_ok_and(|parsed| parsed.scheme() == "https");
+                if !https || *size_bytes == 0 || *size_bytes > 16 * 1024u64.pow(4) {
+                    Err(invalid(
+                        "Remote file requires an HTTPS URL and a known nonzero size (<=16 TiB)",
                     ))
                 } else {
                     Ok(())

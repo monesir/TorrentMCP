@@ -27,6 +27,7 @@ fn config(directory: &Path) -> DaemonConfig {
             rqbit: "missing-rqbit".into(),
             cache_directory: directory.join("cache"),
             download_limit_bytes_per_second: None,
+            torbox: None,
         },
         idle: Duration::from_secs(60),
         configuration: json!({"test": true}),

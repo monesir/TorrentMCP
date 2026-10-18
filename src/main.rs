@@ -54,6 +54,12 @@ struct Cli {
         help = "Directory for owned torrent inspection sessions; partial files are preserved"
     )]
     torrent_cache: Option<PathBuf>,
+    #[arg(
+        long,
+        global = true,
+        help = "Ignore TORBOX_API_KEY and read every torrent from peers"
+    )]
+    no_torbox: bool,
     #[arg(long, global = true, help = "Print a versioned JSON result")]
     json: bool,
     #[command(subcommand)]
@@ -207,6 +213,11 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
     }
     if let Some(path) = cli.torrent_cache {
         torrent_runtime.cache_directory = path;
+    }
+    if !cli.no_torbox {
+        torrent_runtime.torbox = std::env::var("TORBOX_API_KEY")
+            .ok()
+            .and_then(torrent_search::torrent::TorboxKey::new);
     }
     let configuration = daemon_configuration(
         &assets,
@@ -417,6 +428,8 @@ fn daemon_configuration(
         "rqbit": runtime.rqbit,
         "torrent_cache": runtime.cache_directory,
         "download_limit_bytes_per_second": runtime.download_limit_bytes_per_second,
+        // Whether a key is set, never the key itself.
+        "torbox": runtime.torbox.is_some(),
         "source_backend": format!("{backend:?}"),
         "limetorrents_backend": lime_override.map(|value| match value {
             LimeTorrentsBackend::Python => "python",

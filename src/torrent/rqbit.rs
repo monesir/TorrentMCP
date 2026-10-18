@@ -646,6 +646,7 @@ impl TorrentService for RqbitService {
             started: true,
             stopped: self.stopped.load(Ordering::SeqCst),
             shutdown_error: None,
+            notes: vec![],
         }
     }
 

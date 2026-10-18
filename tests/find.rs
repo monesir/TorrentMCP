@@ -108,6 +108,7 @@ async fn run(request: AgentRequest) -> Value {
         rqbit: "missing-rqbit".into(),
         cache_directory: cache.path().into(),
         download_limit_bytes_per_second: None,
+        torbox: None,
     };
     request.validate().unwrap();
     let response = execute_with_runtime(

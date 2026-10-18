@@ -118,6 +118,7 @@ impl TorrentService for Service {
             started: true,
             stopped: self.stopped.load(Ordering::SeqCst),
             shutdown_error: None,
+            notes: vec![],
         }
     }
     async fn metadata(&self, _: &TorrentReference) -> Result<TorrentMetadata, TorrentFailure> {

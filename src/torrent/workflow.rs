@@ -144,7 +144,12 @@ pub async fn run(
         Ok(service) => service,
         Err(error) => return (None, Some(error)),
     };
-    run_with_service(operation, sources, limits, &service, ffprobe, cancellation).await
+    match super::torbox_first(runtime, &service) {
+        Some(torbox) => {
+            run_with_service(operation, sources, limits, &torbox, ffprobe, cancellation).await
+        }
+        None => run_with_service(operation, sources, limits, &service, ffprobe, cancellation).await,
+    }
 }
 
 /// Run one operation, then shut the service down. Also used by other

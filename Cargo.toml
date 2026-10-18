@@ -19,7 +19,7 @@ regex = "1"
 percent-encoding = "2"
 encoding_rs = "0.8"
 futures-util = "0.3"
-reqwest = { version = "0.12", default-features = false, features = ["native-tls", "gzip", "charset", "cookies", "socks"] }
+reqwest = { version = "0.12", default-features = false, features = ["native-tls", "gzip", "charset", "cookies", "socks", "json", "multipart"] }
 scraper = "0.24"
 roxmltree = "0.21"
 serde = { version = "1", features = ["derive"] }

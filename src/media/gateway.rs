@@ -67,6 +67,20 @@ impl ReadGateway {
                     *size_bytes,
                 )
             }
+            MediaInput::RemoteFile { url, size_bytes } => {
+                let client = reqwest::Client::builder()
+                    .https_only(true)
+                    .redirect(reqwest::redirect::Policy::limited(5))
+                    .build()
+                    .map_err(|error| SearchError::Runtime(error.to_string()))?;
+                (
+                    ByteSource::Http {
+                        client,
+                        url: url.clone(),
+                    },
+                    *size_bytes,
+                )
+            }
         };
         let listener = TcpListener::bind("127.0.0.1:0").await?;
         let url = format!("http://{}/media", listener.local_addr()?);
