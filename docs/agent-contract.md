@@ -44,7 +44,7 @@
 
 `inspect_media`: الحقول المطلوبة `schema_version: 1`, `operation: "inspect_media"`, `media`. يفحص ملفا محليا أو نطاقات من خدمة تنزيل محلية؛ يحمل `result` تقرير وسائط بدل تقرير البحث. التفاصيل في [فحص الوسائط](media-inspection.md).
 
-`search`: الحقول المطلوبة `schema_version: 1`, `operation: "search"`, `search`, `analysis`. يحتوي `search` على `query` و`category` و`sources`. `category` افتراضيا `all`، و`sources` إذا حذفت أو كانت فارغة تختار المصادر المسجلة كلها. التصنيفات: all, anime, books, games, movies, music, pictures, software, tv. `torrentx sources` يعرض المعرفات المتاحة. المعرف المجهول خطأ، ولا يجري تجاهله.
+`search`: الحقول المطلوبة `schema_version: 1`, `operation: "search"`, `search`, `analysis`. يحتوي `search` على `query` و`category` و`sources`. `category` افتراضيا `all`، و`sources` إذا حذفت أو كانت فارغة تختار المصادر المناسبة للتصنيف، ما عدا مصادر البالغين، ومصادر اللغة الواحدة، والنسخ البديلة لموقع له مصدر آخر، والمصادر المتقاعدة (`retired`: موقع اختفى أو صودر أو تعطل بحثه، والسبب في الحقل نفسه). هذه كلها تعمل فقط إذا سميت صراحة. التصنيفات: all, anime, books, games, movies, music, pictures, software, tv. `torrentx sources` يعرض المعرفات المتاحة. المعرف المجهول خطأ، ولا يجري تجاهله.
 
 كل مصدر فاشل في `sources` يحمل `failure_kind`: `dns_failed` (لم يُحل الاسم لا بـDNS النظام ولا بـDNS المشفر، فالنطاق زال غالبا)، `connection_reset` و`network_unreachable` (الشبكة تحجب الموقع)، `refused` (‏HTTP 401/403، حماية من الروبوتات غالبا)، `rate_limited` (‏429)، `not_found` (‏404، تغير عنوان البحث في الموقع)، `site_error` (‏5xx)، `timeout`، `tls_failed`، `not_configured`، `other`. فشل مصادر كثيرة بالنوع نفسه يدل على الشبكة لا على المواقع.
 

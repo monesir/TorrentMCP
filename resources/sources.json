@@ -88,7 +88,8 @@
       ],
       "resolves_http": false,
       "sha256": "e10e039b02c675fbeae6503482f1fb12683bba1c39f5424e7c2729dc44d12a71",
-      "scope": "general"
+      "scope": "general",
+      "retired": "the site redirects to bitsearch, which has its own source"
     },
     {
       "id": "torlock",
@@ -194,7 +195,8 @@
       "resolves_http": false,
       "sha256": "861485972efd8f442f289c80146e5d7b113c071667f07c2e2484d265859ba720",
       "community_entry": "013",
-      "scope": "general"
+      "scope": "general",
+      "retired": "the site behind Cloudflare has been unreachable (HTTP 5xx, checked 2026-10-19)"
     },
     {
       "id": "mikan",
@@ -309,7 +311,8 @@
       "sha256": "cec809857e1087a13bf27f74a8f46d710ba8b353fec772f92fc011e8fc8746e9",
       "community_entry": "016",
       "scope": "video",
-      "language": "es"
+      "language": "es",
+      "retired": "the site behind Cloudflare has been unreachable (HTTP 5xx, checked 2026-10-19)"
     },
     {
       "id": "dontorrent",
@@ -324,7 +327,8 @@
       "sha256": "f9a0ada328c01598f00d34a30b6447a9fdf86810c870b2cbcc65e99098857ae2",
       "community_entry": "021",
       "scope": "video",
-      "language": "es"
+      "language": "es",
+      "retired": "the site behind Cloudflare has been unreachable (HTTP 5xx, checked 2026-10-19)"
     },
     {
       "id": "esmeraldatorrent",
@@ -339,7 +343,8 @@
       "sha256": "1004b06f4bac2af34270fcecb29d81ca7b918f28bea6dadc710643360f528baf",
       "community_entry": "023",
       "scope": "video",
-      "language": "es"
+      "language": "es",
+      "retired": "the site behind Cloudflare has been unreachable (HTTP 5xx, checked 2026-10-19)"
     },
     {
       "id": "naranjatorrent",
@@ -369,7 +374,8 @@
       "sha256": "fed83e5beacad5c38940d34aa650ba451e74fc90949df3a0eb74815c6693f017",
       "community_entry": "061",
       "scope": "video",
-      "language": "es"
+      "language": "es",
+      "retired": "the site behind Cloudflare has been unreachable (HTTP 5xx, checked 2026-10-19)"
     },
     {
       "id": "calidadtorrent",
@@ -635,7 +641,8 @@
       "resolves_http": false,
       "sha256": "e5fdede3e0f2f721c8fbcf5cbd1af9643e423b7a1baf8bf689e65b623d78d8d9",
       "community_entry": "077",
-      "scope": "general"
+      "scope": "general",
+      "retired": "reachable only over the Yggdrasil network"
     },
     {
       "id": "goggames",
@@ -777,7 +784,8 @@
       "resolves_http": false,
       "sha256": "32d4b6488d72d6a42f31bb70c05e2d01b8cfc62a370daafda4eed7d2971a1173",
       "community_entry": "040",
-      "scope": "anime"
+      "scope": "anime",
+      "retired": "the site answers 410 Gone"
     },
     {
       "id": "nyaa",
@@ -820,7 +828,8 @@
       "resolves_http": false,
       "sha256": "9448cbebc24ebf2db5f422d4e0ae13917b8512a82d465ba27edad58202ddc32e",
       "community_entry": "069",
-      "scope": "general"
+      "scope": "general",
+      "retired": "the domain no longer resolves (checked 2026-10-19)"
     },
     {
       "id": "pantsu",
@@ -840,7 +849,8 @@
       "resolves_http": true,
       "sha256": "fab225b2231918665fc370737be42118d359c637ee29720d31bd27883bbb0010",
       "community_entry": "039",
-      "scope": "anime"
+      "scope": "anime",
+      "retired": "the site is up but its search address answers 404"
     },
     {
       "id": "sukebei",
@@ -987,14 +997,15 @@
       "resolves_http": true,
       "sha256": "badadbc0f51edb4de0302270c304e0dc539c9fdecfc0879ee34e91157287547e",
       "community_entry": "068",
-      "scope": "video"
+      "scope": "video",
+      "retired": "the domain was seized and redirects to an anti-piracy page"
     },
     {
       "id": "bitsearch",
       "class_name": "bitsearch",
       "name": "Bit Search",
       "preserve_site_trailing_slash": false,
-      "site_url": "https://bitsearch.to",
+      "site_url": "https://bitsearch.eu",
       "categories": [
         "all"
       ],
@@ -1210,7 +1221,8 @@
       "community_entry": "020",
       "scope": "video",
       "language": "es",
-      "alternate_of": "dontorrent"
+      "alternate_of": "dontorrent",
+      "retired": "the site behind Cloudflare has been unreachable (HTTP 5xx, checked 2026-10-19)"
     },
     {
       "id": "elitetorrent",
@@ -1329,7 +1341,8 @@
       "sha256": "e178e65032c2dd6e60c54713943eedc3c51de4f4c6b18c1d671cf9b3a41b3e7a",
       "community_entry": "063",
       "scope": "general",
-      "language": "fr"
+      "language": "fr",
+      "retired": "the domain no longer resolves (checked 2026-10-19)"
     },
     {
       "id": "torrentdownload_community_066",

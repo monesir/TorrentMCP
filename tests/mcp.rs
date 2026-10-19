@@ -107,6 +107,7 @@ impl Client {
                 scope: Default::default(),
                 language: None,
                 alternate_of: None,
+                retired: None,
             }))],
             ffprobe: "missing-ffprobe".into(),
             runtime: TorrentRuntime {
