@@ -104,6 +104,8 @@ try {
     Copy-Item -LiteralPath $rqbitLicense -Destination (Join-Path $torrentRuntime.FullName 'LICENSE')
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'README.md') -Destination $bundlePath
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'examples') -Destination $bundlePath -Recurse
+    # torrentx setup copies skills	orrentx into each agent's skill folder.
+    Copy-Item -LiteralPath (Join-Path $workspaceRoot 'skills') -Destination $bundlePath -Recurse
     $bundleDocs = New-Item -ItemType Directory -Path (Join-Path $bundlePath 'docs')
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'docs\agent-contract.md') -Destination $bundleDocs.FullName
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'docs\media-inspection.md') -Destination $bundleDocs.FullName
@@ -127,7 +129,7 @@ try {
     }
     $provenance | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath (Join-Path $bundleDocs.FullName 'source-provenance.json') -Encoding utf8
     Copy-Item -LiteralPath (Join-Path $bundlePath 'resources') -Destination $bundleSource.FullName -Recurse
-    foreach ($directory in @('docs','examples','licenses')) { Copy-Item -LiteralPath (Join-Path $workspaceRoot $directory) -Destination $bundleSource.FullName -Recurse }
+    foreach ($directory in @('docs','examples','licenses','skills')) { Copy-Item -LiteralPath (Join-Path $workspaceRoot $directory) -Destination $bundleSource.FullName -Recurse }
     $sourceVerification = New-Item -ItemType Directory -Path (Join-Path $bundleSource.FullName 'verification\limetorrents-benchmark\fixtures')
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'verification\limetorrents-benchmark\fixtures\nirvana-in-fire-1.html') -Destination $sourceVerification.FullName
     foreach ($file in @('nirvana-in-fire-search.json','spiderman-brand-new-day-agent-response.json','media-0.3.0-portable-smoke.json')) { Copy-Item -LiteralPath (Join-Path $workspaceRoot "verification\$file") -Destination (Join-Path $bundleSource.FullName 'verification') }

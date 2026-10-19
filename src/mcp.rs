@@ -276,10 +276,6 @@ impl Shared {
             (Ok(results), Ok(files)) => (results, files),
             (Err(message), _) | (_, Err(message)) => return tool_error(&message),
         };
-        if let Some(Value::Object(search)) = arguments.get_mut("search") {
-            search.entry("category").or_insert(json!("all"));
-            search.entry("sources").or_insert(json!([]));
-        }
         arguments.insert("operation".into(), json!(tool));
         arguments.insert("schema_version".into(), json!(1));
         let response = match serde_json::from_value::<AgentRequest>(Value::Object(arguments)) {
@@ -466,7 +462,7 @@ fn tools() -> Value {
         {
             "name": "find",
             "title": "Find and verify releases",
-            "description": "Search, then inspect one typical file of each leading eligible result and compare their actual streams, in one call. Candidates come back best first by your media preferences, each with inspection_status; a failed candidate has no verified streams. `search` holds the analyzed search for alternatives. Takes about a minute.",
+            "description": "Search, then inspect one typical file of each leading eligible result and compare their actual streams, in one call. Candidates come back best first by your media preferences, each with inspection_status; a failed candidate has no verified streams. `search` holds the analyzed search for alternatives. Takes one to several minutes: each candidate waits for its torrent's metadata (torrent_limits, default 90 s) and then its inspection (inspection_limits, default 60 s).",
             "inputSchema": {
                 "type": "object",
                 "properties": {
@@ -771,6 +767,8 @@ fn compact_stream(stream: &Value) -> Value {
         "component_bit_depth",
         "frame_rate",
         "hdr_signals",
+        "sample_rate_hz",
+        "sample_bit_depth",
         "channels",
         "channel_layout",
         "language",
