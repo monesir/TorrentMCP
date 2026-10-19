@@ -182,6 +182,7 @@ impl NativeSource {
         let mut builder = reqwest::Client::builder()
             .user_agent(format!("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:{version}.0) Gecko/20100101 Firefox/{version}.0"))
             .connect_timeout(Duration::from_secs(8)).timeout(Duration::from_secs(12))
+            .dns_resolver(crate::dns::resolver())
             .redirect(reqwest::redirect::Policy::custom(|attempt| {
                 if attempt.previous().len() >= 10 { attempt.error("Too many redirects") }
                 else if matches!(attempt.url().scheme(), "http" | "https") { attempt.follow() }
