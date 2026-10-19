@@ -59,6 +59,7 @@ impl SearchSource for Source {
                 limited: false,
                 error: None,
                 queried_category: None,
+                failure_kind: None,
             },
             results,
         }

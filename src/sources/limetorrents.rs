@@ -177,6 +177,7 @@ impl SearchSource for LimeTorrentsSource {
                 limited,
                 error,
                 queried_category: None,
+                failure_kind: None,
             },
             results,
         }

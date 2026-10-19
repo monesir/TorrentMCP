@@ -682,11 +682,23 @@ fn compact_search(report: &Value, max_results: usize) -> Value {
             })
         })
         .collect();
+    // Failed sources grouped by kind: several dns_failed or connection_reset
+    // at once point at the network, not at the sites.
+    let mut failures = Map::new();
+    for source in report["sources"].as_array().map_or(&[][..], Vec::as_slice) {
+        if let Some(kind) = source["failure_kind"].as_str() {
+            let ids = failures.entry(kind).or_insert_with(|| json!([]));
+            if let Value::Array(ids) = ids {
+                ids.push(source["source_id"].clone());
+            }
+        }
+    }
     json!({
         "query": report["query"],
         "category": report["category"],
         "partial": report["partial"],
         "summary": report["summary"],
+        "source_failures": failures,
         "sources": report["sources"],
         "results_shown": shown.len(),
         "results_total": results.len(),
