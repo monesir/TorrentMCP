@@ -64,7 +64,7 @@ args = ["mcp"]
 | `inspect_torrent` | Inspect chosen files (`file_ids`) or a sample (`sample_files`). |
 | `inspect_media` | Inspect a local media file. |
 
-Arguments are the fields of the [agent contract](agent-contract.md) without `operation` and `schema_version`, which the server adds. `search.category` defaults to `all` and `search.sources` to every source.
+Arguments are the fields of the [agent contract](agent-contract.md) without `operation` and `schema_version`, which the server adds. `search.category` defaults to `all` and `search.sources` to every source, here and on the command line.
 
 ### Replies
 

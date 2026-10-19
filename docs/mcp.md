@@ -64,7 +64,7 @@ args = ["mcp"]
 | `inspect_torrent` | فحص ملفات محددة (`file_ids`) أو عينة (`sample_files`). |
 | `inspect_media` | فحص ملف وسائط محلي. |
 
-المدخلات هي حقول [عقد الإيجنت](agent-contract.md) نفسها دون `operation` و`schema_version`؛ الخادم يضيفهما. `search.category` افتراضيا `all`، و`search.sources` افتراضيا كل المصادر.
+المدخلات هي حقول [عقد الإيجنت](agent-contract.md) نفسها دون `operation` و`schema_version`؛ الخادم يضيفهما. `search.category` افتراضيا `all`، و`search.sources` افتراضيا كل المصادر، في الخادم وفي سطر الأوامر.
 
 ### شكل الرد
 
