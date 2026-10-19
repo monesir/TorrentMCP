@@ -77,7 +77,7 @@ pub enum AgentRequest {
         /// Files to inspect; when empty, `sample_files` videos are chosen.
         #[serde(default)]
         file_ids: Vec<usize>,
-        /// 1 picks the largest video; more spread over the episodes (default 1).
+        /// 1 picks a typical (median-sized) video; more spread over the episodes (default 1).
         #[serde(default)]
         sample_files: Option<usize>,
         #[serde(default = "default_parallel")]
@@ -438,7 +438,8 @@ pub struct FindCandidate {
     pub search_index: usize,
     pub title: String,
     pub reference: TorrentReference,
-    /// 1 is best by the media preferences; None when not compared.
+    /// 1 is best by the media preferences; None when not compared or when
+    /// the inspection did not read the file's streams.
     pub position: Option<usize>,
     pub eligibility: Option<Eligibility>,
     pub inspection_status: AgentStatus,
@@ -919,12 +920,15 @@ async fn execute_find(
                 .as_ref()
                 .and_then(|report| report.results.iter().find(|r| r.candidate.id == id(index)));
             let report = inspection.result.as_ref();
+            // Only verified streams earn a place; an uninspected candidate
+            // is not ranked, whatever its name claims.
+            let verified = report.is_some_and(|r| r.media.is_some());
             FindCandidate {
                 id: id(index),
                 search_index: index,
                 title: analyzed.results[index].result.title.clone(),
                 reference: analyzed.results[index].result.reference.clone(),
-                position: placed.map(|r| r.position),
+                position: placed.filter(|_| verified).map(|r| r.position),
                 eligibility: placed.map(|r| r.assessment.eligibility),
                 inspection_status: inspection.status,
                 inspection_error: inspection.error.clone(),
@@ -981,14 +985,13 @@ fn single_inspection(
     });
     let result = report.map(|report| {
         let first = report.inspections.into_iter().next();
-        if error.is_none() {
-            error = first
-                .as_ref()
-                .and_then(|i| i.failure.as_ref())
-                .map(|f| AgentFailure {
-                    code: f.code.clone(),
-                    message: f.message.clone(),
-                });
+        // The file's own failure (probe_timeout and why) says more than the
+        // request-level "no file could be inspected".
+        if let Some(failure) = first.as_ref().and_then(|i| i.failure.as_ref()) {
+            error = Some(AgentFailure {
+                code: failure.code.clone(),
+                message: failure.message.clone(),
+            });
         }
         TorrentOperationReport {
             schema_version: 1,
