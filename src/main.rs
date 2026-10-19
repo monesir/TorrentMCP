@@ -101,6 +101,16 @@ enum Action {
         )]
         idle_minutes: u64,
     },
+    /// Serve MCP on stdin/stdout: every agent operation as a tool, with a warm torrent session.
+    Mcp {
+        #[arg(
+            long,
+            default_value_t = 10,
+            value_parser = clap::value_parser!(u64).range(1..=1440),
+            help = "Stop rqbit after this many minutes without torrent work; it restarts on demand"
+        )]
+        idle_minutes: u64,
+    },
     /// Inspect or stop the running daemon.
     Daemon {
         #[command(subcommand)]
@@ -237,6 +247,28 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
         )
         .await);
     }
+    if let Action::Mcp { idle_minutes } = &cli.command {
+        // stdout carries the protocol; diagnostics go to stderr.
+        let sources = configured_sources(
+            &assets,
+            &python,
+            cli.source_backend,
+            cli.limetorrents_backend,
+        )?;
+        let config = torrent_search::mcp::McpConfig {
+            sources,
+            ffprobe,
+            runtime: torrent_runtime,
+            idle: Duration::from_secs(idle_minutes * 60),
+        };
+        torrent_search::mcp::serve(
+            config,
+            tokio::io::BufReader::new(tokio::io::stdin()),
+            tokio::io::stdout(),
+        )
+        .await?;
+        return Ok(0);
+    }
     if let Action::Serve { idle_minutes } = &cli.command {
         let sources = configured_sources(
             &assets,
@@ -289,6 +321,7 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
         Action::Agent { .. }
         | Action::ExportMarkdown { .. }
         | Action::Serve { .. }
+        | Action::Mcp { .. }
         | Action::Daemon { .. } => {
             unreachable!("Handled before loading sources")
         }

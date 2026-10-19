@@ -145,6 +145,7 @@ async fn find_inspects_the_leading_eligible_results_in_the_agents_order() {
             "torrent_service_unavailable"
         );
         assert_eq!(candidate["eligibility"], "uncertain");
+        assert!(candidate["position"].is_null(), "unverified, so unranked");
     }
     assert_eq!(result["comparison"]["summary"]["uncertain"], 2);
     assert_eq!(response["status"], "partial");

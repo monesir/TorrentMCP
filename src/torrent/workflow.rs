@@ -466,7 +466,10 @@ async fn inspect_target(
     };
     inspection.file = Some(file.clone());
     let mut opened = false;
-    let result = bounded(limits.timeout_seconds, cancellation, async {
+    // Opening the file and reading it each get their full time: a bound of
+    // the torrent limit alone cut off probes allowed to run longer than it.
+    let budget = limits.timeout_seconds + inspection_limits.timeout_seconds;
+    let result = bounded(budget, cancellation, async {
         let input = service.open_file(torrent, &file).await?;
         opened = true;
         let outcome = inspect_media(
@@ -501,8 +504,8 @@ async fn inspect_target(
                         "ffprobe did not finish within inspection_limits.timeout_seconds ({} s): \
                          peers delivered the file's header too slowly. The file was not \
                          inspected, so nothing about its streams is known. Retry with a larger \
-                         timeout; with `torrentx serve` running, the partial download is kept \
-                         and a retry resumes it",
+                         timeout (at most 120 s); a long-running `torrentx serve` or `torrentx \
+                         mcp` keeps the partial download, so a retry resumes it",
                         inspection_limits.timeout_seconds
                     )
                 });
