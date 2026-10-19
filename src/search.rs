@@ -191,7 +191,8 @@ pub struct SourceReport {
 }
 
 /// Classify a source error message:
-/// - `dns_failed`: the name did not resolve (a dead domain, or DNS blocking).
+/// - `dns_failed`: the name did not resolve, by the system nor by encrypted DNS
+///   (see `crate::dns`): the domain is probably gone.
 /// - `connection_reset`: the connection was cut, typical of network blocking.
 /// - `network_unreachable`: no route to the site at all.
 /// - `timeout`: no answer in time.

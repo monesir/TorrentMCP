@@ -10,6 +10,7 @@ pub mod agent;
 pub mod analysis;
 pub mod comparison;
 pub mod daemon;
+pub mod dns;
 pub mod markdown;
 pub mod mcp;
 pub mod media;
