@@ -45,6 +45,7 @@ impl LimeTorrentsSource {
         );
         let client = reqwest::Client::builder()
             .user_agent(user_agent)
+            .dns_resolver(crate::dns::resolver())
             .connect_timeout(Duration::from_secs(8))
             .timeout(Duration::from_secs(12))
             .redirect(reqwest::redirect::Policy::limited(10))

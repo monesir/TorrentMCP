@@ -88,7 +88,7 @@ Source failures by `failure_kind`:
 
 | Kind | Likely cause | What to say or do |
 | --- | --- | --- |
-| `dns_failed` | The domain is gone, or the network's DNS blocks it. | Several at once: the network blocks torrent sites by DNS. |
+| `dns_failed` | The name did not resolve through the system DNS nor through encrypted DNS: the domain is probably gone. | Say the site seems to be gone. |
 | `connection_reset`, `network_unreachable` | The network blocks the site. | Say the site is blocked from this network. |
 | `refused` | Bot protection (often Cloudflare). | Nothing to retry; the site refuses automated requests. |
 | `rate_limited` | Too many requests. | Retry later, not now. |
