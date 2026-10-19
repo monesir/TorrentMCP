@@ -26,11 +26,11 @@
 - `inspect.parallel` من 1 إلى 4، افتراضيا 2: عدد المرشحين المفحوصين معا.
 - `torrent_limits` و`inspection_limits` و`selection` كما في `inspect_torrent`.
 
-يفحص من كل مرشح ملفا ممثلا واحدا: الفيديو الرئيسي ذا الحجم الوسيط، أي حلقة معتادة لا فيلما مرفقا بالمسلسل. المرشح الذي فشل فحصه لا يأخذ `position`، ويحمل `inspection_error` سبب فشل ملفه نفسه، مثل `probe_timeout`. تستخدم كل المرشحات جلسة rqbit واحدة، هي جلسة الخدمة الدائمة إن كانت تعمل.
+يفحص من كل مرشح ملفا ممثلا واحدا: الفيديو الرئيسي ذا الحجم الوسيط، أي حلقة معتادة لا فيلما مرفقا بالمسلسل. المرشح الذي فشل فحصه لا يأخذ `position`، ويحمل `inspection_error` سبب فشل ملفه نفسه، مثل `probe_timeout`. إذا انتهت مهلة فحص مرشح (`probe_timeout`) يعيد `find` فحصه مرة واحدة تلقائيا، فيكمل التحميل الجزئي نفسه، ويصبح `attempts` لذلك المرشح 2. تستخدم كل المرشحات جلسة rqbit واحدة، هي جلسة الخدمة الدائمة إن كانت تعمل.
 
 النتيجة:
 - `search`: البحث المحلل كاملا، فالبدائل متاحة دون طلب جديد.
-- `candidates`: المرشحون المفحوصون، الأفضل أولا حسب المقارنة. لكل مرشح `search_index` و`title` و`reference` و`position` و`eligibility` و`inspection_status` و`inspection_error` و`file` و`elapsed_ms`.
+- `candidates`: المرشحون المفحوصون، الأفضل أولا حسب المقارنة. لكل مرشح `search_index` و`title` و`reference` و`position` و`eligibility` و`inspection_status` و`inspection_error` و`file` و`elapsed_ms` و`attempts`.
 - `comparison`: تقرير `compare_media` بالأدلة الكاملة: البث والمعايير وعوامل التفضيل.
 
 مرشح فشل فحصه يبقى في القائمة ويظهر سبب الفشل، وتعده المقارنة غير محسوم. الحالة:

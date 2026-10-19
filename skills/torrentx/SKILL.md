@@ -68,7 +68,7 @@ Every reply has a `status`:
 
 The MCP server returns a compact view by default. Ask for `view: "full"` only when you need the per-token evidence behind a verdict; it is many times larger. `max_results` (default 20) controls how many search results the compact view shows.
 
-In a compact `find` reply, each candidate either has `verified` (the container and streams ffprobe read from its file) and `unmet` (the conditions that file did not meet), or it has `inspection_error` and nothing else. Only candidates with `verified` have a `position`.
+In a compact `find` reply, each candidate either has `verified` (the container and streams ffprobe read from its file) and `unmet` (the conditions that file did not meet), or it has `inspection_error` and nothing else. Only candidates with `verified` have a `position`. `find` already retried a `probe_timeout` once by itself; a candidate with `attempts: 2` and still an `inspection_error` failed twice, so retry it with `inspect_torrent` only if it matters, with a larger timeout.
 
 In `search.sources`, each source reports `completed` or `failed` with its error, and a failed one has a `failure_kind`. `search.source_failures` groups the failed sources by kind. Failed sources mean fewer results, not that the release does not exist.
 
