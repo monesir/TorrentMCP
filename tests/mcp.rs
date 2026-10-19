@@ -54,7 +54,13 @@ impl SearchSource for Source {
         _: CancellationToken,
     ) -> SourceOutcome {
         let results: Vec<_> = (0..30)
-            .map(|i| result(&format!("Shogun S01E{:02} 1080p WEB-DL x265", i + 1), i + 1, 50 + i))
+            .map(|i| {
+                result(
+                    &format!("Shogun S01E{:02} 1080p WEB-DL x265", i + 1),
+                    i + 1,
+                    50 + i,
+                )
+            })
             .chain([result("Shogun S01 720p HDTV", 99, 500)])
             .collect();
         SourceOutcome {
@@ -145,7 +151,11 @@ impl Client {
 
     async fn call(&mut self, id: u64, tool: &str, arguments: Value) -> (bool, Value) {
         let reply = self
-            .request(id, "tools/call", json!({"name": tool, "arguments": arguments}))
+            .request(
+                id,
+                "tools/call",
+                json!({"name": tool, "arguments": arguments}),
+            )
             .await;
         let result = &reply["result"];
         let text = result["content"][0]["text"].as_str().unwrap();
@@ -202,13 +212,22 @@ async fn initializes_lists_tools_and_answers_protocol_errors() {
         .collect();
     assert_eq!(
         names,
-        ["find", "search", "torrent_files", "inspect_torrent", "inspect_media"]
+        [
+            "find",
+            "search",
+            "torrent_files",
+            "inspect_torrent",
+            "inspect_media"
+        ]
     );
     for tool in tools["result"]["tools"].as_array().unwrap() {
         assert_eq!(tool["inputSchema"]["type"], "object");
     }
 
-    assert_eq!(client.request(4, "ping", json!({})).await["result"], json!({}));
+    assert_eq!(
+        client.request(4, "ping", json!({})).await["result"],
+        json!({})
+    );
     assert_eq!(
         client.request(5, "resources/list", json!({})).await["error"]["code"],
         -32601
@@ -243,7 +262,12 @@ async fn search_is_compact_by_default_and_full_on_request() {
     assert_eq!(first["eligibility"], "eligible");
     assert_eq!(first["claimed"]["resolution"], 1080);
     assert_eq!(first["claimed"]["video_codec"], "hevc");
-    assert!(first["reference"]["uri"].as_str().unwrap().starts_with("magnet:"));
+    assert!(
+        first["reference"]["uri"]
+            .as_str()
+            .unwrap()
+            .starts_with("magnet:")
+    );
     let hdtv = result["results"]
         .as_array()
         .unwrap()
@@ -301,7 +325,11 @@ async fn failures_are_tool_errors_with_their_reason() {
     assert_ne!(response["error"]["code"], "invalid_request", "{response}");
 
     let (is_error, response) = client
-        .call(3, "search", json!({"search": {"query": "x"}, "view": "tiny"}))
+        .call(
+            3,
+            "search",
+            json!({"search": {"query": "x"}, "view": "tiny"}),
+        )
         .await;
     assert!(is_error);
     assert!(response.as_str().unwrap().contains("view"));
