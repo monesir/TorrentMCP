@@ -1,0 +1,89 @@
+---
+name: torrentx
+description: Find torrents and verify what is really inside them with torrentx. Use when the user asks for a movie, series, anime or other release, asks which release is best, or wants to know a torrent file's real resolution, codecs, audio or subtitle tracks.
+---
+
+# torrentx
+
+torrentx searches torrent sites, lists the files inside a torrent, and reads a file's real streams with ffprobe while downloading only its headers from peers. It never downloads whole files for the user.
+
+## 1. Using torrentx
+
+### Which interface
+
+Use the MCP tools (`find`, `search`, `torrent_files`, `inspect_torrent`, `inspect_media`) when they are available. The server stays up as long as your session, keeps sources loaded and one torrent session warm, so a retry resumes a partial download instead of starting over.
+
+Without MCP, use the command line and pipe the request on stdin. Do not write request files.
+
+```powershell
+'{"schema_version":1,"operation":"find","search":{"query":"The Bear S03"},"analysis":{"target":{"title":"The Bear","season":3}}}' | torrentx agent
+```
+
+On the command line every request carries `schema_version: 1` and `operation` (`find`, `search`, `torrent_files`, `inspect_torrent`, `inspect_media`); the MCP server adds both itself. Run `torrentx serve` in the background first if you will make more than one request: `agent` forwards to it and keeps the same warm session.
+
+### Which tool
+
+| The user wants | Call |
+| --- | --- |
+| A release, or the best release, of something | `find` |
+| Only to see what exists, or names to choose from | `search` |
+| What is inside a torrent they gave or you found | `torrent_files` |
+| The real streams of specific files | `inspect_torrent` with `file_ids` |
+| The real streams of a typical episode | `inspect_torrent` with `sample_files: 1` |
+| The streams of a file already on this computer | `inspect_media` |
+
+Start with `find` unless the user asked for something narrower. It searches, inspects one typical file of each leading result, and compares what the files actually contain, in one call.
+
+### Building a request
+
+Translate the user's words into fields; do not add wishes they did not express.
+
+- `analysis.target`: the title, plus `year`, `season`, `part` or `episodes` when the user named them. Put other names the work is released under (romaji, English, original) in `aliases`.
+- `analysis.constraints`: only what the user requires. A release whose name contradicts a constraint is excluded; one whose name says nothing is uncertain.
+- `analysis.preferences`: ordered lists, best first. They rank and never exclude.
+- `media.constraints` and `media.preferences`: the same idea checked on the inspected streams (`min_video_height`, `video_codecs`, `audio_languages`, `subtitle_languages`, bitrate and size bounds). `rank_by` sets which criterion decides first.
+- Languages are ISO 639-1 codes: `en`, `ja`, `ar`.
+- `search.category` narrows sources (`anime`, `tv`, `movies`, ...); the default is `all`. `search.sources` limits the search to source ids (`torrentx sources` lists them); omitted means every source.
+
+Pass a search result's `reference` back exactly as it came. A magnet the user pasted needs only `{"kind": "magnet", "uri": "magnet:?..."}`.
+
+### Time
+
+- `search` takes seconds to about half a minute.
+- `torrent_files` waits for the torrent's metadata from peers, up to `limits.timeout_seconds` (default 90).
+- Each inspection then reads the file's headers, up to `inspection_limits.timeout_seconds` (default 60, at most 120).
+- `find` therefore takes one to several minutes. Tell the user it is running; do not start a second identical call while the first is in progress.
+
+### Reading the reply
+
+Every reply has a `status`:
+
+| `status` | Meaning |
+| --- | --- |
+| `completed` | Everything asked for was done. |
+| `partial` | Real results, with some parts missing: a source failed, or some inspections failed. Use what is there and say what is missing. |
+| `failed` | The work ran and nothing usable came of it; read `error`. |
+| `error` | The request was rejected before any work, usually `invalid_request`; fix it from `error.message`. |
+| `cancelled` | The call was stopped. |
+
+The MCP server returns a compact view by default. Ask for `view: "full"` only when you need the per-token evidence behind a verdict; it is many times larger. `max_results` (default 20) controls how many search results the compact view shows.
+
+In a compact `find` reply, each candidate either has `verified` (the container and streams ffprobe read from its file) and `unmet` (the conditions that file did not meet), or it has `inspection_error` and nothing else. Only candidates with `verified` have a `position`.
+
+In `search.sources`, each source reports `completed` or `failed` with its error. Failed sources mean fewer results, not that the release does not exist.
+
+### When something fails
+
+| Code | What happened | What to do |
+| --- | --- | --- |
+| `probe_timeout` | Peers sent the file's header too slowly. | Retry once with `inspection_limits.timeout_seconds` raised (up to 120). The partial download is kept, so the retry continues it. |
+| `torrent_service_timeout` | The torrent's metadata never arrived: no peer answered. | Retry once with a larger `limits.timeout_seconds`. If it fails again, the swarm is unreachable from here; the network may block BitTorrent. Say so; do not loop. |
+| `read_budget_exceeded` | The headers were larger than `inspection_limits.max_read_bytes`. | Retry with a larger budget if the file matters. |
+| `no_media_files` | The torrent has no video or audio files to inspect. | Report it. |
+| `torrent_identity_mismatch`, `torrent_catalog_changed`, `torrent_metadata_invalid` | The torrent is not what the reference said, or is broken. | Do not retry; report it. |
+| `torrent_service_unavailable`, `torrent_service_failed` | The local torrent engine failed. | Retry once; if it persists, report the message. |
+| `invalid_request` | The request is malformed. | Fix the request from the message and call again. |
+
+Many sources failing at once with connection resets (`os error 10054`), DNS errors or timeouts usually means the network blocks torrent sites. Tell the user rather than retrying.
+
+A failed inspection means nothing about that file's streams is known. Say it was not inspected; do not fill the gap from the release name or from memory.
