@@ -310,9 +310,7 @@ pub fn apply(change: &Change) -> Result<String, String> {
             let Value::Object(root) = &mut document else {
                 return Err(format!("{client}: {} is not a JSON object", path.display()));
             };
-            let servers = root
-                .entry("mcpServers")
-                .or_insert_with(|| json!({}));
+            let servers = root.entry("mcpServers").or_insert_with(|| json!({}));
             let Value::Object(servers) = servers else {
                 return Err(format!(
                     "{client}: mcpServers in {} is not an object",
@@ -400,9 +398,13 @@ mod tests {
         let client = json_client(&path);
 
         let changes = plan(std::slice::from_ref(&client), exe, false);
-        assert!(matches!(changes[0], Change::EditJson { entry: Some(_), .. }));
+        assert!(matches!(
+            changes[0],
+            Change::EditJson { entry: Some(_), .. }
+        ));
         apply(&changes[0]).unwrap();
-        let written: Value = serde_json::from_str(&std::fs::read_to_string(&path).unwrap()).unwrap();
+        let written: Value =
+            serde_json::from_str(&std::fs::read_to_string(&path).unwrap()).unwrap();
         assert_eq!(written["theme"], "dark");
         assert_eq!(written["mcpServers"]["rea"]["command"], "node");
         assert_eq!(written["mcpServers"][SERVER_NAME], entry(exe));
@@ -424,7 +426,8 @@ mod tests {
 
         let removal = plan(std::slice::from_ref(&client), exe, true);
         apply(&removal[0]).unwrap();
-        let written: Value = serde_json::from_str(&std::fs::read_to_string(&path).unwrap()).unwrap();
+        let written: Value =
+            serde_json::from_str(&std::fs::read_to_string(&path).unwrap()).unwrap();
         assert!(written["mcpServers"].get(SERVER_NAME).is_none());
         assert_eq!(written["mcpServers"]["rea"]["command"], "node");
     }
@@ -436,7 +439,8 @@ mod tests {
         let exe = Path::new("/opt/torrentx/torrentx");
         let client = json_client(&path);
         apply(&plan(std::slice::from_ref(&client), exe, false)[0]).unwrap();
-        let written: Value = serde_json::from_str(&std::fs::read_to_string(&path).unwrap()).unwrap();
+        let written: Value =
+            serde_json::from_str(&std::fs::read_to_string(&path).unwrap()).unwrap();
         assert_eq!(written["mcpServers"][SERVER_NAME]["args"], json!(["mcp"]));
 
         std::fs::write(&path, "{ not json").unwrap();
@@ -456,7 +460,14 @@ mod tests {
         let ids: Vec<&str> = all.iter().map(|c| c.id).collect();
         assert_eq!(
             ids,
-            ["claude_code", "codex", "antigravity", "claude_desktop", "gemini_cli", "cursor"]
+            [
+                "claude_code",
+                "codex",
+                "antigravity",
+                "claude_desktop",
+                "gemini_cli",
+                "cursor"
+            ]
         );
         let antigravity = all.iter().find(|c| c.id == "antigravity").unwrap();
         assert!(

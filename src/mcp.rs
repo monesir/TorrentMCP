@@ -229,7 +229,10 @@ impl Shared {
                 let arguments = params.get("arguments").cloned().unwrap_or(json!({}));
                 let token = self.shutdown.child_token();
                 let key = id.to_string();
-                self.calls.lock().unwrap().insert(key.clone(), token.clone());
+                self.calls
+                    .lock()
+                    .unwrap()
+                    .insert(key.clone(), token.clone());
                 let shared = self.clone();
                 Some(async move {
                     let result = shared.call(&name, arguments, token).await;
@@ -238,7 +241,11 @@ impl Shared {
                 })
             }
             _ => {
-                self.send(error_reply(id, -32601, &format!("Unknown method: {method}")));
+                self.send(error_reply(
+                    id,
+                    -32601,
+                    &format!("Unknown method: {method}"),
+                ));
                 None
             }
         }
@@ -575,7 +582,11 @@ fn compact_response(tool: &str, response: &mut Value, max_results: usize, max_fi
             }
             "torrent_files" | "inspect_torrent" => {
                 if let Some(torrent) = result.get_mut("torrent").filter(|t| !t.is_null()) {
-                    let files = if tool == "torrent_files" { max_files } else { 0 };
+                    let files = if tool == "torrent_files" {
+                        max_files
+                    } else {
+                        0
+                    };
                     *torrent = compact_torrent(torrent, files);
                 }
             }
@@ -643,7 +654,9 @@ fn compact_search(report: &Value, max_results: usize) -> Value {
                     )
                 })
                 .collect();
-            let observations = result["observations"].as_array().map_or(&[][..], Vec::as_slice);
+            let observations = result["observations"]
+                .as_array()
+                .map_or(&[][..], Vec::as_slice);
             let size = observations
                 .iter()
                 .filter_map(|o| o["size_bytes"].as_u64())

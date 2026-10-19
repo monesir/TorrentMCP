@@ -113,7 +113,11 @@ enum Action {
     },
     /// Register `torrentx mcp` with the agents installed here (Claude Code, Codex, Antigravity, ...).
     Setup {
-        #[arg(long = "client", value_delimiter = ',', help = "Only these agents: claude_code, codex, antigravity, claude_desktop, gemini_cli, cursor")]
+        #[arg(
+            long = "client",
+            value_delimiter = ',',
+            help = "Only these agents: claude_code, codex, antigravity, claude_desktop, gemini_cli, cursor"
+        )]
         clients: Vec<String>,
         #[arg(long, help = "Apply without asking")]
         yes: bool,
@@ -460,7 +464,9 @@ fn setup(selected: &[String], yes: bool, remove: bool) -> Result<u8, SearchError
     let app_data = std::env::var_os("APPDATA").map(PathBuf::from);
     let all = clients(&home, app_data.as_deref());
     if let Some(unknown) = selected.iter().find(|id| !all.iter().any(|c| c.id == *id)) {
-        return Err(SearchError::InvalidRequest(format!("Unknown agent: {unknown}")));
+        return Err(SearchError::InvalidRequest(format!(
+            "Unknown agent: {unknown}"
+        )));
     }
     let chosen: Vec<_> = installed(all)
         .into_iter()
@@ -476,7 +482,10 @@ fn setup(selected: &[String], yes: bool, remove: bool) -> Result<u8, SearchError
     for change in &changes {
         eprintln!("  {change}");
     }
-    if changes.iter().all(|c| matches!(c, Change::Unchanged { .. })) {
+    if changes
+        .iter()
+        .all(|c| matches!(c, Change::Unchanged { .. }))
+    {
         eprintln!("Nothing to change.");
         return Ok(0);
     }

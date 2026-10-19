@@ -12,6 +12,6 @@ pub mod comparison;
 pub mod daemon;
 pub mod markdown;
 pub mod mcp;
-pub mod setup;
 pub mod media;
+pub mod setup;
 pub mod torrent;
