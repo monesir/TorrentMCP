@@ -101,6 +101,29 @@ enum Action {
         )]
         idle_minutes: u64,
     },
+    /// Serve MCP on stdin/stdout: every agent operation as a tool, with a warm torrent session.
+    Mcp {
+        #[arg(
+            long,
+            default_value_t = 10,
+            value_parser = clap::value_parser!(u64).range(1..=1440),
+            help = "Stop rqbit after this many minutes without torrent work; it restarts on demand"
+        )]
+        idle_minutes: u64,
+    },
+    /// Register `torrentx mcp` with the agents installed here (Claude Code, Codex, Antigravity, ...).
+    Setup {
+        #[arg(
+            long = "client",
+            value_delimiter = ',',
+            help = "Only these agents: claude_code, codex, antigravity, claude_desktop, gemini_cli, cursor"
+        )]
+        clients: Vec<String>,
+        #[arg(long, help = "Apply without asking")]
+        yes: bool,
+        #[arg(long, help = "Remove the registration instead")]
+        remove: bool,
+    },
     /// Inspect or stop the running daemon.
     Daemon {
         #[command(subcommand)]
@@ -184,6 +207,14 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
     if let Action::Daemon { command } = &cli.command {
         return daemon_command(*command).await;
     }
+    if let Action::Setup {
+        clients,
+        yes,
+        remove,
+    } = &cli.command
+    {
+        return setup(clients, *yes, *remove);
+    }
     let executable = std::env::current_exe()?;
     let directory = executable.parent().expect("Executable has a directory");
     let assets = cli.assets.unwrap_or_else(|| directory.join("resources"));
@@ -237,6 +268,28 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
         )
         .await);
     }
+    if let Action::Mcp { idle_minutes } = &cli.command {
+        // stdout carries the protocol; diagnostics go to stderr.
+        let sources = configured_sources(
+            &assets,
+            &python,
+            cli.source_backend,
+            cli.limetorrents_backend,
+        )?;
+        let config = torrent_search::mcp::McpConfig {
+            sources,
+            ffprobe,
+            runtime: torrent_runtime,
+            idle: Duration::from_secs(idle_minutes * 60),
+        };
+        torrent_search::mcp::serve(
+            config,
+            tokio::io::BufReader::new(tokio::io::stdin()),
+            tokio::io::stdout(),
+        )
+        .await?;
+        return Ok(0);
+    }
     if let Action::Serve { idle_minutes } = &cli.command {
         let sources = configured_sources(
             &assets,
@@ -289,6 +342,8 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
         Action::Agent { .. }
         | Action::ExportMarkdown { .. }
         | Action::Serve { .. }
+        | Action::Mcp { .. }
+        | Action::Setup { .. }
         | Action::Daemon { .. } => {
             unreachable!("Handled before loading sources")
         }
@@ -398,6 +453,63 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
     };
     interrupt.abort();
     result
+}
+
+fn setup(selected: &[String], yes: bool, remove: bool) -> Result<u8, SearchError> {
+    use torrent_search::setup::{Change, apply, clients, installed, plan};
+    let home = std::env::var_os("USERPROFILE")
+        .or_else(|| std::env::var_os("HOME"))
+        .map(PathBuf::from)
+        .ok_or_else(|| SearchError::Runtime("Cannot find the home directory".into()))?;
+    let app_data = std::env::var_os("APPDATA").map(PathBuf::from);
+    let all = clients(&home, app_data.as_deref());
+    if let Some(unknown) = selected.iter().find(|id| !all.iter().any(|c| c.id == *id)) {
+        return Err(SearchError::InvalidRequest(format!(
+            "Unknown agent: {unknown}"
+        )));
+    }
+    let chosen: Vec<_> = installed(all)
+        .into_iter()
+        .filter(|c| selected.is_empty() || selected.iter().any(|id| id == c.id))
+        .collect();
+    if chosen.is_empty() {
+        eprintln!("No supported agent found. See docs/mcp.md to register manually.");
+        return Ok(1);
+    }
+    let exe = std::env::current_exe()?;
+    let changes = plan(&chosen, &exe, remove);
+    eprintln!("torrentx MCP server: {} mcp", exe.display());
+    for change in &changes {
+        eprintln!("  {change}");
+    }
+    if changes
+        .iter()
+        .all(|c| matches!(c, Change::Unchanged { .. }))
+    {
+        eprintln!("Nothing to change.");
+        return Ok(0);
+    }
+    if !yes {
+        eprint!("Apply these changes? [y/N] ");
+        let mut answer = String::new();
+        std::io::stdin().read_line(&mut answer)?;
+        if !matches!(answer.trim(), "y" | "Y" | "yes") {
+            eprintln!("Nothing changed.");
+            return Ok(1);
+        }
+    }
+    let mut failed = false;
+    for change in &changes {
+        match apply(change) {
+            Ok(done) => eprintln!("  {done}"),
+            Err(error) => {
+                failed = true;
+                eprintln!("  {error}");
+            }
+        }
+    }
+    eprintln!("Restart each agent to load the change.");
+    Ok(u8::from(failed))
 }
 
 /// Everything that decides how a request runs. `agent` forwards to a daemon

@@ -214,6 +214,7 @@ pub async fn perform(
             Ok(())
         })
         .await
+        .map_err(metadata_timeout(limits.timeout_seconds))
         .err(),
         TorrentOperation::Inspect {
             torrent,
@@ -228,6 +229,7 @@ pub async fn perform(
                 verify_catalog(service, &torrent, &[file_id]),
             )
             .await
+            .map_err(metadata_timeout(limits.timeout_seconds))
             {
                 Err(error) => Some(error),
                 Ok(()) => {
@@ -299,7 +301,8 @@ pub async fn perform(
                 }
                 Ok((Arc::new(torrent), file_ids))
             })
-            .await;
+            .await
+            .map_err(metadata_timeout(limits.timeout_seconds));
             match ready {
                 Err(error) => Some(error),
                 Ok((torrent, file_ids)) => {
@@ -466,7 +469,10 @@ async fn inspect_target(
     };
     inspection.file = Some(file.clone());
     let mut opened = false;
-    let result = bounded(limits.timeout_seconds, cancellation, async {
+    // Opening the file and reading it each get their full time: a bound of
+    // the torrent limit alone cut off probes allowed to run longer than it.
+    let budget = limits.timeout_seconds + inspection_limits.timeout_seconds;
+    let result = bounded(budget, cancellation, async {
         let input = service.open_file(torrent, &file).await?;
         opened = true;
         let outcome = inspect_media(
@@ -501,8 +507,8 @@ async fn inspect_target(
                         "ffprobe did not finish within inspection_limits.timeout_seconds ({} s): \
                          peers delivered the file's header too slowly. The file was not \
                          inspected, so nothing about its streams is known. Retry with a larger \
-                         timeout; with `torrentx serve` running, the partial download is kept \
-                         and a retry resumes it",
+                         timeout (at most 120 s); a long-running `torrentx serve` or `torrentx \
+                         mcp` keeps the partial download, so a retry resumes it",
                         inspection_limits.timeout_seconds
                     )
                 });
@@ -518,6 +524,28 @@ async fn inspect_target(
     }
     inspection.elapsed_ms = started.elapsed().as_millis().try_into().unwrap_or(u64::MAX);
     inspection
+}
+
+/// A deadline hit before the file list arrived means no peer answered, which
+/// a blocked network causes as often as a dead torrent; say so instead of
+/// leaving the agent to guess.
+fn metadata_timeout(seconds: u64) -> impl FnOnce(TorrentFailure) -> TorrentFailure {
+    move |failure| {
+        if failure.code != "torrent_service_timeout" {
+            return failure;
+        }
+        TorrentFailure::new(
+            "torrent_service_timeout",
+            format!(
+                "The torrent's metadata (its file list) did not arrive within \
+                 limits.timeout_seconds ({seconds} s): no peer supplied it. Either the swarm \
+                 has no reachable peers or this network blocks BitTorrent (trackers and DHT \
+                 use UDP, which some campus, office and national networks block). Nothing \
+                 was inspected, so nothing about the files is known; it does not show the \
+                 torrent is dead"
+            ),
+        )
+    }
 }
 
 fn static_code(code: &str) -> &'static str {

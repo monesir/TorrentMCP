@@ -112,6 +112,8 @@ try {
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'docs\torrent-workflow.md') -Destination $bundleDocs.FullName
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'docs\media-comparison.md') -Destination $bundleDocs.FullName
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'docs\daemon.md') -Destination $bundleDocs.FullName
+    Copy-Item -LiteralPath (Join-Path $workspaceRoot 'docs\mcp.md') -Destination $bundleDocs.FullName
+    Copy-Item -LiteralPath (Join-Path $workspaceRoot 'docs\mcp.en.md') -Destination $bundleDocs.FullName
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'THIRD_PARTY_NOTICES.md') -Destination $bundlePath
     # Retain the complete corresponding local Rust source and original notices
     # alongside the executable, including ports of GPL upstream search engines.

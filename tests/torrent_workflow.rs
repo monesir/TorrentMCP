@@ -274,14 +274,16 @@ async fn timeout_cancellation_and_probe_failure_keep_cleanup_and_binding() {
             token,
         )
         .await;
+        let error = error.unwrap();
         assert_eq!(
-            error.unwrap().code,
+            error.code,
             if cancel {
                 "cancelled"
             } else {
                 "torrent_service_timeout"
             }
         );
+        assert_eq!(!cancel, error.message.contains("no peer supplied it"));
         assert!(report.unwrap().service.stopped);
     }
     let service = Service::new("missing".into(), "ok");
