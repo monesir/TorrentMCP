@@ -581,7 +581,18 @@ fn compact_response(tool: &str, response: &mut Value, max_results: usize, max_fi
                     };
                     *torrent = compact_torrent(torrent, files);
                 }
+                if let Some(Value::Array(inspections)) = result.get_mut("inspections") {
+                    for inspection in inspections {
+                        if let Some(media) = inspection.get_mut("media").filter(|m| !m.is_null()) {
+                            *media = compact_media(media);
+                        }
+                    }
+                }
+                if let Some(media) = result.get_mut("media").filter(|m| !m.is_null()) {
+                    *media = compact_media(media);
+                }
             }
+            "inspect_media" => *result = compact_media(result),
             _ => {}
         }
     }
@@ -702,6 +713,7 @@ fn compact_find(report: &Value, max_results: usize) -> Value {
             let mut compact = json!({
                 "search_index": candidate["search_index"],
                 "title": candidate["title"],
+                "reference": candidate["reference"],
                 "inspection_status": candidate["inspection_status"],
                 "inspection_error": candidate["inspection_error"],
             });
@@ -722,22 +734,10 @@ fn compact_find(report: &Value, max_results: usize) -> Value {
                         })
                     })
                     .collect();
-                let streams: Vec<Value> = media["streams"]
-                    .as_array()
-                    .map_or(&[][..], Vec::as_slice)
-                    .iter()
-                    .map(compact_stream)
-                    .collect();
                 compact["position"] = candidate["position"].clone();
                 compact["eligibility"] = candidate["eligibility"].clone();
                 compact["file"] = candidate["file"].clone();
-                compact["verified"] = json!({
-                    "container": media["format"]["name"],
-                    "duration_seconds": media["format"]["duration_seconds"],
-                    "file_size_bytes": media["format"]["file_size_bytes"],
-                    "overall_bitrate_bps": media["format"]["overall_bitrate_bps"]["value"],
-                    "streams": streams,
-                });
+                compact["verified"] = compact_media(media);
                 compact["unmet"] = json!(unmet);
             }
             compact
@@ -751,6 +751,23 @@ fn compact_find(report: &Value, max_results: usize) -> Value {
                  was not inspected: nothing about its streams is known, and the search \
                  claims for it are only what its release name says.",
         "search": compact_search(&report["search"], max_results),
+    })
+}
+
+/// What ffprobe read from a file, without read accounting and evidence labels.
+fn compact_media(media: &Value) -> Value {
+    let streams: Vec<Value> = media["streams"]
+        .as_array()
+        .map_or(&[][..], Vec::as_slice)
+        .iter()
+        .map(compact_stream)
+        .collect();
+    json!({
+        "container": media["format"]["name"],
+        "duration_seconds": media["format"]["duration_seconds"],
+        "file_size_bytes": media["format"]["file_size_bytes"],
+        "overall_bitrate_bps": media["format"]["overall_bitrate_bps"]["value"],
+        "streams": streams,
     })
 }
 
@@ -906,6 +923,34 @@ mod tests {
             "torrent_service_timeout"
         );
         assert!(compact.get("comparison").is_none());
+    }
+
+    #[test]
+    fn compact_inspections_keep_streams_and_failures_only() {
+        let mut response = json!({"status": "partial", "result": {
+        "torrent": {"name": "T", "files": []},
+        "inspections": [
+            {"file_id": 1, "media": {
+                "evidence_source": "ffprobe_media_headers", "read_requests": 1,
+                "format": {"name": "matroska", "file_size_bytes": 9,
+                           "overall_bitrate_bps": {"value": 5, "basis": "ffprobe_format"}},
+                "streams": [{"index": 1, "kind": "audio", "codec": "aac",
+                             "sample_rate_hz": 48000,
+                             "sample_bit_depth": {"basis": "unknown"},
+                             "payload_size_bytes": {"basis": "unknown"},
+                             "color_space": "bt709"}],
+                "limitations": ["visual_quality_not_measured"]}},
+            {"file_id": 2, "failure": {"code": "probe_timeout", "message": "m"}}
+        ]}});
+        compact_response("inspect_torrent", &mut response, 20, 200);
+        let inspections = &response["result"]["inspections"];
+        assert_eq!(
+            inspections[0]["media"],
+            json!({"container": "matroska", "file_size_bytes": 9, "overall_bitrate_bps": 5,
+                   "streams": [{"index": 1, "kind": "audio", "codec": "aac",
+                                "sample_rate_hz": 48000}]})
+        );
+        assert_eq!(inspections[1]["failure"]["code"], "probe_timeout");
     }
 
     #[test]
