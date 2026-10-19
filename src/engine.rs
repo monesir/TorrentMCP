@@ -120,7 +120,14 @@ impl SearchEngine {
         let mut reports = Vec::new();
         let mut collected = Vec::new();
         for outcome in outcomes {
-            reports.push(outcome.report);
+            let mut report = outcome.report;
+            if report.status != SourceStatus::Completed {
+                report.failure_kind = report
+                    .error
+                    .as_deref()
+                    .map(|error| crate::search::failure_kind(error).to_owned());
+            }
+            reports.push(report);
             collected.extend(outcome.results);
         }
         Ok(SearchReport {
@@ -164,6 +171,7 @@ pub fn empty_outcome(id: &str, status: SourceStatus, error: Option<String>) -> S
             limited: false,
             error,
             queried_category: None,
+            failure_kind: None,
         },
         results: Vec::new(),
     }
