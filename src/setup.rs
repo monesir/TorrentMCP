@@ -5,6 +5,10 @@
 //! agent that ships its own CLI for MCP registration (Claude Code, Codex)
 //! is configured through that CLI, because the agent itself also writes its
 //! configuration file while it runs; the others get their JSON file edited.
+//!
+//! The agent skill beside the executable (`skills/torrentx`) is copied into
+//! each agent's personal skill folder. A folder of the same name that setup
+//! did not write is left alone.
 
 use serde_json::{Value, json};
 use std::{
@@ -13,6 +17,9 @@ use std::{
 };
 
 pub const SERVER_NAME: &str = "torrentx";
+/// Every skill setup installs starts with this; a `torrentx` folder whose
+/// SKILL.md does not belongs to someone else.
+const SKILL_MANIFEST: &str = "---\nname: torrentx\n";
 
 #[derive(Debug, Clone)]
 pub struct Client {
@@ -21,6 +28,8 @@ pub struct Client {
     /// The client is installed when this path exists.
     marker: PathBuf,
     method: Method,
+    /// Where the agent reads personal skills.
+    skills: PathBuf,
 }
 
 #[derive(Debug, Clone)]
@@ -52,6 +61,12 @@ pub enum Change {
         path: PathBuf,
         /// None removes the entry.
         entry: Option<Value>,
+    },
+    /// Install (`source` Some) or remove the skill folder `destination`.
+    Skill {
+        clients: String,
+        source: Option<PathBuf>,
+        destination: PathBuf,
     },
     Unchanged {
         client: &'static str,
@@ -91,6 +106,20 @@ impl std::fmt::Display for Change {
                 "{client}: remove \"{SERVER_NAME}\" from mcpServers in {} (backup kept)",
                 path.display()
             ),
+            Self::Skill {
+                clients,
+                source: Some(_),
+                destination,
+            } => write!(
+                f,
+                "{clients}: install the skill in {}",
+                destination.display()
+            ),
+            Self::Skill {
+                clients,
+                source: None,
+                destination,
+            } => write!(f, "{clients}: remove the skill {}", destination.display()),
             Self::Unchanged { client, reason } => write!(f, "{client}: {reason}"),
         }
     }
@@ -139,6 +168,8 @@ pub fn clients(home: &Path, app_data: Option<&Path>) -> Vec<Client> {
     } else {
         under(home, ".config/Claude")
     };
+    // Agents without a skill folder of their own read the shared one.
+    let shared = under(home, ".agents/skills");
     vec![
         Client {
             id: "claude_code",
@@ -150,6 +181,7 @@ pub fn clients(home: &Path, app_data: Option<&Path>) -> Vec<Client> {
                 remove: &["mcp", "remove", "--scope", "user", SERVER_NAME],
                 fallback: home.join(".claude.json"),
             },
+            skills: under(home, ".claude/skills"),
         },
         Client {
             id: "codex",
@@ -161,30 +193,35 @@ pub fn clients(home: &Path, app_data: Option<&Path>) -> Vec<Client> {
                 remove: &["mcp", "remove", SERVER_NAME],
                 fallback: PathBuf::new(),
             },
+            skills: shared.clone(),
         },
         Client {
             id: "antigravity",
             name: "Antigravity",
             marker: under(home, ".gemini/config"),
             method: Method::Json(under(home, ".gemini/config/mcp_config.json")),
+            skills: under(home, ".gemini/config/skills"),
         },
         Client {
             id: "claude_desktop",
             name: "Claude Desktop",
             marker: claude_desktop.clone(),
             method: Method::Json(claude_desktop.join("claude_desktop_config.json")),
+            skills: shared.clone(),
         },
         Client {
             id: "gemini_cli",
             name: "Gemini CLI",
             marker: under(home, ".gemini/settings.json"),
             method: Method::Json(under(home, ".gemini/settings.json")),
+            skills: shared.clone(),
         },
         Client {
             id: "cursor",
             name: "Cursor",
             marker: home.join(".cursor"),
             method: Method::Json(under(home, ".cursor/mcp.json")),
+            skills: shared,
         },
     ]
 }
@@ -198,8 +235,20 @@ pub fn entry(exe: &Path) -> Value {
     json!({"command": exe.display().to_string(), "args": ["mcp"]})
 }
 
-/// What setup would do for these clients; nothing is changed yet.
-pub fn plan(clients: &[Client], exe: &Path, remove: bool) -> Vec<Change> {
+/// What setup would do for these clients; nothing is changed yet. `skill`
+/// adds the skill folders (removal always includes them).
+pub fn plan(clients: &[Client], exe: &Path, remove: bool, skill: bool) -> Vec<Change> {
+    let mut changes = registrations(clients, exe, remove);
+    if skill || remove {
+        let source = exe
+            .parent()
+            .map(|directory| under(directory, "skills/torrentx"));
+        changes.extend(skill_changes(clients, source.as_deref(), remove));
+    }
+    changes
+}
+
+fn registrations(clients: &[Client], exe: &Path, remove: bool) -> Vec<Change> {
     clients
         .iter()
         .map(|client| match &client.method {
@@ -241,6 +290,96 @@ pub fn plan(clients: &[Client], exe: &Path, remove: bool) -> Vec<Change> {
             Method::Json(path) => json_change(client.name, path, exe, remove),
         })
         .collect()
+}
+
+/// One change per skill folder; agents that share a folder share the change.
+fn skill_changes(clients: &[Client], source: Option<&Path>, remove: bool) -> Vec<Change> {
+    let mut folders: Vec<(PathBuf, Vec<&str>)> = Vec::new();
+    for client in clients {
+        let destination = client.skills.join(SERVER_NAME);
+        match folders.iter_mut().find(|(path, _)| *path == destination) {
+            Some((_, names)) => names.push(client.name),
+            None => folders.push((destination, vec![client.name])),
+        }
+    }
+    let source = source.filter(|s| s.join("SKILL.md").is_file());
+    folders
+        .into_iter()
+        .map(|(destination, names)| {
+            let label = names.join(", ");
+            let unchanged = |reason: String| Change::Unchanged {
+                client: "Skill",
+                reason: format!("{label}: {reason}"),
+            };
+            let present = destination.exists();
+            if present && !is_managed(&destination) {
+                return unchanged(format!(
+                    "{} was not installed by torrentx setup; left alone",
+                    destination.display()
+                ));
+            }
+            match (remove, source) {
+                (true, _) if !present => unchanged("no skill installed".into()),
+                (true, _) => Change::Skill {
+                    clients: label,
+                    source: None,
+                    destination,
+                },
+                (false, None) => unchanged("no skills/torrentx beside torrentx.exe".into()),
+                (false, Some(source)) if present && same_tree(source, &destination) => {
+                    unchanged("skill already up to date".into())
+                }
+                (false, Some(source)) => Change::Skill {
+                    clients: label,
+                    source: Some(source.into()),
+                    destination,
+                },
+            }
+        })
+        .collect()
+}
+
+fn is_managed(folder: &Path) -> bool {
+    std::fs::read_to_string(folder.join("SKILL.md"))
+        .is_ok_and(|text| text.replace("\r\n", "\n").starts_with(SKILL_MANIFEST))
+}
+
+/// Files under `root`, relative and sorted.
+fn files(root: &Path) -> std::io::Result<Vec<PathBuf>> {
+    let mut found = Vec::new();
+    let mut pending = vec![root.to_path_buf()];
+    while let Some(directory) = pending.pop() {
+        for item in std::fs::read_dir(&directory)? {
+            let path = item?.path();
+            if path.is_dir() {
+                pending.push(path);
+            } else if let Ok(relative) = path.strip_prefix(root) {
+                found.push(relative.to_path_buf());
+            }
+        }
+    }
+    found.sort();
+    Ok(found)
+}
+
+fn same_tree(a: &Path, b: &Path) -> bool {
+    match (files(a), files(b)) {
+        (Ok(left), Ok(right)) if left == right => left
+            .iter()
+            .all(|file| std::fs::read(a.join(file)).ok() == std::fs::read(b.join(file)).ok()),
+        _ => false,
+    }
+}
+
+fn copy_tree(source: &Path, destination: &Path) -> std::io::Result<()> {
+    for file in files(source)? {
+        let target = destination.join(&file);
+        if let Some(parent) = target.parent() {
+            std::fs::create_dir_all(parent)?;
+        }
+        std::fs::copy(source.join(&file), target)?;
+    }
+    Ok(())
 }
 
 fn json_change(client: &'static str, path: &Path, exe: &Path, remove: bool) -> Change {
@@ -285,6 +424,27 @@ fn read_json(path: &Path) -> Result<Option<Value>, String> {
 pub fn apply(change: &Change) -> Result<String, String> {
     match change {
         Change::Unchanged { client, reason } => Ok(format!("{client}: {reason}")),
+        Change::Skill {
+            clients,
+            source,
+            destination,
+        } => {
+            let fail = |error: std::io::Error| format!("{clients}: {error}");
+            // Copy beside the old folder, then swap, so an agent never reads
+            // half a skill.
+            let partial = destination.with_extension("torrentx-partial");
+            if let Some(source) = source {
+                let _ = std::fs::remove_dir_all(&partial);
+                copy_tree(source, &partial).map_err(fail)?;
+            }
+            if destination.exists() {
+                std::fs::remove_dir_all(destination).map_err(fail)?;
+            }
+            if source.is_some() {
+                std::fs::rename(&partial, destination).map_err(fail)?;
+            }
+            Ok(format!("{clients}: skill done"))
+        }
         Change::Run {
             client,
             program,
@@ -389,6 +549,7 @@ mod tests {
             name: "Test",
             marker: path.parent().unwrap().into(),
             method: Method::Json(path.into()),
+            skills: path.parent().unwrap().join("skills"),
         }
     }
 
@@ -404,7 +565,7 @@ mod tests {
         let exe = Path::new(r"C:\Tools\torrentx\torrentx.exe");
         let client = json_client(&path);
 
-        let changes = plan(std::slice::from_ref(&client), exe, false);
+        let changes = plan(std::slice::from_ref(&client), exe, false, false);
         assert!(matches!(
             changes[0],
             Change::EditJson { entry: Some(_), .. }
@@ -428,10 +589,10 @@ mod tests {
         assert_eq!(backups, 1);
 
         // Running setup again changes nothing.
-        let again = plan(std::slice::from_ref(&client), exe, false);
+        let again = plan(std::slice::from_ref(&client), exe, false, false);
         assert!(matches!(again[0], Change::Unchanged { .. }));
 
-        let removal = plan(std::slice::from_ref(&client), exe, true);
+        let removal = plan(std::slice::from_ref(&client), exe, true, false);
         apply(&removal[0]).unwrap();
         let written: Value =
             serde_json::from_str(&std::fs::read_to_string(&path).unwrap()).unwrap();
@@ -445,7 +606,7 @@ mod tests {
         let path = directory.path().join("new/mcp.json");
         let exe = Path::new("/opt/torrentx/torrentx");
         let client = json_client(&path);
-        apply(&plan(std::slice::from_ref(&client), exe, false)[0]).unwrap();
+        apply(&plan(std::slice::from_ref(&client), exe, false, false)[0]).unwrap();
         let written: Value =
             serde_json::from_str(&std::fs::read_to_string(&path).unwrap()).unwrap();
         assert_eq!(written["mcpServers"][SERVER_NAME]["args"], json!(["mcp"]));
@@ -458,6 +619,50 @@ mod tests {
         };
         assert!(apply(&change).unwrap_err().contains("not valid JSON"));
         assert_eq!(std::fs::read_to_string(&path).unwrap(), "{ not json");
+    }
+
+    #[test]
+    fn installs_updates_and_removes_only_its_own_skill() {
+        let bundle = tempfile::tempdir().unwrap();
+        let exe = bundle.path().join("torrentx.exe");
+        let source = bundle.path().join("skills").join("torrentx");
+        std::fs::create_dir_all(&source).unwrap();
+        std::fs::write(source.join("SKILL.md"), "---\nname: torrentx\n---\nv1").unwrap();
+        std::fs::write(source.join("anime.md"), "anime").unwrap();
+        let agent = tempfile::tempdir().unwrap();
+        let client = json_client(&agent.path().join("mcp.json"));
+        let installed = agent.path().join("skills").join("torrentx");
+        let skill_change = |remove| {
+            plan(std::slice::from_ref(&client), &exe, remove, true)
+                .pop()
+                .unwrap()
+        };
+
+        apply(&skill_change(false)).unwrap();
+        assert_eq!(
+            std::fs::read_to_string(installed.join("anime.md")).unwrap(),
+            "anime"
+        );
+        assert!(matches!(skill_change(false), Change::Unchanged { .. }));
+
+        std::fs::write(source.join("SKILL.md"), "---\nname: torrentx\n---\nv2").unwrap();
+        std::fs::write(installed.join("stale.md"), "old").unwrap();
+        apply(&skill_change(false)).unwrap();
+        assert!(
+            std::fs::read_to_string(installed.join("SKILL.md"))
+                .unwrap()
+                .ends_with("v2")
+        );
+        assert!(!installed.join("stale.md").exists());
+
+        apply(&skill_change(true)).unwrap();
+        assert!(!installed.exists());
+
+        // Someone else's folder of the same name is never touched.
+        std::fs::create_dir_all(&installed).unwrap();
+        std::fs::write(installed.join("SKILL.md"), "---\nname: other\n---").unwrap();
+        assert!(matches!(skill_change(false), Change::Unchanged { .. }));
+        assert!(matches!(skill_change(true), Change::Unchanged { .. }));
     }
 
     #[test]

@@ -10,7 +10,7 @@
 torrentx setup
 ```
 
-It detects the installed agents, shows every change, and applies nothing until you approve. Each file is backed up before it is edited (`<file>.torrentx-backup-<time>`). Restart the agent afterwards.
+It detects the installed agents and asks, for each one, whether to set torrentx up there, then whether to install the torrentx skill too. It shows every change and applies nothing until you approve. Each file is backed up before it is edited (`<file>.torrentx-backup-<time>`). Restart the agent afterwards.
 
 | Agent | Id | What setup does |
 | --- | --- | --- |
@@ -25,9 +25,12 @@ Claude Code and Codex are configured through their own CLIs, because each writes
 
 ```powershell
 torrentx setup --client antigravity,codex   # only these agents
-torrentx setup --yes                        # do not ask
-torrentx setup --remove                     # remove the registration
+torrentx setup --yes                        # do not ask: every agent found, with the skill
+torrentx setup --no-skill                   # register the server only
+torrentx setup --remove                     # remove the registration and the skill
 ```
+
+The skill teaches the agent how to use torrentx: which tool to call, what to do on each failure, and what to research first for anime, films, series and music. Setup copies `skills	orrentx` from the bundle to `~/.claude/skills` (Claude Code), `~/.gemini/config/skills` (Antigravity), or the shared `~/.agents/skills` (Codex and the others). A `torrentx` skill folder setup did not write is left alone.
 
 The registered path is the `torrentx.exe` setup ran from. Run setup again after moving the bundle.
 
