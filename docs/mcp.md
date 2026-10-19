@@ -30,7 +30,7 @@ torrentx setup --no-skill                   # تسجيل الخادم فقط
 torrentx setup --remove                     # إزالة التسجيل والمهارة
 ```
 
-المهارة تعلّم الوكيل استخدام torrentx: أي أداة يستدعي، وماذا يفعل عند كل فشل، وما الذي يبحث عنه أولا في الأنمي والأفلام والمسلسلات والموسيقى. ينسخ setup المجلد `skills	orrentx` من الحزمة إلى `~/.claude/skills` (Claude Code)، أو `~/.gemini/config/skills` (Antigravity)، أو المجلد المشترك `~/.agents/skills` (Codex والبقية). ولا يلمس مجلد مهارة باسم `torrentx` لم يكتبه هو.
+المهارة تعلّم الوكيل استخدام torrentx: أي أداة يستدعي، وماذا يفعل عند كل فشل، وما الذي يبحث عنه أولا في الأنمي والأفلام والمسلسلات والموسيقى. ينسخ setup المجلد `skills\torrentx` من الحزمة إلى `~/.claude/skills` (Claude Code)، أو `~/.gemini/config/skills` (Antigravity)، أو المجلد المشترك `~/.agents/skills` (Codex والبقية). ولا يلمس مجلد مهارة باسم `torrentx` لم يكتبه هو.
 
 المسار المسجل هو مسار `torrentx.exe` الذي شغلت منه setup. إذا نقلت الحزمة أعد تشغيل setup.
 
@@ -67,7 +67,7 @@ args = ["mcp"]
 | `inspect_torrent` | فحص ملفات محددة (`file_ids`) أو عينة (`sample_files`). |
 | `inspect_media` | فحص ملف وسائط محلي. |
 
-المدخلات هي حقول [عقد الإيجنت](agent-contract.md) نفسها دون `operation` و`schema_version`؛ الخادم يضيفهما. `search.category` افتراضيا `all`، و`search.sources` افتراضيا كل المصادر، في الخادم وفي سطر الأوامر.
+المدخلات هي حقول [عقد الإيجنت](agent-contract.md) نفسها دون `operation` و`schema_version`؛ الخادم يضيفهما. `search.category` افتراضيا `all`، و`search.sources` افتراضيا المصادر المناسبة للتصنيف (مصادر البالغين واللغة الواحدة والنسخ البديلة والمتقاعدة لا تعمل إلا إذا سميت)، في الخادم وفي سطر الأوامر.
 
 ### شكل الرد
 

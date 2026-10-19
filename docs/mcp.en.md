@@ -30,7 +30,7 @@ torrentx setup --no-skill                   # register the server only
 torrentx setup --remove                     # remove the registration and the skill
 ```
 
-The skill teaches the agent how to use torrentx: which tool to call, what to do on each failure, and what to research first for anime, films, series and music. Setup copies `skills	orrentx` from the bundle to `~/.claude/skills` (Claude Code), `~/.gemini/config/skills` (Antigravity), or the shared `~/.agents/skills` (Codex and the others). A `torrentx` skill folder setup did not write is left alone.
+The skill teaches the agent how to use torrentx: which tool to call, what to do on each failure, and what to research first for anime, films, series and music. Setup copies `skills\torrentx` from the bundle to `~/.claude/skills` (Claude Code), `~/.gemini/config/skills` (Antigravity), or the shared `~/.agents/skills` (Codex and the others). A `torrentx` skill folder setup did not write is left alone.
 
 The registered path is the `torrentx.exe` setup ran from. Run setup again after moving the bundle.
 
@@ -67,7 +67,7 @@ args = ["mcp"]
 | `inspect_torrent` | Inspect chosen files (`file_ids`) or a sample (`sample_files`). |
 | `inspect_media` | Inspect a local media file. |
 
-Arguments are the fields of the [agent contract](agent-contract.md) without `operation` and `schema_version`, which the server adds. `search.category` defaults to `all` and `search.sources` to every source, here and on the command line.
+Arguments are the fields of the [agent contract](agent-contract.md) without `operation` and `schema_version`, which the server adds. `search.category` defaults to `all` and `search.sources` to the sources suited to the category (adult, single-language, duplicate and retired sources run only when named), here and on the command line.
 
 ### Replies
 
