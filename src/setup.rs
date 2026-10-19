@@ -120,6 +120,13 @@ fn codex_add(exe: &Path) -> Vec<String> {
     ]
 }
 
+/// `relative` (written with `/`) under `base`, with the platform's separators.
+fn under(base: &Path, relative: &str) -> PathBuf {
+    relative
+        .split('/')
+        .fold(base.to_path_buf(), |path, part| path.join(part))
+}
+
 /// Every agent setup knows, whether or not it is installed.
 pub fn clients(home: &Path, app_data: Option<&Path>) -> Vec<Client> {
     let app_data = app_data
@@ -128,9 +135,9 @@ pub fn clients(home: &Path, app_data: Option<&Path>) -> Vec<Client> {
     let claude_desktop = if cfg!(windows) {
         app_data.join("Claude")
     } else if cfg!(target_os = "macos") {
-        home.join("Library/Application Support/Claude")
+        under(home, "Library/Application Support/Claude")
     } else {
-        home.join(".config/Claude")
+        under(home, ".config/Claude")
     };
     vec![
         Client {
@@ -158,8 +165,8 @@ pub fn clients(home: &Path, app_data: Option<&Path>) -> Vec<Client> {
         Client {
             id: "antigravity",
             name: "Antigravity",
-            marker: home.join(".gemini/config"),
-            method: Method::Json(home.join(".gemini/config/mcp_config.json")),
+            marker: under(home, ".gemini/config"),
+            method: Method::Json(under(home, ".gemini/config/mcp_config.json")),
         },
         Client {
             id: "claude_desktop",
@@ -170,14 +177,14 @@ pub fn clients(home: &Path, app_data: Option<&Path>) -> Vec<Client> {
         Client {
             id: "gemini_cli",
             name: "Gemini CLI",
-            marker: home.join(".gemini/settings.json"),
-            method: Method::Json(home.join(".gemini/settings.json")),
+            marker: under(home, ".gemini/settings.json"),
+            method: Method::Json(under(home, ".gemini/settings.json")),
         },
         Client {
             id: "cursor",
             name: "Cursor",
             marker: home.join(".cursor"),
-            method: Method::Json(home.join(".cursor/mcp.json")),
+            method: Method::Json(under(home, ".cursor/mcp.json")),
         },
     ]
 }
