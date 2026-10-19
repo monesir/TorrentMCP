@@ -87,3 +87,17 @@ In `search.sources`, each source reports `completed` or `failed` with its error.
 Many sources failing at once with connection resets (`os error 10054`), DNS errors or timeouts usually means the network blocks torrent sites. Tell the user rather than retrying.
 
 A failed inspection means nothing about that file's streams is known. Say it was not inspected; do not fill the gap from the release name or from memory.
+
+## 2. Know the field before searching
+
+Release names, sources and quality differ by field. Before the first search, decide which field the request belongs to and read its file in this folder:
+
+| The request is about | Read |
+| --- | --- |
+| Anime: TV series, OVA, ONA or anime films | [anime.md](anime.md) |
+
+The field file tells you what to look up on the web about the work, which kinds of release exist, how they are named, and which sources carry them. Do that research first, then build the request from what you learned: the right titles and aliases, the right season and episode numbering, the right sources and constraints.
+
+For a field with no file yet, still look the work up on the web first (official and alternative titles, year, seasons and episode counts) rather than searching on the user's wording alone.
+
+Keep what the web told you apart from what torrentx verified, and say which is which when you report.
