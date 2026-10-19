@@ -767,6 +767,8 @@ fn compact_stream(stream: &Value) -> Value {
         "component_bit_depth",
         "frame_rate",
         "hdr_signals",
+        "sample_rate_hz",
+        "sample_bit_depth",
         "channels",
         "channel_layout",
         "language",

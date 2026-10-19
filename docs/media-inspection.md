@@ -45,7 +45,7 @@ Content-Length: 262144
 
 - `evidence_source: ffprobe_media_headers`, `inspection_scope: bounded_header_probe`.
 - `format`: الحاوية والمدة المتاحة والحجم و`overall_bitrate_bps` للملف الإجمالي.
-- `streams`: فهرس ونوع كل مسار، الترميز وprofile، الدقة وتنسيق البكسل وعمق المكونات ومعدل الإطارات، بيانات اللون وإشارات HDR المتاحة، قنوات الصوت وتردد العينة واللغة والعنوان، dispositions وtags وside_data.
+- `streams`: فهرس ونوع كل مسار، الترميز وprofile، الدقة وتنسيق البكسل وعمق المكونات ومعدل الإطارات، بيانات اللون وإشارات HDR المتاحة، قنوات الصوت وتردد العينة وعمق العينة (`sample_bit_depth`، للترميز غير الفاقد فقط) واللغة والعنوان، dispositions وtags وside_data.
 - `bitrate_bps` مستقل لكل مسار. لا يستبدل بتريت الفيديو المفقود ببتريت الملف الإجمالي.
 - `payload_size_bytes` من وسم NUMBER_OF_BYTES إن وجد، وإلا مجهول. لا يفترض أن الحجم الزائد كله صوت.
 
