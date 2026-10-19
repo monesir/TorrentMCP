@@ -103,6 +103,7 @@ try {
     Copy-Item -LiteralPath $RqbitPath -Destination (Join-Path $torrentRuntime.FullName 'rqbit.exe')
     Copy-Item -LiteralPath $rqbitLicense -Destination (Join-Path $torrentRuntime.FullName 'LICENSE')
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'README.md') -Destination $bundlePath
+    Copy-Item -LiteralPath (Join-Path $workspaceRoot 'README.en.md') -Destination $bundlePath
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'examples') -Destination $bundlePath -Recurse
     # torrentx setup copies skills	orrentx into each agent's skill folder.
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'skills') -Destination $bundlePath -Recurse
@@ -122,7 +123,7 @@ try {
     # alongside the executable, including ports of GPL upstream search engines.
     $bundleSource = New-Item -ItemType Directory -Path (Join-Path $bundlePath 'source')
     foreach ($directory in @('src','tests','scripts','.cargo')) { Copy-Item -LiteralPath (Join-Path $workspaceRoot $directory) -Destination $bundleSource.FullName -Recurse }
-    foreach ($file in @('Cargo.toml','Cargo.lock','README.md','THIRD_PARTY_NOTICES.md')) { Copy-Item -LiteralPath (Join-Path $workspaceRoot $file) -Destination $bundleSource.FullName }
+    foreach ($file in @('Cargo.toml','Cargo.lock','README.md','README.en.md','THIRD_PARTY_NOTICES.md')) { Copy-Item -LiteralPath (Join-Path $workspaceRoot $file) -Destination $bundleSource.FullName }
     $provenance = [ordered]@{
         main_commit = '240b57a90ca4f9e3869151b73c76c46f1b7bb59b'
         wiki_commit = 'e00fd9cd551258290213e684d522bc5e06130a99'

@@ -729,6 +729,9 @@ fn compact_find(report: &Value, max_results: usize) -> Value {
                 "inspection_status": candidate["inspection_status"],
                 "inspection_error": candidate["inspection_error"],
             });
+            if candidate["attempts"].as_u64().is_some_and(|n| n > 1) {
+                compact["attempts"] = candidate["attempts"].clone();
+            }
             if let (true, Some(media), Some(evidence)) = (verified, media, evidence) {
                 let assessment = &evidence["assessment"];
                 let unmet: Vec<Value> = assessment["evaluations"]

@@ -446,6 +446,8 @@ pub struct FindCandidate {
     pub inspection_error: Option<AgentFailure>,
     pub file: Option<String>,
     pub elapsed_ms: u64,
+    /// 2 when the first inspection timed out and was resumed once.
+    pub attempts: u32,
 }
 
 #[derive(Debug, Serialize)]
@@ -858,17 +860,20 @@ async fn execute_find(
         .is_none()
         .then(|| TorrentPool::new(runtime.clone(), Duration::from_secs(600)));
     let session = pool.or(local.as_ref()).expect("a pool");
-    let inspections: Vec<(usize, SavedTorrentInspection)> =
+    let attempts: Vec<(usize, SavedTorrentInspection, u32)> =
         futures_util::stream::iter(picks.iter().copied())
             .map(|index| {
-                let operation = TorrentOperation::InspectFiles {
+                let reference = analyzed.results[index].result.reference.clone();
+                let inspection_limits = plan.inspection_limits.clone();
+                let selection = plan.selection.clone();
+                let operation = move || TorrentOperation::InspectFiles {
                     source: TorrentSource::Reference {
-                        reference: analyzed.results[index].result.reference.clone(),
+                        reference: reference.clone(),
                         resolve_http: true,
                     },
                     files: FileChoice::Sample(1),
-                    inspection_limits: plan.inspection_limits.clone(),
-                    selection: plan.selection.clone(),
+                    inspection_limits: inspection_limits.clone(),
+                    selection: selection.clone(),
                     parallel: 1,
                 };
                 let sources = sources.clone();
@@ -876,22 +881,43 @@ async fn execute_find(
                 let cancellation = cancellation.clone();
                 async move {
                     let started = std::time::Instant::now();
-                    let (report, error) = run_torrent(
-                        operation,
-                        sources,
-                        limits,
-                        runtime,
-                        Some(session),
-                        ffprobe,
-                        cancellation,
-                    )
-                    .await;
-                    (index, single_inspection(report, error, started.elapsed()))
+                    let mut attempt = 0;
+                    loop {
+                        attempt += 1;
+                        let (report, error) = run_torrent(
+                            operation(),
+                            sources.clone(),
+                            limits.clone(),
+                            runtime,
+                            Some(session),
+                            ffprobe,
+                            cancellation.clone(),
+                        )
+                        .await;
+                        let inspection = single_inspection(report, error, started.elapsed());
+                        // A header that arrived too slowly is resumed, not
+                        // restarted: the session kept what was downloaded, so
+                        // one more try usually finishes it.
+                        let slow = inspection
+                            .error
+                            .as_ref()
+                            .is_some_and(|e| e.code == "probe_timeout");
+                        if attempt == 1 && slow && !cancellation.is_cancelled() {
+                            continue;
+                        }
+                        return (index, inspection, attempt);
+                    }
                 }
             })
             .buffered(plan.inspect.parallel)
             .collect()
             .await;
+    let tries: std::collections::HashMap<usize, u32> =
+        attempts.iter().map(|(i, _, n)| (*i, *n)).collect();
+    let inspections: Vec<(usize, SavedTorrentInspection)> = attempts
+        .into_iter()
+        .map(|(index, inspection, _)| (index, inspection))
+        .collect();
     if let Some(local) = &local {
         let _ = local.shutdown().await;
     }
@@ -934,6 +960,7 @@ async fn execute_find(
                 inspection_error: inspection.error.clone(),
                 file: report.and_then(|r| r.file.as_ref()).map(|f| f.path.clone()),
                 elapsed_ms: inspection.elapsed_ms,
+                attempts: tries.get(&index).copied().unwrap_or(1),
             }
         })
         .collect();

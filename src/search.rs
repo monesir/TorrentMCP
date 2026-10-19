@@ -30,6 +30,10 @@ pub struct SourceDescriptor {
     /// Another plugin for the same site that default searches use instead.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub alternate_of: Option<String>,
+    /// Why the site no longer works (gone, seized, broken search). Retired
+    /// sources run only when named.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub retired: Option<String>,
 }
 
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
@@ -51,10 +55,15 @@ pub enum SourceScope {
 
 impl SourceDescriptor {
     /// Whether a search with no explicit sources should query this one.
-    /// Adult, single-language and duplicate-site plugins run only when named.
+    /// Adult, single-language, duplicate-site and retired plugins run only
+    /// when named.
     pub fn selected_by_default(&self, category: &str) -> bool {
         use SourceScope::*;
-        if self.scope == Adult || self.language.is_some() || self.alternate_of.is_some() {
+        if self.scope == Adult
+            || self.language.is_some()
+            || self.alternate_of.is_some()
+            || self.retired.is_some()
+        {
             return false;
         }
         match category {

@@ -376,6 +376,7 @@ async fn preserves_original_search_reference_when_resolving_details() {
         scope: Default::default(),
         language: None,
         alternate_of: None,
+        retired: None,
     }));
     let original = TorrentReference::Http {
         uri: "https://example.org/details/1".into(),
