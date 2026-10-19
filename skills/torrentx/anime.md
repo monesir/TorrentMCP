@@ -29,6 +29,8 @@ Find out:
 
 Which groups are active changes over the years: some stop, others start. Do not rely on memory; check on the web or on nyaa which groups released this work, and in which kind.
 
+The largest release is not the best one. A BDMV is huge but is a disc, not episodes to play. An HEVC 10-bit encode can match a much larger H.264 one. Extra dubs and subtitle tracks add size without adding picture. And an upscale from a low production resolution is large but no sharper. Judge by the verified streams and by what the user asked for, never by size alone.
+
 Ask yourself what the user wants: raw (no subtitles), subtitled in a language, dubbed, or the best picture. If it is not clear and it changes the search, ask once.
 
 ## 3. How names look

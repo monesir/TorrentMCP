@@ -95,9 +95,14 @@ Release names, sources and quality differ by field. Before the first search, dec
 | The request is about | Read |
 | --- | --- |
 | Anime: TV series, OVA, ONA or anime films | [anime.md](anime.md) |
+| Films (not anime) | [movies.md](movies.md) |
+| TV series (not anime) | [series.md](series.md) |
+| Music: albums, discographies, singles | [music.md](music.md) |
 
 The field file tells you what to look up on the web about the work, which kinds of release exist, how they are named, and which sources carry them. Do that research first, then build the request from what you learned: the right titles and aliases, the right season and episode numbering, the right sources and constraints.
 
 For a field with no file yet, still look the work up on the web first (official and alternative titles, year, seasons and episode counts) rather than searching on the user's wording alone.
+
+In every field, a bigger file is not a better one. Codec efficiency, extra audio and subtitle tracks, disc structures and upscales all change size without changing quality the same way. Compare verified streams against what the user asked for.
 
 Keep what the web told you apart from what torrentx verified, and say which is which when you report.
