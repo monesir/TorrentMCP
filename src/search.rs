@@ -184,6 +184,61 @@ pub struct SourceReport {
     /// Present when the site was searched with "all" instead of the requested category.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub queried_category: Option<String>,
+    /// For a failed source, what kind of failure `error` describes, so an
+    /// agent can tell a blocked network from a broken site; see `failure_kind`.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub failure_kind: Option<String>,
+}
+
+/// Classify a source error message:
+/// - `dns_failed`: the name did not resolve (a dead domain, or DNS blocking).
+/// - `connection_reset`: the connection was cut, typical of network blocking.
+/// - `network_unreachable`: no route to the site at all.
+/// - `timeout`: no answer in time.
+/// - `tls_failed`: the secure connection broke during setup.
+/// - `refused`: HTTP 401/403, usually bot protection.
+/// - `rate_limited`: HTTP 429.
+/// - `not_found`: HTTP 404/410, the site changed its search address.
+/// - `site_error`: HTTP 5xx, the site or its proxy is down.
+/// - `not_configured`: the source needs local setup first.
+/// - `other`: anything else; read `error`.
+pub fn failure_kind(error: &str) -> &'static str {
+    let error = error.to_ascii_lowercase();
+    let has = |needles: &[&str]| needles.iter().any(|n| error.contains(n));
+    if has(&["requires local", "not configured"]) {
+        "not_configured"
+    } else if has(&[
+        "dns error",
+        "no such host",
+        "getaddrinfo",
+        "name or service not known",
+        "failed to lookup address",
+    ]) {
+        "dns_failed"
+    } else if has(&[
+        "10054",
+        "forcibly closed",
+        "connection reset",
+        "reset by peer",
+    ]) {
+        "connection_reset"
+    } else if has(&["unreachable network", "network is unreachable", "10051"]) {
+        "network_unreachable"
+    } else if has(&["(429", " 429 "]) {
+        "rate_limited"
+    } else if has(&["(404", "(410"]) {
+        "not_found"
+    } else if has(&["(401", "(403"]) {
+        "refused"
+    } else if has(&["server error (5", "http 5"]) {
+        "site_error"
+    } else if has(&["handshake", "ssl", "tls", "certificate"]) {
+        "tls_failed"
+    } else if has(&["timed out", "timeout", "deadline exceeded"]) {
+        "timeout"
+    } else {
+        "other"
+    }
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -243,4 +298,51 @@ pub struct SearchReport {
     pub partial: bool,
     pub sources: Vec<SourceReport>,
     pub results: Vec<SearchResult>,
+}
+
+#[cfg(test)]
+mod tests {
+    use super::failure_kind;
+
+    #[test]
+    fn classifies_the_failures_seen_from_real_sources() {
+        for (error, kind) in [
+            (
+                "error sending request: client error (Connect): dns error: No such host is known. (os error 11001)",
+                "dns_failed",
+            ),
+            (
+                "error sending request: client error (Connect): An existing connection was forcibly closed by the remote host. (os error 10054)",
+                "connection_reset",
+            ),
+            (
+                "error sending request: client error (Connect): tcp connect error: A socket operation was attempted to an unreachable network. (os error 10051)",
+                "network_unreachable",
+            ),
+            ("error sending request: operation timed out", "timeout"),
+            (
+                "error sending request: client error (Connect): unexpected EOF during handshake",
+                "tls_failed",
+            ),
+            ("HTTP status client error (403 Forbidden)", "refused"),
+            (
+                "HTTP status client error (429 Too Many Requests)",
+                "rate_limited",
+            ),
+            ("HTTP status client error (404 Not Found)", "not_found"),
+            ("HTTP status server error (526 <none>)", "site_error"),
+            (
+                "HTTP status server error (503 Service Unavailable)",
+                "site_error",
+            ),
+            (
+                "Jackett requires local qbit/engines/jackett.json with url and api_key",
+                "not_configured",
+            ),
+            ("Source deadline exceeded", "timeout"),
+            ("unexpected page layout", "other"),
+        ] {
+            assert_eq!(failure_kind(error), kind, "{error}");
+        }
+    }
 }

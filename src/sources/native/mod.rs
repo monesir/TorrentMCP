@@ -462,6 +462,7 @@ impl SearchSource for NativeSource {
                 limited,
                 error,
                 queried_category: None,
+                failure_kind: None,
             },
             results,
         }
@@ -667,6 +668,7 @@ impl SearchSource for UnavailableNative {
                     "Native Rust implementation is not available; choose Python or auto".into(),
                 ),
                 queried_category: None,
+                failure_kind: None,
             },
         }
     }

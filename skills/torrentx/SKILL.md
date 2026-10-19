@@ -70,7 +70,7 @@ The MCP server returns a compact view by default. Ask for `view: "full"` only wh
 
 In a compact `find` reply, each candidate either has `verified` (the container and streams ffprobe read from its file) and `unmet` (the conditions that file did not meet), or it has `inspection_error` and nothing else. Only candidates with `verified` have a `position`.
 
-In `search.sources`, each source reports `completed` or `failed` with its error. Failed sources mean fewer results, not that the release does not exist.
+In `search.sources`, each source reports `completed` or `failed` with its error, and a failed one has a `failure_kind`. `search.source_failures` groups the failed sources by kind. Failed sources mean fewer results, not that the release does not exist.
 
 ### When something fails
 
@@ -84,7 +84,20 @@ In `search.sources`, each source reports `completed` or `failed` with its error.
 | `torrent_service_unavailable`, `torrent_service_failed` | The local torrent engine failed. | Retry once; if it persists, report the message. |
 | `invalid_request` | The request is malformed. | Fix the request from the message and call again. |
 
-Many sources failing at once with connection resets (`os error 10054`), DNS errors or timeouts usually means the network blocks torrent sites. Tell the user rather than retrying.
+Source failures by `failure_kind`:
+
+| Kind | Likely cause | What to say or do |
+| --- | --- | --- |
+| `dns_failed` | The domain is gone, or the network's DNS blocks it. | Several at once: the network blocks torrent sites by DNS. |
+| `connection_reset`, `network_unreachable` | The network blocks the site. | Say the site is blocked from this network. |
+| `refused` | Bot protection (often Cloudflare). | Nothing to retry; the site refuses automated requests. |
+| `rate_limited` | Too many requests. | Retry later, not now. |
+| `not_found` | The site changed its search address. | Nothing to retry; torrentx needs an update for it. |
+| `site_error` | The site or its proxy is down. | Retry later. |
+| `timeout`, `tls_failed` | Slow, overloaded, or filtered. | One retry at most. |
+| `not_configured` | Needs local setup (Jackett). | Ignore unless the user set it up. |
+
+When an important source for the field fails (for anime, `nyaasi`), say so: the search is missing its main source, and the best release may not be in the results. Do not retry blocked sources in a loop.
 
 A failed inspection means nothing about that file's streams is known. Say it was not inspected; do not fill the gap from the release name or from memory.
 
