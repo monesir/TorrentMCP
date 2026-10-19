@@ -712,6 +712,7 @@ mod tests {
             scope: Default::default(),
             language: None,
             alternate_of: None,
+            retired: None,
         }
     }
 

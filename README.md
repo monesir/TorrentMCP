@@ -1,5 +1,7 @@
 # محرك بحث تورنت محلي
 
+[English](README.en.md)
+
 خدمة بحث وتحليل محلية للإيجنت: محرك Rust، وموصل لإضافات qBittorrent، وواجهة CLI بعقد JSON. الحزمة المحمولة لـWindows تضم Python وتعمل دون تثبيت qBittorrent أو Python.
 
 ## الاستخدام من الحزمة المحمولة

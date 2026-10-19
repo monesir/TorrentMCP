@@ -366,6 +366,9 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
                     if let Some(primary) = &descriptor.alternate_of {
                         notes.push(format!("alternate_of={primary}"));
                     }
+                    if descriptor.retired.is_some() {
+                        notes.push("retired".into());
+                    }
                     println!(
                         "{}\t{}\t{:?}\t{}\t{}",
                         descriptor.id,

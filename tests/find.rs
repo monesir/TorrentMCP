@@ -84,6 +84,7 @@ fn sources() -> Vec<Arc<dyn SearchSource>> {
         scope: Default::default(),
         language: None,
         alternate_of: None,
+        retired: None,
     }))]
 }
 

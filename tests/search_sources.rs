@@ -249,7 +249,7 @@ async fn import_failures_and_unsupported_categories_have_explicit_states() {
 }
 
 #[test]
-fn default_selection_skips_adult_regional_and_off_topic_sources() {
+fn default_selection_skips_adult_regional_retired_and_off_topic_sources() {
     use torrent_search::{SourceDescriptor, SourceScope};
     let source = |scope, language: Option<&str>| SourceDescriptor {
         id: "s".into(),
@@ -260,6 +260,7 @@ fn default_selection_skips_adult_regional_and_off_topic_sources() {
         scope,
         language: language.map(Into::into),
         alternate_of: None,
+        retired: None,
     };
     let general = source(SourceScope::General, None);
     assert!(general.selected_by_default("tv"));
@@ -271,6 +272,11 @@ fn default_selection_skips_adult_regional_and_off_topic_sources() {
     assert!(!source(SourceScope::Academic, None).selected_by_default("movies"));
     assert!(!source(SourceScope::Adult, None).selected_by_default("all"));
     assert!(!source(SourceScope::Video, Some("es")).selected_by_default("movies"));
+    let retired = SourceDescriptor {
+        retired: Some("the domain no longer resolves".into()),
+        ..source(SourceScope::General, None)
+    };
+    assert!(!retired.selected_by_default("all"));
 }
 
 #[tokio::test]
