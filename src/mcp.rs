@@ -768,13 +768,16 @@ fn compact_find(report: &Value, max_results: usize) -> Value {
 
 /// What ffprobe read from a file, without read accounting and evidence labels.
 fn compact_media(media: &Value) -> Value {
-    let streams: Vec<Value> = media["streams"]
-        .as_array()
-        .map_or(&[][..], Vec::as_slice)
+    let all = media["streams"].as_array().map_or(&[][..], Vec::as_slice);
+    // Attachments are fonts for styled subtitles: count them, do not list them.
+    let attachments = all.iter().filter(|s| s["kind"] == "attachment").count();
+    let streams: Vec<Value> = all
         .iter()
+        .filter(|s| s["kind"] != "attachment")
         .map(compact_stream)
         .collect();
     json!({
+        "attachments": (attachments > 0).then_some(attachments),
         "container": media["format"]["name"],
         "duration_seconds": media["format"]["duration_seconds"],
         "file_size_bytes": media["format"]["file_size_bytes"],
@@ -950,7 +953,8 @@ mod tests {
                              "sample_rate_hz": 48000,
                              "sample_bit_depth": {"basis": "unknown"},
                              "payload_size_bytes": {"basis": "unknown"},
-                             "color_space": "bt709"}],
+                             "color_space": "bt709"},
+                            {"index": 2, "kind": "attachment", "codec": "ttf"}],
                 "limitations": ["visual_quality_not_measured"]}},
             {"file_id": 2, "failure": {"code": "probe_timeout", "message": "m"}}
         ]}});
@@ -958,7 +962,7 @@ mod tests {
         let inspections = &response["result"]["inspections"];
         assert_eq!(
             inspections[0]["media"],
-            json!({"container": "matroska", "file_size_bytes": 9, "overall_bitrate_bps": 5,
+            json!({"attachments": 1, "container": "matroska", "file_size_bytes": 9, "overall_bitrate_bps": 5,
                    "streams": [{"index": 1, "kind": "audio", "codec": "aac",
                                 "sample_rate_hz": 48000}]})
         );

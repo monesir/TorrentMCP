@@ -92,6 +92,7 @@ Source failures by `failure_kind`:
 | `connection_reset`, `network_unreachable` | The network blocks the site. | Say the site is blocked from this network. |
 | `refused` | Bot protection (often Cloudflare). | Nothing to retry; the site refuses automated requests. |
 | `rate_limited` | Too many requests. | Retry later, not now. |
+| `not_found` | The site changed its search address. | Nothing to retry; torrentx needs an update for it. |
 | `site_error` | The site or its proxy is down. | Retry later. |
 | `timeout`, `tls_failed` | Slow, overloaded, or filtered. | One retry at most. |
 | `not_configured` | Needs local setup (Jackett). | Ignore unless the user set it up. |

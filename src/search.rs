@@ -198,6 +198,7 @@ pub struct SourceReport {
 /// - `tls_failed`: the secure connection broke during setup.
 /// - `refused`: HTTP 401/403, usually bot protection.
 /// - `rate_limited`: HTTP 429.
+/// - `not_found`: HTTP 404/410, the site changed its search address.
 /// - `site_error`: HTTP 5xx, the site or its proxy is down.
 /// - `not_configured`: the source needs local setup first.
 /// - `other`: anything else; read `error`.
@@ -225,6 +226,8 @@ pub fn failure_kind(error: &str) -> &'static str {
         "network_unreachable"
     } else if has(&["(429", " 429 "]) {
         "rate_limited"
+    } else if has(&["(404", "(410"]) {
+        "not_found"
     } else if has(&["(401", "(403"]) {
         "refused"
     } else if has(&["server error (5", "http 5"]) {
@@ -326,6 +329,7 @@ mod tests {
                 "HTTP status client error (429 Too Many Requests)",
                 "rate_limited",
             ),
+            ("HTTP status client error (404 Not Found)", "not_found"),
             ("HTTP status server error (526 <none>)", "site_error"),
             (
                 "HTTP status server error (503 Service Unavailable)",
