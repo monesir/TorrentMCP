@@ -125,9 +125,14 @@ enum Action {
             help = "Only these agents: claude_code, codex, antigravity, claude_desktop, gemini_cli, cursor"
         )]
         clients: Vec<String>,
-        #[arg(long, help = "Apply without asking")]
+        #[arg(
+            long,
+            help = "Apply without asking: every agent found (or --client), with the skill"
+        )]
         yes: bool,
-        #[arg(long, help = "Remove the registration instead")]
+        #[arg(long, help = "Do not install the agent skill")]
+        no_skill: bool,
+        #[arg(long, help = "Remove the registration and the skill instead")]
         remove: bool,
     },
     /// Inspect or stop the running daemon.
@@ -216,10 +221,11 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
     if let Action::Setup {
         clients,
         yes,
+        no_skill,
         remove,
     } = &cli.command
     {
-        return setup(clients, *yes, *remove);
+        return setup(clients, *yes, *no_skill, *remove);
     }
     let executable = std::env::current_exe()?;
     let directory = executable.parent().expect("Executable has a directory");
@@ -466,7 +472,18 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
     result
 }
 
-fn setup(selected: &[String], yes: bool, remove: bool) -> Result<u8, SearchError> {
+/// Ask on stderr; an empty answer takes `default`.
+fn ask(question: &str, default: bool) -> std::io::Result<bool> {
+    eprint!("{question} {} ", if default { "[Y/n]" } else { "[y/N]" });
+    let mut answer = String::new();
+    std::io::stdin().read_line(&mut answer)?;
+    Ok(match answer.trim() {
+        "" => default,
+        answer => matches!(answer, "y" | "Y" | "yes" | "Yes"),
+    })
+}
+
+fn setup(selected: &[String], yes: bool, no_skill: bool, remove: bool) -> Result<u8, SearchError> {
     use torrent_search::setup::{Change, apply, clients, installed, plan};
     let home = std::env::var_os("USERPROFILE")
         .or_else(|| std::env::var_os("HOME"))
@@ -479,16 +496,41 @@ fn setup(selected: &[String], yes: bool, remove: bool) -> Result<u8, SearchError
             "Unknown agent: {unknown}"
         )));
     }
-    let chosen: Vec<_> = installed(all)
+    let found: Vec<_> = installed(all)
         .into_iter()
         .filter(|c| selected.is_empty() || selected.iter().any(|id| id == c.id))
         .collect();
-    if chosen.is_empty() {
+    if found.is_empty() {
         eprintln!("No supported agent found. See docs/mcp.md to register manually.");
         return Ok(1);
     }
+    // Agents named with --client, or --yes, need no question; otherwise ask
+    // for each agent found, then for the skill.
+    let interactive = !yes && selected.is_empty();
+    let verb = if remove {
+        "Remove torrentx from"
+    } else {
+        "Set up torrentx in"
+    };
+    let mut chosen = Vec::new();
+    for client in found {
+        if !interactive || ask(&format!("{verb} {}?", client.name), true)? {
+            chosen.push(client);
+        }
+    }
+    if chosen.is_empty() {
+        eprintln!("No agent chosen; nothing changed.");
+        return Ok(0);
+    }
+    let skill = !remove
+        && !no_skill
+        && (yes
+            || ask(
+                "Also install the torrentx skill (how to search, inspect and report) for these agents?",
+                true,
+            )?);
     let exe = std::env::current_exe()?;
-    let changes = plan(&chosen, &exe, remove);
+    let changes = plan(&chosen, &exe, remove, skill);
     eprintln!("torrentx MCP server: {} mcp", exe.display());
     for change in &changes {
         eprintln!("  {change}");
@@ -500,14 +542,9 @@ fn setup(selected: &[String], yes: bool, remove: bool) -> Result<u8, SearchError
         eprintln!("Nothing to change.");
         return Ok(0);
     }
-    if !yes {
-        eprint!("Apply these changes? [y/N] ");
-        let mut answer = String::new();
-        std::io::stdin().read_line(&mut answer)?;
-        if !matches!(answer.trim(), "y" | "Y" | "yes") {
-            eprintln!("Nothing changed.");
-            return Ok(1);
-        }
+    if !yes && !ask("Apply these changes?", true)? {
+        eprintln!("Nothing changed.");
+        return Ok(1);
     }
     let mut failed = false;
     for change in &changes {

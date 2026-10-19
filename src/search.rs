@@ -85,9 +85,16 @@ impl SourceDescriptor {
 #[serde(deny_unknown_fields)]
 pub struct SearchRequest {
     pub query: String,
+    /// Omitted means `all`.
+    #[serde(default = "all_categories")]
     pub category: String,
-    /// Empty selects all registered sources. Unknown identifiers are errors.
+    /// Empty or omitted selects all registered sources. Unknown identifiers are errors.
+    #[serde(default)]
     pub sources: Vec<String>,
+}
+
+fn all_categories() -> String {
+    "all".into()
 }
 
 impl SearchRequest {

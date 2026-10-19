@@ -44,7 +44,7 @@
 
 `inspect_media`: الحقول المطلوبة `schema_version: 1`, `operation: "inspect_media"`, `media`. يفحص ملفا محليا أو نطاقات من خدمة تنزيل محلية؛ يحمل `result` تقرير وسائط بدل تقرير البحث. التفاصيل في [فحص الوسائط](media-inspection.md).
 
-`search`: الحقول المطلوبة `schema_version: 1`, `operation: "search"`, `search`, `analysis`. يحتوي `search` على `query` و`category` و`sources`؛ المصفوفة الفارغة تختار المصادر المسجلة كلها. التصنيفات: all, anime, books, games, movies, music, pictures, software, tv. المعرفات الحالية: torrentscsv, limetorrents. المعرف المجهول خطأ، ولا يجري تجاهله.
+`search`: الحقول المطلوبة `schema_version: 1`, `operation: "search"`, `search`, `analysis`. يحتوي `search` على `query` و`category` و`sources`. `category` افتراضيا `all`، و`sources` إذا حذفت أو كانت فارغة تختار المصادر المسجلة كلها. التصنيفات: all, anime, books, games, movies, music, pictures, software, tv. `torrentx sources` يعرض المعرفات المتاحة. المعرف المجهول خطأ، ولا يجري تجاهله.
 
 `limits` اختياري. الافتراضات: `timeout_seconds: 20`, `parallel_sources: 4`, `results_per_source: 100`. الحدود على الترتيب 1..120، 1..16، 1..1000. المهلة والحد لكل مصدر. نتائج المصدر التي وصلت قبل فشله تبقى في التقرير.
 

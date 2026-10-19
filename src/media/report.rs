@@ -22,6 +22,10 @@ impl<T> MediaValue<T> {
     }
 }
 
+fn unknown_value() -> MediaValue<u64> {
+    MediaValue::new(None, "unknown")
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MediaFormat {
     pub name: Option<String>,
@@ -46,6 +50,10 @@ pub struct MediaStream {
     pub color_space: Option<String>,
     pub hdr_signals: Vec<String>,
     pub sample_rate_hz: Option<u64>,
+    /// Bits per audio sample as the codec stores them; lossless codecs report
+    /// it, lossy ones have none.
+    #[serde(default = "unknown_value")]
+    pub sample_bit_depth: MediaValue<u64>,
     pub channels: Option<u64>,
     pub channel_layout: Option<String>,
     pub language: Option<String>,
@@ -203,6 +211,11 @@ fn stream(raw: &Value) -> Option<MediaStream> {
         }
     }
     let kind = text(raw, "codec_type").unwrap_or_else(|| "unknown".into());
+    let sample_bit_depth = if kind == "audio" {
+        MediaValue::new(positive(raw, "bits_per_raw_sample"), "ffprobe_stream")
+    } else {
+        unknown_value()
+    };
     Some(MediaStream {
         index,
         component_bit_depth: if kind == "video" {
@@ -222,6 +235,7 @@ fn stream(raw: &Value) -> Option<MediaStream> {
         color_space: text(raw, "color_space"),
         hdr_signals,
         sample_rate_hz: positive(raw, "sample_rate"),
+        sample_bit_depth,
         channels: positive(raw, "channels"),
         channel_layout: text(raw, "channel_layout"),
         language: tag(&tags, "language").and_then(language),
@@ -395,6 +409,17 @@ mod tests {
             "derived_from_pixel_format"
         );
         assert_eq!(report.streams[0].hdr_signals, vec!["pq_transfer"]);
+        assert_eq!(report.streams[1].sample_bit_depth.value, None);
+    }
+
+    #[test]
+    fn reports_lossless_audio_sample_depth() {
+        let report = build_report(json!({"format":{},"streams":[
+            {"index":0,"codec_type":"audio","codec_name":"flac","sample_rate":"96000","bits_per_raw_sample":"24","channels":2}
+        ]}), &StreamSelection::default(), 1000, "local_file").unwrap();
+        assert_eq!(report.streams[0].sample_bit_depth.value, Some(24));
+        assert_eq!(report.streams[0].sample_rate_hz, Some(96000));
+        assert_eq!(report.streams[0].component_bit_depth.value, None);
     }
 
     #[test]
