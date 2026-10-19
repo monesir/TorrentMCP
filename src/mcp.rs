@@ -575,11 +575,7 @@ fn compact_response(tool: &str, response: &mut Value, max_results: usize, max_fi
     if let Some(result) = response.get_mut("result").filter(|r| !r.is_null()) {
         match tool {
             "search" => *result = compact_search(result, max_results),
-            "find" => {
-                if let Some(search) = result.get_mut("search") {
-                    *search = compact_search(search, max_results);
-                }
-            }
+            "find" => *result = compact_find(result, max_results),
             "torrent_files" | "inspect_torrent" => {
                 if let Some(torrent) = result.get_mut("torrent").filter(|t| !t.is_null()) {
                     let files = if tool == "torrent_files" {
@@ -692,6 +688,106 @@ fn compact_search(report: &Value, max_results: usize) -> Value {
     })
 }
 
+/// Each candidate carries its own evidence: the streams read from its file and
+/// the conditions that file did not meet. A candidate whose file was not read
+/// gets no position, so nothing in the reply ranks what was never inspected.
+fn compact_find(report: &Value, max_results: usize) -> Value {
+    let compared = report["comparison"]["results"]
+        .as_array()
+        .map_or(&[][..], Vec::as_slice);
+    let candidates: Vec<Value> = report["candidates"]
+        .as_array()
+        .map_or(&[][..], Vec::as_slice)
+        .iter()
+        .map(|candidate| {
+            let evidence = compared.iter().find(|c| c["id"] == candidate["id"]);
+            let media = evidence.map(|c| &c["inspection"]["result"]["media"]);
+            let verified = media.is_some_and(|m| !m.is_null());
+            let mut compact = json!({
+                "search_index": candidate["search_index"],
+                "title": candidate["title"],
+                "inspection_status": candidate["inspection_status"],
+                "inspection_error": candidate["inspection_error"],
+            });
+            if let (true, Some(media), Some(evidence)) = (verified, media, evidence) {
+                let assessment = &evidence["assessment"];
+                let unmet: Vec<Value> = assessment["evaluations"]
+                    .as_array()
+                    .map_or(&[][..], Vec::as_slice)
+                    .iter()
+                    .filter(|e| e["state"] != "match")
+                    .map(|e| {
+                        json!({
+                            "field": e["field"],
+                            "state": e["state"],
+                            "expected": e["expected"],
+                            "observed": e["observed"],
+                            "reason_code": e["reason_code"],
+                        })
+                    })
+                    .collect();
+                let streams: Vec<Value> = media["streams"]
+                    .as_array()
+                    .map_or(&[][..], Vec::as_slice)
+                    .iter()
+                    .map(compact_stream)
+                    .collect();
+                compact["position"] = candidate["position"].clone();
+                compact["eligibility"] = candidate["eligibility"].clone();
+                compact["file"] = candidate["file"].clone();
+                compact["verified"] = json!({
+                    "container": media["format"]["name"],
+                    "duration_seconds": media["format"]["duration_seconds"],
+                    "file_size_bytes": media["format"]["file_size_bytes"],
+                    "overall_bitrate_bps": media["format"]["overall_bitrate_bps"]["value"],
+                    "streams": streams,
+                });
+                compact["unmet"] = json!(unmet);
+            }
+            compact
+        })
+        .collect();
+    let comparison = &report["comparison"];
+    json!({
+        "candidates": candidates,
+        "ranking_criteria": comparison["ranking_criteria"],
+        "note": "`verified` was read from each file with ffprobe. A candidate without it \
+                 was not inspected: nothing about its streams is known, and the search \
+                 claims for it are only what its release name says.",
+        "search": compact_search(&report["search"], max_results),
+    })
+}
+
+/// The stream facts an agent compares; measured values lose their `basis`.
+fn compact_stream(stream: &Value) -> Value {
+    let mut compact = Map::new();
+    for key in [
+        "index",
+        "kind",
+        "codec",
+        "profile",
+        "width",
+        "height",
+        "component_bit_depth",
+        "frame_rate",
+        "hdr_signals",
+        "channels",
+        "channel_layout",
+        "language",
+        "title",
+        "bitrate_bps",
+        "dispositions",
+    ] {
+        let value = &stream[key];
+        let value = match value.get("basis") {
+            Some(_) => value["value"].clone(),
+            None => value.clone(),
+        };
+        compact.insert(key.into(), value);
+    }
+    Value::Object(compact)
+}
+
 fn compact_torrent(torrent: &Value, max_files: usize) -> Value {
     let files = torrent["files"].as_array().map_or(&[][..], Vec::as_slice);
     let media: Vec<&Value> = files
@@ -760,6 +856,58 @@ mod tests {
             value,
             json!({"stream": {"codec": "hevc", "dispositions": ["default"]}, "zero": 0, "no": false})
         );
+    }
+
+    #[test]
+    fn compact_find_ranks_only_what_was_read() {
+        let report = json!({
+            "search": {"results": []},
+            "candidates": [
+                {"id": "a", "search_index": 0, "title": "A", "position": 1,
+                 "eligibility": "excluded", "inspection_status": "completed", "file": "a.mkv"},
+                {"id": "b", "search_index": 1, "title": "B", "position": null,
+                 "inspection_status": "failed",
+                 "inspection_error": {"code": "torrent_service_timeout", "message": "m"}}
+            ],
+            "comparison": {"ranking_criteria": ["video_codecs"], "results": [
+                {"id": "b", "position": 2, "inspection": {"result": {}},
+                 "assessment": {"evaluations": []}},
+                {"id": "a", "position": 1,
+                 "inspection": {"result": {"media": {
+                     "format": {"name": "matroska", "file_size_bytes": 9,
+                                "overall_bitrate_bps": {"value": 5, "basis": "container"}},
+                     "streams": [{"index": 0, "kind": "video", "codec": "hevc", "height": 720,
+                                  "side_data": [1],
+                                  "component_bit_depth": {"value": 10, "basis": "pixel_format"}}]}}},
+                 "assessment": {"evaluations": [
+                     {"field": "min_video_height", "state": "mismatch", "expected": 800,
+                      "observed": 720, "reason_code": "below_minimum", "reason": "long"},
+                     {"field": "inspection_complete", "state": "match"}]}}
+            ]}
+        });
+        let mut compact = compact_find(&report, 20);
+        tidy(&mut compact);
+        let [read, unread] = compact["candidates"].as_array().unwrap().as_slice() else {
+            panic!("two candidates")
+        };
+        assert_eq!(read["position"], 1);
+        assert_eq!(read["verified"]["overall_bitrate_bps"], 5);
+        assert_eq!(
+            read["verified"]["streams"],
+            json!([{"index": 0, "kind": "video", "codec": "hevc", "height": 720,
+                    "component_bit_depth": 10}])
+        );
+        assert_eq!(
+            read["unmet"],
+            json!([{"field": "min_video_height", "state": "mismatch", "expected": 800,
+                    "observed": 720, "reason_code": "below_minimum"}])
+        );
+        assert!(unread.get("position").is_none() && unread.get("verified").is_none());
+        assert_eq!(
+            unread["inspection_error"]["code"],
+            "torrent_service_timeout"
+        );
+        assert!(compact.get("comparison").is_none());
     }
 
     #[test]

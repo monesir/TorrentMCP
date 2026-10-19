@@ -70,6 +70,8 @@ Arguments are the fields of the [agent contract](agent-contract.md) without `ope
 
 By default the server returns a compact view: the first 20 search results (`max_results`), each with title, reference, size, seeders, eligibility, reasons for exclusion, and what the name claims under `claimed`. File lists show video and audio files only (`max_files`, default 200). Empty values and container tags are dropped. A 20-result search is about 20 KB instead of 270 KB in full. `view: "full"` returns the complete agent response.
 
+A compact `find` lists each candidate with its own evidence: `verified` holds the container and streams ffprobe read from its file, `unmet` the conditions that file did not meet. A candidate whose file was not read has no `verified` and no `position`, only `inspection_error`.
+
 `isError` is true for `error`, `failed` and `cancelled`. `partial` is not an error: the results are real and some are missing.
 
 ### What the agent reads on connecting
