@@ -17,6 +17,7 @@
     "directory": "npm"
   },
   "bugs": "https://github.com/monesir/TorrentMCP/issues",
+  "license": "MIT",
   "bin": {
     "torrentx": "bin/torrentx.js",
     "torrentx-mcp": "bin/torrentx.js"
@@ -24,7 +25,8 @@
   "files": [
     "bin",
     "release.json",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "os": [
     "win32"
