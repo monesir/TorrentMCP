@@ -318,6 +318,18 @@ impl NativeSource {
         {
             return Ok((magnet.to_owned(), response.url().to_string()));
         }
+        // Cloudflare's "Just a moment..." page needs a browser to run its
+        // script; say so rather than a bare 403.
+        if response
+            .headers()
+            .get("cf-mitigated")
+            .is_some_and(|value| value.as_bytes().eq_ignore_ascii_case(b"challenge"))
+        {
+            return Err(runtime(format!(
+                "HTTP {}: Cloudflare bot challenge; the site admits only a real browser",
+                response.status().as_u16()
+            )));
+        }
         response = response.error_for_status().map_err(http_error)?;
         let charset = response
             .headers()

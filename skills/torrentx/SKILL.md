@@ -90,7 +90,8 @@ Source failures by `failure_kind`:
 | --- | --- | --- |
 | `dns_failed` | The name did not resolve through the system DNS nor through encrypted DNS: the domain is probably gone. | Say the site seems to be gone. |
 | `connection_reset`, `network_unreachable` | The network blocks the site. | Say the site is blocked from this network. |
-| `refused` | Bot protection (often Cloudflare). | Nothing to retry; the site refuses automated requests. |
+| `bot_challenge` | Cloudflare's browser check: the site admits only a real browser. | Nothing to retry; torrentx does not get past it. |
+| `refused` | The site refused the request (HTTP 401/403). | Nothing to retry. |
 | `rate_limited` | Too many requests. | Retry later, not now. |
 | `not_found` | The site changed its search address. | Nothing to retry; torrentx needs an update for it. |
 | `site_error` | The site or its proxy is down. | Retry later. |
