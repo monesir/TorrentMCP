@@ -8,8 +8,8 @@ use crate::{
     },
     media::{MediaInspectionReport, MediaInspectionRequest, inspect_media},
     torrent::{
-        FileChoice, TorrentCatalog, TorrentFailure, TorrentOperation, TorrentOperationReport,
-        TorrentPool, TorrentRuntime, TorrentServiceLimits, TorrentSource,
+        FileChoice, FileInspection, TorrentCatalog, TorrentFailure, TorrentOperation,
+        TorrentOperationReport, TorrentPool, TorrentRuntime, TorrentServiceLimits, TorrentSource,
     },
 };
 use serde::{Deserialize, Serialize};
@@ -91,8 +91,8 @@ pub enum AgentRequest {
         #[serde(default)]
         analysis: Option<MediaAnalysisRequest>,
     },
-    /// Search, inspect one representative file of each leading candidate, and
-    /// compare their actual streams. "Best" is whatever the agent's own
+    /// Search, inspect sampled files of each leading candidate, compare their
+    /// actual streams, and read the episodes its file list holds. "Best" is whatever the agent's own
     /// constraints and preferences say; nothing is assumed beyond them.
     Find {
         schema_version: u32,
@@ -122,8 +122,14 @@ pub struct FindInspection {
     pub candidates: usize,
     /// Also inspect results whose names leave a constraint undecided.
     pub include_uncertain: bool,
-    /// Candidates inspected at once, 1..4.
+    /// Candidates inspected at once, 1..4. They share one connection: on a
+    /// home line two candidates of three files each already starve every
+    /// read into probe_timeout, so the default is one at a time.
     pub parallel: usize,
+    /// Files read from each candidate, 1..4, spread over its episodes (first,
+    /// middle, last). The middle one is compared; the others are checked for
+    /// the same streams.
+    pub sample_files: usize,
 }
 
 impl Default for FindInspection {
@@ -131,7 +137,8 @@ impl Default for FindInspection {
         Self {
             candidates: 3,
             include_uncertain: false,
-            parallel: 2,
+            parallel: 1,
+            sample_files: 3,
         }
     }
 }
@@ -358,10 +365,12 @@ impl AgentRequest {
                     ));
                 }
                 limits.search_limits().validate()?;
-                if inspect.candidates > MAX_FIND_CANDIDATES || !(1..=4).contains(&inspect.parallel)
+                if inspect.candidates > MAX_FIND_CANDIDATES
+                    || !(1..=4).contains(&inspect.parallel)
+                    || !(1..=4).contains(&inspect.sample_files)
                 {
                     return Err(SearchError::InvalidRequest(
-                        "inspect.candidates must be within 0..8 and inspect.parallel within 1..4"
+                        "inspect.candidates must be within 0..8, inspect.parallel and inspect.sample_files within 1..4"
                             .into(),
                     ));
                 }
@@ -448,6 +457,33 @@ pub struct FindCandidate {
     pub elapsed_ms: u64,
     /// 2 when the first inspection timed out and was resumed once.
     pub attempts: u32,
+    /// Which episodes the torrent's file list holds; absent for a film or
+    /// when the file list never arrived.
+    pub coverage: Option<crate::torrent::coverage::EpisodeCoverage>,
+    /// Present when more than one file was sampled.
+    pub consistency: Option<FileConsistency>,
+}
+
+/// The other sampled files of a candidate, against the compared one.
+#[derive(Debug, Serialize)]
+pub struct FileConsistency {
+    /// Files whose streams were read, the compared one included.
+    pub files_read: usize,
+    /// Files whose streams could not be read at all.
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub failed: Vec<FailedFile>,
+    /// Files read only in part (read_budget_exceeded, say): their streams are
+    /// known, but a late stream may be missing.
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub incomplete: Vec<FailedFile>,
+    /// Empty when every file read has the same video, audio and subtitles.
+    pub differences: Vec<crate::torrent::coverage::FileDifference>,
+}
+
+#[derive(Debug, Serialize)]
+pub struct FailedFile {
+    pub file: String,
+    pub code: String,
 }
 
 #[derive(Debug, Serialize)]
@@ -821,6 +857,8 @@ async fn execute_find(
     pool: Option<&TorrentPool>,
 ) -> AgentResponse {
     use futures_util::StreamExt;
+    let target = plan.analysis.target.clone();
+    let sample = plan.inspect.sample_files;
     let engine = match SearchEngine::new(sources.clone(), plan.limits.search_limits()) {
         Ok(engine) => engine,
         Err(error) => return AgentResponse::failure(error),
@@ -860,63 +898,72 @@ async fn execute_find(
         .is_none()
         .then(|| TorrentPool::new(runtime.clone(), Duration::from_secs(600)));
     let session = pool.or(local.as_ref()).expect("a pool");
-    let attempts: Vec<(usize, SavedTorrentInspection, u32)> =
-        futures_util::stream::iter(picks.iter().copied())
-            .map(|index| {
-                let reference = analyzed.results[index].result.reference.clone();
-                let inspection_limits = plan.inspection_limits.clone();
-                let selection = plan.selection.clone();
-                let operation = move || TorrentOperation::InspectFiles {
-                    source: TorrentSource::Reference {
-                        reference: reference.clone(),
-                        resolve_http: true,
-                    },
-                    files: FileChoice::Sample(1),
-                    inspection_limits: inspection_limits.clone(),
-                    selection: selection.clone(),
-                    parallel: 1,
-                };
-                let sources = sources.clone();
-                let limits = plan.torrent_limits.clone();
-                let cancellation = cancellation.clone();
-                async move {
-                    let started = std::time::Instant::now();
-                    let mut attempt = 0;
-                    loop {
-                        attempt += 1;
-                        let (report, error) = run_torrent(
-                            operation(),
-                            sources.clone(),
-                            limits.clone(),
-                            runtime,
-                            Some(session),
-                            ffprobe,
-                            cancellation.clone(),
-                        )
-                        .await;
-                        let inspection = single_inspection(report, error, started.elapsed());
-                        // A header that arrived too slowly is resumed, not
-                        // restarted: the session kept what was downloaded, so
-                        // one more try usually finishes it.
-                        let slow = inspection
-                            .error
-                            .as_ref()
-                            .is_some_and(|e| e.code == "probe_timeout");
-                        if attempt == 1 && slow && !cancellation.is_cancelled() {
-                            continue;
-                        }
-                        return (index, inspection, attempt);
+    type Attempt = (usize, SavedTorrentInspection, Vec<FileInspection>, u32);
+    let attempts: Vec<Attempt> = futures_util::stream::iter(picks.iter().copied())
+        .map(|index| {
+            let reference = analyzed.results[index].result.reference.clone();
+            let inspection_limits = plan.inspection_limits.clone();
+            let selection = plan.selection.clone();
+            let operation = move || TorrentOperation::InspectFiles {
+                source: TorrentSource::Reference {
+                    reference: reference.clone(),
+                    resolve_http: true,
+                },
+                files: FileChoice::Sample(sample),
+                inspection_limits: inspection_limits.clone(),
+                selection: selection.clone(),
+                parallel: sample,
+            };
+            let sources = sources.clone();
+            let limits = plan.torrent_limits.clone();
+            let cancellation = cancellation.clone();
+            async move {
+                let started = std::time::Instant::now();
+                let mut attempt = 0;
+                loop {
+                    attempt += 1;
+                    let (report, error) = run_torrent(
+                        operation(),
+                        sources.clone(),
+                        limits.clone(),
+                        runtime,
+                        Some(session),
+                        ffprobe,
+                        cancellation.clone(),
+                    )
+                    .await;
+                    let (inspection, others) = single_inspection(report, error, started.elapsed());
+                    // A header that arrived too slowly is resumed, not
+                    // restarted: the session kept what was downloaded, so
+                    // one more try usually finishes it.
+                    let timed_out = |code: &str| code == "probe_timeout";
+                    let slow = inspection
+                        .error
+                        .as_ref()
+                        .is_some_and(|e| timed_out(&e.code))
+                        || others
+                            .iter()
+                            .any(|o| o.failure.as_ref().is_some_and(|f| timed_out(&f.code)));
+                    if attempt == 1 && slow && !cancellation.is_cancelled() {
+                        continue;
                     }
+                    return (index, inspection, others, attempt);
                 }
-            })
-            .buffered(plan.inspect.parallel)
-            .collect()
-            .await;
+            }
+        })
+        .buffered(plan.inspect.parallel)
+        .collect()
+        .await;
     let tries: std::collections::HashMap<usize, u32> =
-        attempts.iter().map(|(i, _, n)| (*i, *n)).collect();
+        attempts.iter().map(|(i, _, _, n)| (*i, *n)).collect();
+    let mut sampled: std::collections::HashMap<usize, Vec<FileInspection>> =
+        std::collections::HashMap::new();
     let inspections: Vec<(usize, SavedTorrentInspection)> = attempts
         .into_iter()
-        .map(|(index, inspection, _)| (index, inspection))
+        .map(|(index, inspection, others, _)| {
+            sampled.insert(index, others);
+            (index, inspection)
+        })
         .collect();
     if let Some(local) = &local {
         let _ = local.shutdown().await;
@@ -949,6 +996,48 @@ async fn execute_find(
             // Only verified streams earn a place; an uninspected candidate
             // is not ranked, whatever its name claims.
             let verified = report.is_some_and(|r| r.media.is_some());
+            let coverage = report
+                .and_then(|r| r.torrent.as_ref())
+                .and_then(|catalog| crate::torrent::coverage::episode_coverage(catalog, &target));
+            let others = sampled.remove(&index).unwrap_or_default();
+            let consistency = (!others.is_empty()).then(|| {
+                let path = |o: &FileInspection| {
+                    o.file
+                        .as_ref()
+                        .map_or_else(|| format!("file {}", o.file_id), |f| f.path.clone())
+                };
+                let read: Vec<(String, &crate::media::MediaInspectionReport)> = others
+                    .iter()
+                    .filter_map(|o| Some((path(o), o.media.as_ref()?)))
+                    .collect();
+                let compared = report.and_then(|r| r.media.as_ref());
+                FileConsistency {
+                    files_read: read.len() + usize::from(compared.is_some()),
+                    failed: others
+                        .iter()
+                        .filter(|o| o.media.is_none())
+                        .filter_map(|o| {
+                            o.failure.as_ref().map(|f| FailedFile {
+                                file: path(o),
+                                code: f.code.clone(),
+                            })
+                        })
+                        .collect(),
+                    incomplete: others
+                        .iter()
+                        .filter(|o| o.media.is_some())
+                        .filter_map(|o| {
+                            o.failure.as_ref().map(|f| FailedFile {
+                                file: path(o),
+                                code: f.code.clone(),
+                            })
+                        })
+                        .collect(),
+                    differences: compared
+                        .map(|c| crate::torrent::coverage::file_differences(c, &read))
+                        .unwrap_or_default(),
+                }
+            });
             FindCandidate {
                 id: id(index),
                 search_index: index,
@@ -961,10 +1050,26 @@ async fn execute_find(
                 file: report.and_then(|r| r.file.as_ref()).map(|f| f.path.clone()),
                 elapsed_ms: inspection.elapsed_ms,
                 attempts: tries.get(&index).copied().unwrap_or(1),
+                coverage,
+                consistency,
             }
         })
         .collect();
-    candidates.sort_by_key(|c| (c.position.unwrap_or(usize::MAX), c.search_index));
+    // A pack whose files lack requested episodes follows the complete ones,
+    // whatever its streams.
+    let incomplete = |c: &FindCandidate| {
+        c.coverage
+            .as_ref()
+            .and_then(|coverage| coverage.missing.as_ref())
+            .is_some_and(|missing| !missing.is_empty())
+    };
+    candidates.sort_by_key(|c| {
+        (
+            incomplete(c),
+            c.position.unwrap_or(usize::MAX),
+            c.search_index,
+        )
+    });
 
     let inspections_short = candidates
         .iter()
@@ -999,19 +1104,33 @@ async fn execute_find(
     }
 }
 
-/// A one-file inspect_torrent result in the saved single-file shape that
-/// compare_media accepts.
+/// The compared file of an inspect_torrent result in the saved single-file
+/// shape that compare_media accepts, and the other sampled files.
 fn single_inspection(
     report: Option<TorrentOperationReport>,
     error: Option<TorrentFailure>,
     elapsed: Duration,
-) -> SavedTorrentInspection {
+) -> (SavedTorrentInspection, Vec<FileInspection>) {
     let mut error = error.map(|e| AgentFailure {
         code: e.code.into(),
         message: e.message,
     });
+    let mut others = Vec::new();
     let result = report.map(|report| {
-        let first = report.inspections.into_iter().next();
+        let mut inspections = report.inspections;
+        // The middle sampled file is the typical episode; when it was not
+        // read, any file that was.
+        let middle = inspections.len() / 2;
+        let pick = if inspections.get(middle).is_some_and(|i| i.media.is_some()) {
+            Some(middle)
+        } else {
+            inspections
+                .iter()
+                .position(|i| i.media.is_some())
+                .or((!inspections.is_empty()).then_some(middle))
+        };
+        let first = pick.map(|i| inspections.remove(i));
+        others = inspections;
         // The file's own failure (probe_timeout and why) says more than the
         // request-level "no file could be inspected".
         if let Some(failure) = first.as_ref().and_then(|i| i.failure.as_ref()) {
@@ -1038,13 +1157,16 @@ fn single_inspection(
         Some(_) if has_media => AgentStatus::Partial,
         _ => AgentStatus::Failed,
     };
-    SavedTorrentInspection {
-        schema_version: 1,
-        elapsed_ms: elapsed.as_millis().try_into().unwrap_or(u64::MAX),
-        status,
-        result,
-        error,
-    }
+    (
+        SavedTorrentInspection {
+            schema_version: 1,
+            elapsed_ms: elapsed.as_millis().try_into().unwrap_or(u64::MAX),
+            status,
+            result,
+            error,
+        },
+        others,
+    )
 }
 
 #[allow(clippy::too_many_arguments)]

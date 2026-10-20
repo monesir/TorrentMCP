@@ -61,7 +61,7 @@ args = ["mcp"]
 
 | Tool | Does |
 | --- | --- |
-| `find` | Search, inspect one typical file of each leading candidate, compare their actual streams. Start here. |
+| `find` | Search, inspect three files (first, middle, last episode) of each leading candidate, compare their actual streams, and check the file list for missing episodes. Start here. |
 | `search` | Search and judge release names only; everything in it is claimed by names. |
 | `torrent_files` | A torrent's files and their ids. |
 | `inspect_torrent` | Inspect chosen files (`file_ids`) or a sample (`sample_files`). |
@@ -73,7 +73,7 @@ Arguments are the fields of the [agent contract](agent-contract.md) without `ope
 
 By default the server returns a compact view: the first 20 search results (`max_results`), each with title, reference, size, seeders, eligibility, reasons for exclusion, and what the name claims under `claimed`. File lists show video and audio files only (`max_files`, default 200). Empty values and container tags are dropped. A 20-result search is about 20 KB instead of 270 KB in full. `view: "full"` returns the complete agent response.
 
-A compact `find` lists each candidate with its own evidence: `verified` holds the container and streams ffprobe read from its file, `unmet` the conditions that file did not meet. A candidate whose file was not read has no `verified` and no `position`, only `inspection_error`. `find` retries a candidate whose inspection hit `probe_timeout` once by itself, resuming the same partial download; such a candidate carries `attempts: 2`.
+A compact `find` lists each candidate with its own evidence: `verified` holds the container and streams ffprobe read from its file, `unmet` the conditions that file did not meet. A candidate whose file was not read has no `verified` and no `position`, only `inspection_error`. `find` retries a candidate whose inspection hit `probe_timeout` once by itself, resuming the same partial download; such a candidate carries `attempts: 2`. `coverage` lists the episodes found in the torrent's file names, per season, with gaps and duplicates; with `analysis.target.episodes` set, `coverage.missing` names the requested episodes that have no file and `coverage.complete` says whether all are there, and such a candidate is placed after the complete ones. `consistency` shows how the other sampled files differ from the compared one (video, audio languages or codecs, subtitle languages).
 
 `isError` is true for `error`, `failed` and `cancelled`. `partial` is not an error: the results are real and some are missing.
 

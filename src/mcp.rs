@@ -462,7 +462,7 @@ fn tools() -> Value {
         {
             "name": "find",
             "title": "Find and verify releases",
-            "description": "Search, then inspect one typical file of each leading eligible result and compare their actual streams, in one call. Candidates come back best first by your media preferences, each with inspection_status; a failed candidate has no verified streams. `search` holds the analyzed search for alternatives. Takes one to several minutes: each candidate waits for its torrent's metadata (torrent_limits, default 90 s) and then its inspection (inspection_limits, default 60 s).",
+            "description": "Search, then read sampled files (first, middle, last episode) of each leading eligible result, compare their actual streams, and list the episodes each torrent's files hold, in one call. Set analysis.target.season and episodes to the full season to learn which packs lack episodes (coverage.missing). Candidates come back best first by your media preferences, each with inspection_status; a failed candidate has no verified streams. `search` holds the analyzed search for alternatives. Takes one to several minutes: each candidate waits for its torrent's metadata (torrent_limits, default 90 s) and then its inspection (inspection_limits, default 60 s).",
             "inputSchema": {
                 "type": "object",
                 "properties": {
@@ -474,7 +474,8 @@ fn tools() -> Value {
                         "properties": {
                             "candidates": {"type": "integer", "minimum": 0, "maximum": 8, "description": "Results to inspect, default 3; 0 only searches."},
                             "include_uncertain": {"type": "boolean", "description": "Also inspect results whose names leave a constraint undecided."},
-                            "parallel": {"type": "integer", "minimum": 1, "maximum": 4}
+                            "parallel": {"type": "integer", "minimum": 1, "maximum": 4, "description": "Candidates inspected at once, default 1. They share one connection; more at once often makes every read time out."},
+                            "sample_files": {"type": "integer", "minimum": 1, "maximum": 4, "description": "Files read from each candidate, default 3: first, middle and last episode. The middle one is compared; `consistency` reports how the others differ."}
                         }
                     },
                     "limits": search_limits,
@@ -732,6 +733,12 @@ fn compact_find(report: &Value, max_results: usize) -> Value {
             if candidate["attempts"].as_u64().is_some_and(|n| n > 1) {
                 compact["attempts"] = candidate["attempts"].clone();
             }
+            // The file list is known even when no file could be read.
+            for key in ["coverage", "consistency"] {
+                if !candidate[key].is_null() {
+                    compact[key] = candidate[key].clone();
+                }
+            }
             if let (true, Some(media), Some(evidence)) = (verified, media, evidence) {
                 let assessment = &evidence["assessment"];
                 let unmet: Vec<Value> = assessment["evaluations"]
@@ -764,7 +771,9 @@ fn compact_find(report: &Value, max_results: usize) -> Value {
         "ranking_criteria": comparison["ranking_criteria"],
         "note": "`verified` was read from each file with ffprobe. A candidate without it \
                  was not inspected: nothing about its streams is known, and the search \
-                 claims for it are only what its release name says.",
+                 claims for it are only what its release name says. `coverage` lists the \
+                 episodes found in the torrent's file names; a candidate missing requested \
+                 episodes is placed after the complete ones.",
         "search": compact_search(&report["search"], max_results),
     })
 }

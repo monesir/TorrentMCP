@@ -171,6 +171,8 @@ fn find_bounds_its_inspection_plan() {
         json!({"candidates": 9}),
         json!({"parallel": 0}),
         json!({"parallel": 5}),
+        json!({"sample_files": 0}),
+        json!({"sample_files": 5}),
     ] {
         assert!(request(inspect).validate().is_err());
     }
