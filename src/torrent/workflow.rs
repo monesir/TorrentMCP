@@ -52,13 +52,10 @@ impl TorrentOperation {
     }
 }
 
-/// Choose video files to inspect without the caller reading the catalog.
-///
-/// Main videos are those at least a fifth of the largest video's size, which
-/// skips samples and extras (audio files when there is no video). One file:
-/// the median-sized main video. Several: spread evenly over the main videos
-/// in path order (first, middle, last episode).
-pub fn sample_files(torrent: &TorrentCatalog, count: usize) -> Vec<usize> {
+/// The episodes or the film: video files at least a fifth of the largest
+/// one's size, which skips samples and extras. Audio-only torrents (music,
+/// audiobooks) yield their audio files.
+pub(crate) fn main_videos(torrent: &TorrentCatalog) -> Vec<&TorrentFile> {
     let of_kind = |kind: &str| -> Vec<&TorrentFile> {
         torrent
             .files
@@ -66,15 +63,26 @@ pub fn sample_files(torrent: &TorrentCatalog, count: usize) -> Vec<usize> {
             .filter(|f| f.media_kind == kind && f.size_bytes > 0)
             .collect()
     };
-    // Audio-only torrents (music, audiobooks) sample their audio files.
     let mut videos = of_kind("video");
     if videos.is_empty() {
         videos = of_kind("audio");
     }
-    let Some(largest) = videos.iter().map(|f| f.size_bytes).max() else {
-        return vec![];
-    };
+    let largest = videos.iter().map(|f| f.size_bytes).max().unwrap_or(0);
     videos.retain(|f| f.size_bytes >= largest / 5);
+    videos
+}
+
+/// Choose video files to inspect without the caller reading the catalog.
+///
+/// Main videos are those at least a fifth of the largest video's size, which
+/// skips samples and extras (audio files when there is no video). One file:
+/// the median-sized main video. Several: spread evenly over the main videos
+/// in path order (first, middle, last episode).
+pub fn sample_files(torrent: &TorrentCatalog, count: usize) -> Vec<usize> {
+    let mut videos = main_videos(torrent);
+    if videos.is_empty() {
+        return vec![];
+    }
     if count <= 1 {
         // The median size is a typical episode, not a movie bundled with the
         // series; with a lone main video it is that video.

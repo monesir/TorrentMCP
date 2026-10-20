@@ -206,7 +206,8 @@ pub struct SourceReport {
 /// - `network_unreachable`: no route to the site at all.
 /// - `timeout`: no answer in time.
 /// - `tls_failed`: the secure connection broke during setup.
-/// - `refused`: HTTP 401/403, usually bot protection.
+/// - `bot_challenge`: Cloudflare's browser check; only a real browser passes.
+/// - `refused`: HTTP 401/403 without that check.
 /// - `rate_limited`: HTTP 429.
 /// - `not_found`: HTTP 404/410, the site changed its search address.
 /// - `site_error`: HTTP 5xx, the site or its proxy is down.
@@ -238,6 +239,8 @@ pub fn failure_kind(error: &str) -> &'static str {
         "rate_limited"
     } else if has(&["(404", "(410"]) {
         "not_found"
+    } else if has(&["bot challenge"]) {
+        "bot_challenge"
     } else if has(&["(401", "(403"]) {
         "refused"
     } else if has(&["server error (5", "http 5"]) {
@@ -335,6 +338,10 @@ mod tests {
                 "tls_failed",
             ),
             ("HTTP status client error (403 Forbidden)", "refused"),
+            (
+                "HTTP 403: Cloudflare bot challenge; the site admits only a real browser",
+                "bot_challenge",
+            ),
             (
                 "HTTP status client error (429 Too Many Requests)",
                 "rate_limited",

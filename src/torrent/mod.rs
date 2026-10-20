@@ -1,4 +1,5 @@
 //! Torrent metadata and file inspection, independent of search adapters and the P2P implementation.
+pub mod coverage;
 mod pool;
 mod rqbit;
 mod torbox;

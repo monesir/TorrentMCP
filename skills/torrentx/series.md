@@ -29,7 +29,7 @@ The largest pack is not the best. Episode size depends on the codec and the sour
 
 ## 3. Inspection of a pack
 
-`find` and `inspect_torrent` with `sample_files: 1` inspect one typical episode, the one of median size, so an extra or a bundled film is not mistaken for the series. One episode stands for the pack: groups encode a season the same way, but not always. If the user cares, inspect two or three with `sample_files`.
+`find` reads three episodes of each pack by default (first, middle, last) and compares the middle one; extras and bundled films are left out. `consistency.differences` names any episode whose video, audio or subtitles differ from it: groups encode a season the same way, but not always. `coverage` shows which episodes the file list holds; give `season` and the full `episodes` range from your research so `coverage.missing` can name the absent ones. A name saying "Complete" proves nothing; the file list does.
 
 ## 4. Sources
 
