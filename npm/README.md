@@ -26,3 +26,5 @@ npx torrentx-mcp search "ubuntu"    # a quick search
 ```
 
 Documentation: [github.com/monesir/TorrentMCP](https://github.com/monesir/TorrentMCP).
+
+License: MIT.

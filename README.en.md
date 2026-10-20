@@ -109,3 +109,7 @@ Build the portable bundle (runs the tests, builds release, gathers Python, ffpro
 Release bundles use a minimal static ffprobe (17 MB, LGPL) built by `scripts/build-ffprobe.sh` from signed FFmpeg source in an MSYS2 UCRT64 shell; any ffprobe works for development.
 
 Component licences: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+## License
+
+MIT: see [LICENSE](LICENSE). Bundled components keep their own licences.
