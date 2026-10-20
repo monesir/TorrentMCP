@@ -2,6 +2,7 @@
 name = "torrent-search"
 version = "0.8.6"
 edition = "2024"
+license = "MIT"
 publish = false
 description = "Local torrent search with independent source adapters"
 

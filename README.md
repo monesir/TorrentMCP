@@ -106,3 +106,7 @@ cargo run -- --assets resources --python python sources
 
 
 يدعم مسار التغليف `-TargetDirectory` لاختيار مجلد بناء مستقل. يجمع فقط ملفات الإضافات المثبتة في السجل، ويستبعد إعدادات Jackett وRutor وملفات cookies والسجلات المحلية. يرفق مصدر Rust والرخص ونسخ مكتبات توافق Python وبصماتها.
+
+## الترخيص
+
+MIT: راجع [LICENSE](LICENSE). المكونات المرفقة تحتفظ برخصها.
