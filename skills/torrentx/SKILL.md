@@ -32,13 +32,13 @@ On the command line every request carries `schema_version: 1` and `operation` (`
 | The real streams of a typical episode | `inspect_torrent` with `sample_files: 1` |
 | The streams of a file already on this computer | `inspect_media` |
 
-Start with `find` unless the user asked for something narrower. It searches, inspects one typical file of each leading result, and compares what the files actually contain, in one call.
+Start with `find` unless the user asked for something narrower. It searches, reads three files of each leading result (first, middle and last episode), compares what the files actually contain, and checks the file list for missing episodes, in one call.
 
 ### Building a request
 
 Translate the user's words into fields; do not add wishes they did not express.
 
-- `analysis.target`: the title, plus `year`, `season`, `part` or `episodes` when the user named them. Put other names the work is released under (romaji, English, original) in `aliases`.
+- `analysis.target`: the title, plus `year`, `season`, `part` or `episodes` when the user named them. When the user wants a whole season, put the season's full episode range from your research in `episodes` together with `season`: `find` then checks each pack's file list and reports the episodes it lacks in `coverage.missing`. Put other names the work is released under (romaji, English, original) in `aliases`.
 - `analysis.constraints`: only what the user requires. A release whose name contradicts a constraint is excluded; one whose name says nothing is uncertain.
 - `analysis.preferences`: ordered lists, best first. They rank and never exclude.
 - `media.constraints` and `media.preferences`: the same idea checked on the inspected streams (`min_video_height`, `video_codecs`, `audio_languages`, `subtitle_languages`, bitrate and size bounds). `rank_by` sets which criterion decides first.
@@ -68,7 +68,7 @@ Every reply has a `status`:
 
 The MCP server returns a compact view by default. Ask for `view: "full"` only when you need the per-token evidence behind a verdict; it is many times larger. `max_results` (default 20) controls how many search results the compact view shows.
 
-In a compact `find` reply, each candidate either has `verified` (the container and streams ffprobe read from its file) and `unmet` (the conditions that file did not meet), or it has `inspection_error` and nothing else. Only candidates with `verified` have a `position`. `find` already retried a `probe_timeout` once by itself; a candidate with `attempts: 2` and still an `inspection_error` failed twice, so retry it with `inspect_torrent` only if it matters, with a larger timeout.
+In a compact `find` reply, each candidate either has `verified` (the container and streams ffprobe read from its file) and `unmet` (the conditions that file did not meet), or it has `inspection_error` and nothing else. Only candidates with `verified` have a `position`. A candidate may also carry `coverage`, the episodes found in its file names per season with `gaps` and `duplicates`, and `consistency`, how its other sampled files differ from the compared one; a difference such as an episode without the English subtitles is worth telling the user. `find` already retried a `probe_timeout` once by itself; a candidate with `attempts: 2` and still an `inspection_error` failed twice, so retry it with `inspect_torrent` only if it matters, with a larger timeout.
 
 In `search.sources`, each source reports `completed` or `failed` with its error, and a failed one has a `failure_kind`. `search.source_failures` groups the failed sources by kind. Failed sources mean fewer results, not that the release does not exist.
 

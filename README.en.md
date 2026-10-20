@@ -34,7 +34,7 @@ Once registered, the agent has five MCP tools:
 
 | Tool | Does |
 | --- | --- |
-| `find` | Searches, inspects one typical file of each leading release, and compares their real streams. Start here. |
+| `find` | Searches, reads three episodes of each leading release, compares their real streams, and checks the file list for missing episodes. Start here. |
 | `search` | Searches and judges release names only. |
 | `torrent_files` | Lists a torrent's files. |
 | `inspect_torrent` | Inspects chosen files of a torrent, or a sample. |
