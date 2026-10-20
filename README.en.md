@@ -17,6 +17,14 @@ A failed inspection means nothing about that file is known. torrentx never fills
 
 ## Install (Windows)
 
+With Node.js or Bun, one command downloads the release (about 40 MB, checked by SHA-256) and registers torrentx with your agents:
+
+```powershell
+npx torrentx-mcp setup
+```
+
+(`bunx torrentx-mcp setup` works the same.) Without them, from a [release](https://github.com/monesir/TorrentMCP/releases):
+
 1. Unzip `torrentx-<version>-windows-x64.zip`, for example into `%LOCALAPPDATA%\torrentx`. The bundle carries its own Python and ffprobe; nothing else needs installing. Keep `torrentx.exe`, `resources`, `runtime` and `skills` together.
 2. Register torrentx with your agents:
 
@@ -95,7 +103,9 @@ cargo run -- --assets resources --python python sources
 Build the portable bundle (runs the tests, builds release, gathers Python, ffprobe, resources, the skill and licences, then writes a ZIP with its checksum under `dist`):
 
 ```powershell
-.\scripts\package-windows.ps1 -FFprobePath (Get-Command ffprobe).Source
+.\scripts\package-windows.ps1 -FFprobePath <ffprobe-dir>\bin\ffprobe.exe
 ```
+
+Release bundles use a minimal static ffprobe (17 MB, LGPL) built by `scripts/build-ffprobe.sh` from signed FFmpeg source in an MSYS2 UCRT64 shell; any ffprobe works for development.
 
 Component licences: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

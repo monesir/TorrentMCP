@@ -65,8 +65,24 @@ try {
     $env:TORRENT_SEARCH_TEST_FFPROBE = $FFprobePath
     cargo test --locked --target-dir $TargetDirectory
     if ($LASTEXITCODE -ne 0) { throw 'Rust checks failed; no bundle created.' }
-    cargo build --release --locked --target-dir $TargetDirectory
-    if ($LASTEXITCODE -ne 0) { throw 'Release build failed; no bundle created.' }
+    # The published executable must not carry the builder's home or project
+    # path (Rust embeds source paths for panics). Encoded flags keep paths
+    # with spaces whole.
+    $previousFlags = $env:CARGO_ENCODED_RUSTFLAGS
+    $env:CARGO_ENCODED_RUSTFLAGS = @(
+        "--remap-path-prefix=$($env:USERPROFILE)=~",
+        "--remap-path-prefix=$workspaceRoot=torrentx"
+    ) -join [char]0x1f
+    try {
+        cargo build --release --locked --target-dir $TargetDirectory
+        if ($LASTEXITCODE -ne 0) { throw 'Release build failed; no bundle created.' }
+    } finally {
+        $env:CARGO_ENCODED_RUSTFLAGS = $previousFlags
+    }
+    $releaseExe = Join-Path (Join-Path $TargetDirectory 'release') 'torrentx.exe'
+    if ([Text.Encoding]::Latin1.GetString([IO.File]::ReadAllBytes($releaseExe)).Contains($env:USERPROFILE)) {
+        throw 'The release executable still contains the user profile path.'
+    }
     New-Item -ItemType Directory -Path $bundlePath -Force | Out-Null
     Copy-Item -LiteralPath (Join-Path $TargetDirectory 'release\torrentx.exe') -Destination $bundlePath
     # Package the pinned allowlist, never local Jackett/Rutor configuration,
