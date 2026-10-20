@@ -46,6 +46,12 @@ support files and plugins are included under their original notices.
   here is Gyan FFmpeg 9.0.1 shared, GPL v3. Exact version, provenance and file
   SHA-256 values are recorded in `package-info.json`. FFmpeg remains a separate
   subprocess. No ffmpeg transcoding executable is included.
+- From 0.8.6 the bundled ffprobe is a minimal static build of unmodified FFmpeg
+  9.0.2 source made by `scripts/build-ffprobe.sh`: no external libraries, no GPL
+  or nonfree components, so it is under LGPL v2.1 or later. Its `LICENSE`
+  (COPYING.LGPLv2.1) and `README.txt` (source URL and SHA-256, signing key,
+  compiler and configure line) are in `runtime/media`. Source:
+  https://ffmpeg.org/releases/ffmpeg-9.0.2.tar.xz .
 
 - Windows 0.5 bundles include the unmodified rqbit v9.0.1 executable as a separate
   local torrent-service process, under Apache-2.0. Its upstream LICENSE remains in

@@ -1,6 +1,6 @@
 [package]
 name = "torrent-search"
-version = "0.8.5"
+version = "0.8.6"
 edition = "2024"
 publish = false
 description = "Local torrent search with independent source adapters"
