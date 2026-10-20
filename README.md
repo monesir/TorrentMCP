@@ -4,6 +4,16 @@
 
 خدمة بحث وتحليل محلية للإيجنت: محرك Rust، وموصل لإضافات qBittorrent، وواجهة CLI بعقد JSON. الحزمة المحمولة لـWindows تضم Python وتعمل دون تثبيت qBittorrent أو Python.
 
+## التثبيت بأمر واحد
+
+مع Node.js أو Bun، هذا الأمر ينزل الإصدار (نحو 40 ميغابايت، ويتحقق من بصمته) ثم يسجل torrentx في وكلائك:
+
+```powershell
+npx torrentx-mcp setup
+```
+
+ويعمل `bunx torrentx-mcp setup` بالطريقة نفسها. ودونهما نزّل الحزمة من [الإصدارات](https://github.com/monesir/TorrentMCP/releases).
+
 ## الاستخدام من الحزمة المحمولة
 
 فك ZIP وافتح PowerShell داخل مجلد الحزمة، ثم نفذ:

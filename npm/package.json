@@ -1,0 +1,38 @@
+{
+  "name": "torrentx-mcp",
+  "version": "0.8.6",
+  "description": "Torrent search and real stream inspection for AI agents (MCP server). Downloads the torrentx Windows bundle on first run.",
+  "keywords": [
+    "mcp",
+    "torrent",
+    "ffprobe",
+    "agent",
+    "claude",
+    "codex"
+  ],
+  "homepage": "https://github.com/monesir/TorrentMCP#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monesir/TorrentMCP.git",
+    "directory": "npm"
+  },
+  "bugs": "https://github.com/monesir/TorrentMCP/issues",
+  "bin": {
+    "torrentx": "bin/torrentx.js",
+    "torrentx-mcp": "bin/torrentx.js"
+  },
+  "files": [
+    "bin",
+    "release.json",
+    "README.md"
+  ],
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}
