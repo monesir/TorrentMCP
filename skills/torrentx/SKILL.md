@@ -38,7 +38,7 @@ Start with `find` unless the user asked for something narrower. It searches, rea
 
 Translate the user's words into fields; do not add wishes they did not express.
 
-- `analysis.target`: the title, plus `year`, `season`, `part` or `episodes` when the user named them. When the user wants a whole season, put the season's full episode range from your research in `episodes` together with `season`: `find` then checks each pack's file list and reports the episodes it lacks in `coverage.missing`. Put other names the work is released under (romaji, English, original) in `aliases`.
+- `analysis.target`: the title, plus `year`, `season`, `part` or `episodes` when the user named them. When the user wants a whole season, put the season's full episode range from your research in `episodes` together with `season`: `find` then checks each pack's file list and reports the episodes it lacks in `coverage.missing`; `coverage.complete: true` means every requested episode has a file. Put other names the work is released under (romaji, English, original) in `aliases`.
 - `analysis.constraints`: only what the user requires. A release whose name contradicts a constraint is excluded; one whose name says nothing is uncertain.
 - `analysis.preferences`: ordered lists, best first. They rank and never exclude.
 - `media.constraints` and `media.preferences`: the same idea checked on the inspected streams (`min_video_height`, `video_codecs`, `audio_languages`, `subtitle_languages`, bitrate and size bounds). `rank_by` sets which criterion decides first.

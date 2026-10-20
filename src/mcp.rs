@@ -474,7 +474,7 @@ fn tools() -> Value {
                         "properties": {
                             "candidates": {"type": "integer", "minimum": 0, "maximum": 8, "description": "Results to inspect, default 3; 0 only searches."},
                             "include_uncertain": {"type": "boolean", "description": "Also inspect results whose names leave a constraint undecided."},
-                            "parallel": {"type": "integer", "minimum": 1, "maximum": 4},
+                            "parallel": {"type": "integer", "minimum": 1, "maximum": 4, "description": "Candidates inspected at once, default 1. They share one connection; more at once often makes every read time out."},
                             "sample_files": {"type": "integer", "minimum": 1, "maximum": 4, "description": "Files read from each candidate, default 3: first, middle and last episode. The middle one is compared; `consistency` reports how the others differ."}
                         }
                     },

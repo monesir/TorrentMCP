@@ -122,7 +122,9 @@ pub struct FindInspection {
     pub candidates: usize,
     /// Also inspect results whose names leave a constraint undecided.
     pub include_uncertain: bool,
-    /// Candidates inspected at once, 1..4.
+    /// Candidates inspected at once, 1..4. They share one connection: on a
+    /// home line two candidates of three files each already starve every
+    /// read into probe_timeout, so the default is one at a time.
     pub parallel: usize,
     /// Files read from each candidate, 1..4, spread over its episodes (first,
     /// middle, last). The middle one is compared; the others are checked for
@@ -135,7 +137,7 @@ impl Default for FindInspection {
         Self {
             candidates: 3,
             include_uncertain: false,
-            parallel: 2,
+            parallel: 1,
             sample_files: 3,
         }
     }
@@ -467,8 +469,13 @@ pub struct FindCandidate {
 pub struct FileConsistency {
     /// Files whose streams were read, the compared one included.
     pub files_read: usize,
+    /// Files whose streams could not be read at all.
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub failed: Vec<FailedFile>,
+    /// Files read only in part (read_budget_exceeded, say): their streams are
+    /// known, but a late stream may be missing.
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub incomplete: Vec<FailedFile>,
     /// Empty when every file read has the same video, audio and subtitles.
     pub differences: Vec<crate::torrent::coverage::FileDifference>,
 }
@@ -1008,6 +1015,17 @@ async fn execute_find(
                     files_read: read.len() + usize::from(compared.is_some()),
                     failed: others
                         .iter()
+                        .filter(|o| o.media.is_none())
+                        .filter_map(|o| {
+                            o.failure.as_ref().map(|f| FailedFile {
+                                file: path(o),
+                                code: f.code.clone(),
+                            })
+                        })
+                        .collect(),
+                    incomplete: others
+                        .iter()
+                        .filter(|o| o.media.is_some())
                         .filter_map(|o| {
                             o.failure.as_ref().map(|f| FailedFile {
                                 file: path(o),

@@ -23,6 +23,10 @@ pub struct EpisodeCoverage {
     /// when no range was requested; empty when every one is there.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub missing: Option<Vec<EpisodeRange>>,
+    /// Whether every requested episode has a file; absent when no range was
+    /// requested.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub complete: Option<bool>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
@@ -230,6 +234,7 @@ pub fn episode_coverage(
         main_files: files.len(),
         seasons,
         unnumbered,
+        complete: missing.as_ref().map(Vec::is_empty),
         missing,
     })
 }
@@ -397,6 +402,7 @@ mod tests {
         assert_eq!(season.gaps, vec![range(3, 3)]);
         assert_eq!(season.duplicates, vec![4]);
         assert_eq!(coverage.missing, Some(vec![range(3, 3), range(5, 5)]));
+        assert_eq!(coverage.complete, Some(false));
     }
 
     #[test]
@@ -409,6 +415,7 @@ mod tests {
         let coverage = episode_coverage(&pack, &target(None, Some((1, 3)))).unwrap();
         assert_eq!(coverage.seasons[0].episodes, vec![range(1, 3)]);
         assert_eq!(coverage.missing, Some(vec![]));
+        assert_eq!(coverage.complete, Some(true));
     }
 
     #[test]
