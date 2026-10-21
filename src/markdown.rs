@@ -107,6 +107,7 @@ fn basis(value: &Value) -> String {
         "container_statistics_tag" => "وسم إحصائي في الحاوية",
         "derived_from_pixel_format" => "مشتق من تنسيق البكسل",
         "sum_of_container_statistics_tags" => "مجموع وسوم إحصائية",
+        "overall_minus_other_streams" => "تقدير: إجمالي الملف ناقص المسارات الأخرى",
         "unknown" => "غير معروف",
         _ => return s(value),
     }
@@ -485,8 +486,19 @@ fn media(out: &mut String, report: &Value) -> Result<(), SearchError> {
                 } else {
                     s(&stream["hdr_signals"])
                 },
-                bitrate(&stream["bitrate_bps"]["value"]),
-                basis(&stream["bitrate_bps"]["basis"]),
+                match &stream["estimated_bitrate_bps"]["value"] {
+                    estimate if stream["bitrate_bps"]["value"].is_null() && !estimate.is_null() => {
+                        format!("≈ {}", bitrate(estimate))
+                    }
+                    _ => bitrate(&stream["bitrate_bps"]["value"]),
+                },
+                if stream["bitrate_bps"]["value"].is_null()
+                    && !stream["estimated_bitrate_bps"]["value"].is_null()
+                {
+                    basis(&stream["estimated_bitrate_bps"]["basis"])
+                } else {
+                    basis(&stream["bitrate_bps"]["basis"])
+                },
             ],
         );
     }

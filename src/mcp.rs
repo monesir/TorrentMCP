@@ -51,6 +51,11 @@ probe_timeout), nothing about that file's streams is known: say it was not inspe
 with a larger `inspection_limits.timeout_seconds` (this server keeps the partial download, so a \
 retry resumes). Never present claimed or remembered facts as inspection results.\n\
 \n\
+Two bitrates: a video stream's `bitrate_bps` is the video's own; `overall_bitrate_bps` is the whole \
+file (video, every audio and subtitle track, attachments) and is never the video bitrate. When the \
+video's is unknown, `estimated_bitrate_bps` (when present) is the total minus the other tracks: \
+report it as approximate.\n\
+\n\
 Seeders are as reported by the site when it was searched; few seeders make inspection slow.";
 
 pub struct McpConfig {
@@ -826,6 +831,11 @@ fn compact_stream(stream: &Value) -> Value {
             None => value.clone(),
         };
         compact.insert(key.into(), value);
+    }
+    // Only a video track with an unknown bitrate has one; elsewhere it is noise.
+    let estimate = &stream["estimated_bitrate_bps"]["value"];
+    if !estimate.is_null() {
+        compact.insert("estimated_bitrate_bps".into(), estimate.clone());
     }
     Value::Object(compact)
 }

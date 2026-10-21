@@ -59,6 +59,11 @@ pub struct MediaStream {
     pub language: Option<String>,
     pub title: Option<String>,
     pub bitrate_bps: MediaValue<u64>,
+    /// The single video track's bitrate when only the file's total is known:
+    /// the total minus every other track and the attachments. Approximate
+    /// (container overhead counts as video); never used to filter or rank.
+    #[serde(default = "unknown_value")]
+    pub estimated_bitrate_bps: MediaValue<u64>,
     pub payload_size_bytes: MediaValue<u64>,
     pub dispositions: BTreeMap<String, bool>,
     pub side_data: Vec<Value>,
@@ -245,6 +250,7 @@ fn stream(raw: &Value) -> Option<MediaStream> {
         } else {
             MediaValue::new(tagged_bitrate, "container_statistics_tag")
         },
+        estimated_bitrate_bps: unknown_value(),
         payload_size_bytes: MediaValue::new(payload, "container_statistics_tag"),
         dispositions,
         side_data,
@@ -342,18 +348,73 @@ fn selection(streams: &[MediaStream], requested: &StreamSelection) -> SelectionR
     }
 }
 
+fn is_attached_picture(stream: &MediaStream) -> bool {
+    stream.dispositions.get("attached_pic") == Some(&true)
+}
+
+/// Text subtitles weigh a few hundred bits per second (a cover picture is one
+/// image); image subtitles (PGS, VobSub) can reach tens of kilobits and must
+/// be known.
+fn negligible_without_bitrate(stream: &MediaStream) -> bool {
+    stream.kind == "subtitle"
+        && matches!(
+            stream.codec.as_deref(),
+            Some("ass" | "ssa" | "subrip" | "srt" | "mov_text" | "webvtt" | "text")
+        )
+}
+
+/// The video track's bitrate as the file's total minus everything else, when
+/// there is one video track whose own bitrate is unknown and every other
+/// track's bitrate (and every attachment's size) is known.
+fn estimated_video_bitrate(
+    raw: &[Value],
+    streams: &[MediaStream],
+    overall: Option<u64>,
+    duration: Option<f64>,
+) -> Option<(usize, u64)> {
+    let overall = overall?;
+    let duration = duration.filter(|seconds| *seconds > 0.0)?;
+    let mut videos = streams
+        .iter()
+        .enumerate()
+        .filter(|(_, s)| s.kind == "video" && !is_attached_picture(s));
+    let (position, video) = videos.next()?;
+    if videos.next().is_some() || video.bitrate_bps.value.is_some() {
+        return None;
+    }
+    let mut others = 0u64;
+    for (index, stream) in streams.iter().enumerate() {
+        if index == position {
+            continue;
+        }
+        let bits = if stream.kind == "attachment" {
+            // Fonts in anime releases: ffprobe stores the file as extradata.
+            let bytes = raw
+                .iter()
+                .find(|item| number(item, "index") == Some(stream.index))
+                .and_then(|item| positive(item, "extradata_size"))?;
+            (bytes as f64 * 8.0 / duration) as u64
+        } else if let Some(value) = stream.bitrate_bps.value {
+            value
+        } else if negligible_without_bitrate(stream) || is_attached_picture(stream) {
+            0
+        } else {
+            return None;
+        };
+        others = others.checked_add(bits)?;
+    }
+    let estimate = overall.checked_sub(others).filter(|value| *value > 0)?;
+    Some((position, estimate))
+}
+
 pub(super) fn build_report(
     raw: Value,
     requested: &StreamSelection,
     size: u64,
     kind: &str,
 ) -> Option<MediaInspectionReport> {
-    let streams: Vec<_> = raw
-        .get("streams")?
-        .as_array()?
-        .iter()
-        .filter_map(stream)
-        .collect();
+    let raw_streams = raw.get("streams")?.as_array()?;
+    let mut streams: Vec<_> = raw_streams.iter().filter_map(stream).collect();
     if streams.is_empty() {
         return None;
     }
@@ -361,6 +422,13 @@ pub(super) fn build_report(
     let duration_seconds = text(format, "duration")
         .and_then(|value| value.parse::<f64>().ok())
         .filter(|value| value.is_finite() && *value >= 0.0);
+    let overall_bitrate = positive(format, "bit_rate");
+    if let Some((position, estimate)) =
+        estimated_video_bitrate(raw_streams, &streams, overall_bitrate, duration_seconds)
+    {
+        streams[position].estimated_bitrate_bps =
+            MediaValue::new(Some(estimate), "overall_minus_other_streams");
+    }
     let selection = selection(&streams, requested);
     Some(MediaInspectionReport {
         schema_version: 1,
@@ -371,7 +439,7 @@ pub(super) fn build_report(
             name: text(format, "format_name"),
             duration_seconds,
             file_size_bytes: size,
-            overall_bitrate_bps: MediaValue::new(positive(format, "bit_rate"), "ffprobe_format"),
+            overall_bitrate_bps: MediaValue::new(overall_bitrate, "ffprobe_format"),
         },
         streams,
         selection,
@@ -410,6 +478,48 @@ mod tests {
         );
         assert_eq!(report.streams[0].hdr_signals, vec!["pq_transfer"]);
         assert_eq!(report.streams[1].sample_bit_depth.value, None);
+    }
+
+    #[test]
+    fn estimates_video_bitrate_from_the_total_minus_other_tracks() {
+        let report = build_report(json!({"format":{"bit_rate":"20000000","duration":"100"},"streams":[
+            {"index":0,"codec_type":"video","codec_name":"hevc"},
+            {"index":1,"codec_type":"audio","codec_name":"eac3","bit_rate":"640000"},
+            {"index":2,"codec_type":"subtitle","codec_name":"ass"},
+            {"index":3,"codec_type":"attachment","codec_name":"ttf","extradata_size":125000},
+            {"index":4,"codec_type":"video","codec_name":"mjpeg","disposition":{"attached_pic":1}}
+        ]}), &StreamSelection::default(), 1000, "local_file").unwrap();
+        // 20 Mb/s - 640 kb/s audio - 10 kb/s font; the subtitle and cover count as 0.
+        assert_eq!(report.streams[0].bitrate_bps.value, None);
+        assert_eq!(
+            report.streams[0].estimated_bitrate_bps.value,
+            Some(19350000)
+        );
+        assert_eq!(
+            report.streams[0].estimated_bitrate_bps.basis,
+            "overall_minus_other_streams"
+        );
+        assert_eq!(report.streams[1].estimated_bitrate_bps.value, None);
+    }
+
+    #[test]
+    fn does_not_estimate_video_bitrate_when_another_track_is_unknown() {
+        let unknown_audio = json!({"format":{"bit_rate":"20000000","duration":"100"},"streams":[
+            {"index":0,"codec_type":"video","codec_name":"h264"},
+            {"index":1,"codec_type":"audio","codec_name":"truehd"}
+        ]});
+        let image_subtitle = json!({"format":{"bit_rate":"20000000","duration":"100"},"streams":[
+            {"index":0,"codec_type":"video","codec_name":"h264"},
+            {"index":1,"codec_type":"subtitle","codec_name":"hdmv_pgs_subtitle"}
+        ]});
+        let measured = json!({"format":{"bit_rate":"20000000","duration":"100"},"streams":[
+            {"index":0,"codec_type":"video","codec_name":"h264","bit_rate":"18000000"}
+        ]});
+        for raw in [unknown_audio, image_subtitle, measured] {
+            let report =
+                build_report(raw, &StreamSelection::default(), 1000, "local_file").unwrap();
+            assert_eq!(report.streams[0].estimated_bitrate_bps.value, None);
+        }
     }
 
     #[test]

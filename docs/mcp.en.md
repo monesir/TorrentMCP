@@ -75,6 +75,8 @@ By default the server returns a compact view: the first 20 search results (`max_
 
 A compact `find` lists each candidate with its own evidence: `verified` holds the container and streams ffprobe read from its file, `unmet` the conditions that file did not meet. A candidate whose file was not read has no `verified` and no `position`, only `inspection_error`. `find` retries a candidate whose inspection hit `probe_timeout` once by itself, resuming the same partial download; such a candidate carries `attempts: 2`. `coverage` lists the episodes found in the torrent's file names, per season, with gaps and duplicates; with `analysis.target.episodes` set, `coverage.missing` names the requested episodes that have no file and `coverage.complete` says whether all are there, and such a candidate is placed after the complete ones. `consistency` shows how the other sampled files differ from the compared one (video, audio languages or codecs, subtitle languages).
 
+`verified` has two different bitrates: a video stream's `bitrate_bps` is the video's own, and `overall_bitrate_bps` is the whole file (video, every audio and subtitle track, attachments), never the video bitrate. When the file does not record the video's bitrate, the video stream may carry `estimated_bitrate_bps`, the total minus the other tracks: an estimate, not a measurement.
+
 `isError` is true for `error`, `failed` and `cancelled`. `partial` is not an error: the results are real and some are missing.
 
 ### What the agent reads on connecting
