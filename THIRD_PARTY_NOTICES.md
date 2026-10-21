@@ -52,11 +52,25 @@ support files and plugins are included under their original notices.
   (COPYING.LGPLv2.1) and `README.txt` (source URL and SHA-256, signing key,
   compiler and configure line) are in `runtime/media`. Source:
   https://ffmpeg.org/releases/ffmpeg-9.0.2.tar.xz .
+  From 0.8.8 it also links zlib statically (zlib license,
+  https://zlib.net/zlib_license.html) to read zlib-compressed Matroska tracks;
+  `README.txt` names the zlib version.
 
-- Windows 0.5 bundles include the unmodified rqbit v9.0.1 executable as a separate
-  local torrent-service process, under Apache-2.0. Its upstream LICENSE remains in
-  `runtime/torrent/LICENSE`. Origin: https://github.com/ikatson/rqbit/releases/tag/v9.0.1 .
-  The pinned executable digest is recorded in `package-info.json`.
+- Windows 0.5 to 0.8.7 bundles include the unmodified rqbit v9.0.1 executable as a
+  separate local torrent-service process, under Apache-2.0. Its upstream LICENSE
+  remains in `runtime/torrent/LICENSE`. Origin:
+  https://github.com/ikatson/rqbit/releases/tag/v9.0.1 . The pinned executable
+  digest is recorded in `package-info.json`.
+
+- From 0.8.8 the bundled rqbit is built from rqbit v9.0.1 source
+  (https://github.com/ikatson/rqbit/tree/v9.0.1, commit
+  a499d2f243d124e144aef137afe7cb304a6e3f36) with one modification,
+  `runtime/torrent/stream-join.patch` (also `scripts/rqbit/stream-join.patch`):
+  other peers help with a piece a stream is waiting on, instead of leaving it to
+  one slow peer. Built by `scripts/rqbit/build-rqbit.ps1` without the web UI,
+  Postgres and Prometheus features. Apache-2.0; the upstream LICENSE is in
+  `runtime/torrent/LICENSE`, and `package-info.json` records the patch and
+  executable digests.
 
 The project's own implementation and third-party files have separate provenance;
 this notice does not replace the original license terms.

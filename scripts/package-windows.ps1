@@ -37,12 +37,18 @@ if (-not (Test-Path -LiteralPath $pythonRuntime)) {
 }
 if (-not (Test-Path -LiteralPath (Join-Path $pythonRuntime '.complete'))) { throw 'Python extraction is incomplete; inspect the cache before retrying.' }
 $pythonExecutable = Join-Path $pythonRuntime 'python.exe'
-$rqbitSha256 = '2ed683203beca628e0c45f62f99feeef4242cecc3444c8422dfe5b1b6aa38cea'
-if (-not $RqbitPath) { $RqbitPath = Join-Path $cacheRoot 'rqbit-9.0.1\rqbit.exe' }
+# rqbit v9.0.1 with scripts/rqbit/stream-join.patch, built by scripts/rqbit/build-rqbit.ps1.
+if (-not $RqbitPath) { $RqbitPath = Join-Path $cacheRoot 'rqbit-9.0.1-stream-join\rqbit.exe' }
 $RqbitPath = (Resolve-Path -LiteralPath $RqbitPath).Path
-if ((Get-FileHash -LiteralPath $RqbitPath -Algorithm SHA256).Hash.ToLowerInvariant() -ne $rqbitSha256) { throw 'rqbit v9.0.1 executable integrity check failed.' }
-$rqbitLicense = Join-Path $cacheRoot 'rqbit-LICENSE'
-if (-not (Test-Path -LiteralPath $rqbitLicense)) { throw 'rqbit upstream LICENSE is required in .cache/rqbit-LICENSE.' }
+$rqbitRoot = [IO.Path]::GetDirectoryName($RqbitPath)
+$rqbitLicense = Join-Path $rqbitRoot 'LICENSE'
+$rqbitPatch = Join-Path $rqbitRoot 'stream-join.patch'
+if (-not (Test-Path -LiteralPath $rqbitLicense)) { throw "rqbit upstream LICENSE is required beside $RqbitPath." }
+$rqbitPatchSha256 = (Get-FileHash -LiteralPath (Join-Path $PSScriptRoot 'rqbit\stream-join.patch') -Algorithm SHA256).Hash.ToLowerInvariant()
+if (-not (Test-Path -LiteralPath $rqbitPatch) -or (Get-FileHash -LiteralPath $rqbitPatch -Algorithm SHA256).Hash.ToLowerInvariant() -ne $rqbitPatchSha256) {
+    throw 'rqbit was not built with the current scripts/rqbit/stream-join.patch; run scripts/rqbit/build-rqbit.ps1.'
+}
+$rqbitSha256 = (Get-FileHash -LiteralPath $RqbitPath -Algorithm SHA256).Hash.ToLowerInvariant()
 & $pythonExecutable -I -B -X utf8 -c 'import ssl, json, socket; print("Embedded Python ready")'
 if ($LASTEXITCODE -ne 0) { throw 'Embedded Python smoke check failed.' }
 
@@ -67,9 +73,11 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Rust checks failed; no bundle created.' }
     # The published executable must not carry the builder's home or project
     # path (Rust embeds source paths for panics). Encoded flags keep paths
-    # with spaces whole.
+    # with spaces whole; they replace .cargo/config.toml's rustflags, so the
+    # static C runtime is repeated here.
     $previousFlags = $env:CARGO_ENCODED_RUSTFLAGS
     $env:CARGO_ENCODED_RUSTFLAGS = @(
+        '-Ctarget-feature=+crt-static',
         "--remap-path-prefix=$($env:USERPROFILE)=~",
         "--remap-path-prefix=$workspaceRoot=torrentx"
     ) -join [char]0x1f
@@ -80,8 +88,12 @@ try {
         $env:CARGO_ENCODED_RUSTFLAGS = $previousFlags
     }
     $releaseExe = Join-Path (Join-Path $TargetDirectory 'release') 'torrentx.exe'
-    if ([Text.Encoding]::Latin1.GetString([IO.File]::ReadAllBytes($releaseExe)).Contains($env:USERPROFILE)) {
-        throw 'The release executable still contains the user profile path.'
+    # Both executables run on machines without the Visual C++ runtime and
+    # carry no builder paths.
+    foreach ($executable in @($releaseExe, $RqbitPath)) {
+        $text = [Text.Encoding]::Latin1.GetString([IO.File]::ReadAllBytes($executable))
+        if ($text.Contains($env:USERPROFILE)) { throw "$executable contains the user profile path." }
+        if ($text.Contains('VCRUNTIME140.dll')) { throw "$executable needs the Visual C++ runtime; build it with crt-static." }
     }
     New-Item -ItemType Directory -Path $bundlePath -Force | Out-Null
     Copy-Item -LiteralPath (Join-Path $TargetDirectory 'release\torrentx.exe') -Destination $bundlePath
@@ -118,10 +130,11 @@ try {
     $torrentRuntime = New-Item -ItemType Directory -Path (Join-Path $bundlePath 'runtime\torrent')
     Copy-Item -LiteralPath $RqbitPath -Destination (Join-Path $torrentRuntime.FullName 'rqbit.exe')
     Copy-Item -LiteralPath $rqbitLicense -Destination (Join-Path $torrentRuntime.FullName 'LICENSE')
+    Copy-Item -LiteralPath $rqbitPatch -Destination (Join-Path $torrentRuntime.FullName 'stream-join.patch')
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'README.md') -Destination $bundlePath
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'README.en.md') -Destination $bundlePath
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'examples') -Destination $bundlePath -Recurse
-    # torrentx setup copies skills	orrentx into each agent's skill folder.
+    # torrentx setup copies skills\torrentx into each agent's skill folder.
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'skills') -Destination $bundlePath -Recurse
     $bundleDocs = New-Item -ItemType Directory -Path (Join-Path $bundlePath 'docs')
     Copy-Item -LiteralPath (Join-Path $workspaceRoot 'docs\agent-contract.md') -Destination $bundleDocs.FullName
@@ -176,8 +189,9 @@ try {
         python_plugin_dependencies = (Get-Content -LiteralPath (Join-Path $workspaceRoot 'resources\python-dependencies.lock.json') -Raw | ConvertFrom-Json).packages
         native_source_count = $sourceManifest.sources.Count
         ffprobe_version = $probeVersion[0]
-        rqbit_version = '9.0.1'
-        rqbit_origin = 'https://github.com/ikatson/rqbit/releases/tag/v9.0.1'
+        rqbit_version = '9.0.1+stream-join'
+        rqbit_origin = 'https://github.com/ikatson/rqbit/tree/v9.0.1 (a499d2f243d124e144aef137afe7cb304a6e3f36) with runtime/torrent/stream-join.patch'
+        rqbit_patch_sha256 = $rqbitPatchSha256
         rqbit_sha256 = $rqbitSha256
         ffprobe_origin = (Get-Content -LiteralPath (Join-Path $probeRoot 'README.txt') -TotalCount 9) -join "`n"
         media_runtime_files = @(Get-ChildItem -LiteralPath $mediaRuntime.FullName -File | ForEach-Object {

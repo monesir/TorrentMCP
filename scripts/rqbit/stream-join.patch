@@ -1,0 +1,338 @@
+diff --git a/crates/librqbit/src/chunk_tracker.rs b/crates/librqbit/src/chunk_tracker.rs
+index 8db129b..7f044f6 100644
+--- a/crates/librqbit/src/chunk_tracker.rs
++++ b/crates/librqbit/src/chunk_tracker.rs
+@@ -281,6 +281,15 @@ impl ChunkTracker {
+         }
+     }
+ 
++    /// Whether this chunk was received and written, though its piece may not
++    /// be complete or verified yet.
++    pub fn is_chunk_downloaded(&self, chunk: &ChunkInfo) -> bool {
++        self.chunk_status
++            .get(self.lengths.chunk_range(chunk.piece_index))
++            .and_then(|bits| bits.get(chunk.chunk_index as usize).map(|b| *b))
++            .unwrap_or(false)
++    }
++
+     pub fn is_chunk_ready_to_upload(&self, chunk: &ChunkInfo) -> bool {
+         self.have
+             .as_slice()
+diff --git a/crates/librqbit/src/piece_tracker.rs b/crates/librqbit/src/piece_tracker.rs
+index 7d87287..5d30e42 100644
+--- a/crates/librqbit/src/piece_tracker.rs
++++ b/crates/librqbit/src/piece_tracker.rs
+@@ -15,7 +15,7 @@ use std::{
+ };
+ 
+ use buffers::ByteBuf;
+-use librqbit_core::lengths::ValidPieceIndex;
++use librqbit_core::lengths::{ChunkInfo, ValidPieceIndex};
+ use peer_binary_protocol::Piece;
+ 
+ use crate::{
+@@ -24,6 +24,10 @@ use crate::{
+     type_aliases::{FileInfos, FilePriorities, PeerHandle},
+ };
+ 
++/// How long one peer alone may hold a piece a stream is waiting on before
++/// other peers join it.
++const STREAM_JOIN_AFTER: Duration = Duration::from_secs(3);
++
+ /// Tracks a piece currently being downloaded.
+ #[derive(Debug, Clone)]
+ pub struct InflightPiece {
+@@ -41,6 +45,9 @@ pub enum AcquireResult {
+         piece: ValidPieceIndex,
+         from_peer: PeerHandle,
+     },
++    /// A stream-priority piece another peer holds, to fetch its missing
++    /// chunks alongside it; ownership does not change.
++    Joined(ValidPieceIndex),
+     /// No pieces are available for this peer.
+     NoneAvailable,
+ }
+@@ -66,6 +73,8 @@ where
+     pub peer_has_piece: P,
+     /// Returns true if the piece can be stolen (e.g., not locked for writing).
+     pub can_steal: S,
++    /// Returns true if this peer has already requested the chunk.
++    pub peer_requested: &'a dyn Fn(&ChunkInfo) -> bool,
+ }
+ 
+ /// Coordinates piece download state.
+@@ -126,6 +135,13 @@ impl PieceTracker {
+         P: Fn(ValidPieceIndex) -> bool,
+         S: Fn(ValidPieceIndex) -> bool,
+     {
++        // 0. A stream is blocked on these pieces; help with one another peer
++        // has held for a while instead of downloading pieces nobody reads.
++        let priority: Vec<ValidPieceIndex> = req.priority_pieces.by_ref().collect();
++        if let Some(piece) = self.joinable_priority_piece(&req, &priority) {
++            return AcquireResult::Joined(piece);
++        }
++
+         // 1. Try steal with 10x threshold (very slow peer)
+         if let Some(result) = self.try_steal(&req, 10.0) {
+             return result;
+@@ -133,7 +149,7 @@ impl PieceTracker {
+ 
+         // 2. Try reserve from priority_pieces then queued pieces
+         // First check priority pieces that aren't already downloaded or in-flight
+-        for piece in &mut req.priority_pieces {
++        for piece in priority {
+             if !self.chunks.is_piece_have(piece)
+                 && !self.inflight.contains_key(&piece)
+                 && (req.peer_has_piece)(piece)
+@@ -176,6 +192,29 @@ impl PieceTracker {
+         AcquireResult::Reserved(piece)
+     }
+ 
++    /// The first stream-priority piece another peer has held for
++    /// STREAM_JOIN_AFTER that still has a chunk this peer has not asked for.
++    fn joinable_priority_piece<I, P, S>(
++        &self,
++        req: &AcquireRequest<I, P, S>,
++        priority: &[ValidPieceIndex],
++    ) -> Option<ValidPieceIndex>
++    where
++        I: Iterator<Item = ValidPieceIndex>,
++        P: Fn(ValidPieceIndex) -> bool,
++        S: Fn(ValidPieceIndex) -> bool,
++    {
++        let lengths = self.chunks.get_lengths();
++        priority.iter().copied().find(|&piece| {
++            self.inflight.get(&piece).is_some_and(|info| {
++                info.peer != req.peer && info.started.elapsed() >= STREAM_JOIN_AFTER
++            }) && (req.peer_has_piece)(piece)
++                && lengths.iter_chunk_infos(piece).any(|chunk| {
++                    !self.chunks.is_chunk_downloaded(&chunk) && !(req.peer_requested)(&chunk)
++                })
++        })
++    }
++
+     /// Try to steal a piece from a slower peer.
+     fn try_steal<I, P, S>(
+         &mut self,
+@@ -396,6 +435,7 @@ mod tests {
+             file_infos: &file_infos,
+             peer_has_piece: |_| true, // Peer has all pieces
+             can_steal: |_| true,
++            peer_requested: &|_| false,
+         });
+ 
+         // Should reserve piece 0 (first in queue)
+@@ -429,6 +469,7 @@ mod tests {
+             file_infos: &file_infos,
+             peer_has_piece: |p| p.get() >= 2,
+             can_steal: |_| true,
++            peer_requested: &|_| false,
+         });
+ 
+         match result {
+@@ -457,6 +498,7 @@ mod tests {
+             file_infos: &file_infos,
+             peer_has_piece: |_| true,
+             can_steal: |_| true,
++            peer_requested: &|_| false,
+         });
+ 
+         let piece = match result {
+@@ -490,6 +532,7 @@ mod tests {
+             file_infos: &file_infos,
+             peer_has_piece: |_| true,
+             can_steal: |_| true,
++            peer_requested: &|_| false,
+         });
+ 
+         let piece = match result {
+@@ -518,6 +561,7 @@ mod tests {
+             file_infos: &file_infos,
+             peer_has_piece: |p| p == piece, // Only has the failed piece
+             can_steal: |_| true,
++            peer_requested: &|_| false,
+         });
+ 
+         match result2 {
+@@ -547,6 +591,7 @@ mod tests {
+             file_infos: &file_infos,
+             peer_has_piece: |_| true,
+             can_steal: |_| true,
++            peer_requested: &|_| false,
+         }) {
+             AcquireResult::Reserved(p) => p,
+             _ => panic!("Expected Reserved"),
+@@ -559,6 +604,7 @@ mod tests {
+             file_infos: &file_infos,
+             peer_has_piece: |_| true,
+             can_steal: |_| true,
++            peer_requested: &|_| false,
+         }) {
+             AcquireResult::Reserved(p) => p,
+             _ => panic!("Expected Reserved"),
+@@ -573,6 +619,7 @@ mod tests {
+             file_infos: &file_infos,
+             peer_has_piece: |_| true,
+             can_steal: |_| true,
++            peer_requested: &|_| false,
+         }) {
+             AcquireResult::Reserved(p) => p,
+             _ => panic!("Expected Reserved"),
+@@ -612,6 +659,7 @@ mod tests {
+             file_infos: &file_infos,
+             peer_has_piece: |_| true,
+             can_steal: |_| true,
++            peer_requested: &|_| false,
+         });
+         tracker.acquire_piece(AcquireRequest {
+             peer: peer(1),
+@@ -621,6 +669,7 @@ mod tests {
+             file_infos: &file_infos,
+             peer_has_piece: |_| true,
+             can_steal: |_| true,
++            peer_requested: &|_| false,
+         });
+ 
+         assert_eq!(tracker.inflight_count(), 2);
+@@ -638,6 +687,7 @@ mod tests {
+             file_infos: &file_infos,
+             peer_has_piece: |_| true,
+             can_steal: |_| true,
++            peer_requested: &|_| false,
+         });
+ 
+         // Should get piece 0 again (was requeued)
+@@ -676,6 +726,7 @@ mod tests {
+             file_infos: &file_infos,
+             peer_has_piece: |_| true,
+             can_steal: |_| true,
++            peer_requested: &|_| false,
+         });
+ 
+         // Should get piece 3 (first priority piece)
+@@ -702,6 +753,7 @@ mod tests {
+             file_infos: &file_infos,
+             peer_has_piece: |_| false, // Peer has nothing
+             can_steal: |_| true,
++            peer_requested: &|_| false,
+         });
+ 
+         match result {
+@@ -750,6 +802,7 @@ mod tests {
+             file_infos: &file_infos,
+             peer_has_piece: |_| true,
+             can_steal: |_| true,
++            peer_requested: &|_| false,
+         }) {
+             AcquireResult::Reserved(p) => {
+                 assert_eq!(p.get(), 0);
+@@ -766,6 +819,7 @@ mod tests {
+             file_infos: &file_infos,
+             peer_has_piece: |_| true,
+             can_steal: |_| true,
++            peer_requested: &|_| false,
+         }) {
+             AcquireResult::Reserved(p) => {
+                 assert_eq!(p.get(), 4);
+@@ -788,6 +842,7 @@ mod tests {
+             file_infos: &file_infos,
+             peer_has_piece: |p| p.get() == 4, // Peer B only has piece 4
+             can_steal: |_| true,
++            peer_requested: &|_| false,
+         });
+ 
+         // Should steal piece 4 (which peer B has), NOT piece 0 (which peer B doesn't have)
+diff --git a/crates/librqbit/src/torrent_state/live/mod.rs b/crates/librqbit/src/torrent_state/live/mod.rs
+index b4146d8..72ca556 100644
+--- a/crates/librqbit/src/torrent_state/live/mod.rs
++++ b/crates/librqbit/src/torrent_state/live/mod.rs
+@@ -1446,6 +1446,7 @@ impl PeerHandler {
+                             .try_write()
+                             .is_some()
+                     },
++                    peer_requested: &|chunk| live.has_inflight_request(chunk),
+                 });
+ 
+                 match result {
+@@ -1459,6 +1460,10 @@ impl PeerHandler {
+                         steal_info = Some((from_peer, piece));
+                         Ok(Some(piece))
+                     }
++                    AcquireResult::Joined(piece) => {
++                        debug!("joined piece {}", piece);
++                        Ok(Some(piece))
++                    }
+                     AcquireResult::NoneAvailable => Ok(None),
+                 }
+             })
+@@ -1684,7 +1689,36 @@ impl PeerHandler {
+                 }
+             };
+ 
+-            for chunk in self.state.lengths.iter_chunk_infos(next) {
++            // The peer lock before the state lock, as everywhere else.
++            let requested: std::collections::HashSet<ChunkInfo> = self
++                .state
++                .peers
++                .with_live(self.addr, |live| {
++                    live.inflight_requests()
++                        .filter(|chunk| chunk.piece_index == next)
++                        .cloned()
++                        .collect()
++                })
++                .unwrap_or_default();
++            let missing: Vec<_> = {
++                let g = self.state.lock_read("missing_chunks");
++                let pieces = g.get_pieces()?;
++                let owner = pieces
++                    .get_inflight(next)
++                    .is_none_or(|inflight| inflight.peer == self.addr);
++                let mut missing: Vec<_> = self
++                    .state
++                    .lengths
++                    .iter_chunk_infos(next)
++                    .filter(|chunk| !pieces.chunks().is_chunk_downloaded(chunk))
++                    .filter(|chunk| !requested.contains(chunk))
++                    .collect();
++                if !owner {
++                    missing.reverse();
++                }
++                missing
++            };
++            for chunk in missing {
+                 let request = Request {
+                     index: next.get(),
+                     begin: chunk.offset,
+@@ -1841,14 +1875,9 @@ impl PeerHandler {
+                     .map(|l| l.read());
+ 
+                 match g.get_pieces()?.get_inflight(chunk_info.piece_index) {
+-                    Some(inflight) if inflight.peer == addr => {}
+-                    Some(inflight) => {
+-                        debug!(
+-                            "in-flight piece {} was stolen by {}, ignoring",
+-                            chunk_info.piece_index, inflight.peer
+-                        );
+-                        return Ok(());
+-                    }
++                    // Owner, or a peer that joined a stream piece or had it
++                    // stolen: the chunk was requested and is checked by hash.
++                    Some(_) => {}
+                     None => {
+                         debug!(
+                             "in-flight piece {} not found. it was probably completed by someone else",
+diff --git a/crates/librqbit/src/torrent_state/live/peer/mod.rs b/crates/librqbit/src/torrent_state/live/peer/mod.rs
+index 9be84c2..d4b2377 100644
+--- a/crates/librqbit/src/torrent_state/live/peer/mod.rs
++++ b/crates/librqbit/src/torrent_state/live/peer/mod.rs
+@@ -308,6 +308,10 @@ impl LivePeerState {
+         self.inflight_requests.len()
+     }
+ 
++    pub fn has_inflight_request(&self, chunk: &ChunkInfo) -> bool {
++        self.inflight_requests.contains(chunk)
++    }
++
+     pub fn add_inflight_request(&mut self, chunk: ChunkInfo) -> bool {
+         self.inflight_requests.insert(chunk)
+     }
