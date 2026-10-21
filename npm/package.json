@@ -1,6 +1,6 @@
 {
   "name": "torrentx-mcp",
-  "version": "0.8.6",
+  "version": "0.8.7",
   "description": "Torrent search and real stream inspection for AI agents (MCP server). Downloads the torrentx Windows bundle on first run.",
   "keywords": [
     "mcp",

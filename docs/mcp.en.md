@@ -10,7 +10,7 @@
 torrentx setup
 ```
 
-It detects the installed agents and asks, for each one, whether to set torrentx up there, then whether to install the torrentx skill too. It shows every change and applies nothing until you approve. Each file is backed up before it is edited (`<file>.torrentx-backup-<time>`). Restart the agent afterwards.
+It detects the installed agents and lists them in a menu: arrows move, Space checks or unchecks an agent, Enter continues, Esc cancels. Then it asks whether to install the torrentx skill too. It shows every change and applies nothing until you approve. Each file is backed up before it is edited (`<file>.torrentx-backup-<time>`). Restart the agent afterwards.
 
 | Agent | Id | What setup does |
 | --- | --- | --- |
