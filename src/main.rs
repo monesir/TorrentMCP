@@ -464,15 +464,41 @@ async fn execute(cli: Cli) -> Result<u8, SearchError> {
     result
 }
 
-/// Ask on stderr; an empty answer takes `default`.
+/// Ask on stderr; an empty answer takes `default`, and the end of input is
+/// no. For piped input; a console gets the menus below.
 fn ask(question: &str, default: bool) -> std::io::Result<bool> {
     eprint!("{question} {} ", if default { "[Y/n]" } else { "[y/N]" });
     let mut answer = String::new();
-    std::io::stdin().read_line(&mut answer)?;
+    if std::io::stdin().read_line(&mut answer)? == 0 {
+        eprintln!();
+        return Ok(false);
+    }
     Ok(match answer.trim() {
         "" => default,
         answer => matches!(answer, "y" | "Y" | "yes" | "Yes"),
     })
+}
+
+/// Menus on stderr: arrows move, Space checks, Enter continues, Esc cancels.
+/// None when cancelled.
+fn check(prompt: &str, items: &[&str]) -> std::io::Result<Option<Vec<usize>>> {
+    use dialoguer::{MultiSelect, theme::ColorfulTheme};
+    Ok(MultiSelect::with_theme(&ColorfulTheme::default())
+        .with_prompt(format!(
+            "{prompt}: (arrows move, Space checks, Enter continues, Esc cancels)"
+        ))
+        .items(items)
+        .defaults(&vec![true; items.len()])
+        .interact_opt()?)
+}
+
+fn pick(prompt: &str, items: &[&str]) -> std::io::Result<Option<usize>> {
+    use dialoguer::{Select, theme::ColorfulTheme};
+    Ok(Select::with_theme(&ColorfulTheme::default())
+        .with_prompt(format!("{prompt} (arrows move, Enter chooses)"))
+        .items(items)
+        .default(0)
+        .interact_opt()?)
 }
 
 fn setup(selected: &[String], yes: bool, no_skill: bool, remove: bool) -> Result<u8, SearchError> {
@@ -497,30 +523,60 @@ fn setup(selected: &[String], yes: bool, no_skill: bool, remove: bool) -> Result
         return Ok(1);
     }
     // Agents named with --client, or --yes, need no question; otherwise ask
-    // for each agent found, then for the skill.
+    // which agents, then about the skill.
     let interactive = !yes && selected.is_empty();
+    let menus = {
+        use std::io::IsTerminal;
+        std::io::stdin().is_terminal() && std::io::stderr().is_terminal()
+    };
     let verb = if remove {
         "Remove torrentx from"
     } else {
         "Set up torrentx in"
     };
-    let mut chosen = Vec::new();
-    for client in found {
-        if !interactive || ask(&format!("{verb} {}?", client.name), true)? {
-            chosen.push(client);
+    let chosen: Vec<_> = if !interactive {
+        found
+    } else if menus {
+        let names: Vec<_> = found.iter().map(|c| c.name).collect();
+        let Some(picked) = check(verb, &names)? else {
+            eprintln!("Cancelled; nothing changed.");
+            return Ok(1);
+        };
+        found
+            .into_iter()
+            .enumerate()
+            .filter(|(i, _)| picked.contains(i))
+            .map(|(_, c)| c)
+            .collect()
+    } else {
+        let mut chosen = Vec::new();
+        for client in found {
+            if ask(&format!("{verb} {}?", client.name), true)? {
+                chosen.push(client);
+            }
         }
-    }
+        chosen
+    };
     if chosen.is_empty() {
         eprintln!("No agent chosen; nothing changed.");
         return Ok(0);
     }
+    const SKILL: &str =
+        "Also install the torrentx skill (how to search, inspect and report) for these agents?";
     let skill = !remove
         && !no_skill
         && (yes
-            || ask(
-                "Also install the torrentx skill (how to search, inspect and report) for these agents?",
-                true,
-            )?);
+            || if menus {
+                match pick(SKILL, &["Yes", "No"])? {
+                    Some(answer) => answer == 0,
+                    None => {
+                        eprintln!("Cancelled; nothing changed.");
+                        return Ok(1);
+                    }
+                }
+            } else {
+                ask(SKILL, true)?
+            });
     let exe = std::env::current_exe()?;
     let changes = plan(&chosen, &exe, remove, skill);
     eprintln!("torrentx MCP server: {} mcp", exe.display());
@@ -534,7 +590,13 @@ fn setup(selected: &[String], yes: bool, no_skill: bool, remove: bool) -> Result
         eprintln!("Nothing to change.");
         return Ok(0);
     }
-    if !yes && !ask("Apply these changes?", true)? {
+    let apply_now = yes
+        || if menus {
+            pick("Apply these changes?", &["Apply", "Cancel"])? == Some(0)
+        } else {
+            ask("Apply these changes?", true)?
+        };
+    if !apply_now {
         eprintln!("Nothing changed.");
         return Ok(1);
     }
