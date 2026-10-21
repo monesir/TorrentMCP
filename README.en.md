@@ -17,7 +17,13 @@ A failed inspection means nothing about that file is known. torrentx never fills
 
 ## Install (Windows)
 
-Download the zip from the latest [release](https://github.com/monesir/TorrentMCP/releases/latest) (about 40 MB; its SHA-256 is published beside it):
+With Node.js or Bun, one command downloads the release (about 40 MB, checked by SHA-256) and registers torrentx with your agents:
+
+```powershell
+npx torrentx-mcp setup
+```
+
+(`bunx torrentx-mcp setup` works the same.) Without them, from a [release](https://github.com/monesir/TorrentMCP/releases):
 
 1. Unzip `torrentx-<version>-windows-x64.zip`, for example into `%LOCALAPPDATA%\torrentx`. The bundle carries its own Python and ffprobe; nothing else needs installing. Keep `torrentx.exe`, `resources`, `runtime` and `skills` together.
 2. Register torrentx with your agents:
