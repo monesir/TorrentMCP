@@ -32,7 +32,7 @@ npx torrentx-mcp setup
    .\torrentx.exe setup
    ```
 
-   setup finds the installed agents (Claude Code, Codex, Antigravity, Claude Desktop, Gemini CLI, Cursor), asks for each one whether to add torrentx, and whether to install the torrentx skill. It shows every change before applying it and backs up each file it edits. Restart the agent afterwards.
+   setup finds the installed agents (Claude Code, Codex, Antigravity, Claude Desktop, Gemini CLI, Cursor), lists them in a menu (arrows move, Space checks or unchecks, Enter continues), then asks whether to install the torrentx skill. It shows every change before applying it and backs up each file it edits. Restart the agent afterwards.
 
 Details, flags and manual registration: [MCP server](docs/mcp.en.md).
 
