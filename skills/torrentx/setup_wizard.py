@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import sys
 import json
@@ -9,12 +10,11 @@ try:
 except ImportError:
     player_installer = None
 
-CONFIG_DIR = r"C:\Users\username\.gemini\config"
+CONFIG_DIR = os.path.expanduser(r"~/.gemini/config")
 DEBRID_CONFIG_PATH = os.path.join(CONFIG_DIR, "debrid.json")
 SUBTITLE_CONFIG_PATH = os.path.join(CONFIG_DIR, "subtitles.json")
 TRACKED_CONFIG_PATH = os.path.join(CONFIG_DIR, "tracked_series.json")
 
-# Metadata with clean pre-broken lines to guarantee zero letter-splitting or BiDi issues
 DEBRID_PROVIDERS = {
     "None": {
         "id": "none",
@@ -90,18 +90,21 @@ def save_json(path, data):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 def run_gui_wizard():
-    """Native graphical wizard with clean, pure Arabic phrasing and zero text-scrambling issues."""
+    """Dark Mode graphical wizard matching TorrentX AI Assistant design."""
     import tkinter as tk
     from tkinter import ttk, messagebox
 
     root = tk.Tk()
-    root.title("معالج الإعداد الشامل لمهارة التورنت والديبرد")
-    root.geometry("740x880")
+    root.title("معالج إعداد تورنت إكس الشامل (Dark Mode)")
+    root.geometry("760x900")
     root.minsize(700, 780)
+    root.configure(bg="#0b0f19")
 
-    # Style
+    # Dark ttk style
     style = ttk.Style(root)
     style.theme_use("clam")
+    style.configure("Dark.TCombobox", fieldbackground="#1e293b", background="#334155", foreground="#f8fafc", arrowcolor="#38bdf8")
+    style.configure("Dark.Vertical.TScrollbar", background="#1e293b", troughcolor="#0b0f19", bordercolor="#0b0f19", arrowcolor="#94a3b8")
 
     # Load configs
     debrid_cfg = load_json(DEBRID_CONFIG_PATH, {
@@ -130,34 +133,34 @@ def run_gui_wizard():
     # ==========================================
     # 1. HEADER (TOP)
     # ==========================================
-    header = tk.Frame(root, bg="#0f172a", pady=15)
+    header = tk.Frame(root, bg="#090d16", pady=16)
     header.pack(side="top", fill="x")
-    title_lbl = tk.Label(header, text="معالج إعداد مهارة تورنت إكس المتطورة 🚀", font=("Segoe UI", 16, "bold"), fg="#38bdf8", bg="#0f172a", justify="center")
+    title_lbl = tk.Label(header, text="⚙️ معالج إعداد مهارة تورنت إكس المتطورة", font=("Segoe UI", 15, "bold"), fg="#38bdf8", bg="#090d16", justify="center")
     title_lbl.pack(anchor="center")
-    sub_lbl = tk.Label(header, text="تخصيص خدمات الديبرد ومشغل الفيديو المفضل والترجمات العربية والتراكرات", font=("Segoe UI", 10), fg="#94a3b8", bg="#0f172a", justify="center")
+    sub_lbl = tk.Label(header, text="تخصيص خدمات الديبرد، مشغل الفيديو، والترجمات العربية بكل سهولة", font=("Segoe UI", 9), fg="#94a3b8", bg="#090d16", justify="center")
     sub_lbl.pack(anchor="center", pady=3)
 
     # ==========================================
     # 2. SAVE BAR (BOTTOM)
     # ==========================================
-    save_frame = tk.Frame(root, bg="#f1f5f9", pady=12, highlightbackground="#cbd5e1", highlightthickness=1)
+    save_frame = tk.Frame(root, bg="#090d16", pady=14, highlightbackground="#1e293b", highlightthickness=1)
     save_frame.pack(side="bottom", fill="x")
 
     # ==========================================
     # 3. SCROLLABLE MIDDLE CONTAINER
     # ==========================================
-    canvas_container = tk.Frame(root)
+    canvas_container = tk.Frame(root, bg="#0b0f19")
     canvas_container.pack(side="top", fill="both", expand=True)
 
-    canvas = tk.Canvas(canvas_container, borderwidth=0, highlightthickness=0)
-    scrollbar = ttk.Scrollbar(canvas_container, orient="vertical", command=canvas.yview)
-    scrollable_frame = tk.Frame(canvas, padx=15, pady=10)
+    canvas = tk.Canvas(canvas_container, bg="#0b0f19", borderwidth=0, highlightthickness=0)
+    scrollbar = ttk.Scrollbar(canvas_container, orient="vertical", command=canvas.yview, style="Dark.Vertical.TScrollbar")
+    scrollable_frame = tk.Frame(canvas, bg="#0b0f19", padx=16, pady=10)
 
-    canvas_window = canvas.create_window((370, 0), window=scrollable_frame, anchor="n")
+    canvas_window = canvas.create_window((380, 0), window=scrollable_frame, anchor="n")
 
     def _on_canvas_configure(event):
         canvas.coords(canvas_window, event.width // 2, 0)
-        usable_w = max(650, event.width - 30)
+        usable_w = max(660, event.width - 32)
         canvas.itemconfig(canvas_window, width=usable_w)
 
     canvas.bind("<Configure>", _on_canvas_configure)
@@ -171,16 +174,31 @@ def run_gui_wizard():
         canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
     canvas.bind_all("<MouseWheel>", _on_mousewheel)
 
-    # ==========================================
-    # SECTION 1: DEBRID PROVIDER (NO WRAPLENGTH TO PREVENT LETTER SPLIT)
-    # ==========================================
-    sec1 = tk.LabelFrame(scrollable_frame, text=" 1. مزود خدمة ديبرد ", font=("Segoe UI", 11, "bold"), padx=15, pady=10)
-    sec1.pack(fill="x", pady=8, anchor="center")
+    # Card factory helper for consistent dark theme
+    def create_card(title):
+        card = tk.LabelFrame(
+            scrollable_frame,
+            text=f" {title} ",
+            font=("Segoe UI", 11, "bold"),
+            fg="#38bdf8",
+            bg="#0f172a",
+            highlightbackground="#1e293b",
+            highlightthickness=1,
+            padx=16,
+            pady=12
+        )
+        card.pack(fill="x", pady=8, anchor="center")
+        return card
 
-    deb_top_frame = tk.Frame(sec1)
+    # ==========================================
+    # SECTION 1: DEBRID PROVIDER
+    # ==========================================
+    sec1 = create_card("1. مزود خدمة ديبرد السحابية")
+
+    deb_top_frame = tk.Frame(sec1, bg="#0f172a")
     deb_top_frame.pack(anchor="center", pady=6)
 
-    tk.Label(deb_top_frame, text="اختر المزود", font=("Segoe UI", 10, "bold")).pack(side="left", padx=6)
+    tk.Label(deb_top_frame, text="اختر المزود:", font=("Segoe UI", 10, "bold"), fg="#f8fafc", bg="#0f172a").pack(side="left", padx=8)
 
     cur_service_id = debrid_cfg.get("default_service", "realdebrid")
     provider_names = list(DEBRID_PROVIDERS.keys())
@@ -195,37 +213,37 @@ def run_gui_wizard():
                 break
 
     provider_var = tk.StringVar(value=current_prov_name)
-    provider_combo = ttk.Combobox(deb_top_frame, textvariable=provider_var, values=provider_names, state="readonly", width=18, font=("Segoe UI", 9, "bold"))
+    provider_combo = ttk.Combobox(deb_top_frame, textvariable=provider_var, values=provider_names, state="readonly", width=18, font=("Segoe UI", 9, "bold"), style="Dark.TCombobox")
     provider_combo.pack(side="left", padx=6)
 
-    token_btn = tk.Button(deb_top_frame, text="جلب المفتاح من الموقع 🔗", font=("Segoe UI", 9, "bold"), bg="#0284c7", fg="white", cursor="hand2")
-    token_btn.pack(side="left", padx=6)
+    token_btn = tk.Button(deb_top_frame, text="جلب المفتاح من الموقع 🔗", font=("Segoe UI", 9, "bold"), bg="#0284c7", activebackground="#0369a1", fg="white", activeforeground="white", relief="flat", padx=10, pady=4, cursor="hand2")
+    token_btn.pack(side="left", padx=8)
 
     # API Key Row
-    key_frame = tk.Frame(sec1)
-    key_frame.pack(anchor="center", pady=5)
+    key_frame = tk.Frame(sec1, bg="#0f172a")
+    key_frame.pack(anchor="center", pady=6)
 
-    key_label = tk.Label(key_frame, text="رمز المفتاح السري", font=("Segoe UI", 9, "bold"), width=18, anchor="e")
+    key_label = tk.Label(key_frame, text="رمز المفتاح السري", font=("Segoe UI", 9, "bold"), fg="#cbd5e1", bg="#0f172a", width=18, anchor="e")
     key_label.pack(side="left", padx=4)
     
-    key_entry = tk.Entry(key_frame, font=("Consolas", 10), width=42)
-    key_entry.pack(side="left", padx=4)
+    key_entry = tk.Entry(key_frame, font=("Consolas", 10), bg="#1e293b", fg="#f8fafc", insertbackground="#38bdf8", highlightbackground="#334155", highlightthickness=1, relief="flat", width=42)
+    key_entry.pack(side="left", padx=6, ipady=3)
 
-    # Note Label with natural lines and NO wraplength to prevent letter splitting
-    note_lbl = tk.Label(sec1, text="", font=("Segoe UI", 9), fg="#475569", justify="center")
+    # Note Label
+    note_lbl = tk.Label(sec1, text="", font=("Segoe UI", 9), fg="#94a3b8", bg="#0f172a", justify="center")
     note_lbl.pack(anchor="center", pady=5)
 
-    # Warning Frame for Non-Debrid with natural pre-formatted lines
-    free_warn_frame = tk.Frame(sec1, bg="#fffbeb", padx=14, pady=10, highlightbackground="#f59e0b", highlightthickness=1)
+    # Warning Frame for Non-Debrid
+    free_warn_frame = tk.Frame(sec1, bg="#1c1917", padx=14, pady=10, highlightbackground="#854d0e", highlightthickness=1)
     free_warn_lbl = tk.Label(
         free_warn_frame,
-        text="تنبيه لمستخدمي الخيار المجاني بدون ديبرد\n\n"
-             "يتم التنزيل مباشرة عبر برنامج qBittorrent بأعلى سرعة متوفرة لديكم\n"
-             "يُفضل تنزيل الملف بالكامل أولاً لتفادي التقطيع أثناء المشاهدة\n"
-             "يقوم النظام باختيار النسخة ذات أعلى مشاركة تلقائياً",
+        text="⚠️ تنبيه لمستخدمي الخيار المجاني بدون ديبرد\n\n"
+             "• يتم التنزيل مباشرة عبر برنامج qBittorrent بأعلى سرعة متوفرة لديكم.\n"
+             "• يُفضل تنزيل الملف بالكامل أولاً لتفادي التقطيع أثناء المشاهدة.\n"
+             "• يقوم النظام باختيار النسخة ذات أعلى مشاركة وسيدرز تلقائياً.",
         font=("Segoe UI", 9),
-        fg="#92400e",
-        bg="#fffbeb",
+        fg="#fde047",
+        bg="#1c1917",
         justify="center"
     )
     free_warn_lbl.pack(anchor="center", fill="x", pady=4)
@@ -236,15 +254,15 @@ def run_gui_wizard():
         p_id = p_meta["id"]
 
         if p_name == "None":
-            token_btn.config(state="disabled", bg="#94a3b8")
+            token_btn.config(state="disabled", bg="#334155")
             key_entry.delete(0, tk.END)
-            key_entry.config(state="disabled")
+            key_entry.config(state="disabled", bg="#090d16")
             key_label.config(text="المفتاح السري غير مطلوب")
             note_lbl.config(text=p_meta["note"], fg="#64748b")
             free_warn_frame.pack(anchor="center", fill="x", pady=6)
         else:
             token_btn.config(state="normal", bg="#0284c7")
-            key_entry.config(state="normal")
+            key_entry.config(state="normal", bg="#1e293b")
             key_label.config(text=p_meta["token_label"] or "رمز المفتاح السري")
             
             existing_key = debrid_cfg.get("services", {}).get(p_id, {}).get("api_key", "")
@@ -252,7 +270,7 @@ def run_gui_wizard():
             if existing_key:
                 key_entry.insert(0, existing_key)
                 
-            note_lbl.config(text=p_meta["note"], fg="#0369a1")
+            note_lbl.config(text=p_meta["note"], fg="#38bdf8")
             free_warn_frame.pack_forget()
 
             def _open_url():
@@ -266,8 +284,7 @@ def run_gui_wizard():
     # ==========================================
     # SECTION 2: MEDIA PLAYER
     # ==========================================
-    sec2 = tk.LabelFrame(scrollable_frame, text=" 2. مشغل الفيديو المفضل ", font=("Segoe UI", 11, "bold"), padx=15, pady=10)
-    sec2.pack(fill="x", pady=8, anchor="center")
+    sec2 = create_card("2. مشغل الفيديو المفضل")
 
     player_var = tk.StringVar(value="mpc")
     cur_p = debrid_cfg.get("default_player", "mpc").lower()
@@ -284,18 +301,22 @@ def run_gui_wizard():
         text="تثبيت المشغل تلقائياً بواسطة نظام ويندوز في حال لم يكن متوفراً بالجهاز",
         variable=auto_install_var,
         font=("Segoe UI", 9, "bold"),
-        fg="#0369a1"
+        fg="#38bdf8",
+        bg="#0f172a",
+        activebackground="#0f172a",
+        activeforeground="#38bdf8",
+        selectcolor="#090d16"
     )
     auto_inst_chk.pack(anchor="center", pady=5)
 
-    plr_frame = tk.Frame(sec2)
+    plr_frame = tk.Frame(sec2, bg="#0f172a")
     plr_frame.pack(anchor="center", pady=4)
 
     players_meta = [
-        ("mpc", "مشغل MPC-HC (الخيار المفضل)", "clsid2.mpc-hc"),
+        ("mpc", "مشغل MPC-HC (الخيار المفضل والموصى به)", "clsid2.mpc-hc"),
         ("potplayer", "مشغل PotPlayer", "Daum.PotPlayer"),
         ("mpv", "مشغل MPV", "shinchiro.mpv"),
-        ("vlc", "مشغل VLC", "VideoLAN.VLC")
+        ("vlc", "مشغل VLC Media Player", "VideoLAN.VLC")
     ]
 
     installed_map = {}
@@ -305,17 +326,30 @@ def run_gui_wizard():
             installed_map[k] = v.get("installed", False)
 
     for val, name, w_id in players_meta:
-        row = tk.Frame(plr_frame, pady=3)
-        row.pack(anchor="center")
+        row = tk.Frame(plr_frame, bg="#0f172a", pady=4)
+        row.pack(anchor="center", fill="x")
 
         is_inst = installed_map.get(val, True)
         badge_text = "(متوفر بالجهاز ✅)" if is_inst else "(غير مثبت ⬇️)"
-        badge_color = "#16a34a" if is_inst else "#ea580c"
+        badge_color = "#22c55e" if is_inst else "#f97316"
 
-        rb = tk.Radiobutton(row, text=name, variable=player_var, value=val, font=("Segoe UI", 9, "bold" if val == "mpc" else "normal"), width=24, anchor="w")
+        rb = tk.Radiobutton(
+            row,
+            text=name,
+            variable=player_var,
+            value=val,
+            font=("Segoe UI", 9, "bold" if val == "mpc" else "normal"),
+            fg="#f8fafc",
+            bg="#0f172a",
+            activebackground="#0f172a",
+            activeforeground="#38bdf8",
+            selectcolor="#090d16",
+            width=32,
+            anchor="w"
+        )
         rb.pack(side="left")
 
-        b_lbl = tk.Label(row, text=badge_text, font=("Segoe UI", 8, "bold"), fg=badge_color, width=15)
+        b_lbl = tk.Label(row, text=badge_text, font=("Segoe UI", 8, "bold"), fg=badge_color, bg="#0f172a", width=15)
         b_lbl.pack(side="left", padx=4)
 
         if not is_inst and player_installer:
@@ -324,17 +358,18 @@ def run_gui_wizard():
             def make_web_cmd(v_val):
                 return lambda: player_installer.open_official_site(v_val)
 
-            btn_inst = tk.Button(row, text="تثبيت تلقائي ⚡", font=("Segoe UI", 8), bg="#0284c7", fg="white", cursor="hand2", command=make_install_cmd(val))
+            btn_inst = tk.Button(row, text="تثبيت تلقائي ⚡", font=("Segoe UI", 8, "bold"), bg="#0284c7", activebackground="#0369a1", fg="white", relief="flat", cursor="hand2", padx=6, command=make_install_cmd(val))
             btn_inst.pack(side="left", padx=3)
 
-            btn_web = tk.Button(row, text="الموقع الرسمي 🌐", font=("Segoe UI", 8), bg="#64748b", fg="white", cursor="hand2", command=make_web_cmd(val))
+            btn_web = tk.Button(row, text="الموقع الرسمي 🌐", font=("Segoe UI", 8), bg="#334155", activebackground="#475569", fg="#cbd5e1", relief="flat", cursor="hand2", padx=6, command=make_web_cmd(val))
             btn_web.pack(side="left", padx=2)
 
     plr_desc = tk.Label(
         sec2,
-        text="في حال اختيار مشغل غير مثبت سيقوم النظام بتثبيته بنقرة واحدة\nأو تحويل البث تلقائياً للمشغل المتوفر لديك لضمان عدم توقف المشاهدة",
-        font=("Segoe UI", 9),
-        fg="#475569",
+        text="في حال اختيار مشغل غير مثبت سيقوم النظام بتثبيته بنقرة واحدة أو تحويل البث للمشغل المتوفر لديك.",
+        font=("Segoe UI", 8),
+        fg="#64748b",
+        bg="#0f172a",
         justify="center"
     )
     plr_desc.pack(anchor="center", pady=6)
@@ -342,82 +377,80 @@ def run_gui_wizard():
     # ==========================================
     # SECTION 3: SUBTITLES
     # ==========================================
-    sec3 = tk.LabelFrame(scrollable_frame, text=" 3. مفاتيح مواقع الترجمة العربية ", font=("Segoe UI", 11, "bold"), padx=15, pady=10)
-    sec3.pack(fill="x", pady=8, anchor="center")
+    sec3 = create_card("3. مفاتيح مواقع الترجمة العربية")
 
-    sub_frame = tk.Frame(sec3)
+    sub_frame = tk.Frame(sec3, bg="#0f172a")
     sub_frame.pack(anchor="center", pady=4)
 
     # SubDL row
-    subdl_row = tk.Frame(sub_frame, pady=3)
+    subdl_row = tk.Frame(sub_frame, bg="#0f172a", pady=4)
     subdl_row.pack(anchor="center")
-    tk.Label(subdl_row, text="مفتاح موقع SubDL", font=("Segoe UI", 9, "bold"), width=16, anchor="e").pack(side="left")
-    subdl_entry = tk.Entry(subdl_row, width=34, font=("Consolas", 10))
+    tk.Label(subdl_row, text="مفتاح موقع SubDL", font=("Segoe UI", 9, "bold"), fg="#cbd5e1", bg="#0f172a", width=16, anchor="e").pack(side="left")
+    subdl_entry = tk.Entry(subdl_row, width=34, font=("Consolas", 10), bg="#1e293b", fg="#f8fafc", insertbackground="#38bdf8", highlightbackground="#334155", highlightthickness=1, relief="flat")
     subdl_entry.insert(0, sub_cfg.get("services", {}).get("subdl", {}).get("api_key", ""))
-    subdl_entry.pack(side="left", padx=5)
-    tk.Button(subdl_row, text="فتح موقع الخدمة 🔗", font=("Segoe UI", 8), bg="#0284c7", fg="white", cursor="hand2", command=lambda: webbrowser.open("https://subdl.com/panel/api")).pack(side="left")
+    subdl_entry.pack(side="left", padx=6, ipady=2)
+    tk.Button(subdl_row, text="فتح موقع الخدمة 🔗", font=("Segoe UI", 8), bg="#334155", activebackground="#475569", fg="#cbd5e1", relief="flat", cursor="hand2", command=lambda: webbrowser.open("https://subdl.com/panel/api")).pack(side="left")
 
     # Subsource row
-    subsrc_row = tk.Frame(sub_frame, pady=3)
+    subsrc_row = tk.Frame(sub_frame, bg="#0f172a", pady=4)
     subsrc_row.pack(anchor="center")
-    tk.Label(subsrc_row, text="مفتاح موقع Subsource", font=("Segoe UI", 9, "bold"), width=16, anchor="e").pack(side="left")
-    subsrc_entry = tk.Entry(subsrc_row, width=34, font=("Consolas", 10))
+    tk.Label(subsrc_row, text="مفتاح موقع Subsource", font=("Segoe UI", 9, "bold"), fg="#cbd5e1", bg="#0f172a", width=16, anchor="e").pack(side="left")
+    subsrc_entry = tk.Entry(subsrc_row, width=34, font=("Consolas", 10), bg="#1e293b", fg="#f8fafc", insertbackground="#38bdf8", highlightbackground="#334155", highlightthickness=1, relief="flat")
     subsrc_entry.insert(0, sub_cfg.get("services", {}).get("subsource", {}).get("api_key", ""))
-    subsrc_entry.pack(side="left", padx=5)
-    tk.Button(subsrc_row, text="فتح موقع الخدمة 🔗", font=("Segoe UI", 8), bg="#0284c7", fg="white", cursor="hand2", command=lambda: webbrowser.open("https://subsource.net/dashboard/api")).pack(side="left")
+    subsrc_entry.pack(side="left", padx=6, ipady=2)
+    tk.Button(subsrc_row, text="فتح موقع الخدمة 🔗", font=("Segoe UI", 8), bg="#334155", activebackground="#475569", fg="#cbd5e1", relief="flat", cursor="hand2", command=lambda: webbrowser.open("https://subsource.net/dashboard/api")).pack(side="left")
 
-    sub_note = tk.Label(sec3, text="موقع سب سين للترجمة مدمج ومفعل افتراضياً بدون الحاجة لأي مفتاح أو اشتراك", font=("Segoe UI", 9), fg="#059669", justify="center")
-    sub_note.pack(anchor="center", pady=4)
+    sub_note = tk.Label(sec3, text="✓ موقع Sub-Scene للترجمة مدمج ومفعل افتراضياً بدون الحاجة لأي مفتاح أو اشتراك.", font=("Segoe UI", 9, "bold"), fg="#22c55e", bg="#0f172a", justify="center")
+    sub_note.pack(anchor="center", pady=6)
 
     # ==========================================
     # SECTION 4: PRIVATE TRACKERS
     # ==========================================
-    sec4 = tk.LabelFrame(scrollable_frame, text=" 4. التراكرات الخاصة ", font=("Segoe UI", 11, "bold"), padx=15, pady=10)
-    sec4.pack(fill="x", pady=8, anchor="center")
+    sec4 = create_card("4. التراكرات الخاصة (Private Trackers)")
 
-    pt_warn_frame = tk.Frame(sec4, bg="#fef2f2", padx=14, pady=10, highlightbackground="#ef4444", highlightthickness=1)
+    pt_warn_frame = tk.Frame(sec4, bg="#200d11", padx=14, pady=10, highlightbackground="#991b1b", highlightthickness=1)
     pt_warn_frame.pack(anchor="center", fill="x", pady=4)
 
     pt_warn_lbl = tk.Label(
         pt_warn_frame,
-        text="تنبيه أمان هام لمستخدمي التراكرات الخاصة\n\n"
-             "أغلب التراكرات الخاصة تمنع خدمات السحب السحابي وتعتبرها مخالفة قد تؤدي لحظر الحساب\n"
-             "يُنصح دائماً بمراجعة قوانين التراكر وسؤال إدارة الموقع للتأكد قبل البدء\n"
-             "عند استخدام تراكر خاص سيتم التنزيل والمشاركة عبر برنامج qBittorrent للحفاظ على نسبة الرفع",
+        text="🛡️ تنبيه أمان هام لمستخدمي التراكرات الخاصة\n\n"
+             "• أغلب التراكرات الخاصة تمنع خدمات السحب السحابي وتعتبرها مخالفة.\n"
+             "• يُنصح دائماً بمراجعة قوانين التراكر الخاص بك قبل البدء.\n"
+             "• عند استخدام تراكر خاص سيتم التنزيل عبر برنامج qBittorrent للحفاظ على نسبة المشاركة (Ratio).",
         font=("Segoe UI", 9),
-        fg="#991b1b",
-        bg="#fef2f2",
+        fg="#fca5a5",
+        bg="#200d11",
         justify="center"
     )
     pt_warn_lbl.pack(anchor="center", fill="x")
 
-    pt_input_frame = tk.Frame(sec4, pady=5)
+    pt_input_frame = tk.Frame(sec4, bg="#0f172a", pady=6)
     pt_input_frame.pack(anchor="center")
 
     # Name row
-    r1 = tk.Frame(pt_input_frame, pady=2)
+    r1 = tk.Frame(pt_input_frame, bg="#0f172a", pady=2)
     r1.pack(anchor="center")
-    tk.Label(r1, text="اسم التراكر", font=("Segoe UI", 9, "bold"), width=18, anchor="e").pack(side="left")
-    trk_name_entry = tk.Entry(r1, width=36, font=("Segoe UI", 9))
-    trk_name_entry.pack(side="left", padx=4)
+    tk.Label(r1, text="اسم التراكر", font=("Segoe UI", 9, "bold"), fg="#cbd5e1", bg="#0f172a", width=18, anchor="e").pack(side="left")
+    trk_name_entry = tk.Entry(r1, width=36, font=("Segoe UI", 9), bg="#1e293b", fg="#f8fafc", insertbackground="#38bdf8", highlightbackground="#334155", highlightthickness=1, relief="flat")
+    trk_name_entry.pack(side="left", padx=6, ipady=2)
 
     # RSS row
-    r2 = tk.Frame(pt_input_frame, pady=2)
+    r2 = tk.Frame(pt_input_frame, bg="#0f172a", pady=2)
     r2.pack(anchor="center")
-    tk.Label(r2, text="رابط خلاصات التراكر", font=("Segoe UI", 9, "bold"), width=18, anchor="e").pack(side="left")
-    trk_rss_entry = tk.Entry(r2, width=36, font=("Consolas", 9))
-    trk_rss_entry.pack(side="left", padx=4)
+    tk.Label(r2, text="رابط خلاصات التراكر", font=("Segoe UI", 9, "bold"), fg="#cbd5e1", bg="#0f172a", width=18, anchor="e").pack(side="left")
+    trk_rss_entry = tk.Entry(r2, width=36, font=("Consolas", 9), bg="#1e293b", fg="#f8fafc", insertbackground="#38bdf8", highlightbackground="#334155", highlightthickness=1, relief="flat")
+    trk_rss_entry.pack(side="left", padx=6, ipady=2)
 
     # Passkey row
-    r3 = tk.Frame(pt_input_frame, pady=2)
+    r3 = tk.Frame(pt_input_frame, bg="#0f172a", pady=2)
     r3.pack(anchor="center")
-    tk.Label(r3, text="مفتاح العضوية (اختياري)", font=("Segoe UI", 9, "bold"), width=18, anchor="e").pack(side="left")
-    trk_pass_entry = tk.Entry(r3, width=36, font=("Consolas", 9))
-    trk_pass_entry.pack(side="left", padx=4)
+    tk.Label(r3, text="مفتاح العضوية (اختياري)", font=("Segoe UI", 9, "bold"), fg="#cbd5e1", bg="#0f172a", width=18, anchor="e").pack(side="left")
+    trk_pass_entry = tk.Entry(r3, width=36, font=("Consolas", 9), bg="#1e293b", fg="#f8fafc", insertbackground="#38bdf8", highlightbackground="#334155", highlightthickness=1, relief="flat")
+    trk_pass_entry.pack(side="left", padx=6, ipady=2)
 
     existing_trackers = series_cfg.get("private_trackers", [])
     if existing_trackers:
-        tk.Label(sec4, text=f"التراكرات المسجلة حالياً: {len(existing_trackers)} تراكر", font=("Segoe UI", 9, "bold"), fg="#059669", justify="center").pack(anchor="center", pady=4)
+        tk.Label(sec4, text=f"التراكرات المسجلة حالياً: {len(existing_trackers)} تراكر", font=("Segoe UI", 9, "bold"), fg="#22c55e", bg="#0f172a", justify="center").pack(anchor="center", pady=4)
 
     # ==========================================
     # SAVE BUTTON
@@ -471,7 +504,20 @@ def run_gui_wizard():
         messagebox.showinfo("تم الحفظ بنجاح", "✅ تم حفظ وتطبيق جميع الإعدادات بنجاح!\nالمهارة جاهزة للاستخدام الآن.")
         root.destroy()
 
-    save_btn = tk.Button(save_frame, text="💾 حفظ وتطبيق جميع الإعدادات", command=save_all, font=("Segoe UI", 12, "bold"), bg="#16a34a", activebackground="#15803d", fg="white", activeforeground="white", padx=35, pady=8, cursor="hand2")
+    save_btn = tk.Button(
+        save_frame,
+        text="💾 حفظ وتطبيق جميع الإعدادات",
+        command=save_all,
+        font=("Segoe UI", 11, "bold"),
+        bg="#15803d",
+        activebackground="#16a34a",
+        fg="white",
+        activeforeground="white",
+        relief="flat",
+        padx=35,
+        pady=8,
+        cursor="hand2"
+    )
     save_btn.pack(anchor="center")
 
     root.mainloop()
