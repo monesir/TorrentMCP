@@ -520,6 +520,14 @@ def handle_smart_download_and_search(user_prompt, ui_debrid_mode="auto", allow_u
         except Exception:
             sub_status = "الترجمة جاهزة للتحميل."
 
+    # Check if user requested direct streaming without downloading
+    q_lower = user_prompt.lower()
+    is_explicit_stream = any(w in q_lower for w in ["بدون تحميل", "بدون تنزيل", "بث", "مشاهدة مباشرة", "stream", "كاش", "سحابي"])
+    is_play_intent = any(w in q_lower for w in ["شغل", "شغله", "تابع", "تشغيل", "play", "مباشر"])
+    has_dl_verb = any(w in q_lower for w in ["حمل", "نزله", "تنزيل", "تحميل", "download"])
+
+    is_stream = is_explicit_stream or (is_play_intent and not has_dl_verb)
+
     # Execute Download: Real-Debrid vs qBittorrent
     dl_status = ""
     engine_name = "qBittorrent"
@@ -527,9 +535,14 @@ def handle_smart_download_and_search(user_prompt, ui_debrid_mode="auto", allow_u
     if use_debrid and (best.get("direct_url") or best.get("is_rd_cached")):
         target_url = best.get("direct_url")
         if target_url and debrid_manager:
-            debrid_manager.send_to_downloader(target_url, downloader="aria2")
-            engine_name = "Real-Debrid + Aria2 (سحابي فائق السرعة)"
-            dl_status = "🚀 تم سحب الرابط عبر اشتراك **Real-Debrid**، وبدأ التحميل المباشر بأقصى سرعة إنترنت في مجلد Downloads عبر Aria2."
+            if is_stream:
+                st_res = debrid_manager.stream_to_player(target_url, subtitle_path=exact_sub, player="mpc")
+                engine_name = f"Real-Debrid Stream -> {st_res.get('player', 'MPC-HC')}"
+                dl_status = f"🎬 تم فتح البث المباشر فوراً داخل مشغل **{st_res.get('player', 'MPC-HC')}** بدون تحميل مع ربط الترجمة تلقائياً!"
+            else:
+                debrid_manager.send_to_downloader(target_url, downloader="aria2")
+                engine_name = "Real-Debrid + Aria2 (سحابي فائق السرعة)"
+                dl_status = "🚀 تم سحب الرابط عبر اشتراك **Real-Debrid**، وبدأ التحميل المباشر بأقصى سرعة إنترنت في مجلد Downloads عبر Aria2."
         elif best.get("magnet") and debrid_manager:
             # Clean magnet without dn spam
             clean_mag = f"magnet:?xt=urn:btih:{best['hash']}"
@@ -560,9 +573,14 @@ def handle_smart_download_and_search(user_prompt, ui_debrid_mode="auto", allow_u
                 d_url = chosen_link["download_url"]
                 if chosen_link.get("filename"):
                     best["title"] = chosen_link["filename"]
-                debrid_manager.send_to_downloader(d_url, downloader="aria2")
-                engine_name = "Real-Debrid + Aria2"
-                dl_status = "🚀 تم سحب الكاش عبر **Real-Debrid** وبدأ التنزيل المباشر فائق السرعة عبر Aria2."
+                if is_stream:
+                    st_res = debrid_manager.stream_to_player(d_url, subtitle_path=exact_sub, player="mpc")
+                    engine_name = f"Real-Debrid Stream -> {st_res.get('player', 'MPC-HC')}"
+                    dl_status = f"🎬 تم فتح البث المباشر فوراً داخل مشغل **{st_res.get('player', 'MPC-HC')}** بدون تحميل مع ربط الترجمة تلقائياً!"
+                else:
+                    debrid_manager.send_to_downloader(d_url, downloader="aria2")
+                    engine_name = "Real-Debrid + Aria2"
+                    dl_status = "🚀 تم سحب الكاش عبر **Real-Debrid** وبدأ التنزيل المباشر فائق السرعة عبر Aria2."
             else:
                 engine_name = "Real-Debrid Cloud"
                 dl_status = "☁️ تمت إضافة التورنت إلى كاش **Real-Debrid** السحابي بنجاح."
@@ -687,9 +705,12 @@ def execute_user_action(user_prompt, debrid_mode="auto", allow_upscale=False):
                     else:
                         return True, f"⚠️ لم تنجح المزامنة: {res.get('message')}"
 
-    if is_play:
+    # Check if explicit cloud streaming without downloading is requested
+    is_stream_request = any(w in p_lower for w in ["بدون تحميل", "بث", "مشاهدة مباشرة", "stream", "كاش", "سحابي"])
+
+    if is_play and not is_stream_request:
         file_path = resolve_and_play_file(user_prompt)
-        if not file_path and any(w in user_prompt for w in ["1", "1.mkv"]):
+        if not file_path and any(w in user_prompt for w in ["ملف 1", "1.mkv"]):
             def_1 = r"C:\Users\9jhp9\Downloads\1.mkv"
             if os.path.exists(def_1): file_path = def_1
             
@@ -720,6 +741,12 @@ def execute_user_action(user_prompt, debrid_mode="auto", allow_upscale=False):
                 os.startfile(file_path)
             sub_note = f"\n• **الترجمة المرفقة تلقائياً:**\n  \u202A{os.path.basename(sub_to_use)}\u202C" if sub_to_use else ""
             return True, f"🎬 **تم فتح الملف فوراً داخل مشغل MPC-HC:**\n\n• **الفيديو:**\n  \u202A{os.path.basename(file_path)}\u202C{sub_note}"
+
+    # If stream request OR play request where local file was not found: resolve cloud stream via Real-Debrid into MPC-HC!
+    if is_stream_request or is_play or is_dl:
+        ok, res = handle_smart_download_and_search(user_prompt, ui_debrid_mode=debrid_mode, allow_upscale=allow_upscale)
+        if ok:
+            return True, res
 
     return False, None
 
@@ -948,4 +975,14 @@ def run_chat_gui():
     root.mainloop()
 
 if __name__ == "__main__":
-    run_chat_gui()
+    if len(sys.argv) > 1 and not (len(sys.argv) == 2 and sys.argv[1].lower() in ["--gui", "-g"]):
+        # CLI Mode: Instant execution for Antigravity, command line, and automated tools
+        cmd_args = [a for a in sys.argv[1:] if not a.startswith("--")]
+        cmd_text = " ".join(cmd_args) if cmd_args else sys.argv[1]
+        ok, res = execute_user_action(cmd_text)
+        if ok and res:
+            print(res)
+        else:
+            print(query_ollama(cmd_text))
+    else:
+        run_chat_gui()

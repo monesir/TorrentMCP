@@ -7,6 +7,23 @@ description: Find torrents and verify what is really inside them with torrentx. 
 
 torrentx searches torrent sites, lists the files inside a torrent, and reads a file's real streams with ffprobe while downloading only its headers from peers. It seamlessly handles direct Debrid streaming, high-speed multi-connection Aria2 downloads, automated weekly episodic monitoring, smart Arabic subtitle alignment, and private tracker integration.
 
+## ⚡ Fast-Track Execution Engine (المحرك الفوري المباشر - الأولوية القصوى)
+
+**CRITICAL INSTRUCTION FOR ANTIGRAVITY:**
+When the user asks in natural language to download, stream without downloading, search, or play any movie/series/anime (e.g. *"شغل حلقة 1 من مسلسل Chernobyl بدون تحميل"*, *"حمل فيلم Inception 4K"*, *"شغل آخر حلقة"*):
+**DO NOT use slow P2P MCP inspection tools or peer probing (which can hang for 5-10 minutes over peer-to-peer).**
+Execute the unified engine directly via Python:
+```powershell
+python "~/.gemini/config/skills/torrentx/ai_assistant.py" "<exact user prompt>"
+```
+**Why this is mandatory:**
+1. **Instant (1 to 2 seconds):** Directly resolves via Real-Debrid cloud cache and Torrentio API.
+2. **Direct Cloud Streaming without Downloading:** If the user asks to stream/play without downloading, it automatically opens the user's preferred player (**MPC-HC**) streaming directly from the cloud with Arabic subtitles loaded!
+3. **High-Speed Downloads:** If download is requested, it triggers 16-connection Aria2 download and schedules `alass` audio subtitle synchronization.
+4. **Player Accuracy:** It ALWAYS respects the user's configured player from `debrid.json` (`mpc`) and does NOT attempt PotPlayer or VLC unless configured.
+
+---
+
 ## 🌟 Conversational Natural Language Interaction (التفاعل بالكلام الطبيعي البسيط)
 
 **CRITICAL GUIDELINE FOR AGENTS:**
@@ -133,8 +150,8 @@ Keep what the web told you apart from what torrentx verified, and say which is w
 
 ## 3. Debrid Cloud Services Integration (Multi-Debrid)
 
-The system includes a unified Multi-Debrid manager configured via `C:\Users\username\.gemini\config\debrid.json` (with backward compatibility for `realdebrid.json`).
-The helper script `C:\Users\username\.gemini\config\skills\torrentx\debrid_manager.py` manages cloud conversion, stream inspection, and sending downloads to IDM or FDM across 7 Debrid providers:
+The system includes a unified Multi-Debrid manager configured via `C:\Users\9jhp9\.gemini\config\debrid.json` (with backward compatibility for `realdebrid.json`).
+The helper script `C:\Users\9jhp9\.gemini\config\skills\torrentx\debrid_manager.py` manages cloud conversion, stream inspection, and sending downloads to IDM or FDM across 7 Debrid providers:
 
 | Provider | Direct API Key / Token URL | Registration / Login URL |
 | --- | --- | --- |
@@ -149,19 +166,19 @@ The helper script `C:\Users\username\.gemini\config\skills\torrentx\debrid_manag
 ### Capabilities & Usage:
 1. **View Services & Status:**
    ```powershell
-   python "C:\Users\username\.gemini\config\skills\torrentx\debrid_manager.py" services
+   python "C:\Users\9jhp9\.gemini\config\skills\torrentx\debrid_manager.py" services
    ```
 
 2. **Add / Update an API Key:**
    Each user can configure their own service keys directly without sharing credentials:
    ```powershell
-   python "C:\Users\username\.gemini\config\skills\torrentx\debrid_manager.py" set-key realdebrid "<YOUR_API_TOKEN>"
-   python "C:\Users\username\.gemini\config\skills\torrentx\debrid_manager.py" set-key alldebrid "<YOUR_API_KEY>"
+   python "C:\Users\9jhp9\.gemini\config\skills\torrentx\debrid_manager.py" set-key realdebrid "<YOUR_API_TOKEN>"
+   python "C:\Users\9jhp9\.gemini\config\skills\torrentx\debrid_manager.py" set-key alldebrid "<YOUR_API_KEY>"
    ```
 
 3. **Resolve & Cache Check:**
    ```powershell
-   python "C:\Users\username\.gemini\config\skills\torrentx\debrid_manager.py" resolve "<magnet>"
+   python "C:\Users\9jhp9\.gemini\config\skills\torrentx\debrid_manager.py" resolve "<magnet>"
    ```
    Converts the magnet on the Debrid cloud service, selects media files, and if cached, unprotects direct links and immediately probes streams with `ffprobe`.
 
@@ -173,11 +190,11 @@ The helper script `C:\Users\username\.gemini\config\skills\torrentx\debrid_manag
 5. **Sending Downloads to IDM / FDM:**
    - **IDM:**
      ```powershell
-     python "C:\Users\username\.gemini\config\skills\torrentx\debrid_manager.py" download "<direct_url>" idm
+     python "C:\Users\9jhp9\.gemini\config\skills\torrentx\debrid_manager.py" download "<direct_url>" idm
      ```
    - **FDM:**
      ```powershell
-     python "C:\Users\username\.gemini\config\skills\torrentx\debrid_manager.py" download "<direct_url>" fdm
+     python "C:\Users\9jhp9\.gemini\config\skills\torrentx\debrid_manager.py" download "<direct_url>" fdm
      ```
 
 6. **Debrid Media Manager (DMM) Integration:**
@@ -185,7 +202,7 @@ The helper script `C:\Users\username\.gemini\config\skills\torrentx\debrid_manag
    - Allows users to connect their Real-Debrid API token and instantly view all community-cached torrents for any title.
    - Generate direct one-click DMM links:
      ```powershell
-     python "C:\Users\username\.gemini\config\skills\torrentx\debrid_manager.py" dmm "<imdb_id_or_title>" [movie|show] [season_num]
+     python "C:\Users\9jhp9\.gemini\config\skills\torrentx\debrid_manager.py" dmm "<imdb_id_or_title>" [movie|show] [season_num]
      ```
    - Example DMM direct links:
      - Movie: `https://debridmediamanager.com/movie/{imdb_id}`
@@ -195,7 +212,7 @@ The helper script `C:\Users\username\.gemini\config\skills\torrentx\debrid_manag
 ## 4. Smart Subtitle Finder & Synchronizer (SubDL, SubSource, Sub-Scene)
 
 The system includes a dedicated Subtitle Manager script:
-`C:\Users\username\.gemini\config\skills\torrentx\subtitle_manager.py` configured via `C:\Users\username\.gemini\config\subtitles.json`.
+`C:\Users\9jhp9\.gemini\config\skills\torrentx\subtitle_manager.py` configured via `C:\Users\9jhp9\.gemini\config\subtitles.json`.
 
 ### Supported Subtitle Sources:
 1. **SubDL:** High-quality subtitles with official release tagging.
@@ -212,7 +229,7 @@ The system includes a dedicated Subtitle Manager script:
    - Always match the video source format: if the video is `BluRay` / `REMUX`, pick subtitles tagged with `BluRay` / `BDRip` (e.g. SPARKS, LOST). If `WEB-DL`, pick `WEB-DL` tags.
    - Prioritize top community translators (e.g. Dr. Ali Talal, Ahmed Elsayed, Nizar Ezzeddine, etc.).
    ```powershell
-   python "C:\Users\username\.gemini\config\skills\torrentx\subtitle_manager.py" search "<movie_title>" "<imdb_id>" ar bluray
+   python "C:\Users\9jhp9\.gemini\config\skills\torrentx\subtitle_manager.py" search "<movie_title>" "<imdb_id>" ar bluray
    ```
 
 2. **Handling "Other" & Unclassified Subtitles:**
@@ -232,19 +249,19 @@ The system includes a dedicated Subtitle Manager script:
    - If frame rate drift is found, it automatically engages `AutoSubSync.exe`.
    ```powershell
    # Compare timing and diagnose sync
-   python "C:\Users\username\.gemini\config\skills\torrentx\subtitle_manager.py" compare "<video_path>" "<subtitle_path>" [--fix]
+   python "C:\Users\9jhp9\.gemini\config\skills\torrentx\subtitle_manager.py" compare "<video_path>" "<subtitle_path>" [--fix]
 
    # Shift subtitle timestamps by specific seconds (+ for delay, - for advance)
-   python "C:\Users\username\.gemini\config\skills\torrentx\subtitle_manager.py" shift "<subtitle_path>" <offset_seconds> [out_path]
+   python "C:\Users\9jhp9\.gemini\config\skills\torrentx\subtitle_manager.py" shift "<subtitle_path>" <offset_seconds> [out_path]
 
    # Full audio/video synchronization using AutoSubSync
-   python "C:\Users\username\.gemini\config\skills\torrentx\subtitle_manager.py" sync "<video_path>" "<subtitle_path>"
+   python "C:\Users\9jhp9\.gemini\config\skills\torrentx\subtitle_manager.py" sync "<video_path>" "<subtitle_path>"
    ```
 
 5. **Lossless Auto-Muxing (Embed Subtitle into MKV Container):**
    - Merges the downloaded `.srt` directly into the `.mkv` container as an internal selectable soft-sub track in 2-3 seconds using ffmpeg stream copy:
      ```powershell
-     python "C:\Users\username\.gemini\config\skills\torrentx\subtitle_manager.py" mux "<video_path>" "<subtitle_path>"
+     python "C:\Users\9jhp9\.gemini\config\skills\torrentx\subtitle_manager.py" mux "<video_path>" "<subtitle_path>"
      ```
 
 ## 5. Instant Playback (Stream without Downloading) & High-Speed Aria2 Downloads
@@ -259,28 +276,28 @@ Stream directly from Real-Debrid into the user's preferred media player (`potpla
 
 ```powershell
 # Direct stream to PotPlayer (with auto-subtitle detection/download):
-python "C:\Users\username\.gemini\config\skills\torrentx\debrid_manager.py" stream "<debrid_url_or_path>" potplayer "<movie_title>" "<imdb_id>" [bluray|web]
+python "C:\Users\9jhp9\.gemini\config\skills\torrentx\debrid_manager.py" stream "<debrid_url_or_path>" potplayer "<movie_title>" "<imdb_id>" [bluray|web]
 
 # Direct stream to MPC-HC (Media Player Classic):
-python "C:\Users\username\.gemini\config\skills\torrentx\debrid_manager.py" stream "<debrid_url_or_path>" mpc "<movie_title>" "<imdb_id>" [bluray|web]
+python "C:\Users\9jhp9\.gemini\config\skills\torrentx\debrid_manager.py" stream "<debrid_url_or_path>" mpc "<movie_title>" "<imdb_id>" [bluray|web]
 
 # Direct stream to MPV (Harbor's internal MPV engine):
-python "C:\Users\username\.gemini\config\skills\torrentx\debrid_manager.py" stream "<debrid_url_or_path>" mpv "<movie_title>" "<imdb_id>" [bluray|web]
+python "C:\Users\9jhp9\.gemini\config\skills\torrentx\debrid_manager.py" stream "<debrid_url_or_path>" mpv "<movie_title>" "<imdb_id>" [bluray|web]
 
 # Direct stream to VLC:
-python "C:\Users\username\.gemini\config\skills\torrentx\debrid_manager.py" stream "<debrid_url_or_path>" vlc "<movie_title>" "<imdb_id>" [bluray|web]
+python "C:\Users\9jhp9\.gemini\config\skills\torrentx\debrid_manager.py" stream "<debrid_url_or_path>" vlc "<movie_title>" "<imdb_id>" [bluray|web]
 ```
 
 ### Option B: High-Speed Multi-Connection Download via Aria2 (تحميل بأقصى سرعة)
-Downloads the file to `C:\Users\username\Downloads` using Aria2 with 16 simultaneous segmented connections and resume support:
+Downloads the file to `C:\Users\9jhp9\Downloads` using Aria2 with 16 simultaneous segmented connections and resume support:
 ```powershell
-python "C:\Users\username\.gemini\config\skills\torrentx\debrid_manager.py" download "<debrid_url>" aria2
+python "C:\Users\9jhp9\.gemini\config\skills\torrentx\debrid_manager.py" download "<debrid_url>" aria2
 ```
 - Also prepares and places the matching Arabic subtitle in the download folder automatically so the movie is ready to watch upon completion.
 
 ## 6. Weekly Episodic Auto-Downloader & Private Trackers (qBittorrent Seeding)
 
-Managed by `C:\Users\username\.gemini\config\skills\torrentx\series_monitor.py` and configured in `C:\Users\username\.gemini\config\tracked_series.json`.
+Managed by `C:\Users\9jhp9\.gemini\config\skills\torrentx\series_monitor.py` and configured in `C:\Users\9jhp9\.gemini\config\tracked_series.json`.
 
 ### 1. Automatic Weekly Episode Tracking:
 - Tracks weekly TV series and airing anime.
@@ -291,16 +308,16 @@ Managed by `C:\Users\username\.gemini\config\skills\torrentx\series_monitor.py` 
 
 ```powershell
 # Track a new show (auto-detect schedule or specify window):
-python "C:\Users\username\.gemini\config\skills\torrentx\series_monitor.py" add "<show_title>" [season] [last_downloaded_ep] [debrid|private] [tracker_name] ["14:00 - 17:00"]
+python "C:\Users\9jhp9\.gemini\config\skills\torrentx\series_monitor.py" add "<show_title>" [season] [last_downloaded_ep] [debrid|private] [tracker_name] ["14:00 - 17:00"]
 
 # Example:
-python "C:\Users\username\.gemini\config\skills\torrentx\series_monitor.py" add "House of the Dragon" 2 4 debrid none "14:00 - 18:00"
+python "C:\Users\9jhp9\.gemini\config\skills\torrentx\series_monitor.py" add "House of the Dragon" 2 4 debrid none "14:00 - 18:00"
 
 # Run check on all tracked series:
-python "C:\Users\username\.gemini\config\skills\torrentx\series_monitor.py" check
+python "C:\Users\9jhp9\.gemini\config\skills\torrentx\series_monitor.py" check
 
 # View tracked shows:
-python "C:\Users\username\.gemini\config\skills\torrentx\series_monitor.py" list
+python "C:\Users\9jhp9\.gemini\config\skills\torrentx\series_monitor.py" list
 ```
 
 ### 2. Private Trackers Support (Ratio & Seeding Protected):
@@ -311,15 +328,15 @@ python "C:\Users\username\.gemini\config\skills\torrentx\series_monitor.py" list
 
 ```powershell
 # Register a private tracker:
-python "C:\Users\username\.gemini\config\skills\torrentx\series_monitor.py" add-tracker "<tracker_name>" "<rss_feed_url>" [passkey]
+python "C:\Users\9jhp9\.gemini\config\skills\torrentx\series_monitor.py" add-tracker "<tracker_name>" "<rss_feed_url>" [passkey]
 
 # Track a show using the private tracker:
-python "C:\Users\username\.gemini\config\skills\torrentx\series_monitor.py" add "<show_title>" <season> <last_ep> private "<tracker_name>"
+python "C:\Users\9jhp9\.gemini\config\skills\torrentx\series_monitor.py" add "<show_title>" <season> <last_ep> private "<tracker_name>"
 ```
 
 ## 7. Intelligent Media Organizing & Plex / Jellyfin Standard Library Renamer
 
-Managed by `C:\Users\username\.gemini\config\skills\torrentx\media_organizer.py` and configured in `C:\Users\username\.gemini\config\media_organizer.json`.
+Managed by `C:\Users\9jhp9\.gemini\config\skills\torrentx\media_organizer.py` and configured in `C:\Users\9jhp9\.gemini\config\media_organizer.json`.
 
 ### 1. Features:
 - **Clean Naming Styles (أنماط التسمية الاحترافية):**
@@ -341,10 +358,10 @@ Managed by `C:\Users\username\.gemini\config\skills\torrentx\media_organizer.py`
 
 ```powershell
 # Set default drives/folders and naming style:
-python "C:\Users\username\.gemini\config\skills\torrentx\media_organizer.py" config "D:\Movies" "D:\Series" clean
+python "C:\Users\9jhp9\.gemini\config\skills\torrentx\media_organizer.py" config "D:\Movies" "D:\Series" clean
 
 # Organize and move a completed movie/episode:
-python "C:\Users\username\.gemini\config\skills\torrentx\media_organizer.py" organize "<video_path>" [target_dir] [clean|standard|detailed] [sub_path]
+python "C:\Users\9jhp9\.gemini\config\skills\torrentx\media_organizer.py" organize "<video_path>" [target_dir] [clean|standard|detailed] [sub_path]
 ```
 
 
