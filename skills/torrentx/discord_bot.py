@@ -9,6 +9,11 @@ import sys
 import json
 import logging
 import asyncio
+
+if sys.stdout is None:
+    sys.stdout = open(os.devnull, "w", encoding="utf-8")
+if sys.stderr is None:
+    sys.stderr = open(os.devnull, "w", encoding="utf-8")
 import discord
 from discord.ext import commands
 
@@ -76,7 +81,7 @@ async def cmd_status(ctx):
         await ctx.reply("⛔ عذراً، هذا البوت خاص بمالك الجهاز فقط.")
         return
 
-    d_dir = os.path.expanduser(r"~/Downloads")
+    d_dir = r"C:\Users\9jhp9\Downloads"
     files_count = 0
     recent_file = "لا يوجد"
     if os.path.exists(d_dir):

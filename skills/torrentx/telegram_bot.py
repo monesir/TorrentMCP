@@ -12,6 +12,11 @@ import logging
 import threading
 import requests
 
+if sys.stdout is None:
+    sys.stdout = open(os.devnull, "w", encoding="utf-8")
+if sys.stderr is None:
+    sys.stderr = open(os.devnull, "w", encoding="utf-8")
+
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 if CURRENT_DIR not in sys.path:
     sys.path.insert(0, CURRENT_DIR)
@@ -170,7 +175,7 @@ class TelegramBot:
             return
 
         if text.startswith("/status"):
-            d_dir = os.path.expanduser(r"~/Downloads")
+            d_dir = r"C:\Users\9jhp9\Downloads"
             files_count = 0
             recent_file = "لا يوجد"
             if os.path.exists(d_dir):
