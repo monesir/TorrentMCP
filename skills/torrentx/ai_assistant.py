@@ -449,7 +449,7 @@ def handle_smart_download_and_search(user_prompt, ui_debrid_mode="auto", allow_u
                 target_sub = all_subs[0] if all_subs else None
 
             if target_sub:
-                out_d = os.path.expanduser(r"~/Downloads")
+                out_d = r"C:\Users\9jhp9\Downloads"
                 base_sub_name = f"{canonical_name}.S{info['season']:02d}E{info['episode']:02d}.ar" if is_series else f"{canonical_name}.ar"
                 dl_res = subtitle_manager.download_subtitle_file(target_sub, out_d, file_basename=base_sub_name)
                 if dl_res.get("success") and dl_res.get("files"):
@@ -599,7 +599,7 @@ def handle_smart_download_and_search(user_prompt, ui_debrid_mode="auto", allow_u
         f"• **حجم الملف:**\n  \u202A{best['size']}\u202C\n\n"
         f"• **طريقة التحميل:**\n  \u202A{engine_name}\u202C\n\n"
         f"• **الترجمة العربية:**\n  {sub_status}\n\n"
-        f"• **مجلد التنزيل:**\n  \u202Aos.path.expanduser('~/Downloads')\u202C\n\n"
+        f"• **مجلد التنزيل:**\n  \u202AC:\\Users\\9jhp9\\Downloads\u202C\n\n"
         f"🚀 **حالة التنفيذ:**\n{dl_status}"
     )
     return True, report
@@ -609,7 +609,7 @@ def resolve_and_play_file(query_text):
     search_dirs = [
         os.path.expanduser(r"~\Downloads"),
         os.path.expanduser(r"~\Downloads\Series"),
-        os.path.expanduser(r"~/Downloads")
+        r"C:\Users\9jhp9\Downloads"
     ]
     video_exts = (".mkv", ".mp4", ".avi", ".ts", ".m2ts")
     
@@ -660,7 +660,7 @@ def execute_user_action(user_prompt, debrid_mode="auto", allow_upscale=False):
         return True, res
 
     if is_sync and not is_dl:
-        out_d = os.path.expanduser(r"~/Downloads")
+        out_d = r"C:\Users\9jhp9\Downloads"
         if os.path.exists(out_d):
             v_files = [os.path.join(out_d, f) for f in os.listdir(out_d) if f.lower().endswith((".mkv", ".mp4", ".avi"))]
             s_files = [os.path.join(out_d, f) for f in os.listdir(out_d) if f.lower().endswith((".srt", ".ass")) and not f.endswith(".synced.srt")]
@@ -690,7 +690,7 @@ def execute_user_action(user_prompt, debrid_mode="auto", allow_upscale=False):
     if is_play:
         file_path = resolve_and_play_file(user_prompt)
         if not file_path and any(w in user_prompt for w in ["1", "1.mkv"]):
-            def_1 = r"C:\Users\username\Downloads\1.mkv"
+            def_1 = r"C:\Users\9jhp9\Downloads\1.mkv"
             if os.path.exists(def_1): file_path = def_1
             
         if file_path:
@@ -744,12 +744,16 @@ def query_ollama(prompt):
     }
     req = urllib.request.Request(OLLAMA_API_URL, data=json.dumps(payload).encode("utf-8"), headers={"Content-Type": "application/json"})
     try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
+        with urllib.request.urlopen(req, timeout=8) as resp:
             if is_cancelled: return "🛑 تم إيقاف الرد."
             data = json.loads(resp.read().decode("utf-8"))
             return data.get("response", "").strip()
-    except Exception as e:
-        return f"حدث خطأ أثناء الاتصال: {e}"
+    except Exception:
+        return (
+            "💡 **أهلاً بك في TorrentX!**\n\n"
+            "أنا المساعد المخصص للبحث والتحميل الفوري وجلب الترجمات المتوافقة.\n"
+            "اكتب لي اسم أي فيلم أو مسلسل أو حلقة ترغب بمشاهدتها، وسأقوم بالبحث والتحميل فوراً بأعلى جودة!"
+        )
 
 def run_chat_gui():
     import tkinter as tk
