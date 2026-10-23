@@ -14,3 +14,12 @@ __pycache__/
 /verification/**/work/
 /verification/**/home/
 /verification/**/cache/
+
+bot_config.json
+debrid.json
+subtitles.json
+tracked_series.json
+*.bat
+*.ps1
+*.vbs
+bin/

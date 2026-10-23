@@ -1,0 +1,10 @@
+{
+    "telegram": {
+        "token": "YOUR_TELEGRAM_BOT_TOKEN_HERE",
+        "allowed_chat_ids": []
+    },
+    "discord": {
+        "token": "YOUR_DISCORD_BOT_TOKEN_HERE",
+        "allowed_user_ids": []
+    }
+}
